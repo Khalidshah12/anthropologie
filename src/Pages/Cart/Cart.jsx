@@ -6,11 +6,12 @@ import { AiOutlineInfoCircle, AiOutlinePlus } from 'react-icons/ai'
 import { ImGift } from 'react-icons/im'
 import axios from 'axios';
 
-
-
 export default function Cart() {
 
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [subTotal, setSubTotal] = useState(0);
+    const [shipping, setShipping] = useState(0);
 
     const getData = () => {
         axios.get('http://localhost:8080/cart')
@@ -22,13 +23,13 @@ export default function Cart() {
             })
     }
 
-    const addQuant = (id, quantity, price) => {
+    const addQuantity = (id, quantity, price) => {
         let payload = {
             quantity: quantity,
             totalprice: price * quantity
         }
         axios.patch(`http://localhost:8080/cart/${id}`, payload)
-            .then((res) => {
+            .then((r) => {
                 getData()
             })
             .catch((e) => {
@@ -36,13 +37,39 @@ export default function Cart() {
             })
     }
 
-    const HandleQuantity = (e, id, price) => {
-        addQuant(id, Number(e.target.value), price)
+    const HandleRemove = (id) => {
+        axios.delete(`http://localhost:8080/cart/${id}`)
+            .then((r) => {
+                getData()
+            })
+            .catch((e) => {
+                console.log(e)
+            })
     }
+
+
+    const HandleQuantity = (e, id, price) => {
+        addQuantity(id, Number(e.target.value), price)
+    }
+
 
     useEffect(() => {
         getData()
     }, [])
+
+    useEffect(() => {
+        let a = cart.reduce((acc, el) => {
+            return acc + el.totalprice
+        }, 0)
+        setSubTotal(a)
+        if (subTotal > 1000) {
+            setShipping(40)
+        } else {
+            setShipping(0)
+        }
+        setTotal(subTotal + shipping)
+    }, [cart, shipping, subTotal])
+    // console.log(total)
 
     // console.log(typeof quantity)
     return (
@@ -98,7 +125,7 @@ export default function Cart() {
                                                     </Box>
                                                 </Box>
                                                 <Box className={styles.removeSaveDiv}>
-                                                    <Text className={styles.remove}>Remove</Text>
+                                                    <Text className={styles.remove} onClick={() => HandleRemove(item.id)}>Remove</Text>
                                                     <Text className={styles.removeBorder}>|</Text>
                                                     <Text className={styles.save}>Save for Later</Text>
                                                 </Box>
@@ -128,9 +155,15 @@ export default function Cart() {
                         </Box>
                         <Box id={styles.ChargesMainDiv}>
                             <Box id={styles.ChargesDiv}>
+                                {cart.length > 0
+                                    ? <Box className={styles.chargesClass}>
+                                        <Text>Subtotal</Text>
+                                        <Text>${subTotal || "0.00"}</Text>
+                                    </Box>
+                                    : ""}
                                 <Box id={styles.shippingChargesDiv} className={styles.chargesClass}>
                                     <Text>Shipping</Text>
-                                    <Text>TBD</Text>
+                                    <Text>{shipping || "TBD"}</Text>
                                 </Box>
                                 <Box id={styles.estimatedTaxDiv} className={styles.chargesClass}>
                                     <Text>Estimated Tax</Text>
@@ -138,7 +171,7 @@ export default function Cart() {
                                 </Box>
                                 <Box id={styles.totalDiv} className={styles.chargesClass}>
                                     <Text>Total</Text>
-                                    <Text>$.0.00</Text>
+                                    <Text>${total || "0.00"}</Text>
                                 </Box>
                             </Box>
                             <Box id={styles.payNowOrLaterDiv}>
@@ -179,3 +212,17 @@ export default function Cart() {
 }
 
 
+
+
+// {
+//     "image": "https://images.urbndata.com/is/image/Anthropologie/4130370060072_063_b14?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=540",
+//     "flip_image": "https://images.urbndata.com/is/image/Anthropologie/4130370060072_063_b?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=540",
+//     "details": "Our bestselling, best-reviewed dress, ever. Flowy and flattering, sensual and subtle, it's one SMOOTH operator. Make your move: This is our sexiest Somerset yet.",
+//     "color": "MAGENTA",
+//     "name": "The Somerset Maxi Dress",
+//     "price": 170,
+//     "totalprice": 170,
+//     "size": "SM",
+//     "id": 1,
+//     "quantity": 1
+// }

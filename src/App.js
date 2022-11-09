@@ -1,11 +1,11 @@
-import logo from './logo.svg';
+
 import './App.css';
-import Clothes from './Clothes/Clothes';
+// import Clothes from './Clothes/Clothes';
 
 function App() {
   return (
     <div className="App">
-      <Clothes/>
+    
     </div>
   );
 }

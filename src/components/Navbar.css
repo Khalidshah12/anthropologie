@@ -1,0 +1,20 @@
+.NavbarFirst {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid red;
+  /* padding-right: 30px; */
+  font: 16px "Avenir Book ", sans-serif;
+  color: #167a92;
+  padding: 0px 60px;
+  height: 50px;
+}
+.globeSearch {
+  display: flex;
+  /* border: 1px solid red; */
+  justify-content: center;
+  align-items: center;
+}
+.userLogo {
+  width: 45px;
+}

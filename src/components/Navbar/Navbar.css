@@ -7,7 +7,7 @@
   font: 16px "Avenir Book ", sans-serif;
   color: #167a92;
   padding: 0px 60px;
-  height: 50px;
+  /* height: 50px; */
 }
 .globeSearch {
   display: flex;
@@ -17,4 +17,12 @@
 }
 .userLogo {
   width: 45px;
+}
+.navbarHover > li {
+  display: none;
+}
+.navbarHover:hover > li {
+  display: block;
+  position: absolute;
+  top: 50px;
 }

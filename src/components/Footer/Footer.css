@@ -1,46 +1,83 @@
 .footer {
-  /* border: 1px solid red; */
   display: flex;
+  width: 80%;
+  margin: auto;
   justify-content: space-between;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
   padding: 20px;
   list-style: none;
   margin-top: 40px;
 }
+
 .Box > p {
   /* border: 1px solid red; */
   display: flex;
   justify-content: flex-start;
   margin-bottom: 20px;
-  font: 10px "Times New Roman";
+  align-items: center;
+  font: 18px "Times New Roman";
 }
 .Box > ul {
   /* border: 1px solid red; */
   display: flex;
   justify-content: flex-start;
-  line-height: 30px;
+  margin-bottom: 12px;
+  color: #26262c;
+  align-items: center;
+  font-weight: 400;
+  font: 15px "Times New Roman";
 }
-.copyright > p,
-h4 {
-  /* border: 1px solid red; */
-  font: 14px Roboto, sans-serif;
-  line-height: 28px;
+.logos {
+  width: 25px;
+  margin-left: 10px;
 }
-.copyright {
-  margin-top: 25px;
-  margin-bottom: 40px;
-}
-
-.icons > img {
-  height: 25px;
+.Sociallogo {
   width: 25px;
 }
-.Box2 .icon {
-  /* border: 1px solid red; */
-  display: flex;
+.Pinlogo {
+  width: 100px;
+  margin-left: -25px;
 }
-.icon > .icons {
-  border: 1px solid black;
+.SocialHandles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.banner {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+}
+.country {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+  color: #000000;
+  font: 15px "Times New Roman";
+}
+/* .footerEnd {
+  display: flex;
+} */
+.footerpart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+  font: 15px "Times New Roman";
+  color: #167a92;
   padding: 10px;
-  margin-top: 10px;
+}
+.last {
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 10px;
+  margin-top: 20px;
+  font: 15px "Times New Roman";
+  color: #222a95;
+  margin-top: -35px;
 }

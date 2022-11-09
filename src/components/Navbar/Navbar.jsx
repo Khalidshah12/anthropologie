@@ -14,7 +14,13 @@ const Navbar = () => {
           />
         </Link>
 
-        <p>English ($)</p>
+        <ul className="navbarHover">
+          <p>English ($)</p>
+
+          <li>Currency</li>
+          <li>USD</li>
+          <li>Language</li>
+        </ul>
       </div>
 
       <img

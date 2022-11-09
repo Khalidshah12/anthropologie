@@ -6,10 +6,10 @@
       "details": "Our bestselling, best-reviewed dress, ever. Flowy and flattering, sensual and subtle, it's one SMOOTH operator. Make your move: This is our sexiest Somerset yet.",
       "color": "MAGENTA",
       "name": "The Somerset Maxi Dress",
-      "price": 170,
-      "totalprice": 170,
+      "price": 470,
+      "totalprice": 470,
       "size": "SM",
-      "id": 1,
+      "id": 2,
       "quantity": 1
     },
     {
@@ -18,10 +18,10 @@
       "details": "Our bestselling, best-reviewed dress, ever. Flowy and flattering, sensual and subtle, it's one SMOOTH operator. Make your move: This is our sexiest Somerset yet.",
       "color": "MAGENTA",
       "name": "The Somerset Maxi Dress",
-      "price": 120,
-      "totalprice": 120,
-      "size": "XS",
-      "id": 2,
+      "price": 500,
+      "totalprice": 500,
+      "size": "SM",
+      "id": 4,
       "quantity": 1
     }
   ]

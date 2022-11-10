@@ -1,4 +1,6 @@
 import * as types from './actionTypes'
+import axios from 'axios';
+
 
 export const cartRequest = () => {
     return {
@@ -37,38 +39,52 @@ export const cartDataFailure = () => {
 }
 
 
-const get_request = () => ({
-    type: types.GET_DATA_REQUEST,
+const get_wedding_request = () => ({
+    type: types.GET_WEDDING_DATA_REQUEST
   });
   
-  const get_failure = () => ({
-    type: types.GET_DATA_FAILURE,
+  const get_wedding_failure = () => ({
+    type: types.GET_WEDDING_DATA_FAILURE,
   });
   
-  const get_success = (data)=>({
-      type:types.GET_DATA_SUCCESS,
+  const get_wedding_success = (data)=>({
+      type:types.GET_WEDDING_DATA_SUCCESS,
       payload:data
   })
 
   export const getwedding = (dispatch)=>{
-    dispatch(get_request());
+    dispatch(get_wedding_request());
     axios.get("https://mock-data.onrender.com/wedding")
     .then((res)=>{
-      dispatch(get_success(res.data));
+        console.log(res)
+      dispatch(get_wedding_success(res.data));
     })
-    .catch(()=>dispatch(get_failure()));
+    .catch(()=>dispatch(get_wedding_failure()));
 }
 
 
 // /casual 236x
-// export const getcasual = (dispatch)=>{
-//   dispatch(get_request());
-//   axios.get("https://mock-data.onrender.com/casual")
-//   .then((res)=>{
-//       dispatch(get_success(res.data));
-//   })
-//   .catch(()=>dispatch(get_failure()));
-// }
+const get_casual_request = () => ({
+    type: types.GET_CASUAL_DATA_REQUEST
+  });
+  
+  const get_casual_failure = () => ({
+    type: types.GET_CASUAL_DATA_FAILURE,
+  });
+  
+  const get_casual_success = (data)=>({
+      type:types.GET_CASUAL_DATA_SUCCESS,
+      payload:data
+  })
+
+export const getcasual = (dispatch)=>{
+  dispatch(get_casual_request());
+  axios.get("https://mock-data.onrender.com/casual")
+  .then((res)=>{
+      dispatch(get_casual_success(res.data));
+  })
+  .catch(()=>dispatch(get_casual_failure()));
+}
 
 // /party 236x
 // export const getparty = (dispatch)=>{

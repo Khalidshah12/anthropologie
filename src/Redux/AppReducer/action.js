@@ -1,6 +1,5 @@
+import axios from 'axios'
 import * as types from './actionTypes'
-import axios from 'axios';
-
 
 export const cartRequest = () => {
     return {
@@ -38,6 +37,17 @@ export const cartDataFailure = () => {
     }
 }
 
+export const getCartData = (dispatch) => {
+    dispatch(cartDataRequest())
+    axios.get('http://localhost:8080/cart')
+        .then((res) => {
+            dispatch(cartDataSuccess(res.data))
+        })
+        .catch((e) => {
+            dispatch(cartDataFailure())
+            console.log(e)
+        })
+}
 
 const get_wedding_request = () => ({
     type: types.GET_WEDDING_DATA_REQUEST

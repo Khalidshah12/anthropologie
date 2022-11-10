@@ -13,7 +13,6 @@ const Navbar = () => {
             alt="Serach Logo"
           />
         </Link>
-
         <p>English ($)</p>
       </div>
 

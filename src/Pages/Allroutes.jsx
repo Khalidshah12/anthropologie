@@ -21,6 +21,8 @@ import Shoes from "./ItemPages/Shoes/Shoes";
 import Birkenstock from "./ItemPages/Shoes/ShoesItem/Birkenstock";
 import Embleshed from "./ItemPages/Shoes/ShoesItem/Embleshed";
 import Sneaker from "./ItemPages/Shoes/ShoesItem/Sneaker";
+import Cart from "./Cart/Cart";
+import Checkout from "./Checkout/Checkout";
 
 const Allroutes = () => {
   return (
@@ -29,10 +31,13 @@ const Allroutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />}></Route>
 
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/checkout' element={<Checkout />} />
+
         {/* clothes routing */}
         <Route path="/clothes" element={<Clothes />}></Route>
         {/* dress routing */}
-        <Route path="/dresses" element={<Dresses />}/>
+        <Route path="/dresses" element={<Dresses />} />
         <Route path="/wedding" element={<Wedding />}></Route>
         <Route path="/casual" element={<Casual />}></Route>
         <Route path="/party" element={<Party />}></Route>

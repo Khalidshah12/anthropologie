@@ -6,7 +6,7 @@ import Casual from "./DressItem/Casual";
 import { Link } from "react-router-dom";
 import { Box, Text, Select } from "@chakra-ui/react";
 import Sidebar from "../../Sidebar";
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+// import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 function Dresses() {
   const dressBox = (
@@ -178,34 +178,34 @@ function Dresses() {
                   </Box>
                 </Box>
                 <Box display={"flex"}>
-                  <ChevronLeftIcon
+                  {/* <ChevronLeftIcon
                     fontSize={"40px"}
                     _hover={{ color: "#167A92" }}
-                  />
+                  /> */}
                   <Box>
                     <Text mt={"8px"}>1/47</Text>
                   </Box>
-                  <ChevronRightIcon
+                  {/* <ChevronRightIcon
                     fontSize={"40px"}
                     _hover={{ color: "#167A92" }}
-                  />
+                  /> */}
                 </Box>
               </Box>
             </Box>
           </Box>
           <Box display={"flex"} justifyContent="end">
             <Box display={"flex"}>
-              <ChevronLeftIcon
+              {/* <ChevronLeftIcon
                 fontSize={"40px"}
                 _hover={{ color: "#167A92" }}
-              />
+              /> */}
               <Box>
                 <Text mt={"8px"}>1/47</Text>
               </Box>
-              <ChevronRightIcon
+              {/* <ChevronRightIcon
                 fontSize={"40px"}
                 _hover={{ color: "#167A92" }}
-              />
+              /> */}
             </Box>
           </Box>
         </Box>

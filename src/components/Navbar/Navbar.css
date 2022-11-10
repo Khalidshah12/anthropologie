@@ -1,0 +1,107 @@
+.NavbarFirst {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* border: 1px solid red; */
+  font: 16px "Avenir Book ", sans-serif;
+  color: #167a92;
+  padding: 0px 60px;
+  list-style: none;
+}
+.globeSearch {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+.userLogo {
+  width: 45px;
+}
+.child-dropdown2 {
+  display: none;
+  list-style: none;
+}
+.dropdown:hover > .child-dropdown2 {
+  display: block;
+  position: absolute;
+  list-style: none;
+}
+.MainLogo {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+}
+.MainLogo1 {
+  padding: 0px 25px;
+  height: 50px;
+  width: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.183);
+
+  text-align: center;
+}
+
+.lidiv {
+  list-style: none;
+  background-color: white;
+
+  font: 14px Roboto, sans-serif;
+  padding: 30px;
+}
+.Input {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.183);
+
+  /* border: 1px solid black; */
+}
+.Navbars {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+  margin-top: 10px;
+}
+.Navbar1 {
+  display: flex;
+  justify-content: flex-start;
+}
+.SerachNavbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-right: 20px;
+}
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px;
+  gap: 35px;
+  margin-left: 25px;
+  list-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+  border-top: 1px solid rgba(0, 0, 0, 0.183);
+}
+.child-dropdown {
+  display: none;
+}
+.dropdown:hover > .child-dropdown {
+  display: block;
+  position: absolute;
+  /* top: 155px; */
+  list-style: none;
+}
+.dropdown:hover > .child-dropdown > .hovergrid {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.183);
+}
+.dropdown:hover > .child-dropdown > .hovergrid > .hovergrid1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.183);
+  line-height: 40px;
+}

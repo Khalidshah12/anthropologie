@@ -1,7 +1,7 @@
 import React from "react";
 // import {casual} from '../../../../db';
 import { Box, Text, Select, Image } from "@chakra-ui/react";
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+// import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import Sidebar from "../../../Sidebar";
 import { useSelector, useDispatch } from "react-redux";
 import { getcasual } from "../../../../../Redux/AppReducer/action";

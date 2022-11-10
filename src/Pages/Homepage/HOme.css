@@ -1,0 +1,21 @@
+.FirstDiv {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  gap: 20px;
+  margin-top: 50px;
+}
+.FirstDiv > img {
+  width: 318px;
+}
+.SecondDiv > img {
+  width: 100%;
+}
+.SecondDiv {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}

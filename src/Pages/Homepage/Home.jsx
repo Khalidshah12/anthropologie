@@ -1,6 +1,11 @@
 import React from "react";
+ 
 import "./HOme.css";
 import Layout from "../../components/Layout";
+ 
+
+ 
+ 
 
 const Home = () => {
   return (

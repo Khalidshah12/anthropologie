@@ -73,11 +73,13 @@ const Navbar = () => {
               alt=""
             />
           </div>
-          <img
-            style={{ width: "30px" }}
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY8yKOzPgHpmIsQN3vp5u5XrPjigxM0Wk_QLMUnveo&s"
-            alt=""
-          />
+          <Link to="/cart">
+            <img
+              style={{ width: "30px" }}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY8yKOzPgHpmIsQN3vp5u5XrPjigxM0Wk_QLMUnveo&s"
+              alt=""
+            />
+          </Link>
         </div>
       </div>
       <nav>

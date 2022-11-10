@@ -1,27 +1,32 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, Heading, Image, Text } from '@chakra-ui/react';
-import styles from './Cart.module.css'
-import { Link } from 'react-router-dom';
-import { AiOutlineInfoCircle, AiOutlinePlus } from 'react-icons/ai'
-import { ImGift } from 'react-icons/im'
+import { useDispatch, useSelector } from 'react-redux';
+import { Box, Heading, Image, Text, useToast } from '@chakra-ui/react';
+import { CloseIcon } from '@chakra-ui/icons';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import styles from './Cart.module.css'
+import SingleCartProduct from '../../Components/CartComponents/SingleCartProduct';
+import { getCartData } from '../../Redux/AppReducer/action';
+import DeliveryModal from '../../Components/CartComponents/DeliveryModal';
+import OrderSummary from '../../Components/CartComponents/OrderSummary';
 
 export default function Cart() {
-
-    const [cart, setCart] = useState([]);
+    const dispatch = useDispatch();
+    const { cart } = useSelector((store) => {
+        return {
+            cart: store.AppReducer.cart
+        }
+    });
+    const navigate = useNavigate()
+    const [saved, setSaved] = useState([]);
     const [total, setTotal] = useState(0);
     const [subTotal, setSubTotal] = useState(0);
     const [shipping, setShipping] = useState(0);
-
-    const getData = () => {
-        axios.get('http://localhost:8080/cart')
-            .then((res) => {
-                setCart(res.data)
-            })
-            .catch((e) => {
-                console.log(e)
-            })
-    }
+    const [openGift, setOpenGift] = useState([])
+    const [promo, setPromo] = useState(false)
+    const [canPromoApply, setCanPromoApply] = useState(true)
+    const [promoValue, setPromovalue] = useState('')
+    const toast = useToast()
 
     const addQuantity = (id, quantity, price) => {
         let payload = {
@@ -30,7 +35,7 @@ export default function Cart() {
         }
         axios.patch(`http://localhost:8080/cart/${id}`, payload)
             .then((r) => {
-                getData()
+                dispatch(getCartData)
             })
             .catch((e) => {
                 console.log(e)
@@ -40,22 +45,135 @@ export default function Cart() {
     const HandleRemove = (id) => {
         axios.delete(`http://localhost:8080/cart/${id}`)
             .then((r) => {
-                getData()
+                dispatch(getCartData)
             })
             .catch((e) => {
                 console.log(e)
             })
     }
 
+    const getSavedData = () => {
+        axios.get(`http://localhost:8080/savedforlater`)
+            .then((r) => {
+                setSaved(r.data)
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    }
+
+    const HandleSaveForLater = (id) => {
+        axios.get(`http://localhost:8080/cart/${id}`)
+            .then((r) => {
+                axios.post(`http://localhost:8080/savedforlater`, r.data)
+                    .then((r) => {
+
+                    }).catch((e) => {
+                        console.log(e)
+                    })
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+        setTimeout(() => {
+            axios.delete(`http://localhost:8080/cart/${id}`)
+                .then((r) => {
+                    dispatch(getCartData)
+                    getSavedData()
+                })
+                .catch((e) => {
+                    console.log(e)
+                })
+        }, 1000);
+
+    }
 
     const HandleQuantity = (e, id, price) => {
         addQuantity(id, Number(e.target.value), price)
     }
 
+    const HandleRemoveSaved = (id) => {
+        axios.delete(`http://localhost:8080/savedforlater/${id}`)
+            .then((r) => {
+                getSavedData()
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    }
+
+    const HandlePromoCode = () => {
+        setPromo(!promo)
+    }
+
+    const HandleApplyPromo = () => {
+        if (promoValue === "") {
+            toast({
+                title: 'Error',
+                description: "Write a Promo Code",
+                status: 'warning',
+                position: 'top',
+                duration: 3000,
+                isClosable: true,
+            })
+        }
+        else {
+            if (canPromoApply) {
+                if (promoValue === "Khalid") {
+                    setTotal(total / 2)
+                    setCanPromoApply(false)
+                    toast({
+                        title: 'Congratulation',
+                        description: "50% Discount Applied Successfully",
+                        status: 'success',
+                        position: 'top',
+                        duration: 3000,
+                        isClosable: true,
+                    })
+                } else {
+                    toast({
+                        title: 'Sorry',
+                        description: "Promo Code is Not Found",
+                        status: 'error',
+                        position: 'top',
+                        duration: 3000,
+                        isClosable: true,
+                    })
+                }
+            } else {
+                toast({
+                    title: 'Sorry',
+                    description: "You Can Apply Only One Code At A Time",
+                    status: 'error',
+                    position: 'top',
+                    duration: 3000,
+                    isClosable: true,
+                })
+            }
+        }
+    }
+
+    const HandleProceed = () => {
+        if (cart.length > 0) {
+            navigate('/checkout')
+        }
+    }
+
+    //Pending
+    const HandleGiftWrap = (id) => {
+        let gift = cart.map((el) => {
+            return el.id === id
+        })
+
+        setOpenGift(gift)
+        console.log(gift)
+    }
 
     useEffect(() => {
-        getData()
-    }, [])
+        dispatch(getCartData)
+        getSavedData()
+        document.title = "Basket | Anthropologie"
+    }, [dispatch])
 
     useEffect(() => {
         let a = cart.reduce((acc, el) => {
@@ -67,11 +185,13 @@ export default function Cart() {
         } else {
             setShipping(0)
         }
-        setTotal(subTotal + shipping)
-    }, [cart, shipping, subTotal])
-    // console.log(total)
+        if (canPromoApply) {
+            setTotal(subTotal + shipping)
+        } else {
+            setTotal((subTotal + shipping) / 2)
+        }
+    }, [cart, shipping, subTotal, canPromoApply])
 
-    // console.log(typeof quantity)
     return (
         <div>
             <Box id={styles.mainDiv}>
@@ -79,7 +199,7 @@ export default function Cart() {
                     <Box id={styles.mainLeftDiv}>
                         <Box id={styles.mainLeftHeadDiv}>
                             <Heading fontSize={'22px'} color='#26262C' fontWeight="400">Basket</Heading>
-                            <Text><Link id={styles.deliveryOption}>Delivery Options</Link></Text>
+                            <DeliveryModal />
                         </Box>
                         {cart.length > 0 ?
                             <Box id={styles.mainLeftItemsDiv}>
@@ -91,50 +211,17 @@ export default function Cart() {
                                 </Box>
                                 <Box id={styles.productsMainDiv}>
                                     {cart.map((item) => {
-                                        return <Box className={styles.productsDiv} key={item.id}>
-                                            <Box className={styles.imageDiv}>
-                                                <Image src={item.image} alt='Dress' />
-                                            </Box>
-                                            <Box className={styles.productsDetailDiv}>
-                                                <Box className={styles.productsDetailTopDiv}>
-                                                    <Box className={styles.productsFirstDetail}>
-                                                        <Text className={styles.productName}>{item.name}</Text>
-                                                        <Text className={styles.productStyle}>Style # 4123800430150</Text>
-                                                        <Text className={styles.productColor}>Color: {item.color}</Text>
-                                                        <Text className={styles.productSize}>Size {item.size}</Text>
-                                                        <Text className={styles.productEdit}>Edit</Text>
-                                                    </Box>
-                                                    <Box className={styles.productsDetail}>
-                                                        <Text className={styles.productPrice}>${item.price}</Text>
-                                                    </Box>
-                                                    <Box className={styles.productsDetail}>
-                                                        <Box className={styles.productQuantity}>
-                                                            <select className={styles.productQuantitySelect} onChange={(e) => HandleQuantity(e, item.id, item.price)}>
-                                                                <option>{item.quantity}</option>
-                                                                <option></option>
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
-                                                            </select>
-                                                        </Box>
-                                                    </Box>
-                                                    <Box className={styles.productsDetail}>
-                                                        <Text className={styles.productTotalPrice}>${item.totalprice}</Text>
-                                                    </Box>
-                                                </Box>
-                                                <Box className={styles.removeSaveDiv}>
-                                                    <Text className={styles.remove} onClick={() => HandleRemove(item.id)}>Remove</Text>
-                                                    <Text className={styles.removeBorder}>|</Text>
-                                                    <Text className={styles.save}>Save for Later</Text>
-                                                </Box>
-                                                <Box className={styles.giftDiv}>
-                                                    <ImGift fontSize={"24px"} color="#167A92" />
-                                                    <Text className={styles.giftText}>Add Gift Wrap</Text>
-                                                </Box>
-                                            </Box>
-                                        </Box>
+                                        return (
+                                            <SingleCartProduct
+                                                key={item.id}
+                                                item={item}
+                                                HandleQuantity={HandleQuantity}
+                                                HandleRemove={HandleRemove}
+                                                HandleSaveForLater={HandleSaveForLater}
+                                                HandleGiftWrap={HandleGiftWrap}
+                                                openGift={openGift}
+                                            />
+                                        )
                                     })}
                                 </Box>
                             </Box>
@@ -143,67 +230,40 @@ export default function Cart() {
                                 <Text fontSize="13px" color={'#5C5C5F'}>Your basket is currently empty. <Link id={styles.continueShopping} to='/'>Continue Shopping.</Link></Text>
                             </Box>
                         }
-                        <Box id={styles.savedItemInstructionDiv}>
-                            <Heading fontSize='18px' fontWeight='normal' mb='15px'>Saved for Later</Heading>
-                            <Box id={styles.savedItemInstruction}>Your saved for later is currently empty. Add items here that you like, but aren't ready to buy.</Box>
-                        </Box>
+
                     </Box>
                     <Box id={styles.mainRightDiv}>
-                        <Box id={styles.mainRightHeadDiv}>
-                            <Heading fontSize={'18px'} fontWeight='500'>Order Summary</Heading>
-                            <Link id={styles.contactNumber}>800.309.2500</Link>
-                        </Box>
-                        <Box id={styles.ChargesMainDiv}>
-                            <Box id={styles.ChargesDiv}>
-                                {cart.length > 0
-                                    ? <Box className={styles.chargesClass}>
-                                        <Text>Subtotal</Text>
-                                        <Text>${subTotal || "0.00"}</Text>
-                                    </Box>
-                                    : ""}
-                                <Box id={styles.shippingChargesDiv} className={styles.chargesClass}>
-                                    <Text>Shipping</Text>
-                                    <Text>{shipping || "TBD"}</Text>
-                                </Box>
-                                <Box id={styles.estimatedTaxDiv} className={styles.chargesClass}>
-                                    <Text>Estimated Tax</Text>
-                                    <Text>$.0.00</Text>
-                                </Box>
-                                <Box id={styles.totalDiv} className={styles.chargesClass}>
-                                    <Text>Total</Text>
-                                    <Text>${total || "0.00"}</Text>
-                                </Box>
-                            </Box>
-                            <Box id={styles.payNowOrLaterDiv}>
-                                <Box id={styles.payNowOrLater}>
-                                    <Text mr="5px">Pay now or pay later with <span className={styles.paySpan}>Klarna.</span></Text>
-                                    <AiOutlineInfoCircle fontSize='16px' color='#167A92' />
-                                </Box>
-                                <Box id={styles.payafterDiv}>
-                                    <Text mr="5px">Pay with <span className={styles.paySpan}>Afterpay</span></Text>
-                                    <AiOutlineInfoCircle fontSize='16px' color='#167A92' />
-                                </Box>
-                            </Box>
-                            <Box id={styles.ButtonsDiv}>
-                                <Button id={styles.proceedbutton}
-                                    cursor={cart.length > 0 ? 'pointer' : 'default'}
-                                    backgroundColor={cart.length > 0 ? '#4B5666' : "rgb(206, 206, 206)"}
-                                    color={"white"}
-                                    _hover={{
-                                        backgroundColor: cart.length > 0 ? "white" : "none",
-                                        border: cart.length > 0 ? "1px solid black" : "none",
-                                        color: cart.length > 0 ? "#4B5666" : "white"
-                                    }}
-                                >
-                                    PROCEED TO CHECKOUT
-                                </Button>
-                                <Button id={styles.paypalButton} cursor={cart.length > 0 ? 'pointer' : 'default'}><Image src='./paypal_logo.png' alt='paypal logo' /></Button>
-                                <Box id={styles.promoDiv}>
-                                    <Text>Promo Code</Text>
-                                    <AiOutlinePlus />
-                                </Box>
-                            </Box>
-                        </Box>
+                        <OrderSummary
+                            cart={cart}
+                            total={total}
+                            promo={promo}
+                            canPromoApply={canPromoApply}
+                            promoValue={promoValue}
+                            setPromovalue={setPromovalue}
+                            HandlePromoCode={HandlePromoCode}
+                            HandleApplyPromo={HandleApplyPromo}
+                            subTotal={subTotal}
+                            shipping={shipping}
+                            HandleProceed={HandleProceed}
+                        />
+                    </Box>
+                </Box>
+                <Box id={styles.savedItemInstructionDiv}>
+                    <Heading fontSize='18px' fontWeight='normal' mb='15px'>Saved for Later</Heading>
+                    <Box id={styles.savedItemInstruction}>
+                        {saved.length > 0
+                            ? <Box className={styles.savedDiv}>
+                                {saved.map((item) => {
+                                    return (
+                                        <Box key={item.id}>
+                                            <Box className={styles.savedImagesDiv}>
+                                                <Image className={styles.savedImages} src={item.image} alt={item.name} />
+                                                <CloseIcon onClick={() => HandleRemoveSaved(item.id)} className={styles.RemoveIcon} fontSize="16px" position="absolute" top='2' right='3' cursor={"pointer"} />
+                                            </Box>
+                                        </Box>
+                                    )
+                                })}</Box>
+                            : <Text>Your saved for later is currently empty. Add items here that you like, but aren't ready to buy.</Text>}
                     </Box>
                 </Box>
             </Box >

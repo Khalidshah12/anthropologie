@@ -1,3 +1,4 @@
+import axios from 'axios'
 import * as types from './actionTypes'
 
 export const cartRequest = () => {
@@ -34,4 +35,16 @@ export const cartDataFailure = () => {
     return {
         type: types.GET_CART_DATA_FAILURE
     }
+}
+
+export const getCartData = (dispatch) => {
+    dispatch(cartDataRequest())
+    axios.get('http://localhost:8080/cart')
+        .then((res) => {
+            dispatch(cartDataSuccess(res.data))
+        })
+        .catch((e) => {
+            dispatch(cartDataFailure())
+            console.log(e)
+        })
 }

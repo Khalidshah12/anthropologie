@@ -1,3 +1,53 @@
+.hello {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.firstt {
+  border: 1px solid #5c5c5f;
+  margin: auto;
+
+  margin-top: 50px;
+  background-color: #00000008;
+}
+.end {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  margin-top: 15px;
+}
+.firstly {
+  width: 50%;
+  /* border: 1px solid red; */
+}
+.firstly1 {
+  display: flex;
+  justify-content: flex-end;
+  /* border: 1px solid blue; */
+  width: 50%;
+}
+.firstly1 > input {
+  width: 60%;
+  height: 50px;
+  outline-color: rgba(0, 0, 0, 0.694);
+  border: 1px solid rgba(0, 0, 0, 0.694);
+  margin-right: 10px;
+}
+.firstly1 > button {
+  width: 20%;
+  height: 50px;
+
+  /* border: 1px solid blue; */
+  background-color: #000000;
+  color: white;
+}
+.firstly > button :hover {
+  background-color: white;
+  color: #000000;
+}
 .footer {
   display: flex;
   width: 80%;
@@ -29,7 +79,7 @@
 }
 .logos {
   width: 25px;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 .Sociallogo {
   width: 25px;

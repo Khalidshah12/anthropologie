@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./HOme.css";
 import Layout from "../../components/Layout";
 
@@ -74,6 +73,49 @@ const Home = () => {
           alt=""
         />
       </div>
+      <h1 className="YouMayAlsoLike">You May Also Like</h1>
+      <div className="tgirdDiv1">
+        <div>
+          <img
+            src="https://images.ctfassets.net/5de70he6op10/4Uq666sNSwxPJkwfkNekwE/229e99ddfcc9ed0f9fb4c1d0d3f63df9/MTE_1.jpg?w=856&q=80&fm=webp"
+            alt=""
+          />
+          <h1>new! BUNDLE with JOY</h1>
+          <p>
+            Save time (and $$$) with curated gift sets for everyone on your
+            list.
+          </p>
+        </div>
+        <div>
+          <img
+            src="https://images.ctfassets.net/5de70he6op10/5HxUPMjRhRmYBhDzG7lYb8/8bd8da754c35f286701c479b6fb4885e/LS_MTE_2.jpg?w=856&q=80&fm=webp"
+            alt=""
+          />
+          <h1>The Holiday Beauty Shop</h1>
+          <p>Ready, set, let's glow gifting!</p>
+        </div>
+
+        <div>
+          <img
+            src="https://images.ctfassets.net/5de70he6op10/673WCOKnBlUgppuS7WBHzB/fba4ac8902af41c13345308297b6c9f5/MTE_3.jpg?w=856&q=80&fm=webp"
+            alt=""
+          />
+          <h1> THE ART OF THE DRESS</h1>
+          <p>
+            Introducing a lovingly curated collection of sculptural silhouettes,
+            enlightened details, and everlasting impressions.
+          </p>
+        </div>
+      </div>
+      <h1 className="YouMayAlsoLike">About Us</h1>
+      <p className="ourMission">
+        Our mission at Anthropologie has always been to surprise and delight you
+        with unexpected, distinctive finds for your closet and home. We source
+        and craft all of our products with care, ensuring that any treasure you
+        find at Anthropologie is unique, just like you. Explore our dress shop
+        to find styles and fits perfect for any occasion, from cocktail parties
+        to weddings to casual daytime silhouettes. Browse party skirts, wide-leg
+      </p>
     </Layout>
   );
 };

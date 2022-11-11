@@ -1,11 +1,6 @@
 import React from "react";
- 
 import "./HOme.css";
 import Layout from "../../components/Layout";
- 
-
- 
- 
 
 const Home = () => {
   return (
@@ -38,6 +33,89 @@ const Home = () => {
           alt=""
         />
       </div>
+      <div className="tgirdDiv">
+        <img
+          src="https://images.ctfassets.net/5de70he6op10/3w8rGkLqypJyMI94W5jAz6/b1a47476e9fa52841b06bcbf50e8c337/LS_M2a.jpg?w=856&q=80&fm=webp"
+          alt=""
+        />
+        <img
+          src="https://images.ctfassets.net/5de70he6op10/4dc0UZzh9jWMuJPdVGcr2v/8a7ace4023132337f5e9a81d4ac819f4/LS_M2b.jpg?w=856&q=80&fm=webp"
+          alt=""
+        />
+        <img
+          src="https://images.ctfassets.net/5de70he6op10/28WqNdcNbssmLjzWncssjE/a9ef1a745783404fb8f054796735b3b1/LS_M2c.jpg?w=856&q=80&fm=webp"
+          alt=""
+        />
+      </div>
+      <div className="banners">
+        <img
+          src="https://images.ctfassets.net/5de70he6op10/sElVOkh1LlYRV8lFchscj/3fa66885dac24294a26ad182591b8639/ALiving_HPG_LS_01-1.jpg?w=2640&q=80&fm=webp"
+          alt=""
+        />
+      </div>
+      <div className="banners1">
+        <img
+          src="https://images.ctfassets.net/5de70he6op10/6YcDf5MI12J4gw9cOaz9WP/70f858a9574c2e0ff43b2b7bdc6e61af/LS_M4.jpg?w=2641&q=80&fm=webp"
+          alt=""
+        />
+      </div>
+      <div className="tgirdDiv">
+        <img
+          src="https://images.ctfassets.net/5de70he6op10/7fzJY7mnX3XvCv1RNf6mTp/79d5f396c261126621d9a105c88faaf3/RR_Kitchen_Dining.jpg?w=856&q=80&fm=webp"
+          alt=""
+        />
+        <img
+          src="https://images.ctfassets.net/5de70he6op10/6qpsukHAAtvED0Tc12y84m/645098d9a2f3d0da07fc3ad86e11a228/RR_Bedding.jpg?w=856&q=80&fm=webp"
+          alt=""
+        />
+        <img
+          src="https://images.ctfassets.net/5de70he6op10/7xfJSO2og2DDZa4IpAilFz/882783ed4607343a932d4d975fe22be6/RR_Furniture.jpg?w=856&q=80&fm=webp"
+          alt=""
+        />
+      </div>
+      <h1 className="YouMayAlsoLike">You May Also Like</h1>
+      <div className="tgirdDiv1">
+        <div>
+          <img
+            src="https://images.ctfassets.net/5de70he6op10/4Uq666sNSwxPJkwfkNekwE/229e99ddfcc9ed0f9fb4c1d0d3f63df9/MTE_1.jpg?w=856&q=80&fm=webp"
+            alt=""
+          />
+          <h1>new! BUNDLE with JOY</h1>
+          <p>
+            Save time (and $$$) with curated gift sets for everyone on your
+            list.
+          </p>
+        </div>
+        <div>
+          <img
+            src="https://images.ctfassets.net/5de70he6op10/5HxUPMjRhRmYBhDzG7lYb8/8bd8da754c35f286701c479b6fb4885e/LS_MTE_2.jpg?w=856&q=80&fm=webp"
+            alt=""
+          />
+          <h1>The Holiday Beauty Shop</h1>
+          <p>Ready, set, let's glow gifting!</p>
+        </div>
+
+        <div>
+          <img
+            src="https://images.ctfassets.net/5de70he6op10/673WCOKnBlUgppuS7WBHzB/fba4ac8902af41c13345308297b6c9f5/MTE_3.jpg?w=856&q=80&fm=webp"
+            alt=""
+          />
+          <h1> THE ART OF THE DRESS</h1>
+          <p>
+            Introducing a lovingly curated collection of sculptural silhouettes,
+            enlightened details, and everlasting impressions.
+          </p>
+        </div>
+      </div>
+      <h1 className="YouMayAlsoLike">About Us</h1>
+      <p className="ourMission">
+        Our mission at Anthropologie has always been to surprise and delight you
+        with unexpected, distinctive finds for your closet and home. We source
+        and craft all of our products with care, ensuring that any treasure you
+        find at Anthropologie is unique, just like you. Explore our dress shop
+        to find styles and fits perfect for any occasion, from cocktail parties
+        to weddings to casual daytime silhouettes. Browse party skirts, wide-leg
+      </p>
     </Layout>
   );
 };

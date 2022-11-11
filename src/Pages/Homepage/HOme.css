@@ -8,7 +8,10 @@
 .FirstDiv > img {
   width: 318px;
 }
-.SecondDiv > img {
+.SecondDiv,
+.tgirdDiv,
+.banners,
+.banners1 > img {
   width: 100%;
 }
 .SecondDiv {
@@ -18,4 +21,58 @@
   margin: auto;
   gap: 25px;
   margin-top: 40px;
+}
+.tgirdDiv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.banners {
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.banners1 {
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.YouMayAlsoLike {
+  width: 90%;
+  margin: auto;
+  font-size: 20px;
+  margin-top: 20px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+.tgirdDiv1 > div > h1 {
+  margin-top: 15px;
+  font-size: large;
+}
+.tgirdDiv1 > div > p {
+  margin-top: 10px;
+  font-size: medium;
+}
+.tgirdDiv1 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+.tgirdDiv1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.ourMission {
+  width: 90%;
+  margin: auto;
+  font-size: 15px;
+  margin-top: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.183);
 }

@@ -4,13 +4,12 @@ import styles from '../../Pages/Checkout/Checkout.module.css'
 
 export default function SearchModal(props) {
     const { isError, isSearchLoading, HandleSearch } = props
-    const [input, setInput] = useState('')
-    const isSearchError = input === ''
-    const handleInputChange = (e) => setInput(e.target.value)
-    const [isLoading, setIsLoading] = useState(false)
-
     const { isOpen, onOpen, onClose } = useDisclosure()
-
+    const [input, setInput] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
+    const isSearchError = input === ''
+    
+    const handleInputChange = (e) => setInput(e.target.value)
     const HandleLoading = () => {
         if (!isSearchError) {
             setIsLoading(true)
@@ -40,17 +39,11 @@ export default function SearchModal(props) {
                 spinnerPlacement='start'
                 onClick={() => HandleSearch(onOpen)}
             >SEARCH</Button>
-
             <Modal size='xl' onClose={onClose} isOpen={isOpen} isCentered>
-
                 <ModalOverlay />
-
                 <ModalContent borderRadius="none">
-
                     <ModalHeader fontSize="22px" m='auto'>Find a Pickup Location</ModalHeader>
-
                     <ModalCloseButton fontSize="20px" />
-
                     <ModalBody letterSpacing="0.6px" lineHeight="23.4px">
                         <Box>
                             <Text width='100%' textAlign='center' mb='20px' fontSize="13px">Locate a store or a Collection Point near you</Text>
@@ -102,9 +95,7 @@ export default function SearchModal(props) {
                             </FormControl>
                         </Box>
                     </ModalBody >
-
                 </ModalContent >
-
             </Modal >
         </Box >
     )

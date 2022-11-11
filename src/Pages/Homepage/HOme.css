@@ -1,9 +1,10 @@
 .FirstDiv {
-  display: flex;
-  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 90%;
+
   margin: auto;
-  gap: 20px;
-  margin-top: 50px;
+  margin-top: 25px;
 }
 .FirstDiv > img {
   width: 318px;
@@ -75,4 +76,75 @@
   font-size: 15px;
   margin-top: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .FirstDiv {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 50%;
+    margin: auto;
+    margin-top: 25px;
+    gap: 25px;
+  }
+  .SecondDiv {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+  }
+  .tgirdDiv {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+  }
+  .tgirdDiv1 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .FirstDiv {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    margin: auto;
+    margin-top: 25px;
+    gap: 25px;
+  }
+  .SecondDiv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+    /* border: 1px solid red; */
+  }
+  .tgirdDiv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+  }
+  .tgirdDiv1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+  }
 }

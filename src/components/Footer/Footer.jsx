@@ -3,6 +3,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer>
+      
       {/* Footer Here */}
       <div className="footer">
         <li className="Box">

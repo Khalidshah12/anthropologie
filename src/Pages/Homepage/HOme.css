@@ -8,12 +8,35 @@
 .FirstDiv > img {
   width: 318px;
 }
-.SecondDiv > img {
+.SecondDiv,
+.tgirdDiv,
+.banners,
+.banners1 > img {
   width: 100%;
 }
 .SecondDiv {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.tgirdDiv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.banners {
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.banners1 {
   width: 90%;
   margin: auto;
   gap: 25px;

@@ -60,8 +60,8 @@ const Footer = () => {
             <ul>Staying Services</ul>
             <ul>Request A Catalog</ul>
           </li>
-          <li className="Box">
-            <ul>
+          <li className="Box1">
+            <ul className="Boxes">
               <img
                 className="logos"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiPY5POpiaaROnvHrSSSRbqqNUQ9qLg2Y_YaFj70oSxw&s"
@@ -69,7 +69,7 @@ const Footer = () => {
               />
               Story Locater
             </ul>
-            <ul>
+            <ul className="Boxes">
               <img
                 className="logos"
                 src="https://cdn0.iconfinder.com/data/icons/apple-apps/100/Apple_Mail-512.png"
@@ -130,7 +130,9 @@ const Footer = () => {
             <p>URBN.com</p>
             <p>For CA Residence</p>
           </div>
-          <p className="last">2022 URBN.com. All Rights Reserved.</p>
+          <div className="last">
+            <p>2022 URBN.com. All Rights Reserved.</p>
+          </div>
         </div>
       </div>
     </footer>

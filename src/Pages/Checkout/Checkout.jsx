@@ -1,11 +1,11 @@
-import { Box, Heading, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react'
+import { Box, Heading, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { BsBoxSeam, BsShop } from 'react-icons/bs'
-import { ImBlocked } from 'react-icons/im'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import CheckoutOrderSummary from '../../components/Cart/CheckoutOrderSummary'
 import TabOne from '../../components/Checkout/TabOne'
+import TabTwo from '../../components/Checkout/TabTwo'
 import { getCartData } from '../../Redux/AppReducer/action'
 import { countryAndCode } from '../../Utilis/countryAndCode'
 import { GetLocal } from '../../Utilis/localStorage'
@@ -34,6 +34,11 @@ export default function Checkout() {
     const isCityError = formData.city === ''
     const isPostcodeError = formData.postcode === ''
     const isMobileNumberError = formData.mobileNumber === '' || formData.mobileNumber.length > 10 || formData.mobileNumber.length < 10
+    const [isSearchLoading, setIsSearchLoading] = useState(false)
+
+    const [input, setInput] = useState('')
+    const isError = input === ''
+    const handleInputChange = (e) => setInput(e.target.value)
 
     const HandleCountryChange = (value) => {
         country.map((el) => {
@@ -49,6 +54,16 @@ export default function Checkout() {
             if (!isFormError) {
                 navigate('/')
             }
+        }
+    }
+
+    const HandleSearch = (onOpen) => {
+        if (!isError) {
+            setIsSearchLoading(true)
+            setTimeout(() => {
+                setIsSearchLoading(false)
+                onOpen()
+            }, 1000);
         }
     }
 
@@ -108,17 +123,12 @@ export default function Checkout() {
                                     HandleCountryChange={HandleCountryChange} />
                             </TabPanel>
                             <TabPanel>
-                                <Box>
-                                    <Heading fontSize="18px" fontWeight="400" mb='15px'>Find a Pickup Location</Heading>
-                                    <Box>
-                                        <Text fontSize="13px">Locate a store or a Collection Point near you:</Text>
-                                        <Box display='flex'>
-                                            <ImBlocked color='#A5642D' />
-                                            <Text color='#A5642D' fontSize="13px">Sorry – gift wrap is unavailable with Store Pickup and Collection Point orders.</Text>
-                                        </Box>
-                                        <Box></Box>
-                                    </Box>
-                                </Box>
+                                <TabTwo
+                                    isError={isError}
+                                    input={input}
+                                    handleInputChange={handleInputChange}
+                                    HandleSearch={HandleSearch}
+                                    isSearchLoading={isSearchLoading} />
                             </TabPanel>
                         </TabPanels>
                     </Tabs>

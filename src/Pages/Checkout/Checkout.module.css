@@ -38,6 +38,16 @@ form {
     margin-bottom: 15px;
 }
 
+#selectMi {
+    height: 45px;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 0 10px 0 10px;
+    color: #5C5C5F;
+    border-radius: 7px;
+    letter-spacing: 0.6px;
+}
+
 .labels {
     font-size: 13px;
     display: block;
@@ -56,6 +66,25 @@ form {
 
 .inputs::placeholder {
     color: #c7c7c7;
+}
+
+#searchModalInputs {
+    width: 100%;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 10px 10px 10px 10px;
+    letter-spacing: 0.6px;
+    color: #5C5C5F;
+}
+
+#searchSelectMi {
+    height: 45px;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 0 10px 0 10px;
+    color: #5C5C5F;
+    border-radius: 7px;
+    letter-spacing: 0.6px;
 }
 
 #mobileInput {

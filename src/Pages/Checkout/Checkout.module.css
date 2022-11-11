@@ -1,0 +1,74 @@
+#main {
+    /* border: 1px solid black; */
+    width: 92%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.6px;
+    padding-bottom: 100px;
+}
+
+#left {
+    /* border: 1px solid black; */
+    width: 65%;
+}
+
+.tabsIcons {
+    margin-right: 10px;
+}
+
+form {
+    width: 100%;
+    letter-spacing: 0.6px;
+}
+
+.inputBox {
+    margin-bottom: 15px;
+}
+
+#selectTag {
+    width: 49%;
+    height: 45px;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 0 10px 0 10px;
+    color: #5C5C5F;
+    border-radius: 7px;
+    letter-spacing: 0.6px;
+    margin-bottom: 15px;
+}
+
+.labels {
+    font-size: 13px;
+    display: block;
+    color: #26262C;
+    margin-bottom: 5px;
+}
+
+.inputs {
+    width: 100%;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 10px 10px 10px 10px;
+    letter-spacing: 0.6px;
+    color: #5C5C5F;
+}
+
+.inputs::placeholder {
+    color: #c7c7c7;
+}
+
+#mobileInput {
+    width: 100%;
+    background-color: #FDFDF9;
+    padding: 10px 10px 10px 10px;
+    letter-spacing: 0.6px;
+    color: #5C5C5F;
+}
+
+#right {
+    /* border: 1px solid black; */
+    position: fixed;
+    width: 28%;
+    right: 4%;
+}

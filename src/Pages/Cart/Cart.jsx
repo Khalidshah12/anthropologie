@@ -5,10 +5,11 @@ import { CloseIcon } from "@chakra-ui/icons";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./Cart.module.css";
-import SingleCartProduct from "../../components/CartComponents/SingleCartProduct";
+import SingleCartProduct from "../../components/Cart/SingleCartProduct";
 import { getCartData } from "../../Redux/AppReducer/action";
-import DeliveryModal from "../../components/CartComponents/DeliveryModal";
-import OrderSummary from "../../components/CartComponents/OrderSummary";
+import DeliveryModal from "../../components/Cart/DeliveryModal";
+import OrderSummary from "../../components/Cart/OrderSummary";
+import { SaveLocal } from "../../Utilis/localStorage";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -22,10 +23,11 @@ export default function Cart() {
   const [total, setTotal] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   const [shipping, setShipping] = useState(0);
-  const [openGift, setOpenGift] = useState([]);
+  // const [openGift, setOpenGift] = useState([]);
   const [promo, setPromo] = useState(false);
   const [canPromoApply, setCanPromoApply] = useState(true);
   const [promoValue, setPromovalue] = useState("");
+  const [estimatedTax] = useState(0)
   const toast = useToast();
 
   const addQuantity = (id, quantity, price) => {
@@ -71,7 +73,7 @@ export default function Cart() {
       .then((r) => {
         axios
           .post(`http://localhost:8080/savedforlater`, r.data)
-          .then((r) => {})
+          .then((r) => { })
           .catch((e) => {
             console.log(e);
           });
@@ -126,6 +128,7 @@ export default function Cart() {
         if (promoValue === "Khalid") {
           setTotal(total / 2);
           setCanPromoApply(false);
+
           toast({
             title: "Congratulation",
             description: "50% Discount Applied Successfully",
@@ -159,18 +162,30 @@ export default function Cart() {
 
   const HandleProceed = () => {
     if (cart.length > 0) {
-      navigate("/checkout");
+      let amoutDetails = {
+        subTotal: subTotal,
+        shipping: shipping,
+        estimatedTax: estimatedTax,
+        total: total
+      }
+      SaveLocal("amoutDetails", amoutDetails)
+      if (!canPromoApply) {
+        SaveLocal("discount", "50%")
+      } else {
+        SaveLocal("discount", "$0.00")
+      }
+      navigate("/checkout/shipping-address");
     }
   };
 
   //Pending
   const HandleGiftWrap = (id) => {
-    let gift = cart.map((el) => {
-      return el.id === id;
-    });
+    // let gift = cart.map((el) => {
+    //   return el.id === id;
+    // });
 
-    setOpenGift(gift);
-    console.log(gift);
+    // setOpenGift(gift);
+    // console.log(gift);
   };
 
   useEffect(() => {
@@ -225,7 +240,7 @@ export default function Cart() {
                         HandleRemove={HandleRemove}
                         HandleSaveForLater={HandleSaveForLater}
                         HandleGiftWrap={HandleGiftWrap}
-                        openGift={openGift}
+                        // openGift={openGift}
                       />
                     );
                   })}
@@ -255,6 +270,7 @@ export default function Cart() {
               subTotal={subTotal}
               shipping={shipping}
               HandleProceed={HandleProceed}
+              text="PROCEED TO CHECKOUT"
             />
           </Box>
         </Box>

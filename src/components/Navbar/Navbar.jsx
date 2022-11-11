@@ -121,9 +121,15 @@ const Navbar = () => {
             </ul>
           </li>
           <li>New!</li>
-          <li>Dresses</li>
-          <li>Clothing</li>
+          <Link to={'/clothes/dresses'}>
+            <li>Dresses</li>
+          </Link>
+          <Link to={'/clothes'}>
+            <li>Clothing</li>
+          </Link>
+          <Link to={'/shoes'}>
           <li>Shoes</li>
+          </Link>
           <li>Accessories</li>
           <li>BHLND Weddings</li>
           <li>Home & Furniture</li>

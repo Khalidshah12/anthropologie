@@ -32,7 +32,7 @@ const Allroutes = () => {
         <Route path="/" element={<Home />}></Route>
 
         <Route path='/cart' element={<Cart />} />
-        <Route path='/checkout' element={<Checkout />} />
+        <Route path='/checkout/shipping-address' element={<Checkout />} />
 
         {/* clothes routing */}
         <Route path="/clothes" element={<Clothes />}></Route>

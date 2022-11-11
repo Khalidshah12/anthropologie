@@ -2,7 +2,7 @@
     width: 92%;
     margin: auto;
     letter-spacing: 0.6px;
-    margin-top: 50px;
+    padding-top: 50px;
 }
 
 #basketDiv {
@@ -189,6 +189,7 @@
     border: 1px solid black;
     text-align: center;
     font-size: 16px;
+    background-color: #FDFDF9;
 }
 
 .removeSaveDiv {

@@ -1,8 +1,240 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import {useNavigate} from 'react-router-dom'
+import { useState } from "react";
 
+import { authentication } from "../../firebase/firebase_config";
+import { RecaptchaVerifier  } from "firebase/auth";
+import { signInWithPhoneNumber } from "firebase/auth";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Button,
+  Box,
+  Center,
+  Text,
+  Input,
+  Divider,
+  HStack,
+} from "@chakra-ui/react";
 const Navbar = () => {
+  const countrycode = "+91";
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const finalRef = React.useRef(null);
+  const [pin, SetPin] = useState("");
+  const [show, SetShow] = useState(false);
+  const [user, SetUser]  = useState(false);
+  const [phone, setPhone] = useState(countrycode);
+  const navigate = useNavigate();
+
+
+  // const SignoutHandler =()=>{
+  //   SetUser(false)
+  //   signOut()
+  // }
+  
+  
+    const otherNumberHandler = () => {
+      SetShow(false);
+    };
+  
+    const PinEvent = (e) => {
+      SetPin(e.target.value);
+    };
+  
+    const Inputevent = (e) => {
+      setPhone(e.target.value);
+    };
+
+    const generateourCaptcha = () => {
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        "recaptcha-box",
+        {
+          size: "invisible",
+          callback: (response) => {
+            // recaptcha solved, allow sign in with phone number
+          },
+        },
+        authentication
+      );
+    };
+  
+  
+    const OnsubmitEvent = () => {
+      if (pin.length === 6) {
+        console.log(pin);
+        const confirmationResult = window.confirmationResult;
+        confirmationResult
+          .confirm(pin)
+          .then((result) => {
+            // User signed in successfully.
+            const user = result.user;
+            console.log(user);
+            SetUser(true)
+            return navigate("/")
+            // ...
+          })
+          .catch((error) => {
+            // User couldn't sign in (bad verification code?)
+            console.log(error);
+            // ...
+          });
+  
+        onClose();
+        
+        // SetUser(true);
+    
+       
+    
+      }
+    };
+  
+    const Sendotp = (e) => {
+      e.preventDefault();
+      if (phone.length >= 12) {
+        console.log(phone);
+        SetShow(true);
+        generateourCaptcha();
+        setTimeout(() => {
+          let appVerifier = window.recaptchaVerifier;
+          signInWithPhoneNumber(authentication, phone, appVerifier)
+            .then((confirmationResult) => {
+              window.confirmationResult = confirmationResult;
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }, 3000);
+      }
+    };
+  
+
+  const sendform = (
+    <Box>
+      <Text textAlign={"left"}>Mobile Number*</Text>
+      <Center mt={"5px"} display={"flex"} flexDirection={"column"}>
+        <Input
+          placeholder="Phone Number*"
+          type={"text"}
+          name={"phone"}
+          value={phone}
+          onChange={Inputevent}
+        ></Input>
+      </Center>
+      <Center mt={"20px"}>
+        <Text fontSize={"12px"}>
+          By “logging in to KFC”, you agree to our{" "}
+          <u style={{ fontWeight: "bold" }}>Privacy Policy</u> and{" "}
+          <u style={{ fontWeight: "bold" }}>Terms & Conditions</u>.
+        </Text>
+      </Center>
+      <Center mt={"20px"}>
+        <Button
+          fontSize={"13px"}
+          fontWeight={"bold"}
+          w={"177px"}
+          h="44px"
+          borderRadius={"30px"}
+          bgColor={"black"}
+          color={"white"}
+          _hover={"none"}
+          onClick={Sendotp}
+        >
+          Send Me a Code
+        </Button>
+      </Center>
+      <Center mt={"20px"}>
+        <Divider mr={"3px"} />
+        or
+        <Divider ml={"3px"} />
+      </Center>
+      <Center mt={"20px"}>
+        <Button
+          fontSize={"14px"}
+          fontWeight={"bold"}
+          w={"464px"}
+          h="48px"
+          borderRadius={"30px"}
+          bgColor={"white"}
+          color={"grey"}
+          _hover={"none"}
+          border={"1px solid black"}
+        >
+          Skip, Continue As Guest
+        </Button>
+      </Center>
+    </Box>
+  );
+
+  const otpform = (
+    <Box id="">
+      <Center mt={"20px"}>
+        <Text fontSize={"12px"}>
+          Please enter the verification code we just sent to {phone}
+        </Text>
+      </Center>
+
+      <Center mt={"20px"}>
+        <Text
+          fontSize={"14px"}
+          color={"grey"}
+          fontWeight={"bold"}
+          cursor={"pointer"}
+          onClick={otherNumberHandler}
+        >
+          <u>Different Number?</u>
+        </Text>
+      </Center>
+
+      <Center mt={"30px"}>
+        <HStack>
+          <Input
+            type="text"
+            value={pin}
+            placeholder="Code"
+            onChange={PinEvent}
+          />
+        </HStack>
+      </Center>
+
+      <Center mt={"20px"}>
+        <Text fontSize={"14px"} color={"grey"} fontWeight={"bold"}>
+          <u>Resend the Code</u>
+        </Text>
+      </Center>
+      <Center mt={"20px"}>
+        <Divider mr={"3px"} />
+        or
+        <Divider ml={"3px"} />
+      </Center>
+      <Center mt={"20px"}>
+        <Button
+          fontSize={"14px"}
+          fontWeight={"bold"}
+          w={"90px"}
+          h="30px"
+          borderRadius={"30px"}
+          color={"black"}
+          bgColor="grey"
+          onClick={OnsubmitEvent}
+        >
+          Submit
+      </Button>
+ 
+  
+      </Center>
+    </Box>
+  );
+
+  // console.log(user)
+  const display = !show ? sendform : otpform;
+
   return (
     <header>
       <div className="NavbarFirst">
@@ -33,9 +265,43 @@ const Navbar = () => {
           src="https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg"
           alt="User Logo"
         />
-        <Link to="/login">
-          <div>Sign In / Sign In</div>
-        </Link>
+        <Box>
+          <Box
+            ref={finalRef}
+            tabIndex={-1}
+            aria-label="Focus moved to this box"
+          ></Box>
+          <Box mt={4}>
+            <Box mt={4} onClick={onOpen} cursor="pointer">
+              Sign In / Sign In
+            </Box>
+          </Box>
+
+          <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent background="rgb(253,253,249)">
+              <ModalHeader>
+                {" "}
+                <Center fontSize={"22px"} mt="50px">
+                  {!show ? "Create An Account" : "Sign In"}
+                </Center>
+              </ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <Text textAlign={"center"}>
+                  Welcome to Anthropologie! It's quick and easy to set up an
+                  account.
+                </Text>
+                <Box mt={"30px"} mb="30px">
+                  {display}
+                </Box>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
+          <Center>
+            <Box id="recaptcha-box"></Box>
+          </Center>
+        </Box>
       </div>
 
       <div className="Navbars">
@@ -121,14 +387,14 @@ const Navbar = () => {
             </ul>
           </li>
           <li>New!</li>
-          <Link to={'/clothes/dresses'}>
+          <Link to={"/clothes/dresses"}>
             <li>Dresses</li>
           </Link>
-          <Link to={'/clothes'}>
+          <Link to={"/clothes"}>
             <li>Clothing</li>
           </Link>
-          <Link to={'/shoes'}>
-          <li>Shoes</li>
+          <Link to={"/shoes"}>
+            <li>Shoes</li>
           </Link>
           <li>Accessories</li>
           <li>BHLND Weddings</li>

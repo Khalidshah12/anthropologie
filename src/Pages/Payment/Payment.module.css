@@ -10,7 +10,7 @@
     width: 65%;
 }
 
-#inputsManDiv {
+#inputsMainDiv {
     display: flex;
     align-items: center;
     justify-content: space-between;

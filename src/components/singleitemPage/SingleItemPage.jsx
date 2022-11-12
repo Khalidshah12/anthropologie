@@ -48,8 +48,6 @@ function SingleItemPage() {
   const settings = {
     dots: false,
     infinite: false,
-    dots: true,
-    infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -237,7 +235,7 @@ function SingleItemPage() {
                 minH="45px"
                 backgroundColor="rgb(253,253,249)"
                 _hover={{
-                  color: "black",
+                 
                   background: "#4B5666",
                   color: "white",
                 }}

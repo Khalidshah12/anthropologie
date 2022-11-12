@@ -77,15 +77,30 @@
   margin-top: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.183);
 }
+.Slider {
+  /* border: 1px solid red; */
+  width: 90%;
+  margin: auto;
+  margin-top: 40px;
+}
+.Slider2 > img {
+  /* border: 1px solid red; */
+  width: 90%;
+  margin: auto;
+}
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .FirstDiv {
     /* border: 1px solid red; */
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    width: 50%;
+    width: 80%;
     margin: auto;
     margin-top: 25px;
     gap: 25px;
+  }
+  .FirstDiv > img {
+    /* border: 1px solid red; */
+    width: 100%;
   }
   .SecondDiv {
     display: grid;

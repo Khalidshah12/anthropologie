@@ -3,8 +3,8 @@ import React from 'react'
 import { Box, Text, Select, Image } from "@chakra-ui/react";
 import Sidebar from "../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import Navbar from "../../../components/Navbar/Navbar";
-import Footer from "../../../components/Footer/Footer";
+// import Navbar from "../../../components/Navbar/Navbar";
+// import Footer from "../../../components/Footer/Footer";
 import {Link} from 'react-router-dom';
 import { Sneakers } from '../../../db';
 import {birkenstock} from '../../../db';
@@ -83,7 +83,7 @@ function Shoes() {
   );
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <Box>
       {shoessBox}
     </Box>
@@ -191,7 +191,7 @@ function Shoes() {
         </Box>
       </Box>
     </Box>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }

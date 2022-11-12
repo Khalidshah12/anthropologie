@@ -2,8 +2,8 @@ import React from 'react'
 
 import Sidebar from "../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import Navbar from "../../../../components/Navbar/Navbar";
-import Footer from "../../../../components/Footer/Footer";
+// import Navbar from "../../../../components/Navbar/Navbar";
+// import Footer from "../../../../components/Footer/Footer";
 import {birkenstock} from '../../../../db';
 import { Box, Text, Select } from "@chakra-ui/react";
 import BirkenstockCard from './BirkenstockCard';
@@ -12,7 +12,7 @@ import BirkenstockCard from './BirkenstockCard';
 function Birkenstock() {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <Box mt={"30px"}>
       <Box width={"90%"} m="auto">
         <Box
@@ -115,7 +115,7 @@ function Birkenstock() {
         </Box>
       </Box>
     </Box>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }

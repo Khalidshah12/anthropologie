@@ -2,8 +2,8 @@ import React from 'react'
 // import {embelished_shoes} from '../../../db';
 import Sidebar from "../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
-import Navbar from "../../../../components/Navbar/Navbar";
-import Footer from "../../../../components/Footer/Footer";
+// import Navbar from "../../../../components/Navbar/Navbar";
+// import Footer from "../../../../components/Footer/Footer";
 import EmbleshedCard from './EmbleshedCard';
 import { Box, Text, Select } from "@chakra-ui/react";
 import { embelished_shoes } from '../../../../db';
@@ -11,7 +11,7 @@ import { embelished_shoes } from '../../../../db';
 function Embleshed() {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <Box mt={"30px"}>
       <Box width={"90%"} m="auto">
         <Box
@@ -114,7 +114,7 @@ function Embleshed() {
         </Box>
       </Box>
     </Box>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }

@@ -2,8 +2,8 @@ import React from 'react'
 // import {Sneakers} from '../../../db';
 import Sidebar from "../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
-import Navbar from "../../../../components/Navbar/Navbar";
-import Footer from "../../../../components/Footer/Footer";
+// import Navbar from "../../../../components/Navbar/Navbar";
+// import Footer from "../../../../components/Footer/Footer";
 import { Sneakers } from '../../../../db';
 import { Box, Text, Select, Image } from "@chakra-ui/react";
 import SneakerCard from './SneakerCard';
@@ -11,7 +11,7 @@ import SneakerCard from './SneakerCard';
 function Sneaker() {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <Box mt={"30px"}>
       <Box width={"90%"} m="auto">
         <Box
@@ -114,7 +114,7 @@ function Sneaker() {
         </Box>
       </Box>
     </Box>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }

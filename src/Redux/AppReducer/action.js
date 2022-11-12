@@ -49,6 +49,46 @@ export const getCartData = (dispatch) => {
         })
 }
 
+
+
+const POST_DATA_REQUEST = ()=>({
+    type:types.POST_DATA_REQUEST
+})
+const POST_DATA_SUCCESS = ()=>({
+    type:types.POST_DATA_SUCCESS
+})
+const POST_DATA_FAILURE = ()=>({
+    type:types.POST_DATA_FAILURE
+})
+
+
+export const postData = (payload) => (dispatch)=>{
+    dispatch(POST_DATA_REQUEST())
+    axios({
+        method:"post",
+        baseURL:"https://emptyapi.onrender.com/",
+        url:"/cart",
+        data:payload
+    })
+    .then(()=>POST_DATA_SUCCESS())
+    .catch(()=>POST_DATA_FAILURE())
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //FILTER
 
 export const filter_data = (data) => ({
@@ -73,24 +113,15 @@ const get_wedding_request = () => ({
     type: types.GET_WEDDING_DATA_REQUEST
 });
 
-const get_wedding_failure = () => ({
-    type: types.GET_WEDDING_DATA_FAILURE,
-});
-
-const get_wedding_success = (data) => ({
-    type: types.GET_WEDDING_DATA_SUCCESS,
-    payload: data
-})
-
-export const getwedding = (dispatch) => {
-    dispatch(get_wedding_request());
-    axios.get("https://mock-data.onrender.com/wedding")
-        .then((res) => {
-            console.log(res)
-            dispatch(get_wedding_success(res.data));
-        })
-        .catch(() => dispatch(get_wedding_failure()));
-}
+//   export const getwedding = (dispatch)=>{
+//     dispatch(get_wedding_request());
+//     axios.get("https://mock-data.onrender.com/wedding")
+//     .then((res)=>{
+//         console.log(res)
+//       dispatch(get_wedding_success(res.data));
+//     })
+//     .catch(()=>dispatch(get_wedding_failure()));
+// }
 
 
 // /casual 236x
@@ -107,6 +138,7 @@ export const get_casual_success = (data) => ({
     payload: data
 })
 
+ 
 // export const getcasual = (dispatch)=>{
 //   dispatch(get_casual_request());
 //   axios.get("https://mock-data.onrender.com/casual")
@@ -116,6 +148,19 @@ export const get_casual_success = (data) => ({
 //   .catch(()=>dispatch(get_casual_failure()));
 // }
 
+
+const get_party_request = () => ({
+    type: types.GET_PARTY_DATA_REQUEST
+  });
+  
+  const get_party_failure = () => ({
+    type: types.GET_PARTY_DATA_FAILURE,
+  });
+  
+  export const get_party_success = (data)=>({
+      type:types.GET_PARTY_DATA_SUCCESS,
+      payload:data
+  })
 // /party 236x
 // export const getparty = (dispatch)=>{
 //   dispatch(get_request());
@@ -128,6 +173,19 @@ export const get_casual_success = (data) => ({
 
 // /formal_dress 134x
 
+const get_formal_request = () => ({
+    type: types.GET_FORMAL_DATA_REQUEST
+  });
+  
+  const get_formal_failure = () => ({
+    type: types.GET_FORMAL_DATA_FAILURE,
+  });
+  
+  export const get_formal_success = (data)=>({
+      type:types.GET_FORMAL_DATA_SUCCESS,
+      payload:data
+  })
+
 // export const getformal = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/formal_dress")
@@ -137,7 +195,20 @@ export const get_casual_success = (data) => ({
 //   .catch(()=>dispatch(get_failure()));
 // }
 
-// /flarejean 80x
+// /flare 80x
+
+const get_flare_request = () => ({
+    type: types.GET_FLARE_DATA_REQUEST
+  });
+  
+  const get_flare_failure = () => ({
+    type: types.GET_FLARE_DATA_FAILURE
+  });
+  
+  export const get_flare_success = (data)=>({
+      type:types.GET_FLARE_DATA_SUCCESS,
+      payload:data
+  })
 // export const getflarejean = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/flarejean")
@@ -148,7 +219,18 @@ export const get_casual_success = (data) => ({
 // }
 
 // /straight 74x
-
+const get_straight_request = () => ({
+    type: types.GET_STRAIGHT_DATA_REQUEST
+  });
+  
+  const get_straight_failure = () => ({
+    type: types.GET_STRAIGHT_DATA_FAILURE,
+  });
+  
+  export const get_straight_success = (data)=>({
+      type:types.GET_STRAIGHT_DATA_SUCCESS,
+      payload:data
+  })
 // export const getstraight = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/straight")
@@ -159,6 +241,18 @@ export const get_casual_success = (data) => ({
 // }
 
 // /wideleg 30x
+const get_wideleg_request = () => ({
+    type: types.GET_WIDELEG_DATA_REQUEST
+  });
+  
+  const get_wideleg_failure = () => ({
+    type: types.GET_WIDELEG_DATA_FAILURE,
+  });
+  
+  export const get_wideleg_success = (data)=>({
+      type:types.GET_WIDELEG_DATA_SUCCESS,
+      payload:data
+  })
 // export const getwideleg = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/wideleg")
@@ -169,7 +263,18 @@ export const get_casual_success = (data) => ({
 // }
 
 // /bootcut 7x
-
+const get_bootcut_request = () => ({
+    type: types.GET_BOOTCUT_DATA_REQUEST
+  });
+  
+  const get_bootcut_failure = () => ({
+    type: types.GET_BOOTCUT_DATA_FAILURE,
+  });
+  
+  export const get_bootcut_success = (data)=>({
+      type:types.GET_BOOTCUT_DATA_SUCCESS,
+      payload:data
+  })
 // export const getbootcut = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/bootcut")
@@ -180,7 +285,18 @@ export const get_casual_success = (data) => ({
 // }
 
 // /paints 80x
-
+const get_paints_request = () => ({
+    type: types.GET_PAINT_DATA_REQUEST
+  });
+  
+  const get_paints_failure = () => ({
+    type: types.GET_PAINT_DATA_FAILURE,
+  });
+  
+  export const get_paints_success = (data)=>({
+      type:types.GET_PAINT_DATA_SUCCESS,
+      payload:data
+  })
 // export const getpaints = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/paints")
@@ -191,6 +307,18 @@ export const get_casual_success = (data) => ({
 // }
 
 // /boyfriend 7x
+const get_boyfriend_request = () => ({
+    type: types.GET_BOYFRIEND_DATA_REQUEST
+  });
+  
+  const get_boyfriend_failure = () => ({
+    type: types.GET_BOYFRIEND_DATA_FAILURE,
+  });
+  
+  export const get_boyfriend_success = (data)=>({
+      type:types.GET_BOYFRIEND_DATA_SUCCESS,
+      payload:data
+  })
 // export const getboyfriend = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/boyfriend")
@@ -200,18 +328,20 @@ export const get_casual_success = (data) => ({
 //   .catch(()=>dispatch(get_failure()));
 // }
 
-// /flare 80x
-// export const getflare = (dispatch)=>{
-//   dispatch(get_request());
-//   axios.get("https://mock-data.onrender.com/flare")
-//   .then((res)=>{
-//       dispatch(get_success(res.data));
-//   })
-//   .catch(()=>dispatch(get_failure()));
-// }
 
 // /skinny 19x
-
+const get_skinny_request = () => ({
+    type: types.GET_SKINNY_DATA_REQUEST
+  });
+  
+  const get_skinny_failure = () => ({
+    type: types.GET_SKINNY_DATA_FAILURE,
+  });
+  
+  export const get_skinny_success = (data)=>({
+      type:types.GET_SKINNY_DATA_SUCCESS,
+      payload:data
+  })
 // export const getskinny = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/skinny")
@@ -222,6 +352,18 @@ export const get_casual_success = (data) => ({
 // }
 
 // /workpaints 80x
+const get_workpaints_request = () => ({
+    type: types.GET_WORKPAINT_DATA_REQUEST
+  });
+  
+  const get_workpaints_failure = () => ({
+    type: types.GET_WORKPAINT_DATA_FAILURE,
+  });
+  
+  export const get_workpaints_success = (data)=>({
+      type:types.GET_WORKPAINT_DATA_SUCCESS,
+      payload:data
+  })
 // export const getsworkpaint = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/workpaints")
@@ -232,6 +374,19 @@ export const get_casual_success = (data) => ({
 // }
 
 // /embelished_shoes 10x
+
+const get_embleshed_request = () => ({
+    type: types.GET_EMBLESHED_DATA_REQUEST
+  });
+  
+  const get_embleshed_failure = () => ({
+    type: types.GET_EMBLESHED_DATA_FAILURE,
+  });
+  
+  export const get_embleshed_success = (data)=>({
+      type:types.GET_EMBLESHED_DATA_SUCCESS,
+      payload:data
+  })
 // export const getembelished = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/embelished_shoes")
@@ -242,6 +397,18 @@ export const get_casual_success = (data) => ({
 // }
 
 // /Sneakers 24x
+const get_sneaker_request = () => ({
+    type: types.GET_SNEAKER_DATA_REQUEST
+  });
+  
+  const get_sneaker_failure = () => ({
+    type: types.GET_SNEAKER_DATA_FAILURE,
+  });
+  
+  export const get_sneaker_success = (data)=>({
+      type:types.GET_SNEAKER_DATA_SUCCESS,
+      payload:data
+  })
 // export const getsneakers = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/Sneakers")
@@ -252,6 +419,18 @@ export const get_casual_success = (data) => ({
 // }
 
 // /birkenstock 24x
+const get_birkenstock_request = () => ({
+    type: types.GET_BIRKENSTOCK_DATA_REQUEST
+  });
+  
+  const get_birkenstock_failure = () => ({
+    type: types.GET_BIRKENSTOCK_DATA_FAILURE,
+  });
+  
+  export const get_birkenstock_success = (data)=>({
+      type:types.GET_BIRKENSTOCK_DATA_SUCCESS,
+      payload:data
+  })
 // export const getbirkenstock = (dispatch)=>{
 //   dispatch(get_request());
 //   axios.get("https://mock-data.onrender.com/birkenstock")

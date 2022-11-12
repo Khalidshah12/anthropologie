@@ -1,0 +1,79 @@
+#main {
+    /* border: 1px solid black; */
+    width: 92%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+#left {
+    width: 65%;
+}
+
+#creditCard {
+    /* border: 1px solid black; */
+    padding: 20px 20px 20px 20px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+#creditCardRight {
+    margin-left: 10px;
+    width: 100%;
+}
+
+#cashOnDelivery {
+    padding: 20px 20px 20px 20px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+#cashOnDeliveryRight {
+    margin-left: 10px;
+    width: 100%;
+}
+
+#cardImagesDiv {
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.cardImages {
+    width: 35px;
+    margin-right: 10px;
+}
+
+.inputs {
+    width: 100%;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 10px 10px 10px 10px;
+    letter-spacing: 0.6px;
+    color: #5C5C5F;
+}
+
+.inputs::placeholder {
+    color: #c7c7c7;
+}
+
+.deliveryText {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+#change {
+    text-decoration: underline;
+    color: #167A92;
+    font-weight: 400;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#right {
+    width: 30%;
+}

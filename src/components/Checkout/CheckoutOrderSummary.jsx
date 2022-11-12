@@ -5,7 +5,7 @@ import styles from '../../Pages/Cart/Cart.module.css'
 import { Link } from 'react-router-dom';
 import { GetLocal } from '../../Utilis/localStorage';
 
-export default function OrderSummary(props) {
+export default function CheckoutOrderSummary(props) {
     const {
         cart,
         HandleProceed,

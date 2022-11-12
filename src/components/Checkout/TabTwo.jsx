@@ -38,7 +38,7 @@ export default function TabTwo(props) {
                             </Box>
                             <Box display="flex" justifyContent='space-between'>
                                 <Box width='32%'>
-                                    <Input className={styles.inputs} h='45px' borderRadius='' variant='' w='100%' type='email' value={input} onChange={handleInputChange} />
+                                    <Input className={styles.inputs} h='45px' borderRadius='' variant='' w='100%' type='text' value={input} onChange={handleInputChange} />
                                     {!isError ? "" : (
                                         <FormErrorMessage fontSize='13px'>Please enter City or ZIP Code</FormErrorMessage>
                                     )}

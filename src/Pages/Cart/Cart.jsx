@@ -199,8 +199,8 @@ export default function Cart() {
       return acc + el.totalprice;
     }, 0);
     setSubTotal(a);
-    if (subTotal > 1000) {
-      setShipping(40);
+    if (subTotal < 1000 && subTotal > 0) {
+      setShipping(60);
     } else {
       setShipping(0);
     }
@@ -240,7 +240,7 @@ export default function Cart() {
                         HandleRemove={HandleRemove}
                         HandleSaveForLater={HandleSaveForLater}
                         HandleGiftWrap={HandleGiftWrap}
-                        // openGift={openGift}
+                      // openGift={openGift}
                       />
                     );
                   })}
@@ -316,16 +316,3 @@ export default function Cart() {
     </div>
   );
 }
-
-// {
-//     "image": "https://images.urbndata.com/is/image/Anthropologie/4130370060072_063_b14?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=540",
-//     "flip_image": "https://images.urbndata.com/is/image/Anthropologie/4130370060072_063_b?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=540",
-//     "details": "Our bestselling, best-reviewed dress, ever. Flowy and flattering, sensual and subtle, it's one SMOOTH operator. Make your move: This is our sexiest Somerset yet.",
-//     "color": "MAGENTA",
-//     "name": "The Somerset Maxi Dress",
-//     "price": 170,
-//     "totalprice": 170,
-//     "size": "SM",
-//     "id": 1,
-//     "quantity": 1
-// }

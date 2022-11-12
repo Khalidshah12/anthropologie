@@ -53,6 +53,7 @@
 }
 
 #savedItemInstruction {
+    width: 65%;
     border: 1px solid #E5E2DE;
     padding: 20px 20px 20px 20px;
     color: #5C5C5F;
@@ -102,6 +103,11 @@
     text-align: end;
 }
 
+#itemsTextNone {
+    width: 25%;
+    text-align: end;
+}
+
 #itemsText {
     /* border: 1px solid black; */
     width: 50%;
@@ -117,7 +123,6 @@
 }
 
 .imageDiv {
-    /* border: 1px solid blue; */
     width: 15%;
 }
 
@@ -148,6 +153,18 @@
     height: 100%;
 }
 
+.productsDetailQuantity {
+    width: 25%;
+    /* border: 1px solid black; */
+    height: 100%;
+}
+
+.productsDetailTotalPrice {
+    width: 25%;
+    /* border: 1px solid black; */
+    height: 100%;
+}
+
 .productName {
     margin-bottom: 5px;
 }
@@ -170,12 +187,31 @@
     text-decoration: underline;
 }
 
+#productEdit {
+    line-height: 23.4px;
+    color: #167A92;
+    text-decoration: underline;
+}
+
 .productPrice {
     text-align: end;
 }
 
-.productQuantity {
+.productQuantityFull {
     text-align: end;
+}
+
+.productQuantityDel {
+    text-align: end;
+}
+
+.productQuantity {
+    display: block;
+}
+
+.productQuantityMobile {
+    text-align: end;
+    display: none;
 }
 
 .productTotalPrice {
@@ -233,6 +269,10 @@
     color: #167A92;
     text-decoration: none;
     cursor: pointer;
+}
+
+.moveToCart {
+    border: 1px solid #E5E2DE;
 }
 
 #mainRightDiv {
@@ -377,5 +417,66 @@
         width: 92%;
         margin: auto;
         margin-top: 50px;
+    }
+
+    .imageDiv {
+        width: 25%;
+    }
+
+    .productPrice {
+        display: none;
+    }
+
+    #itemsTextNone {
+        display: none;
+    }
+
+    .productQuantityFull {
+        text-align: end;
+        display: none;
+    }
+
+    .productQuantityMoile {
+        text-align: end;
+        display: block;
+    }
+
+    #productEdit {
+        display: none;
+    }
+
+    .productQuantityMobile {
+        text-align: start;
+        display: block;
+    }
+
+    .productQuantitySelect {
+        width: 50px;
+        height: 35px;
+    }
+
+    .productsDetail {
+        width: 25%;
+        display: none;
+    }
+
+    .productsDetailQuantity {
+        width: 25%;
+    }
+
+    #savedItemInstruction {
+        width: 100%;
+        border: 1px solid #E5E2DE;
+        padding: 20px 20px 20px 20px;
+        color: #5C5C5F;
+        font-size: 13px;
+        margin-bottom: 150px;
+    }
+
+    .savedDiv {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 5fr));
+        justify-items: left;
+        gap: 10px;
     }
 }

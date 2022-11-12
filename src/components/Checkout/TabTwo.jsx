@@ -26,30 +26,30 @@ export default function TabTwo(props) {
                     <Box>
                         <FormControl isInvalid={isError}>
                             <Box display='flex' justifyContent='space-between' w='100%'>
-                                <Box w='32%'>
+                                <Box className={styles.labelWidth32}>
                                     <FormLabel fontSize='13px' fontWeight='normal'>City or ZIP Code*</FormLabel>
                                 </Box>
-                                <Box w='32%'>
+                                <Box className={styles.labelWidth32}>
                                     <FormLabel fontSize='13px' fontWeight='normal'>Distance*</FormLabel>
                                 </Box>
-                                <Box w='32%'>
+                                <Box className={styles.labelWidth32}>
                                     <FormLabel></FormLabel>
                                 </Box>
                             </Box>
-                            <Box display="flex" justifyContent='space-between'>
-                                <Box width='32%'>
+                            <Box id={styles.tabTwo}>
+                                <Box className={styles.width32}>
                                     <Input className={styles.inputs} h='45px' borderRadius='' variant='' w='100%' type='text' value={input} onChange={handleInputChange} />
                                     {!isError ? "" : (
                                         <FormErrorMessage fontSize='13px'>Please enter City or ZIP Code</FormErrorMessage>
                                     )}
                                 </Box>
-                                <Box width='32%'>
+                                <Box className={styles.width32}>
                                     <Select id={styles.selectMi} w='100%' variant=''>
                                         <option value="">25mi.</option>
                                         <option value="">50mi.</option>
                                     </Select>
                                 </Box>
-                                <Box width='32%'>
+                                <Box className={styles.width32}>
                                     <SearchModal
                                         isError={isError}
                                         isSearchLoading={isSearchLoading}

@@ -1,6 +1,10 @@
+import { Input } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { BsSearch } from "react-icons/bs";
+import { AiOutlineShoppingCart, AiFillCaretDown } from "react-icons/ai";
+import Navbar2 from "./Navbar2";
 
 const Navbar = () => {
   return (
@@ -16,7 +20,11 @@ const Navbar = () => {
           </Link>
 
           <li className="dropdown">
-            <a>English($)</a>
+            <div style={{ display: "flex", gap: "5px" }}>
+              <a>English($)</a>
+              <AiFillCaretDown />
+            </div>
+
             <ul className="child-dropdown2">
               <div className="lidiv">
                 <li>Currency</li>
@@ -34,7 +42,7 @@ const Navbar = () => {
           alt="User Logo"
         />
         <Link to="/login">
-          <div>Sign In / Sign In</div>
+          <div>Sign In / Sign Up</div>
         </Link>
       </div>
 
@@ -49,7 +57,7 @@ const Navbar = () => {
               />
             </Link>
             <img
-              className="MainLogo1"
+              className="MainLogo2"
               src="https://images.ctfassets.net/5de70he6op10/y1O9tEDOvCGliGUvT9RoJ/eb8ab4734c5e3778b8b61da70ed441ac/AL_NewLogo_2.svg"
               alt="logomain"
             />
@@ -59,85 +67,34 @@ const Navbar = () => {
           <div
             style={{
               display: "flex",
-              border: "1px solid black",
+              justifyContent: "center",
+              alignItems: "center",
+
+              // border: "1px solid black",
             }}
           >
-            <input
-              className="Input"
+            <Input
+              htmlSize={20}
+              width="auto"
+              justifyContent="center"
+              alignItems="center"
               placeholder="Search Anthropologie"
-              type={"text"}
             />
-            <img
-              style={{ width: "30px" }}
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png"
-              alt=""
-            />
+            <BsSearch size="1.5em" />
           </div>
-          <Link to="/cart">
-            <img
-              style={{ width: "30px" }}
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY8yKOzPgHpmIsQN3vp5u5XrPjigxM0Wk_QLMUnveo&s"
-              alt=""
-            />
+          <Link
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            to="/cart"
+          >
+            <AiOutlineShoppingCart size="1.5em" />
           </Link>
         </div>
       </div>
-      <nav>
-        <ul className="navbar">
-          <li className="dropdown">
-            Gift
-            <ul className="child-dropdown">
-              <a>Shop By Category</a>
-              <div className="hovergrid">
-                <div className="hovergrid1">
-                  <li>Explore All Gifts</li>
-                  <li>Shop All Gifts</li>
-                  <li>Gifts for Her</li>
-                  <li>Candle gift & sets</li>
-                  <li>Holiday ,decor </li>
-                  <li>Stocking suffers</li>
-                  <li>Giftable Sweaters</li>
-                  <li>Giftable Accessories</li>
-                  <li>Gifts for the home</li>
-                  <li>Cozy Gifts ,slippers,Throws</li>
-                  <li>Cold weather Gifts </li>
-                  <li>Beauty gifts and sets</li>
-                  <li>Gifts by Receipts</li>
-                  <li>BestSeling Gifts</li>
-                  <li>Gifts Bundles</li>
-                  <li>Gifts Cards</li>
-                </div>
-
-                <div className="hovergrid2">
-                  <h3>Gifts under price</h3>
-                  <div>
-                    <li>Gifts under 30$</li>
-                    <li>Gifts under 50$ </li>
-                    <li>Gifts under 25$</li>
-                    <li> Gifts under 100$</li>
-                  </div>
-                </div>
-              </div>
-            </ul>
-          </li>
-          <li>New!</li>
-          <Link to={'/clothes/dresses'}>
-            <li>Dresses</li>
-          </Link>
-          <Link to={'/clothes'}>
-            <li>Clothing</li>
-          </Link>
-          <Link to={'/shoes'}>
-          <li>Shoes</li>
-          </Link>
-          <li>Accessories</li>
-          <li>BHLND Weddings</li>
-          <li>Home & Furniture</li>
-          <li>Beauty & wellness</li>
-          <li>Garden & outdoor</li>
-          <li>Sale</li>
-        </ul>
-      </nav>
+      <Navbar2 />
     </header>
   );
 };

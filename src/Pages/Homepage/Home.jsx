@@ -1,16 +1,14 @@
 import React from "react";
 import "./HOme.css";
-import Layout from "../../components/Layout";
+// import Layout from "../../components/Layout";
 import MultipleItems from "./Slider";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
-import Navbar2 from "../../components/Navbar/Navbar2";
+// import Navbar from "../../components/Navbar/Navbar";
+// import Footer from "../../components/Footer/Footer";
+// import Navbar2 from "../../components/Navbar/Navbar2";
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
-
       <div>
         <div className="FirstDiv">
           <img
@@ -126,7 +124,6 @@ const Home = () => {
           party skirts, wide-leg
         </p>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -77,13 +77,13 @@ export default function Cart() {
       .get(`https://emptyapi.onrender.com/cart/${id}`)
       .then((r) => {
         axios
- 
+
           .post(`http://localhost:8080/savedforlater`, r.data)
           .then((r) => {})
- 
+
           .post(`https://emptyapi.onrender.com/savedforlater`, r.data)
-          .then((r) => { })
- 
+          .then((r) => {})
+
           .catch((e) => {
             console.log(e);
           });
@@ -121,7 +121,7 @@ export default function Cart() {
       .then((r) => {
         axios
           .post(`https://emptyapi.onrender.com/cart`, r.data)
-          .then((r) => { })
+          .then((r) => {})
           .catch((e) => {
             console.log(e);
           });
@@ -140,7 +140,7 @@ export default function Cart() {
           console.log(e);
         });
     }, 1000);
-  }
+  };
 
   const HandlePromoCode = () => {
     setPromo(!promo);
@@ -244,7 +244,7 @@ export default function Cart() {
   }, [cart, shipping, subTotal, canPromoApply]);
 
   return (
-    <Layout>
+    <div>
       <Box id={styles.mainDiv}>
         <Box id={styles.basketDiv}>
           <Box id={styles.mainLeftDiv}>
@@ -272,7 +272,7 @@ export default function Cart() {
                         HandleRemove={HandleRemove}
                         HandleSaveForLater={HandleSaveForLater}
                         HandleGiftWrap={HandleGiftWrap}
-                      // openGift={openGift}
+                        // openGift={openGift}
                       />
                     );
                   })}
@@ -335,17 +335,21 @@ export default function Cart() {
                       <Button
                         onClick={() => MoveToCart(item.id)}
                         className={styles.moveToCart}
-                        w='100%'
-                        variant=''
-                        borderRadius=''
-                        backgroundColor={cart.length > 0 ? '#4B5666' : "rgb(206, 206, 206)"}
+                        w="100%"
+                        variant=""
+                        borderRadius=""
+                        backgroundColor={
+                          cart.length > 0 ? "#4B5666" : "rgb(206, 206, 206)"
+                        }
                         color={"white"}
                         _hover={{
                           backgroundColor: "white",
                           border: "1px solid black",
-                          color: "#4B5666"
+                          color: "#4B5666",
                         }}
-                      >Move to Cart</Button>
+                      >
+                        Move to Cart
+                      </Button>
                     </Box>
                   );
                 })}
@@ -359,10 +363,6 @@ export default function Cart() {
           </Box>
         </Box>
       </Box>
- 
-    </Layout>
- 
-    </div >
- 
+    </div>
   );
 }

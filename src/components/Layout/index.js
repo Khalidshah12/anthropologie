@@ -1,13 +1,16 @@
 import React from "react";
-import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
+// import Footer from "../Footer/Footer";
+// import Navbar from "../Navbar/Navbar";
 
 const Layout = (props) => {
   return (
     <div>
+      {/* <Navbar />
+ 
       <Navbar/>
+ 
       {props.children}
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };

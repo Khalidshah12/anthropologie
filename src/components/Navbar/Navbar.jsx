@@ -2,8 +2,10 @@ import { Input } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { FaBeer } from "react-icons/fa";
+import { BsSearch } from "react-icons/bs";
+import { AiOutlineShoppingCart, AiFillCaretDown } from "react-icons/ai";
 import Navbar2 from "./Navbar2";
+
 const Navbar = () => {
   return (
     <header>
@@ -18,7 +20,11 @@ const Navbar = () => {
           </Link>
 
           <li className="dropdown">
-            <a>English($)</a>
+            <div style={{ display: "flex", gap: "5px" }}>
+              <a>English($)</a>
+              <AiFillCaretDown />
+            </div>
+
             <ul className="child-dropdown2">
               <div className="lidiv">
                 <li>Currency</li>
@@ -36,7 +42,7 @@ const Navbar = () => {
           alt="User Logo"
         />
         <Link to="/login">
-          <div>Sign In / Sign In</div>
+          <div>Sign In / Sign Up</div>
         </Link>
       </div>
 
@@ -61,6 +67,9 @@ const Navbar = () => {
           <div
             style={{
               display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+
               // border: "1px solid black",
             }}
           >
@@ -71,18 +80,21 @@ const Navbar = () => {
               alignItems="center"
               placeholder="Search Anthropologie"
             />
-            <FaBeer size="2em" />
+            <BsSearch size="1.5em" />
           </div>
-          <Link to="/cart">
-            <img
-              style={{ width: "50px" }}
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY8yKOzPgHpmIsQN3vp5u5XrPjigxM0Wk_QLMUnveo&s"
-              alt=""
-            />
+          <Link
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            to="/cart"
+          >
+            <AiOutlineShoppingCart size="1.5em" />
           </Link>
         </div>
       </div>
- 
+      <Navbar2 />
     </header>
   );
 };

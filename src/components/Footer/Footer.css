@@ -6,11 +6,14 @@
   margin-top: 50px;
   justify-content: space-around;
   margin-bottom: 10px;
+  letter-spacing: 0.6px;
+  font: 600;
 }
 .firstt {
   border: 1px solid #5c5c5f;
   margin: auto;
-
+  letter-spacing: 0.6px;
+  font: 600;
   margin-top: 50px;
   background-color: #00000008;
 }
@@ -19,6 +22,8 @@
   width: 80%;
   margin: auto;
   margin-top: 15px;
+  letter-spacing: 0.6px;
+  font: 600;
 }
 .firstly {
   width: 50%;
@@ -44,10 +49,13 @@
   /* border: 1px solid blue; */
   background-color: #000000;
   color: white;
+  letter-spacing: 0.6px;
+  font: 600;
 }
-.firstly > button :hover {
+.hello > .firstly1 > button:hover {
   background-color: white;
   color: #000000;
+  border: 1px solid black;
 }
 .footer {
   display: flex;
@@ -58,12 +66,16 @@
   padding: 20px;
   list-style: none;
   margin-top: 40px;
+  letter-spacing: 0.6px;
+  font: 600;
 }
 
 .Box1 > ul {
   /* border: 1px solid red; */
   display: flex;
   margin-top: 10px;
+  letter-spacing: 0.6px;
+  font: 600;
 }
 .Box > p {
   /* border: 1px solid red; */
@@ -72,6 +84,8 @@
   margin-bottom: 20px;
   align-items: center;
   font: 18px "Times New Roman";
+  letter-spacing: 0.6px;
+  font: 600;
 }
 .Box > ul {
   /* border: 1px solid red; */
@@ -82,6 +96,8 @@
   align-items: center;
   font-weight: 400;
   font: 15px "Times New Roman";
+  letter-spacing: 0.6px;
+  font: 600;
 }
 .logos {
   width: 25px;
@@ -113,12 +129,16 @@
   margin-top: 20px;
   color: #000000;
   font: 15px "Times New Roman";
+  letter-spacing: 0.6px;
+  font: 600;
 }
 .footerEnd {
   display: flex;
   /* border: 1px solid red; */
   margin-top: 35px;
   justify-content: space-between;
+  letter-spacing: 0.6px;
+  font: 600;
 }
 .footerpart {
   display: flex;
@@ -129,11 +149,15 @@
   font: 15px "Times New Roman";
   color: #167a92;
   padding: 10px;
+  letter-spacing: 0.6px;
+  font: 600;
 }
 .last {
   display: flex;
   justify-content: flex-end;
   /* border: 1px solid red; */
+  letter-spacing: 0.6px;
+  font: 600;
   padding: 10px;
   margin-top: 20px;
   font: 15px "Times New Roman";

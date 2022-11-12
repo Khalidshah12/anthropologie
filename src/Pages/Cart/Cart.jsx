@@ -10,6 +10,7 @@ import { getCartData } from "../../Redux/AppReducer/action";
 import DeliveryModal from "../../components/Cart/DeliveryModal";
 import OrderSummary from "../../components/Cart/OrderSummary";
 import { SaveLocal } from "../../Utilis/localStorage";
+import Layout from "../../components/Layout";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export default function Cart() {
   const [promo, setPromo] = useState(false);
   const [canPromoApply, setCanPromoApply] = useState(true);
   const [promoValue, setPromovalue] = useState("");
-  const [estimatedTax] = useState(0)
+  const [estimatedTax] = useState(0);
   const toast = useToast();
 
   const addQuantity = (id, quantity, price) => {
@@ -76,8 +77,13 @@ export default function Cart() {
       .get(`https://emptyapi.onrender.com/cart/${id}`)
       .then((r) => {
         axios
+ 
+          .post(`http://localhost:8080/savedforlater`, r.data)
+          .then((r) => {})
+ 
           .post(`https://emptyapi.onrender.com/savedforlater`, r.data)
           .then((r) => { })
+ 
           .catch((e) => {
             console.log(e);
           });
@@ -193,13 +199,13 @@ export default function Cart() {
         subTotal: subTotal,
         shipping: shipping,
         estimatedTax: estimatedTax,
-        total: total
-      }
-      SaveLocal("amoutDetails", amoutDetails)
+        total: total,
+      };
+      SaveLocal("amoutDetails", amoutDetails);
       if (!canPromoApply) {
-        SaveLocal("discount", "50%")
+        SaveLocal("discount", "50%");
       } else {
-        SaveLocal("discount", "$0.00")
+        SaveLocal("discount", "$0.00");
       }
       navigate("/checkout/shipping-address");
     }
@@ -210,7 +216,6 @@ export default function Cart() {
     // let gift = cart.map((el) => {
     //   return el.id === id;
     // });
-
     // setOpenGift(gift);
     // console.log(gift);
   };
@@ -239,7 +244,7 @@ export default function Cart() {
   }, [cart, shipping, subTotal, canPromoApply]);
 
   return (
-    <div>
+    <Layout>
       <Box id={styles.mainDiv}>
         <Box id={styles.basketDiv}>
           <Box id={styles.mainLeftDiv}>
@@ -354,6 +359,10 @@ export default function Cart() {
           </Box>
         </Box>
       </Box>
+ 
+    </Layout>
+ 
     </div >
+ 
   );
 }

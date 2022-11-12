@@ -5,10 +5,15 @@ import "./Navbar.css";
 import { BsSearch } from "react-icons/bs";
 import { AiOutlineShoppingCart, AiFillCaretDown } from "react-icons/ai";
 import Navbar2 from "./Navbar2";
+import Layout from "../Layout";
 
 const Navbar = () => {
   return (
     <header>
+      <img
+        src="https://images.ctfassets.net/5de70he6op10/73vpJWzKmWO1fT2HwJ3p4B/b42cab1aedaef564d46e96fbd1cccaa0/Nov22_30Off_SOS_PrimaryBanner_LS_ThisWeekendOnly.jpg"
+        alt=""
+      />
       <div className="NavbarFirst">
         <div className="globeSearch">
           <Link to="/">

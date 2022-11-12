@@ -9,7 +9,7 @@ const Navbar2 = () => {
       </label>
       <ul class="menu">
         <li>
-          <a>Gifts</a>
+          <a className="Gifts">Gifts</a>
         </li>
         <li>
           <a>New!</a>

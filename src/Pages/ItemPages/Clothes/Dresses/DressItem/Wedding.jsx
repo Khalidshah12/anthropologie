@@ -2,37 +2,37 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getwedding } from "../../../../../Redux/AppReducer/action";
-// import { wedding } from "../../../../../db";
+import { wedding } from "../../../../../db";
 import { useMediaQuery } from "@chakra-ui/react";
 import { Box, Image, Text } from "@chakra-ui/react";
 import Sidebar from "../../../Sidebar";
-import Navbar from "../../../../../components/Navbar/Navbar";
-import Footer from "../../../../../components/Footer/Footer";
+// import Navbar from "../../../../../components/Navbar/Navbar";
+// import Footer from "../../../../../components/Footer/Footer";
 const img =
   "https://images.ctfassets.net/5de70he6op10/2PdLAuxgF5OpC2u5ui2aWf/14997170d64fc963f8e24284f3874725/070822_WeddingDressGateway_SS_01_copy.jpg?w=1125&q=80&fm=webp";
 
 function Wedding() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [isMobile] = useMediaQuery("(max-width: 600px)");
-  console.log(isMobile);
+  // console.log(isMobile);
 
-  const { wedding, isLoading, isError } = useSelector((state) => {
-    return {
-      wedding: state.AppReducer.wedding,
-      isError:state.AppReducer.isError,
-      isLoading:state.AppReducer.isLoading
-    };
-  });
+  // const { wedding, isLoading, isError } = useSelector((state) => {
+  //   return {
+  //     wedding: state.AppReducer.wedding,
+  //     isError:state.AppReducer.isError,
+  //     isLoading:state.AppReducer.isLoading
+  //   };
+  // });
 
-  console.log(wedding);
+  // console.log(wedding);
 
-  useEffect(() => {
-    dispatch(getwedding);
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getwedding);
+  // }, []);
 
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <Box mt={"30px"}>
         {isMobile ? (
           <Box
@@ -188,7 +188,7 @@ function Wedding() {
           </Box>
         )}
       </Box>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   );
 }

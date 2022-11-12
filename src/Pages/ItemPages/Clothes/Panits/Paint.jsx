@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom';
 import { Box, Text, Select, Image } from "@chakra-ui/react";
 import Sidebar from "../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import Navbar from "../../../../components/Navbar/Navbar";
-import Footer from "../../../../components/Footer/Footer";
+// import Navbar from "../../../../components/Navbar/Navbar";
+// import Footer from "../../../../components/Footer/Footer";
 import {wideleg} from '../../../../db';
 import {workpaints} from '../../../../db';
 import WorkPaintCard from './PanitItem/WorkPaintCard';
@@ -68,7 +68,7 @@ function Paint() {
   );
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <Box>
         {paintsBox}
         <Box mt={"30px"}>
@@ -175,7 +175,7 @@ function Paint() {
     </Box>
   </Box>
       </Box>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   )
 }

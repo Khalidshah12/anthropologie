@@ -16,7 +16,7 @@ const Navbar = () => {
           </Link>
 
           <li className="dropdown">
-            <a>English($)</a>
+            <a href="#">English($)</a>
             <ul className="child-dropdown2">
               <div className="lidiv">
                 <li>Currency</li>

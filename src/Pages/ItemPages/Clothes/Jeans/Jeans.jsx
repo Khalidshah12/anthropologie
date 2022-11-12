@@ -3,8 +3,8 @@ import React from "react";
 import { Box, Text, Select, Image, Center } from "@chakra-ui/react";
 import Sidebar from "../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import Navbar from "../../../../components/Navbar/Navbar";
-import Footer from "../../../../components/Footer/Footer";
+// import Navbar from "../../../../components/Navbar/Navbar";
+// import Footer from "../../../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import {bootcut, boyfriend, flare} from '../../../../db';
 import {wideleg} from '../../../../db';
@@ -176,7 +176,7 @@ function Jeans() {
   );
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Box>{jeansBox}</Box>
       <Box mt={"30px"}>
         <Box width={"90%"} m="auto">
@@ -275,7 +275,7 @@ function Jeans() {
           </Box>
         </Box>
       </Box>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

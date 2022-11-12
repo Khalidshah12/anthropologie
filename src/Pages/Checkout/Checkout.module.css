@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     letter-spacing: 0.6px;
-    padding-bottom: 100px;
+    padding-top: 20px;
 }
 
 #left {
@@ -97,7 +97,7 @@ form {
 
 #right {
     /* border: 1px solid black; */
-    position: fixed;
-    width: 28%;
-    right: 4%;
+    /* position: fixed; */
+    width: 30%;
+    /* right: 4%; */
 }

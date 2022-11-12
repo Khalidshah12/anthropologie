@@ -1,14 +1,14 @@
-import { Box, Heading, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
+import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { BsBoxSeam, BsShop } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import CheckoutOrderSummary from '../../components/Cart/CheckoutOrderSummary'
+import CheckoutOrderSummary from '../../components/Checkout/CheckoutOrderSummary'
 import TabOne from '../../components/Checkout/TabOne'
 import TabTwo from '../../components/Checkout/TabTwo'
 import { getCartData } from '../../Redux/AppReducer/action'
 import { countryAndCode } from '../../Utilis/countryAndCode'
-import { GetLocal } from '../../Utilis/localStorage'
+import { GetLocal, SaveLocal } from '../../Utilis/localStorage'
 import styles from './Checkout.module.css'
 
 export default function Checkout() {
@@ -22,7 +22,7 @@ export default function Checkout() {
     const amoutDetails = GetLocal("amoutDetails") || {}
     const [country] = useState(countryAndCode)
     const [countryCode, setCountryCode] = useState(93)
-    const [formData, setFormData] = useState({
+    let [formData, setFormData] = useState({
         firstName: "", lastName: "", streetAddress: "", city: "", postcode: "", mobileNumber: ""
     })
 
@@ -52,7 +52,10 @@ export default function Checkout() {
     const HandleProceed = () => {
         if (amoutDetails.total > 0) {
             if (!isFormError) {
-                navigate('/')
+                formData = { ...formData, countryCode }
+                SaveLocal("address", formData)
+                SaveLocal('countryCode', countryCode)
+                navigate('/checkout/shipping-delivery')
             }
         }
     }
@@ -72,11 +75,8 @@ export default function Checkout() {
         document.title = "Shipping | Anthropologie"
     }, [dispatch])
 
-    console.log(cart)
-
     return (
         <div>
-            <Heading>Checkout</Heading>
             <Box id={styles.main}>
                 <Box id={styles.left}>
                     <Tabs w="100%">

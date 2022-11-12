@@ -10,19 +10,19 @@ const initialState = {
   isCartError: false,
   wedding :[],
   casualData:[],
-  formal:[],
-  party:[],
-  paint:[],
-  workpaint:[],
-  bootcut:[],
-  boyfriend:[],
-  skinny:[],
-  straight:[],
-  wideleg:[],
-  flare:[],
-  birkenstock:[],
-  embleshed:[],
-  sneaker:[],
+  formalData:[],
+  partyData:[],
+  paintData:[],
+  workpaintData:[],
+  bootcutData:[],
+  boyfriendData:[],
+  skinnyData:[],
+  straightData:[],
+  widelegData:[],
+  flareData:[],
+  birkenstockData:[],
+  embleshedData:[],
+  sneakerData:[],
   singlepage:getItem("singlepage")||[],
 };
 
@@ -139,7 +139,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-          formal: [],
+          formalData: [],
         };
       }
       case types.GET_FORMAL_DATA_SUCCESS: {
@@ -147,7 +147,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-          formal:payload,
+          formalData:payload,
         };
       }
       case types.GET_FORMAL_DATA_FAILURE: {
@@ -155,7 +155,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-          formal:[],
+          formalData:[],
         };
       }
 
@@ -165,7 +165,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-          party: [],
+          partyData: [],
         };
       }
       case types.GET_PARTY_DATA_SUCCESS: {
@@ -173,7 +173,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-          party:payload,
+          partyData:payload,
         };
       }
       case types.GET_PARTY_DATA_FAILURE: {
@@ -181,7 +181,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-          party:[],
+          partyData:[],
         };
       }
     //   paint fress
@@ -190,7 +190,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-        paint: [],
+        paintData: [],
         };
       }
       case types.GET_PAINT_DATA_SUCCESS: {
@@ -198,7 +198,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-        paint:payload,
+          paintData:payload,
         };
       }
       case types.GET_PAINT_DATA_FAILURE: {
@@ -206,7 +206,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-        paint:[],
+          paintData:[],
         };
       }
 
@@ -216,7 +216,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-        workpaint: [],
+        workpaintData: [],
         };
       }
       case types.GET_WORKPAINT_DATA_SUCCESS: {
@@ -224,7 +224,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-        workpaint:payload,
+          workpaintData:payload,
         };
       }
       case types.GET_WORKPAINT_DATA_FAILURE: {
@@ -232,7 +232,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-        workpaint:[],
+          workpaintData:[],
         };
       }
 
@@ -243,7 +243,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-        bootcut: [],
+        bootcutData: [],
         };
       }
       case types.GET_BOOTCUT_DATA_SUCCESS: {
@@ -251,7 +251,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-        bootcut:payload,
+          bootcutData:payload,
         };
       }
       case types.GET_BOOTCUT_DATA_FAILURE: {
@@ -259,7 +259,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-        bootcut:[],
+          bootcutData:[],
         };
       }
     //   boyfriends
@@ -268,7 +268,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-        boyfriend: [],
+        boyfriendData: [],
         };
       }
       case types.GET_BOYFRIEND_DATA_SUCCESS: {
@@ -276,7 +276,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-        boyfriend:payload,
+          boyfriendData:payload,
         };
       }
       case types.GET_BOYFRIEND_DATA_FAILURE: {
@@ -284,7 +284,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-        boyfriend:[],
+          boyfriendData:[],
         };
       }
 
@@ -294,7 +294,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-            skinny: [],
+            skinnyData: [],
         };
       }
       case types.GET_SKINNY_DATA_SUCCESS: {
@@ -302,7 +302,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-            skinny:payload,
+          skinnyData:payload,
         };
       }
       case types.GET_SKINNY_DATA_FAILURE: {
@@ -310,7 +310,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-            skinny:[],
+          skinnyData:[],
         };
       }
     //   STRAIGHT
@@ -319,7 +319,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-           straight: [],
+           straightData: [],
         };
       }
       case types.GET_STRAIGHT_DATA_SUCCESS: {
@@ -327,7 +327,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-           straight:payload,
+          straightData:payload,
         };
       }
       case types.GET_STRAIGHT_DATA_FAILURE: {
@@ -335,7 +335,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-           straight:[],
+          straightData:[],
         };
       }
     //   wideleg
@@ -344,7 +344,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-        wideleg: [],
+        widelegData: [],
         };
       }
       case types.GET_WIDELEG_DATA_SUCCESS: {
@@ -352,7 +352,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-        wideleg:payload,
+          widelegData:payload,
         };
       }
       case types.GET_WIDELEG_DATA_FAILURE: {
@@ -360,7 +360,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-        wideleg:[],
+          widelegData:[],
         };
       }
 
@@ -371,7 +371,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-        flare: [],
+        flareData: [],
         };
       }
       case types.GET_FLARE_DATA_SUCCESS: {
@@ -379,7 +379,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-        flare:payload,
+          flareData:payload,
         };
       }
       case types.GET_FLARE_DATA_FAILURE: {
@@ -387,7 +387,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-        flare:[],
+          flareData:[],
         };
       }
     //   birkenstock
@@ -396,7 +396,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-        birkenstock: [],
+        birkenstockData: [],
         };
       }
       case types.GET_BIRKENSTOCK_DATA_SUCCESS: {
@@ -404,7 +404,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-        birkenstock:payload,
+          birkenstockData:payload,
         };
       }
       case types.GET_BIRKENSTOCK_DATA_FAILURE: {
@@ -412,7 +412,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-        birkenstock:[],
+          birkenstockData:[],
         };
       }
     // embleshed
@@ -421,7 +421,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-        embleshed: [],
+        embleshedData: [],
         };
       }
       case types.GET_EMBLESHED_DATA_SUCCESS: {
@@ -429,7 +429,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-        embleshed:payload,
+          embleshedData:payload,
         };
       }
       case types.GET_EMBLESHED_DATA_FAILURE: {
@@ -437,7 +437,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-        embleshed:[],
+          embleshedData:[],
         };
       }
     // sneaker
@@ -446,7 +446,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-        sneaker: [],
+        sneakerData: [],
         };
       }
       case types.GET_SNEAKER_DATA_SUCCESS: {
@@ -454,7 +454,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-        sneaker:payload,
+          sneakerData:payload,
         };
       }
       case types.GET_SNEAKER_DATA_FAILURE: {
@@ -462,7 +462,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-        sneaker:[],
+          sneakerData:[],
         };
       }
     default:

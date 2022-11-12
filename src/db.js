@@ -9327,7 +9327,7 @@ export const formal_dress = [
   },
 ];
 
-export const flarejean = [
+export const flarejeans = [
   {
     quantity: 1,
     totalprice: 111,

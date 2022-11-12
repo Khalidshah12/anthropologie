@@ -3,8 +3,8 @@ import React from "react";
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
-import Navbar from "../../../../../components/Navbar/Navbar";
-import Footer from "../../../../../components/Footer/Footer";
+// import Navbar from "../../../../../components/Navbar/Navbar";
+// import Footer from "../../../../../components/Footer/Footer";
 
 import { wideleg } from "../../../../../db";
 import { Box, Text, Select } from "@chakra-ui/react";
@@ -13,7 +13,7 @@ import WidelegCard from "./WidelegCard";
 function WideLeg() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Box mt={"30px"}>
         <Box width={"90%"} m="auto">
           <Box
@@ -111,7 +111,7 @@ function WideLeg() {
           </Box>
         </Box>
       </Box>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

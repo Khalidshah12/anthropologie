@@ -76,9 +76,9 @@ export default function SearchModal(props) {
                                                 border: !isSearchError ? "1px solid black" : "none",
                                                 color: !isSearchError ? "#4B5666" : "white"
                                             }}
-                                            isLoading={isLoading}
                                             colorScheme='teal'
                                             variant='outline'
+                                            isLoading={isLoading}
                                             spinnerPlacement='start'
                                             mt='15px'
                                             mb='15px'

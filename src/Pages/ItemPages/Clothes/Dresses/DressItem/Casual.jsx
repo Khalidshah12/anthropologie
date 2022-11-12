@@ -6,15 +6,15 @@ import { casual } from "../../../../../db";
 import Sidebar from "../../../Sidebar";
 import Pagination from "../../../Pagination";
 import Filter from "../../../Filter";
-import Navbar from "../../../../../components/Navbar/Navbar";
-import Footer from "../../../../../components/Footer/Footer";
+// import Navbar from "../../../../../components/Navbar/Navbar";
+// import Footer from "../../../../../components/Footer/Footer";
 import CasualCard from "./CasualCard";
 
 function Casual() {
  
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Box mt={"30px"}>
         <Box width={"90%"} m="auto">
@@ -73,7 +73,7 @@ function Casual() {
         </Box>
       </Box>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

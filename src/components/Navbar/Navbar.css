@@ -172,6 +172,7 @@ a {
   /* position: fixed;
   width: 100%;
   z-index: 3; */
+  /* border: 1px solid red; */
 }
 
 .header ul {
@@ -207,7 +208,6 @@ a {
   max-height: 0;
   transition: max-height 0.2s ease-out;
 
-  margin-top: 30px;
   margin-bottom: 30px;
 }
 

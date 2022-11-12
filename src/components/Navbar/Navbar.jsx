@@ -5,6 +5,7 @@ import "./Navbar.css";
 import { BsSearch } from "react-icons/bs";
 import { AiOutlineShoppingCart, AiFillCaretDown } from "react-icons/ai";
 import Navbar2 from "./Navbar2";
+import Layout from "../Layout";
 
 const Navbar = () => {
   return (

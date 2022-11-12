@@ -70,6 +70,13 @@
   gap: 25px;
   margin-top: 40px;
 }
+.Hi,
+.p {
+  /* border: 1px solid red; */
+  letter-spacing: 0.6px;
+  font: 600;
+  text-align: center;
+}
 .ourMission {
   width: 90%;
   margin: auto;

@@ -7,10 +7,11 @@
   color: #167a92;
   padding: 0px 60px;
   list-style: none;
+  background-color: #00000009;
 }
 .globeSearch {
   display: flex;
-
+  /* border: 1px solid red; */
   justify-content: center;
   align-items: center;
 }
@@ -31,13 +32,12 @@
   justify-content: flex-start;
   text-align: center;
 }
-.MainLogo1 {
-  padding: 0px 25px;
+.MainLogo1,
+.MainLogo2 {
   height: 50px;
-  width: 300px;
+  width: 200px;
   border: 1px solid rgba(0, 0, 0, 0.183);
-
-  text-align: center;
+  /* border: 1px solid red; */
 }
 
 .lidiv {
@@ -46,6 +46,7 @@
 
   font: 14px Roboto, sans-serif;
   padding: 30px;
+  /* border: 1px solid red; */
 }
 .Input {
   padding: 10px;
@@ -62,6 +63,7 @@
 .Navbar1 {
   display: flex;
   justify-content: flex-start;
+  /* border: 1px solid red; */
 }
 .SerachNavbar {
   display: flex;
@@ -104,4 +106,38 @@
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.183);
   line-height: 40px;
+}
+/* here seconds */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .NavbarFirst {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid green; */
+    font: 15px "Avenir Book ", sans-serif;
+    color: #167a92;
+    padding: 0px 60px;
+    list-style: none;
+    background-color: #00000009;
+  }
+  .Navbars {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    /* border: 1px solid red; */
+    margin-top: 10px;
+    /*  */
+  }
+  .MainLogo {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+  }
+  .SerachNavbar {
+    display: flex;
+    justify-content: flex-start;
+    /* border: 1px solid red; */
+    gap: 20px;
+    margin-right: 20px;
+  }
 }

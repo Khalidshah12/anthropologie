@@ -1,5 +1,4 @@
 import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
-import { Box, Heading, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { BsBoxSeam, BsShop } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'

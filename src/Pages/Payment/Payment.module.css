@@ -1,0 +1,185 @@
+#main {
+    width: 92%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+#left {
+    width: 65%;
+}
+
+#inputsMainDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#labelsDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#width40 {
+    width: 40%;
+}
+
+#width30 {
+    width: 30%;
+}
+
+#width20 {
+    width: 20%;
+}
+
+#width5 {
+    width: 5%;
+}
+
+#creditCard {
+    padding: 20px 20px 20px 20px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+#creditCardRight {
+    margin-left: 10px;
+    width: 100%;
+}
+
+#cashOnDelivery {
+    padding: 20px 20px 20px 20px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+#cashOnDeliveryRight {
+    margin-left: 10px;
+    width: 100%;
+}
+
+#cardImagesDiv {
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.cardImages {
+    width: 35px;
+    margin-right: 10px;
+}
+
+.inputs {
+    width: 100%;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 10px 10px 10px 10px;
+    letter-spacing: 0.6px;
+    color: #5C5C5F;
+}
+
+.inputs::placeholder {
+    color: #c7c7c7;
+}
+
+.deliveryText {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+#change {
+    text-decoration: underline;
+    color: #167A92;
+    font-weight: 400;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#right {
+    width: 30%;
+}
+
+@media screen and (max-width:1024px) and (min-width:768px) {
+    #main {
+        display: block;
+    }
+
+    #left {
+        width: 92%;
+        margin: auto;
+    }
+
+    #right {
+        width: 92%;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width:767px) and (min-width:320px) {
+    #main {
+        display: block;
+    }
+
+    #left {
+        width: 92%;
+        margin: auto;
+    }
+
+    #right {
+        width: 92%;
+        margin: auto;
+    }
+
+    #cardImagesDiv{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 3px;
+    }
+
+    #inputsMainDiv {
+        display: block;
+    }
+
+    #labelsDiv {
+        display: none;
+    }
+
+    #width40 {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    #width30 {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    #width20 {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    #width5 {
+        display: none;
+    }
+
+    #creditCard {
+        padding: 10px 10px 10px 10px;
+    }
+    
+    #creditCardRight {
+        margin-left: 10px;
+        width: 100%;
+    }
+    
+    #cashOnDelivery {
+        padding: 10px 10px 10px 10px;
+    }
+}

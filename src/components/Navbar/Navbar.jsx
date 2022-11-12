@@ -1,8 +1,7 @@
+import { Input } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import {useNavigate} from 'react-router-dom'
-import { useState } from "react";
 
 import { authentication } from "../../firebase/firebase_config";
 import { RecaptchaVerifier  } from "firebase/auth";
@@ -237,6 +236,10 @@ const Navbar = () => {
 
   return (
     <header>
+      <img
+        src="https://images.ctfassets.net/5de70he6op10/73vpJWzKmWO1fT2HwJ3p4B/b42cab1aedaef564d46e96fbd1cccaa0/Nov22_30Off_SOS_PrimaryBanner_LS_ThisWeekendOnly.jpg"
+        alt=""
+      />
       <div className="NavbarFirst">
         <div className="globeSearch">
           <Link to="/">
@@ -248,7 +251,11 @@ const Navbar = () => {
           </Link>
 
           <li className="dropdown">
-            <a>English($)</a>
+            <div style={{ display: "flex", gap: "5px" }}>
+              <a>English($)</a>
+              <AiFillCaretDown />
+            </div>
+
             <ul className="child-dropdown2">
               <div className="lidiv">
                 <li>Currency</li>
@@ -265,43 +272,9 @@ const Navbar = () => {
           src="https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg"
           alt="User Logo"
         />
-        <Box>
-          <Box
-            ref={finalRef}
-            tabIndex={-1}
-            aria-label="Focus moved to this box"
-          ></Box>
-          <Box mt={4}>
-            <Box mt={4} onClick={onOpen} cursor="pointer">
-              Sign In / Sign In
-            </Box>
-          </Box>
-
-          <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
-            <ModalOverlay />
-            <ModalContent background="rgb(253,253,249)">
-              <ModalHeader>
-                {" "}
-                <Center fontSize={"22px"} mt="50px">
-                  {!show ? "Create An Account" : "Sign In"}
-                </Center>
-              </ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
-                <Text textAlign={"center"}>
-                  Welcome to Anthropologie! It's quick and easy to set up an
-                  account.
-                </Text>
-                <Box mt={"30px"} mb="30px">
-                  {display}
-                </Box>
-              </ModalBody>
-            </ModalContent>
-          </Modal>
-          <Center>
-            <Box id="recaptcha-box"></Box>
-          </Center>
-        </Box>
+        <Link to="/login">
+          <div>Sign In / Sign In</div>
+        </Link>
       </div>
 
       <div className="Navbars">
@@ -315,7 +288,7 @@ const Navbar = () => {
               />
             </Link>
             <img
-              className="MainLogo1"
+              className="MainLogo2"
               src="https://images.ctfassets.net/5de70he6op10/y1O9tEDOvCGliGUvT9RoJ/eb8ab4734c5e3778b8b61da70ed441ac/AL_NewLogo_2.svg"
               alt="logomain"
             />
@@ -325,26 +298,30 @@ const Navbar = () => {
           <div
             style={{
               display: "flex",
-              border: "1px solid black",
+              justifyContent: "center",
+              alignItems: "center",
+
+              // border: "1px solid black",
             }}
           >
-            <input
-              className="Input"
+            <Input
+              htmlSize={20}
+              width="auto"
+              justifyContent="center"
+              alignItems="center"
               placeholder="Search Anthropologie"
-              type={"text"}
             />
-            <img
-              style={{ width: "30px" }}
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png"
-              alt=""
-            />
+            <BsSearch size="1.5em" />
           </div>
-          <Link to="/cart">
-            <img
-              style={{ width: "30px" }}
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY8yKOzPgHpmIsQN3vp5u5XrPjigxM0Wk_QLMUnveo&s"
-              alt=""
-            />
+          <Link
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            to="/cart"
+          >
+            <AiOutlineShoppingCart size="1.5em" />
           </Link>
         </div>
       </div>
@@ -387,14 +364,14 @@ const Navbar = () => {
             </ul>
           </li>
           <li>New!</li>
-          <Link to={"/clothes/dresses"}>
+          <Link to={'/clothes/dresses'}>
             <li>Dresses</li>
           </Link>
-          <Link to={"/clothes"}>
+          <Link to={'/clothes'}>
             <li>Clothing</li>
           </Link>
-          <Link to={"/shoes"}>
-            <li>Shoes</li>
+          <Link to={'/shoes'}>
+          <li>Shoes</li>
           </Link>
           <li>Accessories</li>
           <li>BHLND Weddings</li>

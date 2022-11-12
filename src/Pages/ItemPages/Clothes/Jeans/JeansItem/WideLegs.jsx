@@ -5,14 +5,14 @@ import { Box, Text, Select, } from "@chakra-ui/react";
 import {wideleg} from '../../../../../db';
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import Navbar from "../../../../../components/Navbar/Navbar";
-import Footer from "../../../../../components/Footer/Footer";
+// import Navbar from "../../../../../components/Navbar/Navbar";
+// import Footer from "../../../../../components/Footer/Footer";
 import WidelegsCard from './WidelegsCard';
 
 function WideLegs() {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <Box mt={"30px"}>
       <Box width={"90%"} m="auto">
         <Box
@@ -117,7 +117,7 @@ function WideLegs() {
         </Box>
       </Box>
     </Box>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }

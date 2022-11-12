@@ -4,14 +4,14 @@ import { bootcut } from "../../../../../db";
 import { Box, Text, Select, Image } from "@chakra-ui/react";
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import Navbar from "../../../../../components/Navbar/Navbar";
-import Footer from "../../../../../components/Footer/Footer";
+// import Navbar from "../../../../../components/Navbar/Navbar";
+// import Footer from "../../../../../components/Footer/Footer";
 import BootcutCard from "./BootcutCard";
 
 function Bootcut() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Box mt={"30px"}>
         <Box width={"90%"} m="auto">
@@ -110,7 +110,7 @@ function Bootcut() {
           </Box>
         </Box>
       </Box>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

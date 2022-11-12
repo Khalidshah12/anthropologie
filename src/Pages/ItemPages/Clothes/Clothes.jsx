@@ -4,8 +4,8 @@ import { Box, Text, Select, } from "@chakra-ui/react";
 import Sidebar from "../Sidebar";
 
 import { Link } from "react-router-dom";
-import Navbar from "../../../components/Navbar/Navbar";
-import Footer from "../../../components/Footer/Footer";
+// import Navbar from "../../../components/Navbar/Navbar";
+// import Footer from "../../../components/Footer/Footer";
 import { casual } from "../../../db";
 import {party} from '../../../db';
 import {flare} from '../../../db';
@@ -129,7 +129,7 @@ function Clothes() {
   );
   return (
     <Box>
-      <Navbar/>
+      {/* <Navbar/> */}
       <Box>{clothesBox}</Box>
       <Box mt={"30px"}>
         <Box width={"90%"} m="auto">
@@ -228,7 +228,7 @@ function Clothes() {
           </Box>
         </Box>
       </Box>
-      <Footer/>
+      {/* <Footer/> */}
     </Box>
   );
 }

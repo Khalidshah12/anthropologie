@@ -4,8 +4,8 @@ import { Box, Text, Select, Image } from "@chakra-ui/react";
 import {flare} from '../../../../../db';
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import Navbar from "../../../../../components/Navbar/Navbar";
-import Footer from "../../../../../components/Footer/Footer";
+// import Navbar from "../../../../../components/Navbar/Navbar";
+// import Footer from "../../../../../components/Footer/Footer";
 import FlareCard from "./FlareCard";
 
 
@@ -13,7 +13,7 @@ import FlareCard from "./FlareCard";
 function Flare() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Box mt={"30px"}>
         <Box width={"90%"} m="auto">
           <Box
@@ -110,7 +110,7 @@ function Flare() {
           </Box>
         </Box>
       </Box>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box, Text, Select, Image } from "@chakra-ui/react";
+import { Box, Text, Select} from "@chakra-ui/react";
 import {ChevronLeftIcon, ChevronRightIcon} from '@chakra-ui/icons'
 import Sidebar from "../../Sidebar";
 import { casual } from "../../../../db";
 import {party} from '../../../../db';
-// import {formal_dress} from '../../../../db';
 
-import Navbar from "../../../../components/Navbar/Navbar";
-import Footer from "../../../../components/Footer/Footer";
+
+// import Navbar from "../../../../components/Navbar/Navbar";
+// import Footer from "../../../../components/Footer/Footer";
 import PartyCard from "./DressItem/PartyCard";
 import CasualCard from "./DressItem/CasualCard";
 
@@ -129,7 +129,7 @@ function Dresses() {
   );
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/> */}
       <Box>{dressBox}]</Box>
       <Box mt={"20px"}>
         <Box width={"90%"} m="auto">
@@ -226,7 +226,7 @@ function Dresses() {
           </Box>
         </Box>
       </Box>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   );
 }

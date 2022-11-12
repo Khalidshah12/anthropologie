@@ -3,15 +3,15 @@ import {formal_dress} from '../../../../../db';
 import { Box, Text, Select, Image } from "@chakra-ui/react";
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import Navbar from "../../../../../components/Navbar/Navbar";
-import Footer from "../../../../../components/Footer/Footer";
+// import Navbar from "../../../../../components/Navbar/Navbar";
+// import Footer from "../../../../../components/Footer/Footer";
 import FormalDressCard from './FormalDressCard';
 
 
 function FormalDress() {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <Box mt={"30px"}>
         <Box width={"90%"} m="auto">
           <Box
@@ -114,7 +114,7 @@ function FormalDress() {
           </Box>
         </Box>
       </Box>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   )
 }

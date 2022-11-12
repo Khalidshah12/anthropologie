@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Heading, Image, Text, useToast } from "@chakra-ui/react";
+import { Box, Button, Heading, Image, Text, useToast } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -37,7 +37,7 @@ export default function Cart() {
       totalprice: price * quantity,
     };
     axios
-      .patch(`http://localhost:8080/cart/${id}`, payload)
+      .patch(`https://emptyapi.onrender.com/cart/${id}`, payload)
       .then((r) => {
         dispatch(getCartData);
       })
@@ -48,7 +48,7 @@ export default function Cart() {
 
   const HandleRemove = (id) => {
     axios
-      .delete(`http://localhost:8080/cart/${id}`)
+      .delete(`https://emptyapi.onrender.com/cart/${id}`)
       .then((r) => {
         dispatch(getCartData);
       })
@@ -57,9 +57,13 @@ export default function Cart() {
       });
   };
 
+  const HandleQuantity = (e, id, price) => {
+    addQuantity(id, Number(e.target.value), price);
+  };
+
   const getSavedData = () => {
     axios
-      .get(`http://localhost:8080/savedforlater`)
+      .get(`https://emptyapi.onrender.com/savedforlater`)
       .then((r) => {
         setSaved(r.data);
       })
@@ -70,11 +74,16 @@ export default function Cart() {
 
   const HandleSaveForLater = (id) => {
     axios
-      .get(`http://localhost:8080/cart/${id}`)
+      .get(`https://emptyapi.onrender.com/cart/${id}`)
       .then((r) => {
         axios
+
           .post(`http://localhost:8080/savedforlater`, r.data)
           .then((r) => {})
+
+          .post(`https://emptyapi.onrender.com/savedforlater`, r.data)
+          .then((r) => {})
+
           .catch((e) => {
             console.log(e);
           });
@@ -84,7 +93,7 @@ export default function Cart() {
       });
     setTimeout(() => {
       axios
-        .delete(`http://localhost:8080/cart/${id}`)
+        .delete(`https://emptyapi.onrender.com/cart/${id}`)
         .then((r) => {
           dispatch(getCartData);
           getSavedData();
@@ -95,19 +104,42 @@ export default function Cart() {
     }, 1000);
   };
 
-  const HandleQuantity = (e, id, price) => {
-    addQuantity(id, Number(e.target.value), price);
-  };
-
   const HandleRemoveSaved = (id) => {
     axios
-      .delete(`http://localhost:8080/savedforlater/${id}`)
+      .delete(`https://emptyapi.onrender.com/savedforlater/${id}`)
       .then((r) => {
         getSavedData();
       })
       .catch((e) => {
         console.log(e);
       });
+  };
+
+  const MoveToCart = (id) => {
+    axios
+      .get(`https://emptyapi.onrender.com/savedforlater/${id}`)
+      .then((r) => {
+        axios
+          .post(`https://emptyapi.onrender.com/cart`, r.data)
+          .then((r) => {})
+          .catch((e) => {
+            console.log(e);
+          });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    setTimeout(() => {
+      axios
+        .delete(`https://emptyapi.onrender.com/savedforlater/${id}`)
+        .then((r) => {
+          dispatch(getCartData);
+          getSavedData();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }, 1000);
   };
 
   const HandlePromoCode = () => {
@@ -199,8 +231,8 @@ export default function Cart() {
       return acc + el.totalprice;
     }, 0);
     setSubTotal(a);
-    if (subTotal > 1000) {
-      setShipping(40);
+    if (subTotal < 1000 && subTotal > 0) {
+      setShipping(60);
     } else {
       setShipping(0);
     }
@@ -212,7 +244,7 @@ export default function Cart() {
   }, [cart, shipping, subTotal, canPromoApply]);
 
   return (
-    <Layout>
+    <div>
       <Box id={styles.mainDiv}>
         <Box id={styles.basketDiv}>
           <Box id={styles.mainLeftDiv}>
@@ -226,7 +258,7 @@ export default function Cart() {
               <Box id={styles.mainLeftItemsDiv}>
                 <Box id={styles.itemsBar}>
                   <Text id={styles.itemsText}>Item</Text>
-                  <Text className={styles.itemsText}>Item Price</Text>
+                  <Text id={styles.itemsTextNone}>Item Price</Text>
                   <Text className={styles.itemsText}>Quantity</Text>
                   <Text className={styles.itemsText}>Total Price</Text>
                 </Box>
@@ -300,6 +332,24 @@ export default function Cart() {
                           cursor={"pointer"}
                         />
                       </Box>
+                      <Button
+                        onClick={() => MoveToCart(item.id)}
+                        className={styles.moveToCart}
+                        w="100%"
+                        variant=""
+                        borderRadius=""
+                        backgroundColor={
+                          cart.length > 0 ? "#4B5666" : "rgb(206, 206, 206)"
+                        }
+                        color={"white"}
+                        _hover={{
+                          backgroundColor: "white",
+                          border: "1px solid black",
+                          color: "#4B5666",
+                        }}
+                      >
+                        Move to Cart
+                      </Button>
                     </Box>
                   );
                 })}
@@ -313,19 +363,6 @@ export default function Cart() {
           </Box>
         </Box>
       </Box>
-    </Layout>
+    </div>
   );
 }
-
-// {
-//     "image": "https://images.urbndata.com/is/image/Anthropologie/4130370060072_063_b14?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=540",
-//     "flip_image": "https://images.urbndata.com/is/image/Anthropologie/4130370060072_063_b?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=540",
-//     "details": "Our bestselling, best-reviewed dress, ever. Flowy and flattering, sensual and subtle, it's one SMOOTH operator. Make your move: This is our sexiest Somerset yet.",
-//     "color": "MAGENTA",
-//     "name": "The Somerset Maxi Dress",
-//     "price": 170,
-//     "totalprice": 170,
-//     "size": "SM",
-//     "id": 1,
-//     "quantity": 1
-// }

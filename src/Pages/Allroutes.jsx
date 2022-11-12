@@ -27,16 +27,21 @@ import Checkout from "./Checkout/Checkout";
 import SingleItemPage from "../components/singleitemPage/SingleItemPage";
 // import Navbar from "../components/Navbar/Navbar";
 import NotFound from '../components/NotFound';
+import Delivery from "./Delivery/Delivery";
+import Payment from "./Payment/Payment";
 const Allroutes = () => {
   return (
     <>
-    {/* <Navbar/> */}
+      {/* <Navbar/> */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />}></Route>
 
+        {/* Cart And Payment */}
         <Route path='/cart' element={<Cart />} />
         <Route path='/checkout/shipping-address' element={<Checkout />} />
+        <Route path='/checkout/shipping-delivery' element={<Delivery />} />
+        <Route path='/checkout/payment' element={<Payment />} />
 
         {/* clothes routing */}
         <Route path="/clothes" element={<Clothes />}></Route>

@@ -5,15 +5,15 @@ import {skinny} from '../../../../../db';
 
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import Navbar from "../../../../../components/Navbar/Navbar";
-import Footer from "../../../../../components/Footer/Footer";
+// import Navbar from "../../../../../components/Navbar/Navbar";
+// import Footer from "../../../../../components/Footer/Footer";
 import SkinnyCard from './SkinnyCard';
 
 
 function Skinny() {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <Box mt={"30px"}>
       <Box width={"90%"} m="auto">
         <Box
@@ -116,7 +116,7 @@ function Skinny() {
         </Box>
       </Box>
     </Box>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }

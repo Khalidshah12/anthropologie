@@ -77,13 +77,8 @@ export default function Cart() {
       .get(`https://emptyapi.onrender.com/cart/${id}`)
       .then((r) => {
         axios
-
-          .post(`http://localhost:8080/savedforlater`, r.data)
-          .then((r) => { })
-
           .post(`https://emptyapi.onrender.com/savedforlater`, r.data)
           .then((r) => { })
-
           .catch((e) => {
             console.log(e);
           });

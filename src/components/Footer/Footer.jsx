@@ -1,3 +1,8 @@
+import { BsPinterest, BsTwitter } from "react-icons/bs";
+import { FaFacebookSquare } from "react-icons/fa";
+import { GrInstagram } from "react-icons/gr";
+import { IoLocationSharp } from "react-icons/io5";
+import { HiOutlineMail } from "react-icons/hi";
 import "./Footer.css";
 
 const Footer = () => {
@@ -62,19 +67,11 @@ const Footer = () => {
           </li>
           <li className="Box1">
             <ul className="Boxes">
-              <img
-                className="logos"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiPY5POpiaaROnvHrSSSRbqqNUQ9qLg2Y_YaFj70oSxw&s"
-                alt=""
-              />
+              <IoLocationSharp size="2em" />
               Story Locater
             </ul>
             <ul className="Boxes">
-              <img
-                className="logos"
-                src="https://cdn0.iconfinder.com/data/icons/apple-apps/100/Apple_Mail-512.png"
-                alt=""
-              />
+              <HiOutlineMail size="2em" />
               Get Email
             </ul>
           </li>
@@ -84,26 +81,10 @@ const Footer = () => {
             src="https://images.ctfassets.net/5de70he6op10/4gWq1G4qLLgmqlNeHfzV2T/55298745127c36c5876f4013434c0c37/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917_Copy_2.svg"
             alt=""
           />
-          <img
-            className="Sociallogo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Facebook_icon.svg/2048px-Facebook_icon.svg.png"
-            alt="facebook-Logo"
-          />
-          <img
-            className="Sociallogo"
-            src="https://cdn-icons-png.flaticon.com/512/733/733635.png"
-            alt="twitter-logo"
-          />
-          <img
-            className="Sociallogo"
-            src="https://cdn-icons-png.flaticon.com/512/1077/1077042.png"
-            alt="insta"
-          />
-          <img
-            className="Pinlogo"
-            src="https://assets.turbologo.com/blog/en/2021/11/14085618/pinterest-emblem.png"
-            alt="pinterest"
-          />
+          <BsPinterest size="1.5em" />
+          <GrInstagram size="1.5em" />
+          <FaFacebookSquare size="1.5em" />
+          <BsTwitter size="1.5em" />
         </div>
         <div>
           <img

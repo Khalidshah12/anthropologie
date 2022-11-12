@@ -1,6 +1,7 @@
 import React from "react";
 import "./HOme.css";
 import Layout from "../../components/Layout";
+import MultipleItems from "./Slider";
 
 const Home = () => {
   return (
@@ -107,6 +108,7 @@ const Home = () => {
           </p>
         </div>
       </div>
+      <MultipleItems />
       <h1 className="YouMayAlsoLike">About Us</h1>
       <p className="ourMission">
         Our mission at Anthropologie has always been to surprise and delight you

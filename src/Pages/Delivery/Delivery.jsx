@@ -69,7 +69,7 @@ export default function Delivery() {
                     <Box>
                         <Box id={style.itemsBar} border='1px solid #E5E2DE' borderTop={'none'}>
                             <Text id={styles.edit} pl='20px' onClick={HandleEditBasket}>Edit Basket</Text>
-                            <Text className={style.itemsText}>Item Price</Text>
+                            <Text id={style.itemsTextNone}>Item Price</Text>
                             <Text className={style.itemsText}>Quantity</Text>
                             <Text className={style.itemsText} pr='20px'>Total Price</Text>
                         </Box>
@@ -90,12 +90,12 @@ export default function Delivery() {
                                             <Box className={style.productsDetail}>
                                                 <Text className={style.productPrice}>${item.price}</Text>
                                             </Box>
-                                            <Box className={style.productsDetail}>
-                                                <Box className={style.productQuantity}>
+                                            <Box className={style.productsDetailQuantity}>
+                                                <Box className={style.productQuantityDel}>
                                                     {item.quantity}
                                                 </Box>
                                             </Box>
-                                            <Box className={style.productsDetail}>
+                                            <Box className={style.productsDetailTotalPrice}>
                                                 <Text className={style.productTotalPrice}>${item.totalprice}</Text>
                                             </Box>
                                         </Box>

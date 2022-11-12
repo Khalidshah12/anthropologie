@@ -83,7 +83,7 @@ export default function Payment() {
                                         </Box>
                                         <Collapse in={isOpen} animateOpacity>
                                             <Box w='100%' >
-                                                <Box display='flex' justifyContent='space-between' w='100%' mb='5px'>
+                                                <Box id={styles.labelsDiv}>
                                                     <Box w='40%'>
                                                         <Text fontWeight='normal' fontSize='13px'>City or ZIP Code*</Text>
                                                     </Box>
@@ -97,26 +97,26 @@ export default function Payment() {
                                                         <Text></Text>
                                                     </Box>
                                                 </Box>
-                                                <Box display="flex" justifyContent='space-between' alignItems='center'>
-                                                    <Box width='40%' >
+                                                <Box id={styles.inputsMainDiv}>
+                                                    <Box id={styles.width40} >
                                                         <Input mb={!isCardError ? "19px" : ""} className={styles.inputs} h='45px' borderRadius='' variant='' w='100%' type='number' value={formData.cardNumber} onChange={(e) => { if (e.target.value.length < 13) { setFormData({ ...formData, cardNumber: e.target.value }) } }} placeholder='XXXX XXXX XXXX XXXX' />
                                                         {!isCardError ? "" : (
                                                             <Text color='#C33D3D' fontSize='13px'>Invalid credit card number.</Text>
                                                         )}
                                                     </Box>
-                                                    <Box width='30%' >
+                                                    <Box id={styles.width30} >
                                                         <Input mb={!isExpiryError ? "19px" : ""} className={styles.inputs} h='45px' borderRadius='' variant='' w='100%' type='text' value={formData.expiry} onChange={(e) => { if (e.target.value.length < 6) { setFormData({ ...formData, expiry: e.target.value }) } }} placeholder='MM/YY' />
                                                         {!isExpiryError ? "" : (
                                                             <Text color='#C33D3D' fontSize='13px'>Please enter Expiration Date</Text>
                                                         )}
                                                     </Box>
-                                                    <Box width='20%'>
+                                                    <Box id={styles.width20}>
                                                         <Input mb={!isCvvError ? "19px" : ""} className={styles.inputs} h='45px' borderRadius='' variant='' w='100%' type='number' value={formData.cvv} onChange={(e) => { if (e.target.value.length < 5) { setFormData({ ...formData, cvv: e.target.value }) } }} />
                                                         {!isCvvError ? "" : (
                                                             <Text color='#C33D3D' fontSize='13px'>Please enter CVV</Text>
                                                         )}
                                                     </Box>
-                                                    <Box w="5%">
+                                                    <Box id={styles.width5} mb='19px'>
                                                         <Tooltip hasArrow bg='#4B5666' fontWeight='normal' letterSpacing='0.6px' lineHeight='6' label="The CID/Security Code is the 3-digit number printed by the signature line on the back of the card; for American Express cards, it's the 4-digit number on the front of the card above the account number.">
                                                             <Button variant='ghost' _hover={{ backgroundColor: 'none' }}><FiHelpCircle /></Button>
                                                         </Tooltip>

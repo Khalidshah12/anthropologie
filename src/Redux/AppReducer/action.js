@@ -39,7 +39,7 @@ export const cartDataFailure = () => {
 
 export const getCartData = (dispatch) => {
     dispatch(cartDataRequest())
-    axios.get('http://localhost:8080/cart')
+    axios.get('https://emptyapi.onrender.com/cart')
         .then((res) => {
             dispatch(cartDataSuccess(res.data))
         })
@@ -51,9 +51,9 @@ export const getCartData = (dispatch) => {
 
 //FILTER
 
-export const filter_data = (data)=>({
+export const filter_data = (data) => ({
     type: types.FILTER_DATA,
-    payload:data
+    payload: data
 })
 
 
@@ -61,9 +61,9 @@ export const filter_data = (data)=>({
 
 //SINGLE PAGE
 
-export const single_page_data = (data)=>({
+export const single_page_data = (data) => ({
     type: types.SINGLE_PAGE_DATA,
-    payload:data
+    payload: data
 })
 
 
@@ -71,41 +71,41 @@ export const single_page_data = (data)=>({
 
 const get_wedding_request = () => ({
     type: types.GET_WEDDING_DATA_REQUEST
-  });
-  
-  const get_wedding_failure = () => ({
-    type: types.GET_WEDDING_DATA_FAILURE,
-  });
-  
-  const get_wedding_success = (data)=>({
-      type:types.GET_WEDDING_DATA_SUCCESS,
-      payload:data
-  })
+});
 
-  export const getwedding = (dispatch)=>{
+const get_wedding_failure = () => ({
+    type: types.GET_WEDDING_DATA_FAILURE,
+});
+
+const get_wedding_success = (data) => ({
+    type: types.GET_WEDDING_DATA_SUCCESS,
+    payload: data
+})
+
+export const getwedding = (dispatch) => {
     dispatch(get_wedding_request());
     axios.get("https://mock-data.onrender.com/wedding")
-    .then((res)=>{
-        console.log(res)
-      dispatch(get_wedding_success(res.data));
-    })
-    .catch(()=>dispatch(get_wedding_failure()));
+        .then((res) => {
+            console.log(res)
+            dispatch(get_wedding_success(res.data));
+        })
+        .catch(() => dispatch(get_wedding_failure()));
 }
 
 
 // /casual 236x
 const get_casual_request = () => ({
     type: types.GET_CASUAL_DATA_REQUEST
-  });
-  
-  const get_casual_failure = () => ({
+});
+
+const get_casual_failure = () => ({
     type: types.GET_CASUAL_DATA_FAILURE,
-  });
-  
-  export const get_casual_success = (data)=>({
-      type:types.GET_CASUAL_DATA_SUCCESS,
-      payload:data
-  })
+});
+
+export const get_casual_success = (data) => ({
+    type: types.GET_CASUAL_DATA_SUCCESS,
+    payload: data
+})
 
 // export const getcasual = (dispatch)=>{
 //   dispatch(get_casual_request());

@@ -86,3 +86,38 @@
 #right {
     width: 30%;
 }
+
+
+@media screen and (max-width:1024px) and (min-width:768px) {
+    #main {
+        display: block;
+    }
+
+    #left {
+        width: 92%;
+        margin: auto;
+    }
+
+    #right {
+        width: 92%;
+        margin: auto;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width:767px) and (min-width:320px) {
+    #main {
+        display: block;
+    }
+
+    #left {
+        width: 92%;
+        margin: auto;
+    }
+
+    #right {
+        width: 92%;
+        margin: auto;
+        margin-top: 30px;
+    }
+}

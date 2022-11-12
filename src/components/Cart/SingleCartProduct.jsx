@@ -16,13 +16,8 @@ export default function SingleCartProduct({ item, HandleQuantity, HandleRemove, 
                         <Text className={styles.productStyle}>Style # 4123800430150</Text>
                         <Text className={styles.productColor}>Color: {item.color}</Text>
                         <Text className={styles.productSize}>Size {item.size}</Text>
-                        <Text className={styles.productEdit}>Edit</Text>
-                    </Box>
-                    <Box className={styles.productsDetail}>
-                        <Text className={styles.productPrice}>${item.price}</Text>
-                    </Box>
-                    <Box className={styles.productsDetail}>
-                        <Box className={styles.productQuantity}>
+                        <Text id={styles.productEdit}>Edit</Text>
+                        <Box className={styles.productQuantityMobile}>
                             <select className={styles.productQuantitySelect} onChange={(e) => HandleQuantity(e, item.id, item.price)}>
                                 <option>{item.quantity}</option>
                                 <option disabled></option>
@@ -35,6 +30,22 @@ export default function SingleCartProduct({ item, HandleQuantity, HandleRemove, 
                         </Box>
                     </Box>
                     <Box className={styles.productsDetail}>
+                        <Text className={styles.productPrice}>${item.price}</Text>
+                    </Box>
+                    <Box className={styles.productsDetail}>
+                        <Box className={styles.productQuantityFull}>
+                            <select className={styles.productQuantitySelect} onChange={(e) => HandleQuantity(e, item.id, item.price)}>
+                                <option>{item.quantity}</option>
+                                <option disabled></option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </Box>
+                    </Box>
+                    <Box className={styles.productsDetailTotalPrice}>
                         <Text className={styles.productTotalPrice}>${item.totalprice}</Text>
                     </Box>
                 </Box>

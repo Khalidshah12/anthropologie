@@ -79,10 +79,10 @@ export default function Cart() {
         axios
 
           .post(`http://localhost:8080/savedforlater`, r.data)
-          .then((r) => {})
+          .then((r) => { })
 
           .post(`https://emptyapi.onrender.com/savedforlater`, r.data)
-          .then((r) => {})
+          .then((r) => { })
 
           .catch((e) => {
             console.log(e);
@@ -121,7 +121,7 @@ export default function Cart() {
       .then((r) => {
         axios
           .post(`https://emptyapi.onrender.com/cart`, r.data)
-          .then((r) => {})
+          .then((r) => { })
           .catch((e) => {
             console.log(e);
           });
@@ -140,7 +140,7 @@ export default function Cart() {
           console.log(e);
         });
     }, 1000);
-  };
+  }
 
   const HandlePromoCode = () => {
     setPromo(!promo);
@@ -244,125 +244,120 @@ export default function Cart() {
   }, [cart, shipping, subTotal, canPromoApply]);
 
   return (
-    <div>
-      <Box id={styles.mainDiv}>
-        <Box id={styles.basketDiv}>
-          <Box id={styles.mainLeftDiv}>
-            <Box id={styles.mainLeftHeadDiv}>
-              <Heading fontSize={"22px"} color="#26262C" fontWeight="400">
-                Basket
-              </Heading>
-              <DeliveryModal />
-            </Box>
-            {cart.length > 0 ? (
-              <Box id={styles.mainLeftItemsDiv}>
-                <Box id={styles.itemsBar}>
-                  <Text id={styles.itemsText}>Item</Text>
-                  <Text id={styles.itemsTextNone}>Item Price</Text>
-                  <Text className={styles.itemsText}>Quantity</Text>
-                  <Text className={styles.itemsText}>Total Price</Text>
-                </Box>
-                <Box id={styles.productsMainDiv}>
-                  {cart.map((item) => {
-                    return (
-                      <SingleCartProduct
-                        key={item.id}
-                        item={item}
-                        HandleQuantity={HandleQuantity}
-                        HandleRemove={HandleRemove}
-                        HandleSaveForLater={HandleSaveForLater}
-                        HandleGiftWrap={HandleGiftWrap}
-                        // openGift={openGift}
-                      />
-                    );
-                  })}
-                </Box>
-              </Box>
-            ) : (
-              <Box id={styles.mainLeftContinueShoppingDiv}>
-                <Text fontSize="13px" color={"#5C5C5F"}>
-                  Your basket is currently empty.{" "}
-                  <Link id={styles.continueShopping} to="/">
-                    Continue Shopping.
-                  </Link>
-                </Text>
-              </Box>
-            )}
+    <Box id={styles.mainDiv}>
+      <Box id={styles.basketDiv}>
+        <Box id={styles.mainLeftDiv}>
+          <Box id={styles.mainLeftHeadDiv}>
+            <Heading fontSize={"22px"} color="#26262C" fontWeight="400">
+              Basket
+            </Heading>
+            <DeliveryModal />
           </Box>
-          <Box id={styles.mainRightDiv}>
-            <OrderSummary
-              cart={cart}
-              total={total}
-              promo={promo}
-              canPromoApply={canPromoApply}
-              promoValue={promoValue}
-              setPromovalue={setPromovalue}
-              HandlePromoCode={HandlePromoCode}
-              HandleApplyPromo={HandleApplyPromo}
-              subTotal={subTotal}
-              shipping={shipping}
-              HandleProceed={HandleProceed}
-              text="PROCEED TO CHECKOUT"
-            />
-          </Box>
-        </Box>
-        <Box id={styles.savedItemInstructionDiv}>
-          <Heading fontSize="18px" fontWeight="normal" mb="15px">
-            Saved for Later
-          </Heading>
-          <Box id={styles.savedItemInstruction}>
-            {saved.length > 0 ? (
-              <Box className={styles.savedDiv}>
-                {saved.map((item) => {
+          {cart.length > 0 ? (
+            <Box id={styles.mainLeftItemsDiv}>
+              <Box id={styles.itemsBar}>
+                <Text id={styles.itemsText}>Item</Text>
+                <Text id={styles.itemsTextNone}>Item Price</Text>
+                <Text className={styles.itemsText}>Quantity</Text>
+                <Text className={styles.itemsText}>Total Price</Text>
+              </Box>
+              <Box id={styles.productsMainDiv}>
+                {cart.map((item) => {
                   return (
-                    <Box key={item.id}>
-                      <Box className={styles.savedImagesDiv}>
-                        <Image
-                          className={styles.savedImages}
-                          src={item.image}
-                          alt={item.name}
-                        />
-                        <CloseIcon
-                          onClick={() => HandleRemoveSaved(item.id)}
-                          className={styles.RemoveIcon}
-                          fontSize="16px"
-                          position="absolute"
-                          top="2"
-                          right="3"
-                          cursor={"pointer"}
-                        />
-                      </Box>
-                      <Button
-                        onClick={() => MoveToCart(item.id)}
-                        className={styles.moveToCart}
-                        w="100%"
-                        variant=""
-                        borderRadius=""
-                        backgroundColor={
-                          cart.length > 0 ? "#4B5666" : "rgb(206, 206, 206)"
-                        }
-                        color={"white"}
-                        _hover={{
-                          backgroundColor: "white",
-                          border: "1px solid black",
-                          color: "#4B5666",
-                        }}
-                      >
-                        Move to Cart
-                      </Button>
-                    </Box>
+                    <SingleCartProduct
+                      key={item.id}
+                      item={item}
+                      HandleQuantity={HandleQuantity}
+                      HandleRemove={HandleRemove}
+                      HandleSaveForLater={HandleSaveForLater}
+                      HandleGiftWrap={HandleGiftWrap}
+                    // openGift={openGift}
+                    />
                   );
                 })}
               </Box>
-            ) : (
-              <Text>
-                Your saved for later is currently empty. Add items here that you
-                like, but aren't ready to buy.
+            </Box>
+          ) : (
+            <Box id={styles.mainLeftContinueShoppingDiv}>
+              <Text fontSize="13px" color={"#5C5C5F"}>
+                Your basket is currently empty.{" "}
+                <Link id={styles.continueShopping} to="/">
+                  Continue Shopping.
+                </Link>
               </Text>
-            )}
-          </Box>
+            </Box>
+          )}
+        </Box>
+        <Box id={styles.mainRightDiv}>
+          <OrderSummary
+            cart={cart}
+            total={total}
+            promo={promo}
+            canPromoApply={canPromoApply}
+            promoValue={promoValue}
+            setPromovalue={setPromovalue}
+            HandlePromoCode={HandlePromoCode}
+            HandleApplyPromo={HandleApplyPromo}
+            subTotal={subTotal}
+            shipping={shipping}
+            HandleProceed={HandleProceed}
+            text="PROCEED TO CHECKOUT"
+          />
         </Box>
       </Box>
-    </div>
+      <Box id={styles.savedItemInstructionDiv}>
+        <Heading fontSize="18px" fontWeight="normal" mb="15px">
+          Saved for Later
+        </Heading>
+        <Box id={styles.savedItemInstruction}>
+          {saved.length > 0 ? (
+            <Box className={styles.savedDiv}>
+              {saved.map((item) => {
+                return (
+                  <Box key={item.id}>
+                    <Box className={styles.savedImagesDiv}>
+                      <Image
+                        className={styles.savedImages}
+                        src={item.image}
+                        alt={item.name}
+                      />
+                      <CloseIcon
+                        onClick={() => HandleRemoveSaved(item.id)}
+                        className={styles.RemoveIcon}
+                        fontSize="16px"
+                        position="absolute"
+                        top="2"
+                        right="3"
+                        cursor={"pointer"}
+                      />
+                    </Box>
+                    <Button
+                      onClick={() => MoveToCart(item.id)}
+                      className={styles.moveToCart}
+                      w='100%'
+                      variant=''
+                      borderRadius=''
+                      backgroundColor={cart.length > 0 ? '#4B5666' : "rgb(206, 206, 206)"}
+                      color={"white"}
+                      _hover={{
+                        backgroundColor: "white",
+                        border: "1px solid black",
+                        color: "#4B5666"
+                      }}
+                    >Move to Cart</Button>
+                  </Box>
+                );
+              })}
+            </Box>
+          ) : (
+            <Text>
+              Your saved for later is currently empty. Add items here that you
+              like, but aren't ready to buy.
+            </Text>
+          )}
+        </Box>
+      </Box>
+    </Box>
+
   );
 }

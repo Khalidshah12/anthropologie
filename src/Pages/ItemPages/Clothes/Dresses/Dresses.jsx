@@ -1,12 +1,16 @@
 import React from "react";
-import FormalDress from "./DressItem/FormalDress";
-import Party from "./DressItem/Party";
-import Wedding from "./DressItem/Wedding";
-import Casual from "./DressItem/Casual";
 import { Link } from "react-router-dom";
-import { Box, Text, Select } from "@chakra-ui/react";
+import { Box, Text, Select, Image } from "@chakra-ui/react";
+import {ChevronLeftIcon, ChevronRightIcon} from '@chakra-ui/icons'
 import Sidebar from "../../Sidebar";
-// import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { casual } from "../../../../db";
+import {party} from '../../../../db';
+// import {formal_dress} from '../../../../db';
+
+import Navbar from "../../../../components/Navbar/Navbar";
+import Footer from "../../../../components/Footer/Footer";
+import PartyCard from "./DressItem/PartyCard";
+import CasualCard from "./DressItem/CasualCard";
 
 function Dresses() {
   const dressBox = (
@@ -15,12 +19,12 @@ function Dresses() {
       width={"95%"}
       m="auto"
       gap={"20px"}
-      mt={"240px"}
+      mt={"30px"}
       flexWrap={"wrap"}
       color={"white"}
       ml="60px"
     >
-      <Link to={"/wedding"}>
+      <Link to={"/clothes/dresses/wedding"}>
         <Box
           display={"flex"}
           alignItems={"center"}
@@ -39,7 +43,7 @@ function Dresses() {
           WEDDING GUEST <br /> DRESSES
         </Box>
       </Link>
-      <Link to={"/casual"}>
+      <Link to={"/clothes/dresses/casual"}>
         <Box
           display={"flex"}
           alignItems={"center"}
@@ -57,7 +61,7 @@ function Dresses() {
           CASUAL DRESSES
         </Box>
       </Link>
-      <Link to={"/party"}>
+      <Link to={"/clothes/dresses/party"}>
         <Box
           display={"flex"}
           alignItems={"center"}
@@ -104,25 +108,28 @@ function Dresses() {
       >
         BLACK DRESSES
       </Box>{" "}
-      <Box
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent="center"
-        fontSize={"16px"}
-        // border={"1px solid black"}
-        h={"59.7334px"}
-        w={"188.172px"}
-        minHeight={"auto"}
-        minWidth={"auto"}
-        fontFamily={"Times New Roman"}
-        background={"#ca757a"}
-      >
-        FORMAL DRESSSES
-      </Box>
+      <Link to={'/clothes/dresses/formaldress'}>
+        <Box
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent="center"
+          fontSize={"16px"}
+          // border={"1px solid black"}
+          h={"59.7334px"}
+          w={"188.172px"}
+          minHeight={"auto"}
+          minWidth={"auto"}
+          fontFamily={"Times New Roman"}
+          background={"#ca757a"}
+        >
+          FORMAL DRESSSES
+        </Box>
+      </Link>
     </Box>
   );
   return (
-    <Box border={"1px solid red"}>
+    <>
+      <Navbar/>
       <Box>{dressBox}]</Box>
       <Box mt={"20px"}>
         <Box width={"90%"} m="auto">
@@ -135,11 +142,12 @@ function Dresses() {
             <Box>
               <Sidebar />
             </Box>
-
-            <Box
+            <Box>
+              <Box>
+              <Box
               w={"1020.84px"}
               maxWidth={"100%"}
-              border="1px solid red"
+              // border="1px solid red"
               display={"flex"}
               justifyContent="space-between"
             >
@@ -149,12 +157,12 @@ function Dresses() {
                   <span
                     style={{ fontSize: "13px", width: "auto", height: "auto" }}
                   >
-                    251 products
+                    {party.length + casual.length} products
                   </span>
                 </Text>
               </Box>
               <Box display={"flex"}>
-                <Box display={"flex"}>
+                <Box display={"flex"} gap="5px">
                   <Text mt={"3px"}>Sort :</Text>
                   <Box>
                     <Select
@@ -178,39 +186,48 @@ function Dresses() {
                   </Box>
                 </Box>
                 <Box display={"flex"}>
-                  {/* <ChevronLeftIcon
+                  <ChevronLeftIcon
                     fontSize={"40px"}
                     _hover={{ color: "#167A92" }}
-                  /> */}
+                  />
                   <Box>
                     <Text mt={"8px"}>1/47</Text>
                   </Box>
-                  {/* <ChevronRightIcon
+                  <ChevronRightIcon
                     fontSize={"40px"}
                     _hover={{ color: "#167A92" }}
-                  /> */}
+                  />
                 </Box>
               </Box>
             </Box>
+              </Box>
+              <Box mt={"30px"}>
+                {/* data here */}
+                <PartyCard/>
+                <CasualCard/>
+              </Box>
+            </Box>
+  
           </Box>
           <Box display={"flex"} justifyContent="end">
             <Box display={"flex"}>
-              {/* <ChevronLeftIcon
+              <ChevronLeftIcon
                 fontSize={"40px"}
                 _hover={{ color: "#167A92" }}
-              /> */}
+              />
               <Box>
                 <Text mt={"8px"}>1/47</Text>
               </Box>
-              {/* <ChevronRightIcon
+              <ChevronRightIcon
                 fontSize={"40px"}
                 _hover={{ color: "#167A92" }}
-              /> */}
+              />
             </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
+      <Footer/>
+    </>
   );
 }
 

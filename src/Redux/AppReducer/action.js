@@ -49,6 +49,26 @@ export const getCartData = (dispatch) => {
         })
 }
 
+//FILTER
+
+export const filter_data = (data)=>({
+    type: types.FILTER_DATA,
+    payload:data
+})
+
+
+
+
+//SINGLE PAGE
+
+export const single_page_data = (data)=>({
+    type: types.SINGLE_PAGE_DATA,
+    payload:data
+})
+
+
+
+
 const get_wedding_request = () => ({
     type: types.GET_WEDDING_DATA_REQUEST
   });
@@ -82,19 +102,19 @@ const get_casual_request = () => ({
     type: types.GET_CASUAL_DATA_FAILURE,
   });
   
-  const get_casual_success = (data)=>({
+  export const get_casual_success = (data)=>({
       type:types.GET_CASUAL_DATA_SUCCESS,
       payload:data
   })
 
-export const getcasual = (dispatch)=>{
-  dispatch(get_casual_request());
-  axios.get("https://mock-data.onrender.com/casual")
-  .then((res)=>{
-      dispatch(get_casual_success(res.data));
-  })
-  .catch(()=>dispatch(get_casual_failure()));
-}
+// export const getcasual = (dispatch)=>{
+//   dispatch(get_casual_request());
+//   axios.get("https://mock-data.onrender.com/casual")
+//   .then((res)=>{
+//       dispatch(get_casual_success(res.data));
+//   })
+//   .catch(()=>dispatch(get_casual_failure()));
+// }
 
 // /party 236x
 // export const getparty = (dispatch)=>{

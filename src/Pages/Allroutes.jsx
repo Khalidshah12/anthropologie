@@ -21,44 +21,54 @@ import Shoes from "./ItemPages/Shoes/Shoes";
 import Birkenstock from "./ItemPages/Shoes/ShoesItem/Birkenstock";
 import Embleshed from "./ItemPages/Shoes/ShoesItem/Embleshed";
 import Sneaker from "./ItemPages/Shoes/ShoesItem/Sneaker";
+import WideLegs from "./ItemPages/Clothes/Jeans/JeansItem/WideLegs";
 import Cart from "./Cart/Cart";
 import Checkout from "./Checkout/Checkout";
-
+import SingleItemPage from "../components/singleitemPage/SingleItemPage";
+// import Navbar from "../components/Navbar/Navbar";
+import NotFound from '../components/NotFound';
 const Allroutes = () => {
   return (
     <>
+    {/* <Navbar/> */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />}></Route>
 
         <Route path='/cart' element={<Cart />} />
-        <Route path='/checkout' element={<Checkout />} />
+        <Route path='/checkout/shipping-address' element={<Checkout />} />
 
         {/* clothes routing */}
         <Route path="/clothes" element={<Clothes />}></Route>
         {/* dress routing */}
-        <Route path="/dresses" element={<Dresses />} />
-        <Route path="/wedding" element={<Wedding />}></Route>
-        <Route path="/casual" element={<Casual />}></Route>
-        <Route path="/party" element={<Party />}></Route>
-        <Route path="/formaldress" element={<FormalDress />}></Route>
+        <Route path="/clothes/dresses" element={<Dresses />} />
+        <Route path="/clothes/dresses/wedding" element={<Wedding />}></Route>
+        <Route path="/clothes/dresses/casual" element={<Casual />}></Route>
+        <Route path="/clothes/dresses/party" element={<Party />}></Route>
+        <Route path="/clothes/dresses/formaldress" element={<FormalDress />}></Route>
 
         {/* jeans routing */}
-        <Route path="/jeans" element={<Jeans />}></Route>
-        <Route path="/bootcut" element={<Bootcut />}></Route>
-        <Route path="/boyfriend" element={<Boyfriend />}></Route>
-        <Route path="/flare" element={<Flare />}></Route>
-        <Route path="/skinny" element={<Skinny />}></Route>
-        <Route path="/straight" element={<Straight />}></Route>
-        <Route path="/wideleg" element={<WideLeg />}></Route>
+        <Route path="/clothes/jeans" element={<Jeans />}></Route>
+        <Route path="/clothes/jeans/bootcut" element={<Bootcut />}></Route>
+        <Route path="/clothes/jeans/boyfriend" element={<Boyfriend />}></Route>
+        <Route path="/clothes/jeans/flare" element={<Flare />}></Route>
+        <Route path="/clothes/jeans/skinny" element={<Skinny />}></Route>
+        <Route path="/clothes/jeans/straight" element={<Straight />}></Route>
+        <Route path="/clothes/jeans/wideleg" element={<WideLegs />}></Route>
+
         {/* paints routing */}
-        <Route path="/paints" element={<Paint />}></Route>
-        <Route path="/workpaints" element={<WorkPaint />}></Route>
+        <Route path="/clothes/paints" element={<Paint />}></Route>
+        <Route path="/clothes/paints/workpaints" element={<WorkPaint />}></Route>
+        <Route path="/clothes/paints/wideleg" element={<WideLeg />}></Route>
         {/* shoes routing */}
         <Route path="/shoes" element={<Shoes />}></Route>
-        <Route path="/birkenstock" element={<Birkenstock />}></Route>
-        <Route path="/embleshed" element={<Embleshed />}></Route>
-        <Route path="/sneaker" element={<Sneaker />}></Route>
+        <Route path="/shoes/birkenstock" element={<Birkenstock />}></Route>
+        <Route path="/shoes/embleshed" element={<Embleshed />}></Route>
+        <Route path="/shoes/sneakers" element={<Sneaker />}></Route>
+        {/* single page item */}
+        <Route path="/shop/:id" element={<SingleItemPage />} ></Route>
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

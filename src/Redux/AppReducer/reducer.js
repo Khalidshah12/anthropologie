@@ -1,5 +1,6 @@
-import * as types from "./actionTypes";
 
+import * as types from "./actionTypes";
+import {getItem, setItem} from '../../localstorage/LocalStorage';
 const initialState = {
   data: [],
   isLoading: false,
@@ -8,7 +9,7 @@ const initialState = {
   isCartLoading: false,
   isCartError: false,
   wedding :[],
-  casual:[],
+  casualData:[],
   formal:[],
   party:[],
   paint:[],
@@ -22,6 +23,7 @@ const initialState = {
   birkenstock:[],
   embleshed:[],
   sneaker:[],
+  singlepage:getItem("singlepage")||[],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -69,7 +71,15 @@ export const reducer = (state = initialState, action) => {
         cart: [],
       };
     }
-
+    // single page data
+    case types.SINGLE_PAGE_DATA: {
+      setItem("singlepage", payload);
+      return {
+        ...state,
+        singlepage: payload,
+      };
+    }
+    
     // reducer for item .................................................................................>
 
     // wedding..>
@@ -103,7 +113,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: true,
           isError: false,
-          casual: [],
+          casualData: [],
         };
       }
       case types.GET_CASUAL_DATA_SUCCESS: {
@@ -111,7 +121,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: false,
-          casual:payload,
+          casualData:payload,
         };
       }
       case types.GET_CASUAL_DATA_FAILURE: {
@@ -119,7 +129,7 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           isError: true,
-          casual:[],
+          casualData:[],
         };
       }
 

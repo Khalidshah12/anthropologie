@@ -5,8 +5,7 @@ import styles from '../../Pages/Cart/Cart.module.css'
 import { Link } from 'react-router-dom';
 
 export default function OrderSummary(props) {
-    const { cart,
-        total,
+    const {
         promo,
         canPromoApply,
         promoValue,
@@ -15,7 +14,10 @@ export default function OrderSummary(props) {
         HandleApplyPromo,
         subTotal,
         shipping,
-        HandleProceed
+        HandleProceed,
+        cart,
+        total,
+        text
     } = props
     return (
         <>
@@ -28,12 +30,12 @@ export default function OrderSummary(props) {
                     {cart.length > 0
                         ? <Box className={styles.chargesClass}>
                             <Text>Subtotal</Text>
-                            <Text>${subTotal || "0.00"}</Text>
+                            <Text>${`${subTotal}.00` || "0.00"}</Text>
                         </Box>
                         : ""}
                     <Box id={styles.shippingChargesDiv} className={styles.chargesClass}>
                         <Text>Shipping</Text>
-                        <Text>{shipping || "TBD"}</Text>
+                        <Text>${`${shipping}.00` || "TBD"}</Text>
                     </Box>
                     {canPromoApply
                         ? null
@@ -44,11 +46,11 @@ export default function OrderSummary(props) {
                     }
                     <Box id={styles.estimatedTaxDiv} className={styles.chargesClass}>
                         <Text>Estimated Tax</Text>
-                        <Text>$.0.00</Text>
+                        <Text>$0.00</Text>
                     </Box>
                     <Box id={styles.totalDiv} className={styles.chargesClass}>
                         <Text>Total</Text>
-                        <Text>${total || "0.00"}</Text>
+                        <Text>${`${total}.00` || "0.00"}</Text>
                     </Box>
                 </Box>
                 <Box id={styles.payNowOrLaterDiv}>
@@ -73,7 +75,7 @@ export default function OrderSummary(props) {
                         }}
                         onClick={HandleProceed}
                     >
-                        PROCEED TO CHECKOUT
+                        {text}
                     </Button>
                     <Button id={styles.paypalButton} cursor={cart.length > 0 ? 'pointer' : 'default'}><Image src='./paypal_logo.png' alt='paypal logo' /></Button>
                     <Box id={styles.promoDiv} onClick={HandlePromoCode}>
@@ -88,6 +90,7 @@ export default function OrderSummary(props) {
                                 borderRadius='none'
                                 w='65%'
                                 fontSize='13px'
+                                backgroundColor="#FDFDF9"
                                 letterSpacing='1.5px'
                                 fontWeight='normal'
                                 border='1px solid black'
@@ -95,7 +98,7 @@ export default function OrderSummary(props) {
                             />
                             <Button
                                 borderRadius='none'
-                                backgroundColor="white"
+                                backgroundColor="#FDFDF9"
                                 border='1px solid black'
                                 w='30%'
                                 fontSize='13px'

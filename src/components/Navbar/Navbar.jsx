@@ -82,7 +82,7 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-      <Navbar2 />
+ 
     </header>
   );
 };

@@ -1,13 +1,19 @@
 import React from 'react'
 // import {workpaints} from  '../../../../db';
-import { Box, Text, Select, Image } from "@chakra-ui/react";
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-// import {workpaints} from '../../../../../db';
+import Navbar from "../../../../../components/Navbar/Navbar";
+import Footer from "../../../../../components/Footer/Footer";
+import { Box, Text, Select, Image } from "@chakra-ui/react";
+import {workpaints} from '../../../../../db';
+import WorkPaintCard from './WorkPaintCard';
+
 
 function WorkPaint() {
   return (
-    <Box mt={"240px"}>
+    <>
+    <Navbar/>
+    <Box mt={"30px"}>
     <Box width={"90%"} m="auto">
       <Box
         h={"auto"}
@@ -23,7 +29,7 @@ function WorkPaint() {
           <Box
           w={"985px"}
           maxWidth={"100%"}
-          border="1px solid red"
+          // border="1px solid red"
           h={"50px"}
           display={"flex"}
           justifyContent="space-between"
@@ -34,7 +40,7 @@ function WorkPaint() {
               <span
                 style={{ fontSize: "13px", width: "auto", height: "auto" }}
               >
-                237 products
+                {workpaints.length} products
               </span>
             </Text>
           </Box>
@@ -85,27 +91,8 @@ function WorkPaint() {
         </Box>
 
         {/* data  */}
-          </Box>
-          {/* <Box
-             w={"1000.84px"}
-             maxWidth={"100%"}
-              display={"grid"}
-              gridTemplateColumns={{
-                lg: "repeat(4, 1fr)",
-                md: "repeat(3,1fr)",
-                sm: "repeat(2, 1fr)",
-              }}
-             
-            >
-              {workpaints.length > 0 &&
-                workpaints.map((ele) => (
-                  <Box w={"233.203px"} h="493.969px" minHeight={"auto"}>
-                    <Image w={"auto"} h="349.469px" src={ele.Image} />
-                    <Text>{ele.name}</Text>
-                    <Text>${ele.price}</Text>
-                  </Box>
-                ))}
-            </Box> */}
+        </Box>
+          <WorkPaintCard/>
         </Box>
         
       </Box>
@@ -128,6 +115,8 @@ function WorkPaint() {
       </Box>
     </Box>
   </Box>
+  <Footer/>
+    </>
   )
 }
 

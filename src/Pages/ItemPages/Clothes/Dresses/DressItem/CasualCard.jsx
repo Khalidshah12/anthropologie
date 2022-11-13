@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Text, Image } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { single_page_data } from "../../../../../Redux/AppReducer/action";

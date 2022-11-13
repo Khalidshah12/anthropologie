@@ -75,7 +75,7 @@ useEffect(()=>{
 
   const SignoutHandler =()=>{
     window.location.reload();
-    SetUser(false)
+
     SetShow(false)
     signOut()
   }

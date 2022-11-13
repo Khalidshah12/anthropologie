@@ -25,7 +25,7 @@ function Jeans() {
       width={"95%"}
       m="auto"
       gap={"20px"}
-      mt={"30px"}
+      mt={"40px"}
       flexWrap={"wrap"}
       ml="60px"
     >

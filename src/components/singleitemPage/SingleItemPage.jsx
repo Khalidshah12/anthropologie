@@ -6,8 +6,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { postData } from "../../Redux/AppReducer/action";
-import { useToast } from '@chakra-ui/react'
-;
+import { useToast } from '@chakra-ui/react';
+import Offer from './Offer';
+import {Link} from 'react-scroll';
 
 const count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -53,8 +54,8 @@ function SingleItemPage() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -64,7 +65,7 @@ function SingleItemPage() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 2,
+          initialSlide: 1,
         },
       },
       {
@@ -76,6 +77,7 @@ function SingleItemPage() {
       },
     ],
   };
+
 
 
   console.log(singlepage);
@@ -93,22 +95,26 @@ function SingleItemPage() {
       >
         <Box w={"559.953px"}>
           <Slider {...settings}>
-            <Box>
+            <Box overflow={"hidden"}>
               <Image
                 width={"559.953px"}
                 height="839.938px"
                 maxW={"100%"}
                 // border="1px solid red"
                 src={singlepage.image}
+                transition= "transform 0.3s"
+                _hover={{transform:"scale(1.5)"}}
               />
             </Box>
-            <Box>
+            <Box overflow={"hidden"}>
               <Image
                 width={"559.953px"}
                 height="839.938px"
                 maxW={"100%"}
                 // border="1px solid red"
                 src={singlepage.flip_image}
+                transition= "transform 0.3s"
+                _hover={{transform:"scale(1.5)"}}
               />
             </Box>
           </Slider>
@@ -250,23 +256,25 @@ function SingleItemPage() {
               <Text>Add to Wish List</Text>
             </Box>
             <Box>
-              <Button
-                borderRadius="none"
-                h={"45px"}
-                width="306.016px"
-                border="1px solid #4B5666"
-                p={"10px 20px 10px 20px"}
-                minH="45px"
-                backgroundColor="rgb(253,253,249)"
-                _hover={{
-                 
-                  background: "#4B5666",
-                  color: "white",
-                }}
-                fontWeight={400}
-              >
-                SHOP THE COLLECTION
-              </Button>
+              <Link to="offer" smooth> 
+                <Button
+                  borderRadius="none"
+                  h={"45px"}
+                  width="306.016px"
+                  border="1px solid #4B5666"
+                  p={"10px 20px 10px 20px"}
+                  minH="45px"
+                  backgroundColor="rgb(253,253,249)"
+                  _hover={{
+                  
+                    background: "#4B5666",
+                    color: "white",
+                  }}
+                  fontWeight={400}
+                >
+                  SHOP THE COLLECTION
+                </Button>
+              </Link>
             </Box>
           </Box>
         </Box>
@@ -276,6 +284,9 @@ function SingleItemPage() {
           Products Details
         </Text>
         <Text>{singlepage.details}</Text>
+      </Box>
+      <Box>
+      <Offer/>
       </Box>
     </Box>
   );

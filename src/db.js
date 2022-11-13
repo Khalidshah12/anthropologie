@@ -63,6 +63,7 @@ export const wedding = [
     id: 32,
   },
 ];
+
 export const casual = [
   {
     totalprice: 170,
@@ -3672,6 +3673,7 @@ export const casual = [
     id: 252,
   },
 ];
+
 export const party = [
   {
     quantity: 1,

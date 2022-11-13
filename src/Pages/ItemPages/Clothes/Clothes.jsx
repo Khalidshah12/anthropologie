@@ -134,7 +134,7 @@ function Clothes() {
     <Box>
       {/* <Navbar/> */}
       <Box>{clothesBox}</Box>
-      <Box mt={"30px"}>
+      <Box mt={"40px"}>
         <Box width={"90%"} m="auto">
           <Box
             h={"auto"}

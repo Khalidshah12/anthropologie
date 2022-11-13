@@ -1,6 +1,6 @@
 # Anthropologie (Clone)
 ### Vercel Link 
-https://anthropologie-pandit0305.vercel.app/
+https://anthropologie-vert.vercel.app/
 
 ### Netlify   Link
 https://inquisitive-starburst-9df4b2.netlify.app/

@@ -1,4 +1,9 @@
 # Anthropologie (Clone)
+### Vercel Link 
+https://anthropologie-pandit0305.vercel.app/
+
+### Netlify   Link
+https://inquisitive-starburst-9df4b2.netlify.app/
 
 Anthropologie is a unique, full-lifestyle shopping destination, with a mostly exclusive assortment of clothing, shoes, accessories, beauty, furniture, home décor, garden, bridal, and more.
 

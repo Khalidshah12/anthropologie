@@ -2,11 +2,15 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-import { AiFillCaretDown, AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
+import {
+  AiFillCaretDown,
+  AiOutlineShoppingCart,
+  AiOutlineUser,
+} from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
-import {GiGlobe} from 'react-icons/gi';
+import { GiGlobe } from "react-icons/gi";
 
-import { useState,useRef } from "react";
+import { useState, useRef } from "react";
 import { authentication } from "../../firebase/firebase_config";
 import { RecaptchaVerifier, signOut } from "firebase/auth";
 import { signInWithPhoneNumber } from "firebase/auth";
@@ -32,8 +36,6 @@ import {
 import { AuthContext } from "../../context/authcontext/AuthContext";
 import Navbar2 from "./Navbar2";
 
-
-
 const Navbar = () => {
   const [count, setcount] = useState(60);
   const countrycode = "+91";
@@ -45,40 +47,38 @@ const Navbar = () => {
   const [phone, setPhone] = useState(countrycode);
   const navigate = useNavigate();
   const ref = useRef();
-  const {user, SetUser} = useContext(AuthContext)
+  const { user, SetUser } = useContext(AuthContext);
 
+  const startTime = () => {
+    if (ref.current !== null) return;
+    ref.current = setInterval(() => {
+      setcount((prev) => {
+        if (prev === 0) {
+          return prev;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
 
-const startTime =()=>{
-  if(ref.current !== null) return;
-  ref.current = setInterval(() => {
-    setcount((prev)=>{
-      if(prev === 0){
-        return prev;
-      }
-      return prev -1;
-    })
-  }, 1000); 
-}
+  const Stop = () => {
+    clearInterval(ref.current);
+    ref.current = null;
+  };
 
-const Stop = () => {
-  clearInterval(ref.current);
-  ref.current = null;
-};
+  useEffect(() => {
+    const clearUp = () => {
+      Stop();
+    };
+    return clearUp;
+  }, []);
 
-useEffect(()=>{
-  const clearUp = ()=>{
-    Stop();
-  }
-  return clearUp;
-},[])
-
-
-  const SignoutHandler =()=>{
+  const SignoutHandler = () => {
     window.location.reload();
-
-    SetShow(false)
-    signOut()
-  }
+    // SetUser(false)
+    SetShow(false);
+    signOut();
+  };
 
   const otherNumberHandler = () => {
     SetShow(false);
@@ -116,7 +116,8 @@ useEffect(()=>{
           const user = result.user;
           console.log(user);
           SetUser(true);
-        
+          
+
           return navigate("/");
           // ...
         })
@@ -144,8 +145,7 @@ useEffect(()=>{
         signInWithPhoneNumber(authentication, phone, appVerifier)
           .then((confirmationResult) => {
             window.confirmationResult = confirmationResult;
-            SetShow(true)
-
+            SetShow(true);
           })
           .catch((err) => {
             console.log(err);
@@ -153,7 +153,6 @@ useEffect(()=>{
       }, 3000);
     }
   };
-
 
   const sendform = (
     <Box>
@@ -243,12 +242,11 @@ useEffect(()=>{
         </HStack>
       </Center>
 
-        <Box mt={"5px"} fontSize="12px" fontWeight={"bold"}>
+      <Box mt={"5px"} fontSize="12px" fontWeight={"bold"}>
         <Center>
-        <div>Seconds : {count}</div>
-        
+          <div>Seconds : {count}</div>
         </Center>
-        </Box>
+      </Box>
       <Center mt={"20px"}>
         <Text fontSize={"14px"} color={"grey"} fontWeight={"bold"}>
           <u>Resend the Code</u>
@@ -293,13 +291,13 @@ useEffect(()=>{
               src="https://previews.123rf.com/images/magurok/magurok1309/magurok130900108/22359466-vector-globe-search-icon.jpg"
               alt="Serach Logo"
             /> */}
-            <GiGlobe fontSize={"25px"} color="#167A92"/>
+            <GiGlobe fontSize={"25px"} color="#167A92" />
           </Link>
 
           <li className="dropdown">
-            <div style={{ display: "flex", gap: "5px", color:"#167A92" }}>
-              <p style={{ color:"#167A92", fontSize:"13px" }}>English($)</p>
-              <AiFillCaretDown/>
+            <div style={{ display: "flex", gap: "5px", color: "#167A92" }}>
+              <p style={{ color: "#167A92", fontSize: "13px" }}>English($)</p>
+              <AiFillCaretDown />
             </div>
 
             <ul className="child-dropdown2">
@@ -318,7 +316,7 @@ useEffect(()=>{
           src="https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg"
           alt="User Logo"
         /> */}
-        <AiOutlineUser fontSize={"22px"}/>
+        <AiOutlineUser fontSize={"22px"} />
         <Box ml={"5px"} mt="-10px">
           <Box
             ref={finalRef}
@@ -327,7 +325,7 @@ useEffect(()=>{
           ></Box>
           <Box mt={4}>
             {user ? (
-              <MyAccount SignoutHandler={SignoutHandler}/>
+              <MyAccount SignoutHandler={SignoutHandler} />
             ) : (
               <Box mt={4} onClick={onOpen} cursor="pointer" fontSize={"13px"}>
                 Sign In / Sign Up
@@ -410,7 +408,7 @@ useEffect(()=>{
           </Link>
         </div>
       </div>
-      <Navbar2/>
+      <Navbar2 />
     </header>
   );
 };

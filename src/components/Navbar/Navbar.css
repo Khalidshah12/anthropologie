@@ -51,13 +51,22 @@
 }
 
 .lidiv {
+  position: absolute;
+  /* border:1px solid red; */
+  top: 5px;
+  z-index: 1000;
   list-style: none;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: rgb(255, 255, 255);
   font: 14px Roboto, sans-serif;
-  padding: 30px;
+  padding: 15px;
   letter-spacing: 0.6px;
+
   /* border: 1px solid red; */
+}
+
+.lidiv .li{
+  margin: 5px;
 }
 .Input {
   padding: 10px;

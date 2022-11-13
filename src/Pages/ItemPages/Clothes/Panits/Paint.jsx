@@ -1,4 +1,5 @@
 import React from 'react'
+import {useMediaQuery} from '@chakra-ui/react';
 
 
 import {Link} from 'react-router-dom';
@@ -13,6 +14,8 @@ import WorkPaintCard from './PanitItem/WorkPaintCard';
 import WidelegCard from './PanitItem/WidelegCard';
 
 function Paint() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   const paintsBox = (
     <Box
       display={"flex"}
@@ -79,7 +82,7 @@ function Paint() {
         maxWidth="1561px"
         display="flex"
       >
-        <Box>
+        <Box style={{display: isMobile ? "none" : "block"}}>
           <Sidebar />
         </Box>
         <Box>

@@ -8,10 +8,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // import Navbar from "../../../../../components/Navbar/Navbar";
 // import Footer from "../../../../../components/Footer/Footer";
 import PartyCard from "./PartyCard";
-
+import {useMediaQuery} from '@chakra-ui/react';
 
 
 function Party() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  console.log(isMobile);
   return (
     <>
       {/* <Navbar /> */}
@@ -23,7 +25,7 @@ function Party() {
             maxWidth="1561px"
             display="flex"
           >
-            <Box>
+            <Box style={{display: isMobile ? "none" : "block"}}>
               <Sidebar />
             </Box>
             <Box>

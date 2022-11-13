@@ -10,7 +10,7 @@ import { getCartData } from "../../Redux/AppReducer/action";
 import DeliveryModal from "../../components/Cart/DeliveryModal";
 import OrderSummary from "../../components/Cart/OrderSummary";
 import { SaveLocal } from "../../Utilis/localStorage";
-import Layout from "../../components/Layout";
+
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -225,7 +225,7 @@ export default function Cart() {
     let a = cart.reduce((acc, el) => {
       return acc + el.totalprice;
     }, 0);
-    setSubTotal(a);
+    setSubTotal(Math.floor(a));
     if (subTotal < 1000 && subTotal > 0) {
       setShipping(60);
     } else {

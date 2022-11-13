@@ -7,8 +7,11 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
 import EmbleshedCard from './EmbleshedCard';
 import { Box, Text, Select } from "@chakra-ui/react";
 import { embelished_shoes } from '../../../../db';
+import {useMediaQuery} from '@chakra-ui/react';
 
 function Embleshed() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
     {/* <Navbar/> */}
@@ -20,7 +23,7 @@ function Embleshed() {
           maxWidth="1561px"
           display="flex"
         >
-          <Box>
+          <Box style={{display: isMobile ? "none" : "block"}}>
             <Sidebar />
           </Box>
           <Box>

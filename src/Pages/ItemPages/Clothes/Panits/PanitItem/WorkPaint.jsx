@@ -7,9 +7,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Box, Text, Select, Image } from "@chakra-ui/react";
 import {workpaints} from '../../../../../db';
 import WorkPaintCard from './WorkPaintCard';
+import {useMediaQuery} from '@chakra-ui/react';
 
 
 function WorkPaint() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
     {/* <Navbar/> */}
@@ -21,7 +24,7 @@ function WorkPaint() {
         maxWidth="1561px"
         display="flex"
       >
-        <Box>
+        <Box style={{display: isMobile ? "none" : "block"}}>
           <Sidebar />
         </Box>
         <Box>

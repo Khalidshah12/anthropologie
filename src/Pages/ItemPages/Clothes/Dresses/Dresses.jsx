@@ -5,6 +5,7 @@ import {ChevronLeftIcon, ChevronRightIcon} from '@chakra-ui/icons'
 import Sidebar from "../../Sidebar";
 import { casual } from "../../../../db";
 import {party} from '../../../../db';
+import {useMediaQuery} from '@chakra-ui/react';
 
 
 // import Navbar from "../../../../components/Navbar/Navbar";
@@ -13,6 +14,8 @@ import PartyCard from "./DressItem/PartyCard";
 import CasualCard from "./DressItem/CasualCard";
 
 function Dresses() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   const dressBox = (
     <Box
       display={"flex"}
@@ -139,7 +142,7 @@ function Dresses() {
             maxWidth="1561px"
             display="flex"
           >
-            <Box>
+            <Box style={{display: isMobile ? "none" : "block"}}>
               <Sidebar />
             </Box>
             <Box>

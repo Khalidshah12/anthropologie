@@ -7,14 +7,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { postData } from "../../Redux/AppReducer/action";
 import { useToast } from '@chakra-ui/react'
-import { useNavigate } from "react-router-dom";
+;
 
 const count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function SingleItemPage() {
   const dispatch = useDispatch();
   const toast = useToast();
-  const navigate = useNavigate();
+
   const [Qty, SetQty] = useState(count);
   const [isMobile] = useMediaQuery("(max-width:768px)");
   console.log(isMobile);
@@ -36,12 +36,10 @@ function SingleItemPage() {
       title: 'Item Added Successfully.',
       description: "We are waiting for checkout.",
       status: 'success',
-      duration: 3000,
+      duration: 1000,
       isClosable: true,
     })
-    setTimeout(() => {
-      navigate("/cart");
-    }, 5000);
+
   };
 
   // crauser
@@ -51,6 +49,32 @@ function SingleItemPage() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
 

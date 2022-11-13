@@ -7,8 +7,11 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
 import { Sneakers } from '../../../../db';
 import { Box, Text, Select, Image } from "@chakra-ui/react";
 import SneakerCard from './SneakerCard';
+import {useMediaQuery} from '@chakra-ui/react';
 
 function Sneaker() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
     {/* <Navbar/> */}
@@ -20,7 +23,7 @@ function Sneaker() {
           maxWidth="1561px"
           display="flex"
         >
-          <Box>
+          <Box  style={{display: isMobile ? "none" : "block"}}>
             <Sidebar />
           </Box>
           <Box>

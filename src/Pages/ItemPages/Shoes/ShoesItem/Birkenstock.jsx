@@ -7,9 +7,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import {birkenstock} from '../../../../db';
 import { Box, Text, Select } from "@chakra-ui/react";
 import BirkenstockCard from './BirkenstockCard';
+import {useMediaQuery} from '@chakra-ui/react';
 
 
 function Birkenstock() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
     {/* <Navbar/> */}
@@ -21,7 +24,7 @@ function Birkenstock() {
           maxWidth="1561px"
           display="flex"
         >
-          <Box>
+          <Box style={{display: isMobile ? "none" : "block"}}>
             <Sidebar />
           </Box>
           <Box>

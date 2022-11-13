@@ -14,8 +14,11 @@ import CasualCard from "./Dresses/DressItem/CasualCard";
 import FlareCard from "./Jeans/JeansItem/FlareCard";
 import PartyCard from "./Dresses/DressItem/PartyCard";
 import WidelegCard from "./Panits/PanitItem/WidelegCard";
+import {useMediaQuery} from '@chakra-ui/react';
 
 function Clothes() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   const clothesBox = (
     <Box
       display={"flex"}
@@ -139,7 +142,7 @@ function Clothes() {
             maxWidth="1561px"
             display="flex"
           >
-            <Box>
+            <Box style={{display: isMobile ? "none" : "block"}}>
               <Sidebar />
             </Box>
           <Box>

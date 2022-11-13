@@ -2,6 +2,7 @@ import React from "react";
 
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import {useMediaQuery} from '@chakra-ui/react';
 
 // import Navbar from "../../../../../components/Navbar/Navbar";
 // import Footer from "../../../../../components/Footer/Footer";
@@ -11,6 +12,8 @@ import { Box, Text, Select } from "@chakra-ui/react";
 import WidelegCard from "./WidelegCard";
 
 function WideLeg() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
       {/* <Navbar /> */}
@@ -22,7 +25,7 @@ function WideLeg() {
             maxWidth="1561px"
             display="flex"
           >
-            <Box>
+            <Box style={{display: isMobile ? "none" : "block"}}>
               <Sidebar />
             </Box>
             <Box>

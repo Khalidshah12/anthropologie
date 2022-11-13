@@ -34,7 +34,7 @@ export default function Payment() {
         if (!isFormError) {
             toast({
                 title: "Successfull",
-                description: "Your Order is Confirm",
+                description: "Your Order is Confirmed",
                 status: "success",
                 position: "top",
                 duration: 3000,

@@ -7,8 +7,11 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // import Navbar from "../../../../../components/Navbar/Navbar";
 // import Footer from "../../../../../components/Footer/Footer";
 import StraightCard from './StraightCard';
+import {useMediaQuery} from '@chakra-ui/react';
 
 function Straight() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
       {/* <Navbar/> */}
@@ -20,7 +23,7 @@ function Straight() {
           maxWidth="1561px"
           display="flex"
         >
-          <Box>
+          <Box style={{display: isMobile ? "none" : "block"}}>
             <Sidebar />
           </Box>
         <Box>

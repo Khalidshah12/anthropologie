@@ -8,9 +8,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // import Navbar from "../../../../../components/Navbar/Navbar";
 // import Footer from "../../../../../components/Footer/Footer";
 import SkinnyCard from './SkinnyCard';
+import {useMediaQuery} from '@chakra-ui/react';
 
 
 function Skinny() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
     {/* <Navbar/> */}
@@ -22,7 +25,7 @@ function Skinny() {
           maxWidth="1561px"
           display="flex"
         >
-          <Box>
+          <Box style={{display: isMobile ? "none" : "block"}}>
             <Sidebar />
           </Box>
           <Box>

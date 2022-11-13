@@ -1,5 +1,7 @@
 import React from "react";
 import "./Navbar.css";
+import {Link} from "react-router-dom";
+
 const Navbar2 = () => {
   return (
     <header class="header">
@@ -9,35 +11,46 @@ const Navbar2 = () => {
       </label>
       <ul class="menu">
         <li>
-          <a className="Gifts">Gifts</a>
+          <p className="Gifts">Gifts</p>
         </li>
         <li>
-          <a>New!</a>
+          <p>New!</p>
         </li>
         <li>
-          <a>Dresses</a>
+          <Link to={"/clothes/dresses"}>
+          <p>
+            Dresses
+            </p>
+          </Link>
         </li>
         <li>
-          <a>Clothing</a>
+          <Link to={"/clothes"}><p>
+            Clothing
+            </p>
+            </Link>
         </li>
         <li>
-          <a>Shoes</a>
+          <Link to={"/shoes"}><p>
+            Shoes
+            </p>
+            </Link>
+            
         </li>
         <li>
-          <a>Accessories!</a>
+          <p>Accessories!</p>
         </li>
         <li>
-          <a>BHLDN Weddings</a>
+          <p>BHLDN Weddings</p>
         </li>
 
         <li>
-          <a>Beauty & Wellness</a>
+          <p>Beauty & Wellness</p>
         </li>
         <li>
-          <a>Garden & outdoor</a>
+          <p>Garden & outdoor</p>
         </li>
         <li>
-          <a>Sale</a>
+          <p>Sale</p>
         </li>
       </ul>
     </header>

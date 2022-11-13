@@ -9,11 +9,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Allroutes />
-<<<<<<< HEAD
       <Footer/>
-=======
-      <Footer />
->>>>>>> aa430de8ca522ae7dec71c81e33c71628dedb726
     </div>
   );
 }

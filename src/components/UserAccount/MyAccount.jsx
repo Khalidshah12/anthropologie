@@ -1,9 +1,5 @@
 import React from "react";
-
-import { useNavigate } from "react-router-dom";
-
 import {Link} from 'react-router-dom';
-
 import {
   Menu,
   MenuButton,
@@ -31,8 +27,9 @@ export default function MyAccount({SignoutHandler}) {
         <MenuDivider />
         <MenuGroup title="Help">
           <MenuItem>Docs</MenuItem>
-           
+           <Link to ='/'>
             <MenuItem onClick= {SignoutHandler}>Sign Out</MenuItem>
+           </Link>
            
         
         </MenuGroup>

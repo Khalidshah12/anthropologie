@@ -1,11 +1,18 @@
-import { Input } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
+import { AiFillCaretDown, AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
+import { BsSearch } from "react-icons/bs";
+import {GiGlobe} from 'react-icons/gi';
+
+import { useState,useRef } from "react";
 import { authentication } from "../../firebase/firebase_config";
-import { RecaptchaVerifier  } from "firebase/auth";
+import { RecaptchaVerifier, signOut } from "firebase/auth";
 import { signInWithPhoneNumber } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import MyAccount from "../UserAccount/MyAccount";
+
 import {
   Modal,
   ModalOverlay,
@@ -22,97 +29,131 @@ import {
   Divider,
   HStack,
 } from "@chakra-ui/react";
+import { AuthContext } from "../../context/authcontext/AuthContext";
+import Navbar2 from "./Navbar2";
+
+
+
 const Navbar = () => {
+  const [count, setcount] = useState(60);
   const countrycode = "+91";
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
   const [pin, SetPin] = useState("");
   const [show, SetShow] = useState(false);
-  const [user, SetUser]  = useState(false);
+  // const [user, SetUser] = useState(false);
   const [phone, setPhone] = useState(countrycode);
   const navigate = useNavigate();
+  const ref = useRef();
+  const {user, SetUser} = useContext(AuthContext)
 
 
-  // const SignoutHandler =()=>{
-  //   SetUser(false)
-  //   signOut()
-  // }
-  
-  
-    const otherNumberHandler = () => {
-      SetShow(false);
-    };
-  
-    const PinEvent = (e) => {
-      SetPin(e.target.value);
-    };
-  
-    const Inputevent = (e) => {
-      setPhone(e.target.value);
-    };
+const startTime =()=>{
+  if(ref.current !== null) return;
+  ref.current = setInterval(() => {
+    setcount((prev)=>{
+      if(prev === 0){
+        return prev;
+      }
+      return prev -1;
+    })
+  }, 1000); 
+}
 
-    const generateourCaptcha = () => {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        "recaptcha-box",
-        {
-          size: "invisible",
-          callback: (response) => {
-            // recaptcha solved, allow sign in with phone number
-          },
+const Stop = () => {
+  clearInterval(ref.current);
+  ref.current = null;
+};
+
+useEffect(()=>{
+  const clearUp = ()=>{
+    Stop();
+  }
+  return clearUp;
+},[])
+
+
+  const SignoutHandler =()=>{
+    window.location.reload();
+    SetUser(false)
+    SetShow(false)
+    signOut()
+  }
+
+  const otherNumberHandler = () => {
+    SetShow(false);
+  };
+
+  const PinEvent = (e) => {
+    SetPin(e.target.value);
+  };
+
+  const Inputevent = (e) => {
+    setPhone(e.target.value);
+  };
+
+  const generateourCaptcha = () => {
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      "recaptcha-box",
+      {
+        size: "invisible",
+        callback: (response) => {
+          // recaptcha solved, allow sign in with phone number
         },
-        authentication
-      );
-    };
-  
-  
-    const OnsubmitEvent = () => {
-      if (pin.length === 6) {
-        console.log(pin);
-        const confirmationResult = window.confirmationResult;
-        confirmationResult
-          .confirm(pin)
-          .then((result) => {
-            // User signed in successfully.
-            const user = result.user;
-            console.log(user);
-            SetUser(true)
-            return navigate("/")
-            // ...
-          })
-          .catch((error) => {
-            // User couldn't sign in (bad verification code?)
-            console.log(error);
-            // ...
-          });
-  
-        onClose();
+      },
+      authentication
+    );
+  };
+
+  const OnsubmitEvent = () => {
+    if (pin.length === 6) {
+      console.log(pin);
+      const confirmationResult = window.confirmationResult;
+      confirmationResult
+        .confirm(pin)
+        .then((result) => {
+          // User signed in successfully.
+          const user = result.user;
+          console.log(user);
+          SetUser(true);
         
-        // SetUser(true);
-    
-       
-    
-      }
-    };
-  
-    const Sendotp = (e) => {
-      e.preventDefault();
-      if (phone.length >= 12) {
-        console.log(phone);
-        SetShow(true);
-        generateourCaptcha();
-        setTimeout(() => {
-          let appVerifier = window.recaptchaVerifier;
-          signInWithPhoneNumber(authentication, phone, appVerifier)
-            .then((confirmationResult) => {
-              window.confirmationResult = confirmationResult;
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        }, 3000);
-      }
-    };
-  
+          return navigate("/");
+          // ...
+        })
+        .catch((error) => {
+          // User couldn't sign in (bad verification code?)
+          console.log(error);
+          // ...
+        });
+
+      onClose();
+
+      // SetUser(true);
+    }
+  };
+
+  const Sendotp = (e) => {
+    e.preventDefault();
+    if (phone.length >= 12) {
+      console.log(phone);
+      SetShow(true);
+      startTime();
+      generateourCaptcha();
+      setTimeout(() => {
+        let appVerifier = window.recaptchaVerifier;
+        signInWithPhoneNumber(authentication, phone, appVerifier)
+          .then((confirmationResult) => {
+            window.confirmationResult = confirmationResult;
+            SetShow(true)
+
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }, 3000);
+    }
+  };
+
 
   const sendform = (
     <Box>
@@ -128,7 +169,7 @@ const Navbar = () => {
       </Center>
       <Center mt={"20px"}>
         <Text fontSize={"12px"}>
-          By “logging in to KFC”, you agree to our{" "}
+          By “logging in to Anthropologie”, you agree to our{" "}
           <u style={{ fontWeight: "bold" }}>Privacy Policy</u> and{" "}
           <u style={{ fontWeight: "bold" }}>Terms & Conditions</u>.
         </Text>
@@ -202,6 +243,12 @@ const Navbar = () => {
         </HStack>
       </Center>
 
+        <Box mt={"5px"} fontSize="12px" fontWeight={"bold"}>
+        <Center>
+        <div>Seconds : {count}</div>
+        
+        </Center>
+        </Box>
       <Center mt={"20px"}>
         <Text fontSize={"14px"} color={"grey"} fontWeight={"bold"}>
           <u>Resend the Code</u>
@@ -224,9 +271,7 @@ const Navbar = () => {
           onClick={OnsubmitEvent}
         >
           Submit
-      </Button>
- 
-  
+        </Button>
       </Center>
     </Box>
   );
@@ -235,7 +280,7 @@ const Navbar = () => {
   const display = !show ? sendform : otpform;
 
   return (
-    <header>
+    <header id="header-positon">
       <img
         src="https://images.ctfassets.net/5de70he6op10/73vpJWzKmWO1fT2HwJ3p4B/b42cab1aedaef564d46e96fbd1cccaa0/Nov22_30Off_SOS_PrimaryBanner_LS_ThisWeekendOnly.jpg"
         alt=""
@@ -243,17 +288,18 @@ const Navbar = () => {
       <div className="NavbarFirst">
         <div className="globeSearch">
           <Link to="/">
-            <img
+            {/* <img
               className="userLogo"
               src="https://previews.123rf.com/images/magurok/magurok1309/magurok130900108/22359466-vector-globe-search-icon.jpg"
               alt="Serach Logo"
-            />
+            /> */}
+            <GiGlobe fontSize={"25px"} color="#167A92"/>
           </Link>
 
           <li className="dropdown">
-            <div style={{ display: "flex", gap: "5px" }}>
-              <a>English($)</a>
-              <AiFillCaretDown />
+            <div style={{ display: "flex", gap: "5px", color:"#167A92" }}>
+              <p style={{ color:"#167A92", fontSize:"13px" }}>English($)</p>
+              <AiFillCaretDown/>
             </div>
 
             <ul className="child-dropdown2">
@@ -267,14 +313,53 @@ const Navbar = () => {
           </li>
         </div>
 
-        <img
+        {/* <img
           className="userLogo"
           src="https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg"
           alt="User Logo"
-        />
-        <Link to="/login">
-          <div>Sign In / Sign In</div>
-        </Link>
+        /> */}
+        <AiOutlineUser fontSize={"22px"}/>
+        <Box ml={"5px"} mt="-10px">
+          <Box
+            ref={finalRef}
+            tabIndex={-1}
+            aria-label="Focus moved to this box"
+          ></Box>
+          <Box mt={4}>
+            {user ? (
+              <MyAccount SignoutHandler={SignoutHandler}/>
+            ) : (
+              <Box mt={4} onClick={onOpen} cursor="pointer" fontSize={"13px"}>
+                Sign In / Sign Up
+              </Box>
+            )}
+          </Box>
+
+          <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent background="rgb(253,253,249)">
+              <ModalHeader>
+                {" "}
+                <Center fontSize={"22px"} mt="50px">
+                  {!show ? "Create An Account" : "Sign In"}
+                </Center>
+              </ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <Text textAlign={"center"}>
+                  Welcome to Anthropologie! It's quick and easy to set up an
+                  account.
+                </Text>
+                <Box mt={"30px"} mb="30px">
+                  {display}
+                </Box>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
+          <Center>
+            <Box id="recaptcha-box"></Box>
+          </Center>
+        </Box>
       </div>
 
       <div className="Navbars">
@@ -325,62 +410,7 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-      <nav>
-        <ul className="navbar">
-          <li className="dropdown">
-            Gift
-            <ul className="child-dropdown">
-              <a>Shop By Category</a>
-              <div className="hovergrid">
-                <div className="hovergrid1">
-                  <li>Explore All Gifts</li>
-                  <li>Shop All Gifts</li>
-                  <li>Gifts for Her</li>
-                  <li>Candle gift & sets</li>
-                  <li>Holiday ,decor </li>
-                  <li>Stocking suffers</li>
-                  <li>Giftable Sweaters</li>
-                  <li>Giftable Accessories</li>
-                  <li>Gifts for the home</li>
-                  <li>Cozy Gifts ,slippers,Throws</li>
-                  <li>Cold weather Gifts </li>
-                  <li>Beauty gifts and sets</li>
-                  <li>Gifts by Receipts</li>
-                  <li>BestSeling Gifts</li>
-                  <li>Gifts Bundles</li>
-                  <li>Gifts Cards</li>
-                </div>
-
-                <div className="hovergrid2">
-                  <h3>Gifts under price</h3>
-                  <div>
-                    <li>Gifts under 30$</li>
-                    <li>Gifts under 50$ </li>
-                    <li>Gifts under 25$</li>
-                    <li> Gifts under 100$</li>
-                  </div>
-                </div>
-              </div>
-            </ul>
-          </li>
-          <li>New!</li>
-          <Link to={'/clothes/dresses'}>
-            <li>Dresses</li>
-          </Link>
-          <Link to={'/clothes'}>
-            <li>Clothing</li>
-          </Link>
-          <Link to={'/shoes'}>
-          <li>Shoes</li>
-          </Link>
-          <li>Accessories</li>
-          <li>BHLND Weddings</li>
-          <li>Home & Furniture</li>
-          <li>Beauty & wellness</li>
-          <li>Garden & outdoor</li>
-          <li>Sale</li>
-        </ul>
-      </nav>
+      <Navbar2/>
     </header>
   );
 };

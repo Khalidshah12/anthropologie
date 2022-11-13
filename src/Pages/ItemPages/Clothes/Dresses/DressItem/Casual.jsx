@@ -2,6 +2,7 @@ import React from "react";
 
 import { Box, Text, Select, Image } from "@chakra-ui/react";
 import { casual } from "../../../../../db";
+import {useMediaQuery} from '@chakra-ui/react';
 
 import Sidebar from "../../../Sidebar";
 import Pagination from "../../../Pagination";
@@ -11,6 +12,7 @@ import Filter from "../../../Filter";
 import CasualCard from "./CasualCard";
 
 function Casual() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
  
   return (
     <>
@@ -24,7 +26,7 @@ function Casual() {
             maxWidth="1561px"
             display="flex"
           >
-            <Box>
+            <Box style={{display: isMobile ? "none" : "block"}}>
               <Sidebar />
             </Box>
             <Box>

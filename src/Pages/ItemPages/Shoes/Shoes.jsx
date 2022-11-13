@@ -12,9 +12,12 @@ import { embelished_shoes } from '../../../db';
 import BirkenstockCard from './ShoesItem/BirkenstockCard';
 import EmbleshedCard from './ShoesItem/EmbleshedCard';
 import SneakerCard from './ShoesItem/SneakerCard';
+import {useMediaQuery} from '@chakra-ui/react';
 
 
 function Shoes() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   const shoessBox = (
     <Box
       display={"flex"}
@@ -95,7 +98,7 @@ function Shoes() {
           maxWidth="1561px"
           display="flex"
         >
-          <Box>
+          <Box style={{display: isMobile ? "none" : "block"}}>
             <Sidebar />
           </Box>
         <Box>

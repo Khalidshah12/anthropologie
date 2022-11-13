@@ -13,9 +13,12 @@ import FlareCard from "./JeansItem/FlareCard";
 import WidelegsCard from "./JeansItem/WidelegsCard";
 import StraightCard from "./JeansItem/StraightCard";
 import SkinnyCard from "./JeansItem/SkinnyCard";
+import {useMediaQuery} from '@chakra-ui/react';
 
 
 function Jeans() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   const jeansBox = (
     <Box
       display={"flex"}
@@ -186,7 +189,7 @@ function Jeans() {
             maxWidth="1561px"
             display="flex"
           >
-            <Box>
+            <Box style={{display: isMobile ? "none" : "block"}}>
               <Sidebar />
             </Box>
           <Box>

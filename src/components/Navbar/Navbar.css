@@ -11,6 +11,14 @@
   letter-spacing: 0.6px;
 }
 
+#header-positon{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgb(253,253,249);
+  z-index: 1000;
+}
+
 .globeSearch {
   display: flex;
   /* border: 1px solid red; */
@@ -55,7 +63,7 @@
   padding: 10px;
   letter-spacing: 0.6px;
   border: 1px solid rgba(0, 0, 0, 0.183);
-
+  z-index: -1;
   /* border: 1px solid black; */
 }
 .Navbars {
@@ -76,7 +84,8 @@
   margin-right: 20px;
   letter-spacing: 0.6px;
 }
-.navbar {
+/* .navbar {
+  border: 1px solid red;
   display: flex;
   justify-content: flex-start;
   padding: 15px;
@@ -86,7 +95,7 @@
   list-style: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.183);
   border-top: 1px solid rgba(0, 0, 0, 0.183);
-}
+} */
 .child-dropdown {
   display: none;
 }
@@ -160,30 +169,35 @@ body {
   background-color: #f4f4f4;
 }
 
-a {
+p {
   color: #000;
 }
 
 /* header */
 
 .header {
-  background-color: #fff;
+  /* background-color: ; */
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
   /* position: fixed;
   width: 100%;
   z-index: 3; */
   /* border: 1px solid red; */
+  /* height: 50px; */
+  width: 95%;
+  margin: auto;
+
 }
 
 .header ul {
   margin: 0;
-  padding: 0;
+  padding: 0; 
   list-style: none;
+  font-size: 13px;
   overflow: hidden;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
-.header li a {
+.header li p {
   display: block;
   padding: 20px 20px;
   border-right: 1px solid #f4f4f4;
@@ -195,7 +209,7 @@ a {
   color: red;
 }
 
-.header li a:hover,
+.header li p:hover,
 .header .menu-btn:hover {
   /* background-color: #f4f4f4; */
   color: #167a92;
@@ -279,13 +293,15 @@ a {
   top: 0;
 }
 
+
+
 /* 48em = 768px */
 
 @media (min-width: 48em) {
   .header li {
     float: left;
   }
-  .header li a {
+  .header li p {
     padding: 20px 30px;
   }
   .header .menu {
@@ -296,4 +312,6 @@ a {
   .header .menu-icon {
     display: none;
   }
+ 
 }
+

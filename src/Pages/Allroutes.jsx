@@ -8,7 +8,7 @@ import Wedding from "./ItemPages/Clothes/Dresses/DressItem/Wedding";
 import Home from "./Homepage/Home";
 import Clothes from "./ItemPages/Clothes/Clothes";
 import Jeans from "./ItemPages/Clothes/Jeans/Jeans";
-import Login from "./Loginpage/Login";
+
 import Bootcut from "./ItemPages/Clothes/Jeans/JeansItem/Bootcut";
 import Boyfriend from "./ItemPages/Clothes/Jeans/JeansItem/Boyfriend";
 import Flare from "./ItemPages/Clothes/Jeans/JeansItem/Flare";
@@ -25,16 +25,15 @@ import WideLegs from "./ItemPages/Clothes/Jeans/JeansItem/WideLegs";
 import Cart from "./Cart/Cart";
 import Checkout from "./Checkout/Checkout";
 import SingleItemPage from "../components/singleitemPage/SingleItemPage";
-// import Navbar from "../components/Navbar/Navbar";
 import NotFound from '../components/NotFound';
 import Delivery from "./Delivery/Delivery";
 import Payment from "./Payment/Payment";
 const Allroutes = () => {
   return (
     <>
-      {/* <Navbar/> */}
+     
       <Routes>
-        <Route path="/login" element={<Login />} />
+      
         <Route path="/" element={<Home />}></Route>
 
         {/* Cart And Payment */}

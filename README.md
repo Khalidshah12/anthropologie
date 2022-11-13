@@ -1,3 +1,6 @@
+Anthropologie is a unique, full-lifestyle shopping destination, with a mostly exclusive assortment of clothing, shoes, accessories, beauty, furniture, home décor, garden, bridal, and more.
+
+
 # Anthropologie (Clone)
 ### Vercel Link 
 https://anthropologie-vert.vercel.app/
@@ -5,7 +8,6 @@ https://anthropologie-vert.vercel.app/
 ### Netlify   Link
 https://inquisitive-starburst-9df4b2.netlify.app/
 
-Anthropologie is a unique, full-lifestyle shopping destination, with a mostly exclusive assortment of clothing, shoes, accessories, beauty, furniture, home décor, garden, bridal, and more.
 
 ### Getting Started
 

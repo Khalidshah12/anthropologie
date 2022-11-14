@@ -9,7 +9,6 @@ https://anthropologie-vert.vercel.app/
 ### Netlify   Link
 https://inquisitive-starburst-9df4b2.netlify.app/
 
-
 ### Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.

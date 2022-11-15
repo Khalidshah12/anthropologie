@@ -36,9 +36,17 @@ https://leafy-buttercream-cd6899.netlify.app/
 
 ## Collaborators
 1. [Khalid Shah - Team Lead](https://github.com/Khalidshah12/) - Cart Page | Address Page | Review Page | Payment Page
-   
 1. [Pandit Gangadhar - Team Member](https://github.com/pandit0305) - Products Page | Single Product Page | Signup & Login | Collecting Data
 2. [Sohil Khan - Team Member](https://github.com/sohilweb20) - Navbar | Home Page | Footer
+
+## Features
+  Login/Signup using Firebase.
+  Different Categories and Sections.
+  Add to Cart.
+  Can View Similar Products.
+  Can Increase the Quantity of the Cart Items.
+  Address Validation & Credit Card Validation
+  Responsive Design
 
 ## Tech Stacks
 ```

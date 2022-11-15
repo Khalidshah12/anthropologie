@@ -40,13 +40,13 @@ https://leafy-buttercream-cd6899.netlify.app/
 *  Address Page 
 *  Review Page 
 *  Payment Page
-*  
+
 2. [Pandit Gangadhar - Team Member](https://github.com/pandit0305)
 *  Products Page
 *  Single Product Page
 *  Signup & Login
 *  Collecting Data
-*  
+
 3. [Sohil Khan - Team Member](https://github.com/sohilweb20)
 *  Navbar Section
 *  Home Page

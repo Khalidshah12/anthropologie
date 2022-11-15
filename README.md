@@ -62,28 +62,22 @@ https://leafy-buttercream-cd6899.netlify.app/
 *  Responsive Design
 
 ## Tech Stacks
-```
-React | React-Router-Dom | Redux | React-Redux | Redux-Thunk | React-Firebase-Hooks | React-Scripts | React-Scroll | React-Slick | React-Icon | React-Bootstrap | Bootstrap | Chakra | Chakra-Icon | Slick-Carousel | Web-Vitals
-```
 
-## Tech Stacks
-* [React](https://localhost:3000)
-* [React-Router-Dom](https://localhost:3000)
-* [Redux](https://localhost:3000)
-* [React-Redux](https://localhost:3000)
-* [Redux-Thunk](https://localhost:3000)
-* [React-Firebase-Hooks](https://localhost:3000)
-* [React-Scripts](https://localhost:3000)
-* [React-Scroll](https://localhost:3000)
-* [React-Slick](https://localhost:3000)
-* [React-Icon](https://localhost:3000)
-* [Axios](https://localhost:3000)
-* [React-Bootstrap](https://localhost:3000)
-* [Bootstrap](https://localhost:3000)
-* [Chakra UI](https://localhost:3000)
-* [Chakra-Icon](https://localhost:3000)
-* [Slick-Carousel](https://localhost:3000)
-* [Web-Vitals](https://localhost:3000)
+* [ReactJs](https://reactjs.org/)
+* [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)
+* [Redux](https://www.npmjs.com/package/redux)
+* [React-Redux](https://www.npmjs.com/package/react-redux)
+* [Redux-Thunk](https://www.npmjs.com/package/redux-thunk)
+* [React-Firebase-Hooks](https://www.npmjs.com/package/react-firebase-hooks)
+* [React-Scripts](https://www.npmjs.com/package/react-scripts)
+* [React-Scroll]([https://localhost:3000](https://www.npmjs.com/package/react-scroll))
+* [React-Slick]([https://localhost:3000](https://www.npmjs.com/package/react-slick))
+* [React-Icon](https://www.npmjs.com/package/react-icons)
+* [Axios](https://www.npmjs.com/package/axios)
+* [React-Bootstrap](https://www.npmjs.com/package/react-bootstrap)
+* [Bootstrap](https://www.npmjs.com/package/bootstrap)
+* [Chakra UI](https://chakra-ui.com/getting-started)
+* [Chakra-Icon](https://chakra-ui.com/docs/components/icon)
 
 ### Getting Started
 

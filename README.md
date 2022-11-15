@@ -66,6 +66,25 @@ https://leafy-buttercream-cd6899.netlify.app/
 React | React-Router-Dom | Redux | React-Redux | Redux-Thunk | React-Firebase-Hooks | React-Scripts | React-Scroll | React-Slick | React-Icon | React-Bootstrap | Bootstrap | Chakra | Chakra-Icon | Slick-Carousel | Web-Vitals
 ```
 
+## Tech Stacks
+* [React](https://localhost:3000)
+* [React-Router-Dom](https://localhost:3000)
+* [Redux](https://localhost:3000)
+* [React-Redux](https://localhost:3000)
+* [Redux-Thunk](https://localhost:3000)
+* [React-Firebase-Hooks](https://localhost:3000)
+* [React-Scripts](https://localhost:3000)
+* [React-Scroll](https://localhost:3000)
+* [React-Slick](https://localhost:3000)
+* [React-Icon](https://localhost:3000)
+* [Axios](https://localhost:3000)
+* [React-Bootstrap](https://localhost:3000)
+* [Bootstrap](https://localhost:3000)
+* [Chakra UI](https://localhost:3000)
+* [Chakra-Icon](https://localhost:3000)
+* [Slick-Carousel](https://localhost:3000)
+* [Web-Vitals](https://localhost:3000)
+
 ### Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.

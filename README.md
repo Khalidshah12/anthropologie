@@ -26,8 +26,10 @@ https://anthropologie-vert.vercel.app/
 https://inquisitive-starburst-9df4b2.netlify.app/
 
 ## Collaborators
-1. [Khalid Shah - Team Lead](https://github.com/Khalidshah12/) 
+1. [Khalid Shah - Team Lead](https://github.com/Khalidshah12/)
+   <br/>
    Area of Responsibility
+   <br/>
    Cart Page | Address Page | Review Page | Payment Page
    
 2. [Pandit Gangadhar - Team Member](https://github.com/pandit0305) - Products Page | Single Product Page | Signup & Login | Collecting Data

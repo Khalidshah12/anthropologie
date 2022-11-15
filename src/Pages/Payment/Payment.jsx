@@ -111,7 +111,7 @@ export default function Payment() {
                                                         )}
                                                     </Box>
                                                     <Box id={styles.width20}>
-                                                        <Input mb={!isCvvError ? "19px" : ""} className={styles.inputs} h='45px' borderRadius='' variant='' w='100%' type='number' value={formData.cvv} onChange={(e) => { if (e.target.value.length < 5) { setFormData({ ...formData, cvv: e.target.value }) } }} />
+                                                        <Input mb={!isCvvError ? "19px" : ""} className={styles.inputs} h='45px' borderRadius='' variant='' w='100%' type='number' value={formData.cvv} onChange={(e) => { if (e.target.value.length < 4) { setFormData({ ...formData, cvv: e.target.value }) } }} />
                                                         {!isCvvError ? "" : (
                                                             <Text color='#C33D3D' fontSize='13px'>Please enter CVV</Text>
                                                         )}

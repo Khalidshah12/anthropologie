@@ -13,6 +13,11 @@ https://inquisitive-starburst-9df4b2.netlify.app/
 2. [Pandit Gangadhar](https://github.com/pandit0305)
 3. [Sohil Khan](https://github.com/sohilweb20)
 
+## Tech Stacks
+```
+React | React-Router-Dom | Redux | React-Redux | Redux-Thunk | React-Firebase-Hooks | React-Scripts | React-Scroll | React-Slick | React-Icon | React-Bootstrap | Bootstrap | Chakra | Chakra-Icon | Slick-Carousel | Web-Vitals
+```
+
 ### Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.

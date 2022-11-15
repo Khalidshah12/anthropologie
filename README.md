@@ -18,12 +18,12 @@ Anthropologie is a unique, full-lifestyle shopping destination, with a mostly ex
   <img src="./public/anthropologie_03.png" alt='anthropologie_03 image' align="center" />
 </p>
 
-### Cart Product
+### Cart Product page
 <p align="center">
   <img src="./public/anthropologie_04.png" alt='anthropologie_04 image' align="center" />
 </p>
 
-
+Payment page
 <p align="center">
   <img src="./public/anthropologie_05.png" alt='anthropologie_05 image' align="center" />
 </p>

@@ -3,22 +3,22 @@
 Anthropologie is a unique, full-lifestyle shopping destination, with a mostly exclusive assortment of clothing, shoes, accessories, beauty, furniture, home décor, garden, bridal, and more.
 
 ## Have a Look 😍
-### Navbar and home page
+### Navbar and Home Page
 <p align="center">
   <img src="./public/anthropologie_01.png" alt='anthropologie_01 image' align="center" />
 </p>
 
-### Product page
+### Product Page
 <p align="center">
   <img src="./public/anthropologie_02.png" alt='anthropologie_02 image' align="center" />
 </p>
 
-### Single page of the product
+### Single Page of the Product
 <p align="center">
   <img src="./public/anthropologie_03.png" alt='anthropologie_03 image' align="center" />
 </p>
 
-### Cart Product page
+### Cart Product Page
 <p align="center">
   <img src="./public/anthropologie_04.png" alt='anthropologie_04 image' align="center" />
 </p>
@@ -35,18 +35,31 @@ https://anthropologie-pandit0305.vercel.app/
 https://leafy-buttercream-cd6899.netlify.app/
 
 ## Collaborators
-1. [Khalid Shah - Team Lead](https://github.com/Khalidshah12/) - Cart Page | Address Page | Review Page | Payment Page
-1. [Pandit Gangadhar - Team Member](https://github.com/pandit0305) - Products Page | Single Product Page | Signup & Login | Collecting Data
-2. [Sohil Khan - Team Member](https://github.com/sohilweb20) - Navbar | Home Page | Footer
+1. [Khalid Shah - Team Lead](https://github.com/Khalidshah12/) 
+*  Cart Page 
+*  Address Page 
+*  Review Page 
+*  Payment Page
+*  
+2. [Pandit Gangadhar - Team Member](https://github.com/pandit0305)
+*  Products Page
+*  Single Product Page
+*  Signup & Login
+*  Collecting Data
+*  
+3. [Sohil Khan - Team Member](https://github.com/sohilweb20)
+*  Navbar Section
+*  Home Page
+*  Footer Section
 
 ## Features
 *  Login/Signup using Firebase.
-**  Different Categories and Sections.
-***  Add to Cart.
-  *Can View Similar Products.*
-  Can Increase the Quantity of the Cart Items.
-  Address Validation & Credit Card Validation
-  Responsive Design
+*  Different Categories and Sections.
+*  Add to Cart.
+*  Can View Similar Products.
+*  Can Increase the Quantity of the Cart Items.
+*  Address Validation & Credit Card Validation
+*  Responsive Design
 
 ## Tech Stacks
 ```

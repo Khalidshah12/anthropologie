@@ -16,7 +16,7 @@ export default function MyAccount({SignoutHandler}) {
 
   return (
     <Menu mt={"5px"}>
-      <MenuButton as={Button}  bg={"white"}  _hover={{bg:"white"}}>
+      <MenuButton as={Button}  bg={"rgb(253,253,249)"}  _hover={{bg:"white"}} h="20px" fontWeight={"none"} fontSize="13px">
         MyAccount
       </MenuButton>
       <MenuList position={"relative"}>

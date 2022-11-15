@@ -1,6 +1,6 @@
 import React from 'react'
 // import {straight} from '../../../../db';
-import { Box, Text, Select, Image } from "@chakra-ui/react";
+import { Box, Text, Select } from "@chakra-ui/react";
 import {straight} from '../../../../../db';
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
@@ -10,7 +10,7 @@ import StraightCard from './StraightCard';
 import {useMediaQuery} from '@chakra-ui/react';
 
 function Straight() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   return (
     <>
@@ -29,11 +29,13 @@ function Straight() {
         <Box>
           <Box>
           <Box
-            w={"1020.84px"}
-            maxWidth={"100%"}
-            // border="1px solid red"
-            display={"flex"}
-            justifyContent="space-between"
+                maxWidth={"100%"}
+                display={"flex"}
+                justifyContent="space-between"
+                // border="1px solid red
+                minW={"auto"}
+                flexWrap={"wrap"}
+                h={"auto"}
           >
             <Box>
               <Text fontSize={"25px"}>

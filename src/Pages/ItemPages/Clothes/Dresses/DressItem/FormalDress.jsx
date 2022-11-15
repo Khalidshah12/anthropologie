@@ -1,6 +1,6 @@
 import React from 'react'
 import {formal_dress} from '../../../../../db';
-import { Box, Text, Select, Image } from "@chakra-ui/react";
+import { Box, Text, Select} from "@chakra-ui/react";
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // import Navbar from "../../../../../components/Navbar/Navbar";
@@ -10,7 +10,7 @@ import {useMediaQuery} from '@chakra-ui/react';
 
 
 function FormalDress() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   return (
     <>
@@ -31,11 +31,13 @@ function FormalDress() {
               
             </Box>
             <Box
-              w={"1020.84px"}
-              maxWidth={"100%"}
-              // border="1px solid red"
-              display={"flex"}
-              justifyContent="space-between"
+               maxWidth={"100%"}
+               display={"flex"}
+               justifyContent="space-between"
+               // border="1px solid red
+               minW={"auto"}
+               flexWrap={"wrap"}
+               h={"auto"}
             >
               <Box>
                 <Text fontSize={"25px"}>

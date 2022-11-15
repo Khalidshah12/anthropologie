@@ -82,7 +82,7 @@ export default function Offer() {
   return (
     <Box >
       <Spacer h={"100px"} id="offer"/>
-      <Box w={"100%"} bgColor={"#202124"} h="550px" minWidth={"auto"}>
+      <Box w={"100%"} bgColor={"#202124"} h="auto" minWidth={"auto"}>
         <Box w={"80%"} m={"auto"}>
           <Spacer h={"50px"} />
           <Flex color={"white"} justifyContent={"space-between"}>

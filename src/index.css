@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #FDFDF9;
+
 }
 
 code {
@@ -15,4 +16,17 @@ code {
 
 #jeans:hover{
   text-decoration: none;
+}
+
+
+#dropdown-content{
+  display: none;
+}
+
+#dropdown-content Text{
+  display: block;
+}
+
+#dropdown:hover #dropdown-content{
+  display: block;
 }

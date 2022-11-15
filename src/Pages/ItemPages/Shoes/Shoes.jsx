@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box, Text, Select, Image } from "@chakra-ui/react";
+import { Box, Text, Select} from "@chakra-ui/react";
 import Sidebar from "../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // import Navbar from "../../../components/Navbar/Navbar";
@@ -16,7 +16,7 @@ import {useMediaQuery} from '@chakra-ui/react';
 
 
 function Shoes() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   const shoessBox = (
     <Box
@@ -27,7 +27,8 @@ function Shoes() {
       mt={"30px"}
       flexWrap={"wrap"}
       color={"white"}
-      ml="60px"
+      ml={{base:"5px", sm:"60px", md:"60px",lg:"60px"}}
+
     >
       <Link to={"/shoes/embleshed"}>
         <Box
@@ -104,11 +105,13 @@ function Shoes() {
         <Box>
           <Box>
           <Box
-            w={"1020.84px"}
-            maxWidth={"100%"}
-            // border="1px solid red"
-            display={"flex"}
-            justifyContent="space-between"
+               maxWidth={"100%"}
+               display={"flex"}
+               justifyContent="space-between"
+               // border="1px solid red
+               minW={"auto"}
+               flexWrap={"wrap"}
+               h={"auto"}
           >
             <Box>
               <Text fontSize={"25px"}>

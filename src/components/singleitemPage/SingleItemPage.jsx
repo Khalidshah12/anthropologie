@@ -1,6 +1,6 @@
 import { Box, Image, Text, Button, Select } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useMediaQuery } from "@chakra-ui/react";
+
 import { useSelector, useDispatch } from "react-redux";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -17,8 +17,6 @@ function SingleItemPage() {
   const toast = useToast();
 
   const [Qty, SetQty] = useState(count);
-  const [isMobile] = useMediaQuery("(max-width:768px)");
-  console.log(isMobile);
 
   const { singlepage } = useSelector((state) => {
     return {
@@ -93,11 +91,14 @@ function SingleItemPage() {
         m={"auto"}
         mt="30px"
       >
-        <Box w={"559.953px"}>
+        <Box 
+                width={{base:"300px",sm:"450px", md:"550px",lg:"559.953px"}}
+        
+        >
           <Slider {...settings}>
             <Box overflow={"hidden"}>
               <Image
-                width={"559.953px"}
+                // width={{base:"320px",sm:"450px", md:"550px",lg:"559.953px"}}
                 height="839.938px"
                 maxW={"100%"}
                 // border="1px solid red"
@@ -106,15 +107,16 @@ function SingleItemPage() {
                 _hover={{transform:"scale(1.5)"}}
               />
             </Box>
-            <Box overflow={"hidden"}>
+            <Box overflow={"hidden"}  ml={{base:"5px"}}>
               <Image
-                width={"559.953px"}
+                // width={{base:"300px",sm:"400px", md:"500px",lg:"559.953px"}}
                 height="839.938px"
                 maxW={"100%"}
                 // border="1px solid red"
                 src={singlepage.flip_image}
                 transition= "transform 0.3s"
                 _hover={{transform:"scale(1.5)"}}
+               
               />
             </Box>
           </Slider>

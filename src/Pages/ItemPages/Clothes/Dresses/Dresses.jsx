@@ -14,7 +14,7 @@ import PartyCard from "./DressItem/PartyCard";
 import CasualCard from "./DressItem/CasualCard";
 
 function Dresses() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   const dressBox = (
     <Box
@@ -25,7 +25,8 @@ function Dresses() {
       mt={"40px"}
       flexWrap={"wrap"}
       color={"white"}
-      ml="60px"
+      ml={{base:"5px", sm:"60px", md:"60px",lg:"60px"}}
+
     >
       <Link to={"/clothes/dresses/wedding"}>
         <Box
@@ -148,11 +149,13 @@ function Dresses() {
             <Box>
               <Box>
               <Box
-              w={"1020.84px"}
-              maxWidth={"100%"}
-              // border="1px solid red"
-              display={"flex"}
-              justifyContent="space-between"
+             maxWidth={"100%"}
+             display={"flex"}
+             justifyContent="space-between"
+             // border="1px solid red
+             minW={"auto"}
+             flexWrap={"wrap"}
+             h={"auto"}
             >
               <Box>
                 <Text fontSize={"25px"}>

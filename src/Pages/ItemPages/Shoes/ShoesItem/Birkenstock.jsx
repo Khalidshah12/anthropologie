@@ -11,7 +11,7 @@ import {useMediaQuery} from '@chakra-ui/react';
 
 
 function Birkenstock() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   return (
     <>
@@ -30,11 +30,13 @@ function Birkenstock() {
           <Box>
             <Box>
             <Box
-            w={"1020.84px"}
-            maxWidth={"100%"}
-            // border="1px solid red"
-            display={"flex"}
-            justifyContent="space-between"
+                maxWidth={"100%"}
+                display={"flex"}
+                justifyContent="space-between"
+                // border="1px solid red
+                minW={"auto"}
+                flexWrap={"wrap"}
+                h={"auto"}
           >
             <Box>
               <Text fontSize={"25px"}>

@@ -8,12 +8,18 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // import Navbar from "../../../../../components/Navbar/Navbar";
 // import Footer from "../../../../../components/Footer/Footer";
 import PartyCard from "./PartyCard";
-import {useMediaQuery} from '@chakra-ui/react';
-
+import { useMediaQuery } from "@chakra-ui/react";
+import { useState } from "react";
 
 function Party() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [value, SetValue] = useState(null);
+  const [isMobile] = useMediaQuery("(max-width: 1024px)");
   console.log(isMobile);
+
+  const InputHandler = () => {
+    console.log(value);
+  };
+
   return (
     <>
       {/* <Navbar /> */}
@@ -25,18 +31,19 @@ function Party() {
             maxWidth="1561px"
             display="flex"
           >
-            <Box style={{display: isMobile ? "none" : "block"}}>
+            <Box style={{ display: isMobile ? "none" : "block" }}>
               <Sidebar />
             </Box>
             <Box>
               <Box>
                 <Box
-                  w={"985px"}
                   maxWidth={"100%"}
-                  // border="1px solid red"
-                  h={"50px"}
                   display={"flex"}
                   justifyContent="space-between"
+                  // border="1px solid red
+                  minW={"auto"}
+                  flexWrap={"wrap"}
+                  h={"auto"}
                 >
                   <Box>
                     <Text fontSize={"22px"}>
@@ -65,6 +72,9 @@ function Party() {
                           minWidth={"auto"}
                           placeholder="Featured"
                           _hover="none"
+                          type="text"
+                          onChange={(e) => SetValue(e.target.value)}
+                          onInput={InputHandler}
                         >
                           <option value="lowtohigh">Price: Low to High</option>
                           <option value="hightolow">Price: High to Low</option>
@@ -91,12 +101,11 @@ function Party() {
                     </Box>
                   </Box>
                 </Box>
-
               </Box>
               <Box>
-              {/* data  */}
+                {/* data  */}
 
-              <PartyCard/>
+                <PartyCard />
               </Box>
             </Box>
           </Box>

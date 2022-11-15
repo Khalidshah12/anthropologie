@@ -1,0 +1,21 @@
+.Navbar2 div p{
+    margin:10px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 10px;
+}
+
+.Navbar2 div p:hover{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.nav{
+    display: none;
+}
+@media screen and (max-width : 600px) {
+    .nav{
+        display: block;
+    }
+}

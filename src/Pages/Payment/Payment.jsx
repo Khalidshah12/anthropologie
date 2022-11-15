@@ -24,10 +24,10 @@ export default function Payment() {
         cardNumber: "", expiry: "", cvv: ""
     })
     const [isCash, setIsCash] = useState(false)
-    const isFormError = (formData.cardNumber === '' || formData.expiry === '' || formData.cvv === '' || formData.cardNumber.length > 12 || formData.cardNumber.length < 12 || formData.expiry.length < 5 || !formData.expiry[2].includes("/") || formData.cvv.length < 4) && isCash
+    const isFormError = (formData.cardNumber === '' || formData.expiry === '' || formData.cvv === '' || formData.cardNumber.length > 12 || formData.cardNumber.length < 12 || formData.expiry.length < 5 || !formData.expiry[2].includes("/") || formData.cvv.length < 3) && isCash
     const isCardError = formData.cardNumber === '' || formData.cardNumber.length > 12 || formData.cardNumber.length < 12
     const isExpiryError = formData.expiry === '' || formData.expiry.length < 5 || !formData.expiry[2].includes("/")
-    const isCvvError = formData.cvv === '' || formData.cvv.length < 4
+    const isCvvError = formData.cvv === '' || formData.cvv.length < 3
     const toast = useToast()
 
     const HandleProceed = () => {
@@ -85,10 +85,10 @@ export default function Payment() {
                                             <Box w='100%' >
                                                 <Box id={styles.labelsDiv}>
                                                     <Box w='40%'>
-                                                        <Text fontWeight='normal' fontSize='13px'>City or ZIP Code*</Text>
+                                                        <Text fontWeight='normal' fontSize='13px'>Card Number*</Text>
                                                     </Box>
                                                     <Box w='30%'>
-                                                        <Text fontWeight='normal' fontSize='13px'>Distance*</Text>
+                                                        <Text fontWeight='normal' fontSize='13px'>Expiry*</Text>
                                                     </Box>
                                                     <Box w='20%'>
                                                         <Text></Text>

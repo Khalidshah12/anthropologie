@@ -5,12 +5,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
 // import Navbar from "../../../../components/Navbar/Navbar";
 // import Footer from "../../../../components/Footer/Footer";
 import { Sneakers } from '../../../../db';
-import { Box, Text, Select, Image } from "@chakra-ui/react";
+import { Box, Text, Select } from "@chakra-ui/react";
 import SneakerCard from './SneakerCard';
 import {useMediaQuery} from '@chakra-ui/react';
 
 function Sneaker() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   return (
     <>
@@ -29,11 +29,13 @@ function Sneaker() {
           <Box>
             <Box>
             <Box
-            w={"1020.84px"}
             maxWidth={"100%"}
-            // border="1px solid red"
             display={"flex"}
             justifyContent="space-between"
+            // border="1px solid red
+            minW={"auto"}
+            flexWrap={"wrap"}
+            h={"auto"}
           >
             <Box>
               <Text fontSize={"25px"}>

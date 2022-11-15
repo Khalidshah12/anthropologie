@@ -37,29 +37,37 @@ function CasualCard() {
   return (
     <>
       <Box
-        w={"1000.84px"}
-        maxWidth={"100%"}
+      // border={"1px solid red"}
+        // w={"1000.84px"}
+       
         display={"grid"}
         rowGap="15px"
+        minH={"auto"}
+        minW="auto"
         gridTemplateColumns={{
-          lg: "repeat(4, 1fr)",
-          md: "repeat(3,1fr)",
-          sm: "repeat(2, 1fr)",
+          lg:"repeat(4,1fr)",
+          base:"repeat(1,1fr)",
+          md: "repeat(3, 1fr)",
+          sm:"repeat(2,1fr)"
+        
         }}
       >
         {casualData.length > 0 &&
           casualData.map((ele) => (
             // <Link to={`/shop/${ele.id}`}>
               <Box
-                w={"233.203px"}
+                // w={"233.203px"}
                 h="470.969px"
                 minHeight={"auto"}
                 cursor="pointer"
+                width={"243.484px"}
+                minW="auto"
+                minH={"auto"}
                 onClick={() => singlePageHandler(ele, ele.id)}
-                key={ele.id}
+                key={ele.id + Math.random()}
               >
                 <Image w={"auto"} h="349.469px" src={ele.image} />
-                <Text>{ele.name}</Text>
+                <Text width={"240px"}>{ele.name}</Text>
                 <Text>${ele.price}</Text>
               </Box>
             // </Link>

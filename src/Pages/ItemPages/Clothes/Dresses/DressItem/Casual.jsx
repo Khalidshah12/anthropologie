@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Text, Select, Image } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { casual } from "../../../../../db";
 import {useMediaQuery} from '@chakra-ui/react';
 
@@ -12,7 +12,7 @@ import Filter from "../../../Filter";
 import CasualCard from "./CasualCard";
 
 function Casual() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 1024px)");
  
   return (
     <>
@@ -32,12 +32,13 @@ function Casual() {
             <Box>
               <Box>
                 <Box
-                  w={"985px"}
-                  maxWidth={"100%"}
-                  // border="1px solid red"
-                  h={"50px"}
-                  display={"flex"}
-                  justifyContent="space-between"
+                maxWidth={"100%"}
+                display={"flex"}
+                justifyContent="space-between"
+                // border="1px solid red
+                minW={"auto"}
+                flexWrap={"wrap"}
+                h={"auto"}
                 >
                   <Box>
                     <Text fontSize={"25px"}>

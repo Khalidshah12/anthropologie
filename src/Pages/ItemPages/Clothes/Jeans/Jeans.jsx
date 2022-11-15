@@ -17,7 +17,7 @@ import {useMediaQuery} from '@chakra-ui/react';
 
 
 function Jeans() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   const jeansBox = (
     <Box
@@ -27,7 +27,8 @@ function Jeans() {
       gap={"20px"}
       mt={"40px"}
       flexWrap={"wrap"}
-      ml="60px"
+      ml={{base:"5px", sm:"60px", md:"60px",lg:"60px"}}
+
     >
       <Link to={"/clothes/jeans/flare"}>
         <Box
@@ -195,11 +196,13 @@ function Jeans() {
           <Box>
             <Box>
               <Box
-                w={"1020.84px"}
                 maxWidth={"100%"}
-                // border="1px solid red"
                 display={"flex"}
                 justifyContent="space-between"
+                // border="1px solid red
+                minW={"auto"}
+                flexWrap={"wrap"}
+                h={"auto"}
               >
                 <Box>
                   <Text fontSize={"25px"}>

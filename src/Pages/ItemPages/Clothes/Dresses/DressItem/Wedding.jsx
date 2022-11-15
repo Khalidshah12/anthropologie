@@ -1,7 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getwedding } from "../../../../../Redux/AppReducer/action";
 import { wedding } from "../../../../../db";
 import { useMediaQuery } from "@chakra-ui/react";
 import { Box, Image, Text } from "@chakra-ui/react";
@@ -14,22 +11,7 @@ const img =
 function Wedding() {
   // const dispatch = useDispatch();
   const [isMobile] = useMediaQuery("(max-width: 600px)");
-  // console.log(isMobile);
-
-  // const { wedding, isLoading, isError } = useSelector((state) => {
-  //   return {
-  //     wedding: state.AppReducer.wedding,
-  //     isError:state.AppReducer.isError,
-  //     isLoading:state.AppReducer.isLoading
-  //   };
-  // });
-
-  // console.log(wedding);
-
-  // useEffect(() => {
-  //   dispatch(getwedding);
-  // }, []);
-
+  
   return (
     <>
     {/* <Navbar/> */}

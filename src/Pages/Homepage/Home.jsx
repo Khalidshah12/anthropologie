@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./HOme.css";
 // import Layout from "../../components/Layout";
 import MultipleItems from "./Slider";
@@ -7,6 +7,11 @@ import MultipleItems from "./Slider";
 // import Navbar2 from "../../components/Navbar/Navbar2";
 
 const Home = () => {
+
+  useEffect(() => {
+    document.title = 'Anthropologie - Womens Clothing, Accessories & Home'
+  }, [])
+
   return (
     <div>
       <div>

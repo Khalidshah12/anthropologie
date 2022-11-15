@@ -2,6 +2,10 @@
 
 Anthropologie is a unique, full-lifestyle shopping destination, with a mostly exclusive assortment of clothing, shoes, accessories, beauty, furniture, home décor, garden, bridal, and more.
 
+## Collaborators
+1. [Khalid Shah](https://github.com/Khalidshah12/)
+2. [Pandit Gangadhar](https://github.com/pandit0305)
+3. [Sohil Khan](https://github.com/sohilweb20)
 
 ### Vercel Link 
 https://anthropologie-vert.vercel.app/

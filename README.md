@@ -28,7 +28,7 @@ https://inquisitive-starburst-9df4b2.netlify.app/
 ## Collaborators
 1. [Khalid Shah - Team Lead](https://github.com/Khalidshah12/)
    <br/>
-   Area of Responsibility
+   <li>Area of Responsibility</li>
    <br/>
    Cart Page | Address Page | Review Page | Payment Page
    

@@ -23,11 +23,13 @@ Anthropologie is a unique, full-lifestyle shopping destination, with a mostly ex
 https://anthropologie-pandit0305.vercel.app/
 
 ### Netlify   Link
-https://inquisitive-starburst-9df4b2.netlify.app/
+https://leafy-buttercream-cd6899.netlify.app/
 
 ## Collaborators
 1. [Khalid Shah - Team Lead](https://github.com/Khalidshah12/) - Cart Page | Address Page | Review Page | Payment Page
+   
 2. [Pandit Gangadhar - Team Member](https://github.com/pandit0305) - Products Page | Single Product Page | Signup & Login | Collecting Data
+   
 3. [Sohil Khan - Team Member](https://github.com/sohilweb20) - Navbar | Home Page | Footer
 
 ## Tech Stacks

@@ -2,6 +2,11 @@
 
 Anthropologie is a unique, full-lifestyle shopping destination, with a mostly exclusive assortment of clothing, shoes, accessories, beauty, furniture, home décor, garden, bridal, and more.
 
+## Have a Look
+<p align="center">
+  <img src="./public/anthropologie_01.png" alt='anthropologie_01 image' align="center" />
+</p>
+
 ### Vercel Link 
 https://anthropologie-vert.vercel.app/
 

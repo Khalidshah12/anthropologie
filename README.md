@@ -34,6 +34,9 @@ https://anthropologie-pandit0305.vercel.app/
 ### Netlify   Link
 https://leafy-buttercream-cd6899.netlify.app/
 
+### AWS deploy link
+https://main.d33loxim8qilzv.amplifyapp.com/
+
 ## Collaborators
 [Khalid Shah - Team Lead](https://github.com/Khalidshah12/) 
 *  Cart Page 

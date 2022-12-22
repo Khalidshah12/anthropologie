@@ -1,0 +1,326 @@
+.NavbarFirst {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* border: 1px solid red; */
+  font: 16px "Avenir Book ", sans-serif;
+  color: #167a92;
+  padding: 0px 60px;
+  list-style: none;
+  background-color: #00000009;
+  letter-spacing: 0.6px;
+}
+
+#header-positon{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgb(253,253,249);
+  z-index: 1000;
+}
+
+.globeSearch {
+  display: flex;
+  /* border: 1px solid red; */
+  justify-content: center;
+  align-items: center;
+}
+.userLogo {
+  width: 45px;
+}
+.child-dropdown2 {
+  display: none;
+  list-style: none;
+}
+.dropdown:hover > .child-dropdown2 {
+  display: block;
+  position: absolute;
+  list-style: none;
+}
+.MainLogo {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+}
+.MainLogo1,
+.MainLogo2 {
+  height: 50px;
+  width: 200px;
+  border: 1px solid rgba(0, 0, 0, 0.183);
+  /* border: 1px solid red; */
+}
+
+.lidiv {
+  position: absolute;
+  /* border:1px solid red; */
+  top: 5px;
+  z-index: 1000;
+  list-style: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: rgb(255, 255, 255);
+  font: 14px Roboto, sans-serif;
+  padding: 15px;
+  letter-spacing: 0.6px;
+
+  /* border: 1px solid red; */
+}
+
+.lidiv .li{
+  margin: 5px;
+}
+.Input {
+  padding: 10px;
+  letter-spacing: 0.6px;
+  border: 1px solid rgba(0, 0, 0, 0.183);
+  z-index: -1;
+  /* border: 1px solid black; */
+}
+.Navbars {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+  margin-top: 10px;
+}
+.Navbar1 {
+  display: flex;
+  justify-content: flex-start;
+  /* border: 1px solid red; */
+}
+.SerachNavbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-right: 20px;
+  letter-spacing: 0.6px;
+}
+/* .navbar {
+  border: 1px solid red;
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px;
+  gap: 35px;
+  letter-spacing: 0.6px;
+  margin-left: 25px;
+  list-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+  border-top: 1px solid rgba(0, 0, 0, 0.183);
+} */
+.child-dropdown {
+  display: none;
+}
+.dropdown:hover > .child-dropdown {
+  display: block;
+  position: absolute;
+  /* top: 155px; */
+  list-style: none;
+}
+.dropdown:hover > .child-dropdown > .hovergrid {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.183);
+}
+.dropdown:hover > .child-dropdown > .hovergrid > .hovergrid1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.183);
+  line-height: 40px;
+}
+/* here seconds */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .NavbarFirst {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid green; */
+    font: 15px "Avenir Book ", sans-serif;
+    color: #167a92;
+    padding: 0px 60px;
+    list-style: none;
+    background-color: #00000009;
+  }
+  .Navbars {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* border: 1px solid red; */
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    /*  */
+  }
+  .Navbar1 {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .SerachNavbar {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* //here css stoeln */
+
+/* hover effect here */
+
+body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  background-color: #f4f4f4;
+}
+
+p {
+  color: #000;
+}
+
+/* header */
+
+.header {
+  /* background-color: ; */
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+  /* position: fixed;
+  width: 100%;
+  z-index: 3; */
+  /* border: 1px solid red; */
+  /* height: 50px; */
+  width: 95%;
+  margin: auto;
+
+}
+
+.header ul {
+  margin: 0;
+  padding: 0; 
+  list-style: none;
+  font-size: 13px;
+  overflow: hidden;
+  /* background-color: #fff; */
+}
+
+.header li p {
+  display: block;
+  padding: 20px 20px;
+  border-right: 1px solid #f4f4f4;
+  text-decoration: none;
+  letter-spacing: 0.6px;
+  /* border: 1px solid red; */
+}
+.Gifts {
+  color: red;
+}
+
+.header li p:hover,
+.header .menu-btn:hover {
+  /* background-color: #f4f4f4; */
+  color: #167a92;
+}
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+
+  margin-bottom: 30px;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+  margin-top: -50px;
+  /* border: 1px solid red; */
+}
+
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background 0.2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 100%;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+  .header li {
+    float: left;
+  }
+  .header li p {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+ 
+}
+

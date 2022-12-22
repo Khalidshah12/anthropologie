@@ -1,0 +1,482 @@
+#mainDiv {
+    width: 92%;
+    margin: auto;
+    letter-spacing: 0.6px;
+    padding-top: 20px;
+}
+
+#basketDiv {
+    /* border: 1px solid black; */
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#mainLeftDiv {
+    /* border: 1px solid black; */
+    width: 65%;
+    height: 100%;
+}
+
+#mainLeftHeadDiv {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E5E2DE;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+#deliveryOption {
+    text-decoration: underline;
+    color: #167A92;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+#mainLeftContinueShoppingDiv {
+    padding-bottom: 50px;
+}
+
+#continueShopping {
+    text-decoration: underline;
+    color: #167A92;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+#savedItemInstructionDiv {
+    margin-top: 60px;
+    /* padding-bottom: 20px; */
+}
+
+#savedItemInstruction {
+    width: 65%;
+    border: 1px solid #E5E2DE;
+    padding: 20px 20px 20px 20px;
+    color: #5C5C5F;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.savedDiv {
+    /* display: flex;
+    justify-content: left;
+    align-items: center; */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 5fr));
+    justify-items: left;
+    gap: 10px;
+}
+
+.savedImagesDiv {
+    position: relative;
+    /* border: 1px solid black; */
+}
+
+.savedImages {
+    height: 200px;
+    width: 100%;
+    margin-right: 20px;
+}
+
+.RemoveIcon {
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+#itemsBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    padding: 20px 0px 20px 0px;
+    border-bottom: 1px solid #E5E2DE;
+}
+
+.itemsText {
+    /* border: 1px solid black; */
+    width: 25%;
+    text-align: end;
+}
+
+#itemsTextNone {
+    width: 25%;
+    text-align: end;
+}
+
+#itemsText {
+    /* border: 1px solid black; */
+    width: 50%;
+    text-align: start;
+    margin-left: 17%;
+}
+
+.productsDiv {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-bottom: 1px solid #E5E2DE;
+}
+
+.imageDiv {
+    width: 15%;
+}
+
+.productsDetailDiv {
+    width: 85%;
+    font-size: 13px;
+    padding-left: 2%;
+}
+
+.productsDetailTopDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid green; */
+    margin-bottom: 20px;
+}
+
+.productsFirstDetail {
+    width: 50%;
+    /* border: 1px solid black; */
+    height: 100%;
+    line-height: 19.5px
+}
+
+.productsDetail {
+    width: 25%;
+    /* border: 1px solid black; */
+    height: 100%;
+}
+
+.productsDetailQuantity {
+    width: 25%;
+    /* border: 1px solid black; */
+    height: 100%;
+}
+
+.productsDetailTotalPrice {
+    width: 25%;
+    /* border: 1px solid black; */
+    height: 100%;
+}
+
+.productName {
+    margin-bottom: 5px;
+}
+
+.productStyle {
+    margin-bottom: 5px;
+}
+
+.productColor {
+    margin-bottom: 5px;
+}
+
+.productSize {
+    margin-bottom: 5px;
+}
+
+.productEdit {
+    line-height: 23.4px;
+    color: #167A92;
+    text-decoration: underline;
+}
+
+#productEdit {
+    line-height: 23.4px;
+    color: #167A92;
+    text-decoration: underline;
+}
+
+.productPrice {
+    text-align: end;
+}
+
+.productQuantityFull {
+    text-align: end;
+}
+
+.productQuantityDel {
+    text-align: end;
+}
+
+.productQuantity {
+    display: block;
+}
+
+.productQuantityMobile {
+    text-align: end;
+    display: none;
+}
+
+.productTotalPrice {
+    text-align: end;
+}
+
+.productQuantitySelect {
+    width: 60px;
+    height: 45px;
+    border-radius: 7px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 16px;
+    background-color: #FDFDF9;
+}
+
+.removeSaveDiv {
+    border-bottom: 1px solid #E5E2DE;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #167A92;
+    text-decoration: underline;
+}
+
+.remove {
+    cursor: pointer;
+}
+
+.removeBorder {
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #c8c7c6;
+}
+
+.save {
+    cursor: pointer;
+}
+
+.giftDiv {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.giftText {
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
+.giftText:hover {
+    color: #167A92;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.moveToCart {
+    border: 1px solid #E5E2DE;
+}
+
+#mainRightDiv {
+    /* border: 1px solid black; */
+    width: 30%;
+    height: 100%;
+}
+
+#mainRightHeadDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#contactNumber {
+    text-decoration: underline;
+    color: #167A92;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+#ChargesMainDiv {
+    border: 1px solid #E5E2DE;
+    padding: 20px 20px 0px 20px;
+}
+
+#ChargesDiv {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.chargesClass {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#totalDiv {
+    font-weight: 500;
+}
+
+#payNowOrLaterDiv {
+    font-size: 11px;
+}
+
+#payNowOrLater {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#payafterDiv {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.paySpan {
+    font-weight: bolder;
+}
+
+#ButtonsDiv {
+    width: 100%;
+}
+
+#proceedbutton {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 0px;
+    letter-spacing: 2.4px;
+    font-size: 13px;
+}
+
+#paypalButton {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 25px 0px 25px 0px;
+}
+
+#paypalButton>img {
+    width: 30%;
+}
+
+#promoDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #E5E2DE;
+    padding: 20px 0px 20px 0px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#promoDiv:hover {
+    color: #167A92;
+}
+
+#promoInputDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px 20px 0px;
+}
+
+@media screen and (max-width:1024px) and (min-width:768px) {
+    #basketDiv {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    #mainLeftDiv {
+        width: 92%;
+        margin: auto;
+    }
+
+    #mainRightDiv {
+        width: 60%;
+        margin: auto;
+        margin-right: 4%;
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width:767px) and (min-width:320px) {
+    #basketDiv {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    #mainLeftDiv {
+        width: 92%;
+        margin: auto;
+    }
+
+    #mainRightDiv {
+        width: 92%;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    .imageDiv {
+        width: 25%;
+    }
+
+    .productPrice {
+        display: none;
+    }
+
+    #itemsTextNone {
+        display: none;
+    }
+
+    .productQuantityFull {
+        text-align: end;
+        display: none;
+    }
+
+    .productQuantityMoile {
+        text-align: end;
+        display: block;
+    }
+
+    #productEdit {
+        display: none;
+    }
+
+    .productQuantityMobile {
+        text-align: start;
+        display: block;
+    }
+
+    .productQuantitySelect {
+        width: 50px;
+        height: 35px;
+    }
+
+    .productsDetail {
+        width: 25%;
+        display: none;
+    }
+
+    .productsDetailQuantity {
+        width: 25%;
+    }
+
+    #savedItemInstruction {
+        width: 100%;
+        border: 1px solid #E5E2DE;
+        padding: 20px 20px 20px 20px;
+        color: #5C5C5F;
+        font-size: 13px;
+        /* margin-bottom: 150px; */
+    }
+
+    .savedDiv {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 5fr));
+        justify-items: left;
+        gap: 10px;
+    }
+}

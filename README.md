@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# Anthropologie (Clone)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Anthropologie is a unique, full-lifestyle shopping destination, with a mostly exclusive assortment of clothing, shoes, accessories, beauty, furniture, home décor, garden, bridal, and more.
 
-## Available Scripts
+## Have a Look 😍
+### Navbar and Home Page
+<p align="center">
+  <img src="./public/anthropologie_01.png" alt='anthropologie_01 image' align="center" />
+</p>
 
-In the project directory, you can run:
+### Product Page
+<p align="center">
+  <img src="./public/anthropologie_02.png" alt='anthropologie_02 image' align="center" />
+</p>
 
-### `npm start`
+### Single Page of the Product
+<p align="center">
+  <img src="./public/anthropologie_03.png" alt='anthropologie_03 image' align="center" />
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Cart Product Page
+<p align="center">
+  <img src="./public/anthropologie_04.png" alt='anthropologie_04 image' align="center" />
+</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Payment page
+<p align="center">
+  <img src="./public/anthropologie_05.png" alt='anthropologie_05 image' align="center" />
+</p>
 
-### `npm test`
+### Vercel Link 
+https://anthropologie-pandit0305.vercel.app/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Netlify   Link
+https://leafy-buttercream-cd6899.netlify.app/
 
-### `npm run build`
+### AWS deploy link
+https://main.d33loxim8qilzv.amplifyapp.com/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Collaborators
+[Khalid Shah - Team Lead](https://github.com/Khalidshah12/) 
+*  Cart Page 
+*  Address Page 
+*  Review Page 
+*  Payment Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Pandit Gangadhar - Team Member](https://github.com/pandit0305)
+*  Products Page
+*  Single Product Page
+*  Signup & Login
+*  Collecting Data
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Sohil Khan - Team Member](https://github.com/sohilweb20)
+*  Navbar Section
+*  Home Page
+*  Footer Section
 
-### `npm run eject`
+## Features
+*  Login/Signup using Firebase.
+*  Different Categories and Sections.
+*  Add to Cart.
+*  Can View Similar Products.
+*  Can Increase the Quantity of the Cart Items.
+*  Address Validation & Credit Card Validation
+*  Responsive Design
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Tech Stacks
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* [ReactJs](https://reactjs.org/)
+* [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)
+* [Redux](https://www.npmjs.com/package/redux)
+* [React-Redux](https://www.npmjs.com/package/react-redux)
+* [Redux-Thunk](https://www.npmjs.com/package/redux-thunk)
+* [React-Firebase-Hooks](https://www.npmjs.com/package/react-firebase-hooks)
+* [React-Scripts](https://www.npmjs.com/package/react-scripts)
+* [React-Scroll](https://www.npmjs.com/package/react-scroll)
+* [React-Slick](https://www.npmjs.com/package/react-slick)
+* [React-Icon](https://www.npmjs.com/package/react-icons)
+* [Axios](https://www.npmjs.com/package/axios)
+* [React-Bootstrap](https://www.npmjs.com/package/react-bootstrap)
+* [Bootstrap](https://www.npmjs.com/package/bootstrap)
+* [Chakra UI](https://chakra-ui.com/getting-started)
+* [Chakra-Icon](https://chakra-ui.com/docs/components/icon)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Getting Started
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Learn More
+### Prerequisites
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Npm / Yarn and Node.js installed
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Installation
 
-### Code Splitting
+Installing NPM modules
+Execute these commands from the project directory
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+npm install
+```
 
-### Analyzing the Bundle Size
+### Running the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Open a terminal on directory
 
-### Making a Progressive Web App
+```
+npm run start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Access the web app at http://localhost:3000/

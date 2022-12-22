@@ -1,0 +1,208 @@
+#main {
+    width: 92%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.6px;
+    padding-top: 20px;
+}
+
+#left {
+    width: 65%;
+}
+
+.tabsIcons {
+    margin-right: 10px;
+}
+
+form {
+    width: 100%;
+    letter-spacing: 0.6px;
+}
+
+.inputBox {
+    margin-bottom: 15px;
+}
+
+.inputBoxFlex {
+    width: 49%;
+}
+
+.inputBoxSingle {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.combineDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#selectTag {
+    width: 49%;
+    height: 45px;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 0 10px 0 10px;
+    color: #5C5C5F;
+    border-radius: 7px;
+    letter-spacing: 0.6px;
+    margin-bottom: 15px;
+}
+
+#selectMi {
+    height: 45px;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 0 10px 0 10px;
+    color: #5C5C5F;
+    border-radius: 7px;
+    letter-spacing: 0.6px;
+}
+
+.labels {
+    font-size: 13px;
+    display: block;
+    color: #26262C;
+    margin-bottom: 5px;
+}
+
+.inputs {
+    width: 100%;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 10px 10px 10px 10px;
+    letter-spacing: 0.6px;
+    color: #5C5C5F;
+}
+
+.inputs::placeholder {
+    color: #c7c7c7;
+}
+
+#tabTwo {
+    display: flex;
+    justify-content: space-between;
+}
+
+#searchModalInputs {
+    width: 100%;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 10px 10px 10px 10px;
+    letter-spacing: 0.6px;
+    color: #5C5C5F;
+}
+
+#searchSelectMi {
+    height: 45px;
+    border: 1px solid #939395;
+    background-color: #FDFDF9;
+    padding: 0 10px 0 10px;
+    color: #5C5C5F;
+    border-radius: 7px;
+    letter-spacing: 0.6px;
+}
+
+#mobileInput {
+    width: 100%;
+    background-color: #FDFDF9;
+    padding: 10px 10px 10px 10px;
+    letter-spacing: 0.6px;
+    color: #5C5C5F;
+}
+
+#right {
+    width: 30%;
+}
+
+.width32 {
+    width: 32%;
+}
+
+.labelWidth32 {
+    width: 32%;
+}
+
+
+
+@media screen and (max-width:1024px) and (min-width:768px) {
+    #main {
+        display: block;
+    }
+
+    #left {
+        width: 92%;
+        margin: auto;
+    }
+
+    #right {
+        width: 92%;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width:767px) and (min-width:320px) {
+    #main {
+        display: block;
+    }
+
+    #left {
+        width: 98%;
+        margin: auto;
+    }
+
+    #right {
+        width: 92%;
+        margin: auto;
+    }
+
+    .tabsIcons {
+        margin-right: 10px;
+    }
+
+    form {
+        width: 100%;
+        letter-spacing: 0.6px;
+    }
+
+    .inputBox {
+        margin-bottom: 15px;
+    }
+
+    .inputBoxCombine {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    #selectTag {
+        width: 100%;
+    }
+
+    .combineDiv {
+        display: block;
+    }
+
+    .inputBoxFlex {
+        width: 100%;
+    }
+
+    .labels {
+        margin-top: 15px;
+    }
+
+    #tabTwo {
+        display: block;
+    }
+
+    .width32 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .labelWidth32 {
+        display: none;
+    }
+
+}

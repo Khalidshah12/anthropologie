@@ -1,0 +1,172 @@
+.FirstDiv {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 90%;
+
+  margin: auto;
+  margin-top: 25px;
+}
+.FirstDiv > img {
+  width: 318px;
+}
+.SecondDiv,
+.tgirdDiv,
+.banners,
+.banners1 > img {
+  width: 100%;
+}
+.SecondDiv {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.tgirdDiv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.banners {
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.banners1 {
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.YouMayAlsoLike {
+  width: 90%;
+  margin: auto;
+  font-size: 20px;
+  margin-top: 20px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+.tgirdDiv1 > div > h1 {
+  margin-top: 15px;
+  font-size: large;
+}
+.tgirdDiv1 > div > p {
+  margin-top: 10px;
+  font-size: medium;
+}
+.tgirdDiv1 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+.tgirdDiv1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  margin-top: 40px;
+}
+.Hi,
+.p {
+  /* border: 1px solid red; */
+  letter-spacing: 0.6px;
+  font: 600;
+  text-align: center;
+}
+.ourMission {
+  width: 90%;
+  margin: auto;
+  font-size: 15px;
+  margin-top: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+.Slider {
+  /* border: 1px solid red; */
+  width: 90%;
+  margin: auto;
+  margin-top: 40px;
+}
+.Slider2 > img {
+  /* border: 1px solid red; */
+  width: 90%;
+  margin: auto;
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .FirstDiv {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+    margin: auto;
+    margin-top: 25px;
+    gap: 25px;
+  }
+  .FirstDiv > img {
+    /* border: 1px solid red; */
+    width: 100%;
+  }
+  .SecondDiv {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+  }
+  .tgirdDiv {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+  }
+  .tgirdDiv1 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .FirstDiv {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    margin: auto;
+    margin-top: 25px;
+    gap: 25px;
+  }
+  .SecondDiv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+    /* border: 1px solid red; */
+  }
+  .tgirdDiv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+  }
+  .tgirdDiv1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    margin: auto;
+    gap: 25px;
+    margin-top: 40px;
+  }
+}

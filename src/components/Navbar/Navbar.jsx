@@ -1,21 +1,19 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
 
-import {
-  AiFillCaretDown,
-  AiOutlineShoppingCart,
-  AiOutlineUser,
-} from "react-icons/ai";
+import Styles from "./Navbar.module.css";
+
+import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { GiGlobe } from "react-icons/gi";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { authentication } from "../../firebase/firebase_config";
 import { RecaptchaVerifier, signOut } from "firebase/auth";
 import { signInWithPhoneNumber } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import MyAccount from "../UserAccount/MyAccount";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
 import {
   Modal,
@@ -32,48 +30,30 @@ import {
   Input,
   Divider,
   HStack,
+  Image,
 } from "@chakra-ui/react";
 import { AuthContext } from "../../context/authcontext/AuthContext";
 import Navbar2 from "./Navbar2";
+import useTimer from "../timer/useTimer";
+import { setItem } from "../../localstorage/LocalStorage";
 
 const Navbar = () => {
-  const [count, setcount] = useState(60);
   const countrycode = "+91";
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
   const [pin, SetPin] = useState("");
   const [show, SetShow] = useState(false);
-  // const [user, SetUser] = useState(false);
+  const [error, SetError] = useState(false);
   const [phone, setPhone] = useState(countrycode);
   const navigate = useNavigate();
-  const ref = useRef();
+
   const { user, SetUser } = useContext(AuthContext);
 
-  const startTime = () => {
-    if (ref.current !== null) return;
-    ref.current = setInterval(() => {
-      setcount((prev) => {
-        if (prev === 0) {
-          return prev;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-  };
-
-  const Stop = () => {
-    clearInterval(ref.current);
-    ref.current = null;
-  };
-
-  useEffect(() => {
-    const clearUp = () => {
-      Stop();
-    };
-    return clearUp;
-  }, []);
+  // uset timer hook
+  const { timer, Start, Stop } = useTimer(1000);
 
   const SignoutHandler = () => {
+    navigate("/");
     window.location.reload();
     // SetUser(false)
     SetShow(false);
@@ -82,6 +62,7 @@ const Navbar = () => {
 
   const otherNumberHandler = () => {
     SetShow(false);
+    signOut();
   };
 
   const PinEvent = (e) => {
@@ -114,11 +95,9 @@ const Navbar = () => {
         .then((result) => {
           // User signed in successfully.
           const user = result.user;
+          setItem("token", user);
           console.log(user);
           SetUser(true);
-          
-
-          return navigate("/");
           // ...
         })
         .catch((error) => {
@@ -129,16 +108,18 @@ const Navbar = () => {
 
       onClose();
 
-      // SetUser(true);
+      Stop();
+
+      return navigate("/");
     }
   };
 
   const Sendotp = (e) => {
     e.preventDefault();
+    Start();
     if (phone.length >= 12) {
       console.log(phone);
       SetShow(true);
-      startTime();
       generateourCaptcha();
       setTimeout(() => {
         let appVerifier = window.recaptchaVerifier;
@@ -148,6 +129,8 @@ const Navbar = () => {
             SetShow(true);
           })
           .catch((err) => {
+            SetError(true);
+            Stop();
             console.log(err);
           });
       }, 3000);
@@ -243,10 +226,19 @@ const Navbar = () => {
       </Center>
 
       <Box mt={"5px"} fontSize="12px" fontWeight={"bold"}>
+        <Box>
+          <Center color={"red"}>
+            {error
+              ? "Server Error Please refresh the page ana try again."
+              : null}
+          </Center>
+        </Box>
+
         <Center>
-          <div>Seconds : {count}</div>
+          <Box>Seconds : {timer}</Box>
         </Center>
       </Box>
+
       <Center mt={"20px"}>
         <Text fontSize={"14px"} color={"grey"} fontWeight={"bold"}>
           <u>Resend the Code</u>
@@ -271,6 +263,9 @@ const Navbar = () => {
           Submit
         </Button>
       </Center>
+      <Center>
+        <Box id="recaptcha-box"></Box>
+      </Center>
     </Box>
   );
 
@@ -278,138 +273,241 @@ const Navbar = () => {
   const display = !show ? sendform : otpform;
 
   return (
-    <header id="header-positon">
-      <img
+    <Box
+      position={"sticky"}
+      top="0px"
+      bg={"rgb(253,253,249)"}
+      zIndex="1000"
+      maxH={"auto"}
+      h="auto"
+      width={"100%"}
+    >
+      <Image
+        w="100%"
+        h={"43.39px"}
         src="https://images.ctfassets.net/5de70he6op10/73vpJWzKmWO1fT2HwJ3p4B/b42cab1aedaef564d46e96fbd1cccaa0/Nov22_30Off_SOS_PrimaryBanner_LS_ThisWeekendOnly.jpg"
-        alt=""
+        alt="banner"
       />
-      <div className="NavbarFirst">
-        <div className="globeSearch">
-          <Link to="/">
-            {/* <img
-              className="userLogo"
-              src="https://previews.123rf.com/images/magurok/magurok1309/magurok130900108/22359466-vector-globe-search-icon.jpg"
-              alt="Serach Logo"
-            /> */}
-            <GiGlobe fontSize={"25px"} color="#167A92" />
-          </Link>
-
-          <li className="dropdown">
-            <div style={{ display: "flex", gap: "5px", color: "#167A92" }}>
-              <p style={{ color: "#167A92", fontSize: "13px" }}>English($)</p>
-              <AiFillCaretDown />
-            </div>
-
-            <ul className="child-dropdown2">
-              <div className="lidiv">
-                <li>Currency</li>
-                <li>USD</li>
-                <li>Language</li>
-                <li>English</li>
-              </div>
-            </ul>
-          </li>
-        </div>
-
-        {/* <img
-          className="userLogo"
-          src="https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg"
-          alt="User Logo"
-        /> */}
-        <AiOutlineUser fontSize={"22px"} />
-        <Box ml={"5px"} mt="-10px">
-          <Box
-            ref={finalRef}
-            tabIndex={-1}
-            aria-label="Focus moved to this box"
-          ></Box>
-          <Box mt={4}>
-            {user ? (
-              <MyAccount SignoutHandler={SignoutHandler} />
-            ) : (
-              <Box mt={4} onClick={onOpen} cursor="pointer" fontSize={"13px"}>
-                Sign In / Sign Up
-              </Box>
-            )}
-          </Box>
-
-          <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
-            <ModalOverlay />
-            <ModalContent background="rgb(253,253,249)">
-              <ModalHeader>
-                {" "}
-                <Center fontSize={"22px"} mt="50px">
-                  {!show ? "Create An Account" : "Sign In"}
-                </Center>
-              </ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
-                <Text textAlign={"center"}>
-                  Welcome to Anthropologie! It's quick and easy to set up an
-                  account.
-                </Text>
-                <Box mt={"30px"} mb="30px">
-                  {display}
-                </Box>
-              </ModalBody>
-            </ModalContent>
-          </Modal>
-          <Center>
-            <Box id="recaptcha-box"></Box>
-          </Center>
-        </Box>
-      </div>
-
-      <div className="Navbars">
-        <div className="Navbar1">
-          <div className="MainLogo">
+      <Box
+        display={"flex"}
+        justifyContent="flex-end"
+        alignItems=" center"
+        // border=" 1px solid red"
+        font="16px 'Avenir Book ', sans-serif"
+        listStyle="none"
+        letterSpacing="0.6px"
+        bg={"rgb(253,253,249)"}
+        h="43px"
+        padding={"0px 20px"}
+        w="95%"
+        m={"auto"}
+        gap="15px"
+        minW={"auto"}
+      >
+        <Box>
+          <Box display={"flex"}>
             <Link to="/">
-              <img
-                className="MainLogo1"
-                src="https://images.ctfassets.net/5de70he6op10/7q3Z6vJ6UEPFyAPKAFZZxl/1a22eec777828277571187c43306e983/Anthropologie_Holiday_Lockup__1_update.svg"
-                alt="logomain"
-              />
+              <GiGlobe fontSize={"25px"} color="#167A92" />
             </Link>
-            <img
-              className="MainLogo2"
-              src="https://images.ctfassets.net/5de70he6op10/y1O9tEDOvCGliGUvT9RoJ/eb8ab4734c5e3778b8b61da70ed441ac/AL_NewLogo_2.svg"
+
+            <Box
+              style={{ display: "flex", gap: "5px" }}
+              position="relative"
+              cursor={"pointer"}
+              id="dropdown"
+            >
+              <Text style={{ fontSize: "14px" }} id="dropdown-btn">
+                English($)
+                <ChevronDownIcon fontSize={"22px"} id="" />
+              </Text>
+              <Box
+                id="dropdown-content"
+                position={"absolute"}
+                fontSize="13px"
+                zIndex={1000}
+                bg="rgb(253,253,249)"
+                top={"25px"}
+                width="200px"
+                right={"20%"}
+                boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+                padding={"10px 10px"}
+                borderRadius="10px"
+              >
+                <Text padding={"5px"}>Currency</Text>
+                <Text
+                  padding={"5px"}
+                  color="#167A92"
+                  _hover={{ background: "rgb(253,253,200)" }}
+                >
+                  USD ($){" "}
+                </Text>
+                <Text padding={"5px"}>Language</Text>
+                <Text
+                  padding={"5px"}
+                  color="#167A92"
+                  _hover={{ background: "rgb(253,253,200)" }}
+                >
+                  English
+                </Text>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+        <Box display={"flex"}>
+          <Box>
+            <AiOutlineUser fontSize={"25px"} color="#167A92" />
+          </Box>
+          <Box display={"flex"} gap="5px">
+            <Box
+              ref={finalRef}
+              tabIndex={-1}
+              aria-label="Focus moved to this box"
+            ></Box>
+            <Box color="#167A92">
+              {user ? (
+                <MyAccount SignoutHandler={SignoutHandler} />
+              ) : (
+                <Box onClick={onOpen} cursor="pointer" fontSize={"14px"}>
+                  Sign In / Sign Up
+                </Box>
+              )}
+            </Box>
+
+            <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent background="rgb(253,253,249)">
+                <ModalHeader>
+                  {" "}
+                  <Center fontSize={"22px"} mt="50px">
+                    {!show ? "Create An Account" : "Sign In"}
+                  </Center>
+                </ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <Text textAlign={"center"}>
+                    Welcome to Anthropologie! It's quick and easy to set up an
+                    account.
+                  </Text>
+                  <Box mt={"30px"} mb="30px">
+                    {display}
+                  </Box>
+                </ModalBody>
+              </ModalContent>
+            </Modal>
+            {/* <Center>
+              <Box id="recaptcha-box"></Box>
+            </Center> */}
+          </Box>
+        </Box>
+      </Box>
+
+      <Box
+        display={{ lg: "flex", sm: "block" }}
+        justifyContent="space-between"
+        w="95%"
+        m={"auto"}
+        minW={"auto"}
+      >
+        <Box display={"flex"}>
+          <Link to="/">
+            <Image
+              h={"60px"}
+              w="210px"
+              padding={"0px 20px 0px 20px"}
+              border="1px solid black"
+              src="https://images.ctfassets.net/5de70he6op10/7q3Z6vJ6UEPFyAPKAFZZxl/1a22eec777828277571187c43306e983/Anthropologie_Holiday_Lockup__1_update.svg"
               alt="logomain"
             />
-          </div>
-        </div>
-        <div className="SerachNavbar">
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-
-              // border: "1px solid black",
-            }}
-          >
-            <Input
-              htmlSize={20}
-              width="auto"
-              justifyContent="center"
-              alignItems="center"
-              placeholder="Search Anthropologie"
-            />
-            <BsSearch size="1.5em" />
-          </div>
-          <Link
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            to="/cart"
-          >
-            <AiOutlineShoppingCart size="1.5em" />
           </Link>
-        </div>
-      </div>
+          <Image
+            h={"60px"}
+            w="210px"
+            padding={"0px 20px 0px 20px"}
+            border="1px solid black"
+            src="https://images.ctfassets.net/5de70he6op10/y1O9tEDOvCGliGUvT9RoJ/eb8ab4734c5e3778b8b61da70ed441ac/AL_NewLogo_2.svg"
+            alt="logomain"
+          />
+        </Box>
+
+        <Box display={"flex"} gap="10px" h={"45px"}>
+          <Box
+            width={{ base: "200px", lg: "300px" }}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Box position={"relative"}>
+              <Input
+                h="42px"
+                width={{ base: "200px", lg: "254.625px" }}
+                minH={"auto"}
+                minW="auto"
+                justifyContent="center"
+                alignItems="center"
+                fontSize={"12px"}
+                borderRadius="none"
+                border="1px solid black"
+                color={"#167A92"}
+                placeholder="Search Anthropologie"
+              />
+              <Box position={"absolute"} top="25%" right={"10px"}>
+                <BsSearch size="1em" />
+              </Box>
+            </Box>
+            <Link
+              border="1px solid red"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              to="/cart"
+            >
+              <AiOutlineShoppingCart size="1.5em" />
+            </Link>
+          </Box>
+        </Box>
+      </Box>
       <Navbar2 />
-    </header>
+      <Box className={Styles.nav_item}>
+        <Box width={"90%"} m="auto" display="flex" justifyContent={"center"}>
+          <Box
+            display={"flex"}
+            gap="30px"
+            m="10px"
+            flexWrap={"wrap"}
+            className={Styles.navbar}
+          >
+            <p>Gifts</p>
+
+            <p>New!</p>
+            <Link to={"/clothes/dresses"}>
+              <p>Dresses</p>
+            </Link>
+
+            <Link to={"/clothes"}>
+              <p>Clothing</p>
+            </Link>
+
+            <Link to={"/shoes"}>
+              <p>Shoes</p>
+            </Link>
+
+            <p>Accessories!</p>
+
+            <p>BHLDN Weddings</p>
+
+            <p>Beauty & Wellness</p>
+
+            <p>Garden & outdoor</p>
+
+            <p>Sale</p>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

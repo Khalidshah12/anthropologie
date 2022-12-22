@@ -1,7 +1,9 @@
 import React from "react";
 import { Box, Select, Text } from "@chakra-ui/react";
 
-function Filter() {
+
+
+function Filter({filterhandler}) {
   return (
     <>
       <Box display={"flex"} gap="5px">
@@ -9,6 +11,7 @@ function Filter() {
 
         <Box>
           <Select
+          type="text"
             h={"35px"}
             border={"1px solid #939395"}
             // margin="0 30px 0 0"
@@ -17,6 +20,7 @@ function Filter() {
             minWidth={"auto"}
             placeholder="Featured"
             _hover="none"
+            onChange={filterhandler}
           >
             <option value="lowtohigh">Price: Low to High</option>
             <option value="hightolow">Price: High to Low</option>

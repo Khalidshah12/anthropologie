@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box, Text, Select, Image } from "@chakra-ui/react";
+import { Box, Text, Center} from "@chakra-ui/react";
 import {skinny} from '../../../../../db';
 
 import Sidebar from "../../../Sidebar";
@@ -9,10 +9,11 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // import Footer from "../../../../../components/Footer/Footer";
 import SkinnyCard from './SkinnyCard';
 import {useMediaQuery} from '@chakra-ui/react';
+import Filter from '../../../Filter';
 
 
 function Skinny() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   return (
     <>
@@ -31,11 +32,13 @@ function Skinny() {
           <Box>
             <Box>
             <Box
-            w={"1020.84px"}
-            maxWidth={"100%"}
-            // border="1px solid red"
-            display={"flex"}
-            justifyContent="space-between"
+                maxWidth={"100%"}
+                display={"flex"}
+                justifyContent="space-between"
+                // border="1px solid red
+                minW={"auto"}
+                flexWrap={"wrap"}
+                h={"auto"}
           >
             <Box>
               <Text fontSize={"25px"}>
@@ -48,32 +51,7 @@ function Skinny() {
               </Text>
             </Box>
             <Box display={"flex"}>
-              <Box display={"flex"} gap="5px">
-                <Text mt={"3px"}>Sort :</Text>
-                <Box
-              
-                >
-                  <Select
-                    h={"35px"}
-                  
-                    border={"1px solid #939395"}
-                    // margin="0 30px 0 0"
-                    // padding={"0 10px 0 10px"}
-                    minHeight="auto"
-                    minWidth={"auto"}
-                    placeholder="Featured"
-                    _hover="none"
-                  >
-                    <option value="lowtohigh">Price: Low to High</option>
-                    <option value="hightolow">Price: High to Low</option>
-                    <option value="Newest">Newest</option>
-                    <option value="Bestselling">Bestselling</option>
-                    <option value="Ratings">High To Low</option>
-                    <option value="atoz">A-Z</option>
-                    <option value="ztoa">Z-A</option>
-                  </Select>
-                </Box>
-              </Box>
+             <Filter/>
               <Box display={"flex"}>
                 <ChevronLeftIcon
                   fontSize={"40px"}
@@ -95,7 +73,9 @@ function Skinny() {
             </Box>
             <Box>
               {/* data here */}
+              <Center>
               <SkinnyCard/>
+              </Center>
             </Box>
           </Box>
       

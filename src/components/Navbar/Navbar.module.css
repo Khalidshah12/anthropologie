@@ -1,0 +1,20 @@
+.navbar p{
+    font-weight: 400;
+    padding: 5px;
+    cursor: pointer;
+}
+.navbar p:hover{
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 30px;
+
+}
+.nav_item{
+    display: block;
+}
+
+@media screen and (max-width : 600px) {
+    .nav_item{
+        display: none;
+    }
+}

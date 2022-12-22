@@ -1,10 +1,7 @@
 import React from "react";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getwedding } from "../../../../../Redux/AppReducer/action";
 import { wedding } from "../../../../../db";
 import { useMediaQuery } from "@chakra-ui/react";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Img, Text } from "@chakra-ui/react";
 import Sidebar from "../../../Sidebar";
 // import Navbar from "../../../../../components/Navbar/Navbar";
 // import Footer from "../../../../../components/Footer/Footer";
@@ -14,22 +11,7 @@ const img =
 function Wedding() {
   // const dispatch = useDispatch();
   const [isMobile] = useMediaQuery("(max-width: 600px)");
-  // console.log(isMobile);
-
-  // const { wedding, isLoading, isError } = useSelector((state) => {
-  //   return {
-  //     wedding: state.AppReducer.wedding,
-  //     isError:state.AppReducer.isError,
-  //     isLoading:state.AppReducer.isLoading
-  //   };
-  // });
-
-  // console.log(wedding);
-
-  // useEffect(() => {
-  //   dispatch(getwedding);
-  // }, []);
-
+  
   return (
     <>
     {/* <Navbar/> */}
@@ -51,7 +33,7 @@ function Wedding() {
                     return (
                       <Box>
                         {isMobile ? (
-                          <Image
+                          <Img
                             src={img}
                             h="649px"
                             w="100%"
@@ -59,7 +41,7 @@ function Wedding() {
                             minHeight={"auto"}
                           />
                         ) : (
-                          <Image src={ele.image} h={"387.141px"} w="100%" />
+                          <Img src={ele.image} h={"387.141px"} w="100%" />
                         )}
 
                         <Text
@@ -95,8 +77,8 @@ function Wedding() {
                 {wedding.map((ele) => {
                   if (ele.name !== "Wedding Guest Dresses") {
                     return (
-                      <Box w={"500.422px"} maxWidth={"100%"}>
-                        <Image src={ele.image} h={"415.859px"} />
+                      <Box w={{sm:"300px", lg:"400px"}}>
+                        <Img src={ele.image} h={{sm:"400px", lg:"500px"}} />
                         <Text fontSize="22px" padding={"10px"}>
                           {ele.name}
                         </Text>
@@ -129,7 +111,7 @@ function Wedding() {
                     return (
                       <Box>
                         {isMobile ? (
-                          <Image
+                          <Img
                             src={img}
                             h="649px"
                             w="100%"
@@ -137,7 +119,7 @@ function Wedding() {
                             minHeight={"auto"}
                           />
                         ) : (
-                          <Image src={ele.image} h={"387.141px"} w="100%" />
+                          <Img src={ele.image} h={"387.141px"} w="100%" />
                         )}
 
                         <Text
@@ -174,7 +156,7 @@ function Wedding() {
                   if (ele.name !== "Wedding Guest Dresses") {
                     return (
                       <Box w={"500.422px"} maxWidth={"100%"}>
-                        <Image src={ele.image} h={"415.859px"} />
+                        <Img src={ele.image} h={"415.859px"} />
                         <Text fontSize="22px" padding={"10px"}>
                           {ele.name}
                         </Text>

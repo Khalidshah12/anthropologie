@@ -1,14 +1,14 @@
-import { Box, Image, Text, Button, Select } from "@chakra-ui/react";
+import { Box, Img, Text, Button, Select } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useMediaQuery } from "@chakra-ui/react";
+
 import { useSelector, useDispatch } from "react-redux";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { postData } from "../../Redux/AppReducer/action";
-import { useToast } from '@chakra-ui/react';
-import Offer from './Offer';
-import {Link} from 'react-scroll';
+import { useToast } from "@chakra-ui/react";
+import Offer from "./Offer";
+import { Link } from "react-scroll";
 
 const count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -17,8 +17,6 @@ function SingleItemPage() {
   const toast = useToast();
 
   const [Qty, SetQty] = useState(count);
-  const [isMobile] = useMediaQuery("(max-width:768px)");
-  console.log(isMobile);
 
   const { singlepage } = useSelector((state) => {
     return {
@@ -32,15 +30,14 @@ function SingleItemPage() {
 
   // add to cart
   const addtoCart = () => {
-    dispatch(postData(singlepage))
+    dispatch(postData(singlepage));
     toast({
-      title: 'Item Added Successfully.',
+      title: "Item Added Successfully.",
       description: "We are waiting for checkout.",
-      status: 'success',
+      status: "success",
       duration: 1000,
       isClosable: true,
-    })
-
+    });
   };
 
   // crauser
@@ -78,8 +75,6 @@ function SingleItemPage() {
     ],
   };
 
-
-
   console.log(singlepage);
   return (
     <Box>
@@ -93,24 +88,31 @@ function SingleItemPage() {
         m={"auto"}
         mt="30px"
       >
-        <Box w={"559.953px"}>
+        <Box width={[250, 300, 400, 500]}>
           <Slider {...settings}>
             <Box overflow={"hidden"}>
-              <Image
-                width={"559.953px"}
-                height="839.938px"
-                maxW={"100%"}
+              <Img
+                height={{
+                  lg: "400.016px",
+                  md: "300px",
+                  sm: "200px",
+                  sx: "200px",
+                }}
                 // border="1px solid red"
                 src={singlepage.image}
-                transition= "transform 0.3s"
-                _hover={{transform:"scale(1.5)"}}
+                transition="transform 0.3s"
+                _hover={{ transform: "scale(1.5)" }}
               />
             </Box>
             <Box overflow={"hidden"}>
-              <Image
-                width={"559.953px"}
-                height="839.938px"
-                maxW={"100%"}
+              <Img
+                  height={{
+                    lg: "400.016px",
+                    md: "300px",
+                    sm: "200px",
+                    sx: "200px",
+                  }}
+            
                 // border="1px solid red"
                 src={singlepage.flip_image}
                 transition= "transform 0.3s"
@@ -119,7 +121,7 @@ function SingleItemPage() {
             </Box>
           </Slider>
         </Box>
-        <Box width={"400.016px"} padding={"10px"}>
+        <Box padding={"10px"}>
           <Box>
             <Text fontSize={"22px"} fontWeight="500" mb={"20px"}>
               {singlepage.name}
@@ -129,7 +131,7 @@ function SingleItemPage() {
             ${singlepage.price}.00
           </Box>
           <Box>
-            <Text w={"300px"} fontSize="12px" mb={"15px"} mt="15px">
+            <Text w={"290px"} fontSize="12px" mb={"15px"} mt="15px">
               Or 4 interest-free installments of $45.00 with Klarna orAfterpay{" "}
             </Text>
           </Box>
@@ -160,7 +162,12 @@ function SingleItemPage() {
             <Box mt={"10px"} mb="10px">
               Fit*
             </Box>
-            <Box display={"flex"} gap="10px">
+            <Box
+              display={"flex"}
+              gap="10px"
+              // border="1px solid red"
+              width="200px"
+            >
               <Button
                 fontFamily={"sans-serif"}
                 fontSize="13px"
@@ -168,7 +175,7 @@ function SingleItemPage() {
                 letterSpacing="0.6px"
                 fontWeight={100}
                 h="38px"
-                w={"97px"}
+                w={"100px"}
                 minH="38px"
                 borderRadius={"none"}
               >
@@ -181,7 +188,7 @@ function SingleItemPage() {
                 letterSpacing="0.6px"
                 fontWeight={100}
                 h="38px"
-                w={"97px"}
+                w={"100px"}
                 minH="38px"
                 borderRadius={"none"}
               >
@@ -194,7 +201,7 @@ function SingleItemPage() {
                 letterSpacing="0.6px"
                 fontWeight={100}
                 h="38px"
-                w={"97px"}
+                w={"100px"}
                 minH="38px"
                 borderRadius={"none"}
               >
@@ -228,7 +235,7 @@ function SingleItemPage() {
               <Button
                 borderRadius="none"
                 h={"45px"}
-                width="306.016px"
+                width={{ lg: "306.016px", md: "250px", sm: "200px" }}
                 border="1px solid #4B5666"
                 p={"10px 20px 10px 20px"}
                 minH="45px"
@@ -246,7 +253,7 @@ function SingleItemPage() {
               justifyContent="space-between"
               mt={"20px"}
               mb="20px"
-              width={"300.019px"}
+              width={{ lg: "306.016px", md: "250px", sm: "200px" }}
               fontSize={"12px"}
               color="#167A92"
               textDecoration={"underline"}
@@ -256,17 +263,16 @@ function SingleItemPage() {
               <Text>Add to Wish List</Text>
             </Box>
             <Box>
-              <Link to="offer" smooth> 
+              <Link to="offer" smooth>
                 <Button
                   borderRadius="none"
                   h={"45px"}
-                  width="306.016px"
+                  width={{ lg: "306.016px", md: "250px", sm: "200px" }}
                   border="1px solid #4B5666"
                   p={"10px 20px 10px 20px"}
                   minH="45px"
                   backgroundColor="rgb(253,253,249)"
                   _hover={{
-                  
                     background: "#4B5666",
                     color: "white",
                   }}
@@ -286,7 +292,7 @@ function SingleItemPage() {
         <Text>{singlepage.details}</Text>
       </Box>
       <Box>
-      <Offer/>
+        <Offer />
       </Box>
     </Box>
   );

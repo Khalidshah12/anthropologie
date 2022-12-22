@@ -9,7 +9,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 function BootcutCard() {
-
   const dispatch = useDispatch();
 
   const { bootcutData } = useSelector((state) => {
@@ -28,29 +27,33 @@ function BootcutCard() {
   return (
     <>
       <Box
-        w={"1000.84px"}
-        maxWidth={"100%"}
         display={"grid"}
+        rowGap="15px"
+        minH={"auto"}
+        minW="auto"
         gridTemplateColumns={{
-          lg: "repeat(4, 1fr)",
-          md: "repeat(3,1fr)",
-          sm: "repeat(2, 1fr)",
+          lg: "repeat(4,1fr)",
+          base: "repeat(1,1fr)",
+          md: "repeat(3, 1fr)",
+          sm: "repeat(2,1fr)",
         }}
         mt="30px"
       >
         {bootcutData.length > 0 &&
           bootcutData.map((ele) => (
             <Link to={`/shop/${ele.id}`}>
-
               <Box
-                w={"233.203px"}
-                h="493.969px"
+                h="470.969px"
                 minHeight={"auto"}
-                onClick={() => singlePageHandler(ele)}
-                key={ele.id}
+                cursor="pointer"
+                width={"243.484px"}
+                minW="auto"
+                minH={"auto"}
+                onClick={() => singlePageHandler(ele, ele.id)}
+                key={ele.id + Math.random()}
               >
                 <Image w={"auto"} h="349.469px" src={ele.image} />
-                <Text>{ele.name}</Text>
+                <Text width={"240px"}>{ele.name}</Text>
                 <Text>${ele.price}</Text>
               </Box>
             </Link>

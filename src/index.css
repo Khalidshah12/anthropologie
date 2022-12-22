@@ -16,3 +16,16 @@ code {
 #jeans:hover{
   text-decoration: none;
 }
+
+#dropdown-content{
+  display: none;
+}
+
+#dropdown-content Text{
+  display: block;
+}
+
+#dropdown:hover #dropdown-content{
+  display: block;
+}
+

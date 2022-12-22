@@ -1,19 +1,42 @@
 import React from "react";
-
-import { Box, Text, Select, Image } from "@chakra-ui/react";
+import { useSelector, useDispatch } from "react-redux";
+import { get_casual_success } from "../../../../../Redux/AppReducer/action";
+import { useEffect, useState } from "react";
+import { Box, Text, Center } from "@chakra-ui/react";
 import { casual } from "../../../../../db";
-import {useMediaQuery} from '@chakra-ui/react';
+import { useMediaQuery } from "@chakra-ui/react";
 
 import Sidebar from "../../../Sidebar";
 import Pagination from "../../../Pagination";
 import Filter from "../../../Filter";
-// import Navbar from "../../../../../components/Navbar/Navbar";
-// import Footer from "../../../../../components/Footer/Footer";
+
 import CasualCard from "./CasualCard";
 
 function Casual() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 1024px)");
+  const dispatch = useDispatch();
  
+  const { casualData } = useSelector((state) => {
+    return {
+      casualData: state.AppReducer.casualData,
+    };
+  });
+
+  useEffect(() => {
+    dispatch(get_casual_success(casual));
+  }, []);
+
+  console.log(casualData)
+
+  const filterhandler =(e)=>{
+    if(e.target.value==="lowtohigh"){
+      const lowdata = casualData.sort((a,b)=>{
+        return a.price > b.price;
+      })
+      console.log(lowdata)
+    }
+  }
+
   return (
     <>
       {/* <Navbar /> */}
@@ -26,18 +49,19 @@ function Casual() {
             maxWidth="1561px"
             display="flex"
           >
-            <Box style={{display: isMobile ? "none" : "block"}}>
+            <Box style={{ display: isMobile ? "none" : "block" }}>
               <Sidebar />
             </Box>
             <Box>
               <Box>
                 <Box
-                  w={"985px"}
                   maxWidth={"100%"}
-                  // border="1px solid red"
-                  h={"50px"}
                   display={"flex"}
                   justifyContent="space-between"
+                  // border="1px solid red
+                  minW={"auto"}
+                  flexWrap={"wrap"}
+                  h={"auto"}
                 >
                   <Box>
                     <Text fontSize={"25px"}>
@@ -55,7 +79,7 @@ function Casual() {
                   </Box>
                   <Box display={"flex"}>
                     <Box>
-                      <Filter />
+                      <Filter filterhandler={filterhandler} />
                     </Box>
                     <Box>
                       <Pagination />
@@ -65,7 +89,9 @@ function Casual() {
               </Box>
               <Box mt={"30px"}>
                 {/* map data here */}
-                <CasualCard/>
+                <Center>
+                  <CasualCard />
+                </Center>
               </Box>
             </Box>
           </Box>

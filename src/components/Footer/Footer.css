@@ -132,6 +132,19 @@
   letter-spacing: 0.6px;
   font: 600;
 }
+.country > p:hover {
+  color: blue;
+  cursor: pointer;
+  font: 15px "Times New Roman";
+  letter-spacing: 0.6px;
+  font: 600;
+}
+.footerpart > p:hover {
+  color: red;
+  cursor: pointer;
+  letter-spacing: 0.6px;
+  font: 600;
+}
 .footerEnd {
   display: flex;
   /* border: 1px solid red; */

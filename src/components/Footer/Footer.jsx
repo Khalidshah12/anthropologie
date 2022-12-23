@@ -4,6 +4,7 @@ import { GrInstagram } from "react-icons/gr";
 import { IoLocationSharp } from "react-icons/io5";
 import { HiOutlineMail } from "react-icons/hi";
 import "./Footer.css";
+// import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -81,15 +82,25 @@ const Footer = () => {
             src="https://images.ctfassets.net/5de70he6op10/4gWq1G4qLLgmqlNeHfzV2T/55298745127c36c5876f4013434c0c37/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917_Copy_2.svg"
             alt=""
           />
-          <BsPinterest size="1.5em" />
-          <GrInstagram size="1.5em" />
-          <FaFacebookSquare size="1.5em" />
-          <BsTwitter size="1.5em" />
+          <a href="https://www.pinterest.com/anthropologie/" target="_blank">
+            <BsPinterest size="1.5em" />
+          </a>
+
+          <a href=" https://www.instagram.com/anthropologie/" target="_blank">
+            <GrInstagram size="1.5em" />
+          </a>
+
+          <a href="https://www.facebook.com/Anthropologie" target="_blank">
+            <FaFacebookSquare size="1.5em" />
+          </a>
+          <a href="https://twitter.com/anthropologie" target="_blank">
+            <BsTwitter size="1.5em" />
+          </a>
         </div>
         <div>
           <img
             className="banner"
-            src="https://images.ctfassets.net/5de70he6op10/2DRgCRXNIEkk0wIqUo2ywa/20ea44a95fb361eaf034b42eec179d44/_site_footer__download_app_enable_push_.jpg"
+            src="https://images.ctfassets.net/5de70he6op10/1k3lZuMcopQdkMdEiQDoq4/300b91824e994351fdb7e7714b6db798/Holiday22_SiteFooter_GiftGuide_LS.jpg"
             alt=""
           />
         </div>

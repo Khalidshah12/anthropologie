@@ -18,10 +18,14 @@ const Footer = () => {
               events and much more!
             </p>
           </div>
-          <div className="firstly1">
-            <input placeholder="Enter Email Address" />
+          <form
+            className="firstly1"
+            action="https://getform.io/f/34bd933a-2684-49ec-8de1-4ba482473cc2"
+            method="POST"
+          >
+            <input type="text" name="Email" placeholder="Enter Email Address" />
             <button>SUBMIT</button>
-          </div>
+          </form>
         </div>
         <h1 className="end">
           By signing up, you will receive Anthropologie offers, promotions and

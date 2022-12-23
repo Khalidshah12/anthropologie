@@ -4,7 +4,7 @@ import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useMediaQuery } from "@chakra-ui/react";
 import { get_wideleg_success } from "../../../../../Redux/AppReducer/action";
-import {useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { wideleg } from "../../../../../db";
 import { Box, Text, Center } from "@chakra-ui/react";
 import WidelegCard from "./WidelegCard";
@@ -14,31 +14,28 @@ function WideLeg() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   const dispatch = useDispatch();
- 
 
-  const filterhandler =(e)=>{
-    if(e.target.value==="lowtohigh"){
-      const lowtohighdata = wideleg.sort((a,b)=>{
+  const filterhandler = (e) => {
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = wideleg.sort((a, b) => {
         return a.price - b.price;
-      })
-      console.log(lowtohighdata)
+      });
+      console.log(lowtohighdata);
       dispatch(get_wideleg_success(lowtohighdata));
     }
-    
-    if(e.target.value==="hightolow"){
-      const hightolowdata = wideleg.sort((a,b)=>{
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = wideleg.sort((a, b) => {
         return b.price - a.price;
-      })
-      console.log(hightolowdata)
+      });
+      console.log(hightolowdata);
       dispatch(get_wideleg_success(hightolowdata));
     }
 
-    if(e.target.value==="removefilter"){
-   
+    if (e.target.value === "removefilter") {
       dispatch(get_wideleg_success(wideleg));
-
     }
-  }
+  };
 
   return (
     <>
@@ -81,7 +78,7 @@ function WideLeg() {
                     </Text>
                   </Box>
                   <Box display={"flex"}>
-                      <Filter filterhandler={filterhandler}/>
+                    <Filter filterhandler={filterhandler} />
                     <Box display={"flex"}>
                       <ChevronLeftIcon
                         fontSize={"40px"}

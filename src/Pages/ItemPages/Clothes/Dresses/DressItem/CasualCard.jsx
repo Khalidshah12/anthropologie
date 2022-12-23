@@ -66,7 +66,12 @@ function CasualCard() {
                 h="349.469px"
                 borderRadius={"10px"}
                 transition="all 0.3s"
-                _hover={{transform:"scale(1.1)", opacity:0.9, brightness:"200%", contrast:"100"}}
+                _hover={{
+                  transform: "scale(1.1)",
+                  opacity: 0.9,
+                  brightness: "200%",
+                  contrast: "100",
+                }}
                 src={ele.image}
               />
 

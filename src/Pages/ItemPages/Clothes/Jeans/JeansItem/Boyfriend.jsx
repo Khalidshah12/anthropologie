@@ -14,29 +14,27 @@ function Boyfriend() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
   const dispatch = useDispatch();
 
-  const filterhandler =(e)=>{
-    if(e.target.value==="lowtohigh"){
-      const lowtohighdata = boyfriend.sort((a,b)=>{
+  const filterhandler = (e) => {
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = boyfriend.sort((a, b) => {
         return a.price - b.price;
-      })
-      console.log(lowtohighdata)
+      });
+      console.log(lowtohighdata);
       dispatch(get_boyfriend_success(lowtohighdata));
     }
-    
-    if(e.target.value==="hightolow"){
-      const hightolowdata = boyfriend.sort((a,b)=>{
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = boyfriend.sort((a, b) => {
         return b.price - a.price;
-      })
-      console.log(hightolowdata)
+      });
+      console.log(hightolowdata);
       dispatch(get_boyfriend_success(hightolowdata));
     }
 
-    if(e.target.value==="removefilter"){
-   
+    if (e.target.value === "removefilter") {
       dispatch(get_boyfriend_success(boyfriend));
-
     }
-  }
+  };
 
   return (
     <>
@@ -78,7 +76,7 @@ function Boyfriend() {
                     </Text>
                   </Box>
                   <Box display={"flex"}>
-                    <Filter filterhandler={filterhandler}/>
+                    <Filter filterhandler={filterhandler} />
                     <Box display={"flex"}>
                       <ChevronLeftIcon
                         fontSize={"40px"}

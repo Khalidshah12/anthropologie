@@ -15,32 +15,29 @@ function FormalDress() {
 
   const dispatch = useDispatch();
 
-   
   const [page, setPage] = useState(1);
   const totalitem = formal_dress.length;
 
   const pagelimit = 50;
-  
-  const no_page = Math.ceil(totalitem/pagelimit);
 
-  const getPagination = (page)=>{
-  
+  const no_page = Math.ceil(totalitem / pagelimit);
+
+  const getPagination = (page) => {
     const trimStart = (page - 1) * pagelimit;
-    const trimEnd = trimStart + pagelimit 
+    const trimEnd = trimStart + pagelimit;
 
     const data = formal_dress.slice(trimStart, trimEnd);
 
     dispatch(get_formal_success(data));
-  }
+  };
 
-  const pageHandler =(value)=>{
-    setPage(prev=>prev + value);
-  }
+  const pageHandler = (value) => {
+    setPage((prev) => prev + value);
+  };
 
-  useEffect(()=>{
-    getPagination(page)
-  },[page])
-
+  useEffect(() => {
+    getPagination(page);
+  }, [page]);
 
   const filterhandler = (e) => {
     if (e.target.value === "lowtohigh") {
@@ -104,17 +101,17 @@ function FormalDress() {
                   </Text>
                 </Box>
                 <Box display={"flex"} gap="10px">
-                    <Box>
-                      <Filter filterhandler={filterhandler} />
-                    </Box>
-                    <Box>
-                      <Pagination
+                  <Box>
+                    <Filter filterhandler={filterhandler} />
+                  </Box>
+                  <Box>
+                    <Pagination
                       pageHandler={pageHandler}
                       page={page}
                       no_page={no_page}
-                      />
-                    </Box>
+                    />
                   </Box>
+                </Box>
               </Box>
               <Box>
                 {/* data here */}
@@ -124,14 +121,9 @@ function FormalDress() {
               </Box>
             </Box>
           </Box>
-
         </Box>
-        <Box display={"flex"} justifyContent="flex-end" width={"90%"} m="auto" >
-          <Pagination
-           pageHandler={pageHandler}
-           page={page}
-           no_page={no_page}
-          />
+        <Box display={"flex"} justifyContent="flex-end" width={"90%"} m="auto">
+          <Pagination pageHandler={pageHandler} page={page} no_page={no_page} />
         </Box>
       </Box>
       {/* <Footer/> */}

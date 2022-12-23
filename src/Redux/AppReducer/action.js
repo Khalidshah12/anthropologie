@@ -76,19 +76,6 @@ export const postData = (payload) => (dispatch)=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //FILTER
 
 export const filter_data = (data) => ({

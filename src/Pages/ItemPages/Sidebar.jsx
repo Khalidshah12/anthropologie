@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Text } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
 import {
   Accordion,
   AccordionItem,
@@ -21,49 +22,57 @@ function Sidebar() {
           <Text mb={"10px"}>Browse by:</Text>
           <hr />
           <Box>
-            <Text
-              paddingBottom={"10px"}
-              pt="10px"
-              mb={"0px"}
-              _hover={{
-                borderBottom: "1px solid #167A92",
-                width: "fit-content",
-              }}
-              cursor={"pointer"}
-            >
-              Clothing
-            </Text>
+            <Link to="/clothes">
+              <Text
+                paddingBottom={"10px"}
+                pt="10px"
+                mb={"0px"}
+                _hover={{
+                  borderBottom: "1px solid #167A92",
+                  width: "fit-content",
+                }}
+                cursor={"pointer"}
+              >
+                Clothing
+              </Text>
+            </Link>
             <Box>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                New!
-              </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Top Rated
-              </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Activewear
-              </Text>
+              <Link to={"/clothes/dresses/formaldress"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  New!
+                </Text>
+              </Link>
+              <Link to="/clothes/jeans">
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Top Rated
+                </Text>
+              </Link>
+              <Link to={"/clothes/dresses/casual"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Activewear
+                </Text>
+              </Link>
               <Text
                 mb={"3px"}
                 _hover={{
@@ -74,36 +83,30 @@ function Sidebar() {
               >
                 Blazers
               </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Dresses
-              </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Getaway & Resort Wear
-              </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Intimates & Lingerie
-              </Text>
+              <Link to={"/clothes/dresses"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Dresses
+                </Text>
+              </Link>
+              <Link to={"/clothes/jeans/bootcut"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Getaway & Resort Wear
+                </Text>
+              </Link>
               <Text
                 mb={"3px"}
                 _hover={{
@@ -114,26 +117,30 @@ function Sidebar() {
               >
                 Jackets & Coats
               </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Jeans
-              </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Jumpsuits
-              </Text>
+              <Link to={"/clothes/jeans"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Jeans
+                </Text>
+              </Link>
+              <Link to={"/clothes/dresses/party"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Jumpsuits
+                </Text>
+              </Link>
               <Text
                 mb={"3px"}
                 _hover={{
@@ -144,46 +151,54 @@ function Sidebar() {
               >
                 Kimonos & Kaftans
               </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Loungewear
-              </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Pants
-              </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Petites
-              </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Plus
-              </Text>
+              <Link to={"/clothes/dresses"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Loungewear
+                </Text>
+              </Link>
+              <Link to={"/clothes/paints"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Pants
+                </Text>
+              </Link>
+              <Link to={"/clothes/paints/wideleg"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Petites
+                </Text>
+              </Link>
+              <Link to={"/clothes/paints/workpaints"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Plus
+                </Text>
+              </Link>
               <Text
                 mb={"3px"}
                 _hover={{
@@ -204,16 +219,18 @@ function Sidebar() {
               >
                 Skirts
               </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Sleepwear & Robes
-              </Text>
+              <Link to={"/clothes/dresses/formaldress"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Sleepwear & Robes
+                </Text>
+              </Link>
               <Text
                 mb={"3px"}
                 _hover={{
@@ -234,16 +251,18 @@ function Sidebar() {
               >
                 Swimwear
               </Text>
-              <Text
-                mb={"3px"}
-                _hover={{
-                  borderBottom: "1px solid black",
-                  width: "fit-content",
-                }}
-                cursor={"pointer"}
-              >
-                Tops & Tees
-              </Text>
+              <Link to={"/clothes/dresses/party"}>
+                <Text
+                  mb={"3px"}
+                  _hover={{
+                    borderBottom: "1px solid black",
+                    width: "fit-content",
+                  }}
+                  cursor={"pointer"}
+                >
+                  Tops & Tees
+                </Text>
+              </Link>
             </Box>
           </Box>
           <Text paddingBottom={"10px"} pt="10px">
@@ -287,7 +306,9 @@ function Sidebar() {
                         }}
                         w="160px"
                       >
-                        <Text>Tops (709)</Text>
+                        <Link to={"/clothes/paints"}>
+                          <Text>Tops (709)</Text>
+                        </Link>
                       </Box>
                       <Box
                         p={"8px"}
@@ -298,7 +319,9 @@ function Sidebar() {
                         }}
                         w="160px"
                       >
-                        <Text>Dresses (586)</Text>
+                        <Link to={"/clothes/dresses"}>
+                          <Text>Dresses (586)</Text>
+                        </Link>
                       </Box>
                       <Box
                         p={"8px"}
@@ -309,7 +332,9 @@ function Sidebar() {
                         }}
                         w="160px"
                       >
-                        <Text>Jeans (499)</Text>
+                        <Link to={"/clothes/jeans"}> 
+                          <Text>Jeans (499)</Text>
+                        </Link>
                       </Box>
                       <Box
                         p={"8px"}
@@ -342,7 +367,9 @@ function Sidebar() {
                         }}
                         w="160px"
                       >
-                        <Text>Paints (280)</Text>
+                        <Link to="/clothes/paints">
+                          <Text>Paints (280)</Text>
+                        </Link>
                       </Box>
                       <Box
                         p={"8px"}
@@ -353,7 +380,9 @@ function Sidebar() {
                         }}
                         w="160px"
                       >
-                        <Text>Sleepwear (175)</Text>
+                        <Link to ="/clothes/dresses/casual">
+                          <Text>Sleepwear (175)</Text>
+                        </Link>
                       </Box>
                       <Box
                         p={"8px"}
@@ -461,7 +490,9 @@ function Sidebar() {
                           border: "1px solid #167A92",
                         }}
                         w="160px">
-                        <Text>Wedding Dress (3)</Text>
+                          <Link to={"/clothes/dresses/wedding"}>
+                            <Text>Wedding Dress (3)</Text>
+                          </Link>
                       </Box>
                       <Box
                         p={"8px"}
@@ -472,6 +503,7 @@ function Sidebar() {
                         }}
                         w="160px"
                       >
+                        
                         <Text>Wedding Separates (3)</Text>
                       </Box>
                       <Box

@@ -20,7 +20,7 @@ const Navbar2 = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [placement, setPlacement] = React.useState("left");
   return (
-    <Box className={Styles.nav}>
+    <Box className={Styles.nav} >
       <RadioGroup defaultValue={placement} onChange={setPlacement}>
         <Stack direction="row" mb="4"></Stack>
       </RadioGroup>

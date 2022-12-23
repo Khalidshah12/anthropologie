@@ -1,11 +1,12 @@
 import React from "react";
-import { formal_dress } from "../../../../../db";
 import { Box, Text, Image } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { single_page_data } from "../../../../../Redux/AppReducer/action";
 
+import { formal_dress } from "../../../../../db";
 import { get_formal_success } from "../../../../../Redux/AppReducer/action";
 import { useSelector, useDispatch } from "react-redux";
+
 import {useEffect} from 'react';
 
 function FormalDressCard() {
@@ -27,14 +28,17 @@ function FormalDressCard() {
   return (
     <>
       <Box
-        w={"1000.84px"}
-        maxWidth={"100%"}
-        display={"grid"}
-        gridTemplateColumns={{
-          lg: "repeat(4, 1fr)",
-          md: "repeat(3,1fr)",
-          sm: "repeat(2, 1fr)",
-        }}
+     display={"grid"}
+     rowGap="15px"
+     minH={"auto"}
+     minW="auto"
+     gridTemplateColumns={{
+      lg:"repeat(4,1fr)",
+            base:"repeat(1,1fr)",
+            md: "repeat(3, 1fr)",
+            sm:"repeat(2,1fr)"
+     
+     }}
         mt="30px"
       >
    
@@ -42,14 +46,18 @@ function FormalDressCard() {
           formalData.map((ele) => (
             <NavLink to={`/shop/${ele.id}`}>
               <Box
-                w={"233.203px"}
-                h="493.969px"
-                minHeight={"auto"}
-                onClick={() => singlePageHandler(ele)}
-                key={ele.id}
+                    h="470.969px"
+                    minHeight={"auto"}
+                    cursor="pointer"
+                  width={"243.484px"}
+
+                    minW="auto"
+                    minH={"auto"}
+                    onClick={() => singlePageHandler(ele, ele.id)}
+                    key={ele.id + Math.random()}
               >
                 <Image w={"auto"} h="349.469px" src={ele.image} />
-                <Text>{ele.name}</Text>
+                <Text  width={"240px"}>{ele.name}</Text>
                 <Text>${ele.price}</Text>
               </Box>
             </NavLink>

@@ -61,8 +61,11 @@ const Navbar = () => {
   };
 
   const otherNumberHandler = () => {
+  
     SetShow(false);
     signOut();
+  
+
   };
 
   const PinEvent = (e) => {
@@ -464,6 +467,7 @@ const Navbar = () => {
                 alignItems: "center",
               }}
               to="/cart"
+              ml="-10px"
             >
               <AiOutlineShoppingCart size="1.5em" />
             </Link>

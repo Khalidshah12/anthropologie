@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Select, Image } from "@chakra-ui/react";
+import { Box, Text, Image } from "@chakra-ui/react";
 import { skinny } from "../../../../../db";
 
 import { single_page_data } from "../../../../../Redux/AppReducer/action";
@@ -28,28 +28,33 @@ function SkinnyCard() {
   return (
     <>
       <Box
-        w={"1000.84px"}
-        maxWidth={"100%"}
-        display={"grid"}
-        gridTemplateColumns={{
-          lg: "repeat(4, 1fr)",
-          md: "repeat(3,1fr)",
-          sm: "repeat(2, 1fr)",
-        }}
-        mt="30px"
+   display={"grid"}
+   rowGap="15px"
+   minH={"auto"}
+   minW="auto"
+   gridTemplateColumns={{
+     lg: "repeat(4,1fr)",
+     base: "repeat(1,1fr)",
+     md: "repeat(3, 1fr)",
+     sm: "repeat(2,1fr)",
+   }}
+   mt="30px"
       >
         {skinnyData.length > 0 &&
           skinnyData.map((ele) => (
             <Link to={`/shop/${ele.id}`}>
-              <Box
-                w={"233.203px"}
-                h="493.969px"
+            <Box
+                h="470.969px"
                 minHeight={"auto"}
-                onClick={() => singlePageHandler(ele)}
-                key={ele.id}
+                cursor="pointer"
+                width={"243.484px"}
+                minW="auto"
+                minH={"auto"}
+                onClick={() => singlePageHandler(ele, ele.id)}
+                key={ele.id + Math.random()}
               >
                 <Image w={"auto"} h="349.469px" src={ele.image} />
-                <Text>{ele.name}</Text>
+                <Text width={"240px"}>{ele.name}</Text>
                 <Text>${ele.price}</Text>
               </Box>
             </Link>

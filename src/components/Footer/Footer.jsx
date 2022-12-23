@@ -30,10 +30,10 @@ const Footer = () => {
         <h1 className="end">
           By signing up, you will receive Anthropologie offers, promotions and
           other commercial messages. You are also agreeing to Anthropologie’s
-          Privacy Policy. You may unsubscribe at any time.
+          Privacy Policy. You may unsubscribe at any time .
         </h1>
 
-        {/* Footer Here */}
+         {/* Footer Here  */}
         <div className="footer">
           <li className="Box">
             <p>Help</p>

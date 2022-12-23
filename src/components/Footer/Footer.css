@@ -132,12 +132,20 @@
   letter-spacing: 0.6px;
   font: 600;
 }
-.country > p:hover {
+.country > a:hover {
   color: blue;
   cursor: pointer;
   font: 15px "Times New Roman";
   letter-spacing: 0.6px;
   font: 600;
+}
+.Box > ul:hover {
+  color: red;
+  cursor: pointer;
+}
+.SocialHandles > a:hover {
+  color: red;
+  cursor: pointer;
 }
 .footerpart > p:hover {
   color: red;

@@ -33,7 +33,7 @@ const Footer = () => {
           Privacy Policy. You may unsubscribe at any time .
         </h1>
 
-         {/* Footer Here  */}
+        {/* Footer Here  */}
         <div className="footer">
           <li className="Box">
             <p>Help</p>
@@ -47,7 +47,14 @@ const Footer = () => {
 
           <li className="Box">
             <p>About Us</p>
-            <ul>Our Story</ul>
+            <ul>
+              <a
+                href="https://www.anthropologie.com/help/our-story"
+                target="_blank"
+              >
+                Our Story
+              </a>
+            </ul>
             <ul>Events </ul>
             <ul>A Greater Good</ul>
             <ul>Diversity & Inclusion</ul>
@@ -109,12 +116,27 @@ const Footer = () => {
           />
         </div>
         <div className="country">
-          <p>US</p>
-          <p>France</p>
-          <p>Germany</p>
-          <p>Italy</p>
-          <p>Spain</p>
-          <p>UK</p>
+          <a
+            href="https://www.anthropologie.com/?cm_mmc=Anthro-_-Footer-_-en-US-_-en-US&cm_sp=FOOTER-_-INTL-_-en-US_en-US&ref=footer"
+            target="_blank"
+          >
+            US
+          </a>
+          <a
+            href="https://www.anthropologie.com/de-de?cm_mmc=Anthro-_-Footer-_-de-DE-_-en-US&ref=footer&utm_campaign=intl_footer&utm_medium=a_ref&utm_source=anthro_en-us&utm_term=de-de"
+            target="_blank"
+          >
+            France
+          </a>
+          <a>Germany</a>
+          <a>Italy</a>
+          <a
+            href="https://www.anthropologie.com/de-de?cm_mmc=Anthro-_-Footer-_-de-DE-_-en-US&ref=footer&utm_campaign=intl_footer&utm_medium=a_ref&utm_source=anthro_en-us&utm_term=de-de"
+            target="_blank"
+          >
+            Spain
+          </a>
+          <a>UK</a>
         </div>
 
         <div className="footerEnd">

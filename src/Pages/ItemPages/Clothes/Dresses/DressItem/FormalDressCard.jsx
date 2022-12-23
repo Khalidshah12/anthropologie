@@ -1,11 +1,12 @@
 import React from "react";
-import { formal_dress } from "../../../../../db";
 import { Box, Text, Image } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { single_page_data } from "../../../../../Redux/AppReducer/action";
 
+import { formal_dress } from "../../../../../db";
 import { get_formal_success } from "../../../../../Redux/AppReducer/action";
 import { useSelector, useDispatch } from "react-redux";
+
 import {useEffect} from 'react';
 
 function FormalDressCard() {

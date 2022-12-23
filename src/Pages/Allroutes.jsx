@@ -28,6 +28,7 @@ import SingleItemPage from "../components/singleitemPage/SingleItemPage";
 import NotFound from '../components/NotFound';
 import Delivery from "./Delivery/Delivery";
 import Payment from "./Payment/Payment";
+import Pagination from "./ItemPages/Pagination";
 const Allroutes = () => {
   return (
     <>
@@ -73,6 +74,9 @@ const Allroutes = () => {
         <Route path="/shop/:id" element={<SingleItemPage />} ></Route>
 
         <Route path="*" element={<NotFound />} />
+
+        {/* pagination */}
+      
       </Routes>
     </>
   );

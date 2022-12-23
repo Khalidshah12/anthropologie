@@ -22,6 +22,7 @@ function Filter({filterhandler}) {
             _hover="none"
             onChange={filterhandler}
           >
+            <option value="removefilter">Remove Filter</option>
             <option value="lowtohigh">Price: Low to High</option>
             <option value="hightolow">Price: High to Low</option>
             <option value="Newest">Newest</option>

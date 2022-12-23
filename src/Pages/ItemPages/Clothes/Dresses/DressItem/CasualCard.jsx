@@ -32,9 +32,6 @@ function CasualCard() {
   }, []);
 
 
-
-
-
   return (
     <>
       <Box

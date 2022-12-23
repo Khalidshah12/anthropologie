@@ -4,8 +4,7 @@ import { Box, Text,Center } from "@chakra-ui/react";
 import Sidebar from "../Sidebar";
 
 import { Link } from "react-router-dom";
-// import Navbar from "../../../components/Navbar/Navbar";
-// import Footer from "../../../components/Footer/Footer";
+
 import { casual } from "../../../db";
 import { party } from "../../../db";
 import { flare } from "../../../db";
@@ -16,9 +15,103 @@ import PartyCard from "./Dresses/DressItem/PartyCard";
 import WidelegCard from "./Panits/PanitItem/WidelegCard";
 import { useMediaQuery } from "@chakra-ui/react";
 import Filter from "../Filter";
+import { useDispatch } from "react-redux";
+import { get_casual_success } from "../../../Redux/AppReducer/action";
+import { get_party_success } from "../../../Redux/AppReducer/action";
+import { get_flare_success } from "../../../Redux/AppReducer/action";
+import { get_wideleg_success } from "../../../Redux/AppReducer/action";
+
 
 function Clothes() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
+
+  const dispatch = useDispatch();
+ 
+  const filterhandler =(e)=>{
+    if(e.target.value==="lowtohigh"){
+      const lowtohighdata = casual.sort((a,b)=>{
+        return a.price - b.price;
+      })
+      console.log(lowtohighdata)
+      dispatch(get_casual_success(lowtohighdata));
+    }
+    
+    if(e.target.value==="hightolow"){
+      const hightolowdata = casual.sort((a,b)=>{
+        return b.price - a.price;
+      })
+      console.log(hightolowdata)
+      dispatch(get_casual_success(hightolowdata));
+    }
+
+    if(e.target.value==="removefilter"){
+   
+      dispatch(get_casual_success(casual));
+
+    }
+    
+    if(e.target.value==="lowtohigh"){
+      const lowtohighdata = party.sort((a,b)=>{
+        return a.price - b.price;
+      })
+      console.log(lowtohighdata)
+      dispatch(get_party_success(lowtohighdata));
+    }
+    
+    if(e.target.value==="hightolow"){
+      const hightolowdata = party.sort((a,b)=>{
+        return b.price - a.price;
+      })
+      console.log(hightolowdata)
+      dispatch(get_party_success(hightolowdata));
+    }
+
+    if(e.target.value==="removefilter"){
+   
+      dispatch(get_party_success(party));
+
+    }
+    if(e.target.value==="lowtohigh"){
+      const lowtohighdata = flare.sort((a,b)=>{
+        return a.price - b.price;
+      })
+      console.log(lowtohighdata)
+      dispatch(get_flare_success(lowtohighdata));
+    }
+    
+    if(e.target.value==="hightolow"){
+      const hightolowdata = flare.sort((a,b)=>{
+        return b.price - a.price;
+      })
+      console.log(hightolowdata)
+      dispatch(get_flare_success(hightolowdata));
+    }
+
+    if(e.target.value==="removefilter"){
+   
+      dispatch(get_flare_success(flare));
+
+    }
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = wideleg.sort((a, b) => {
+        return a.price - b.price;
+      });
+      console.log(lowtohighdata);
+      dispatch(get_wideleg_success(lowtohighdata));
+    }
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = wideleg.sort((a, b) => {
+        return b.price - a.price;
+      });
+      console.log(hightolowdata);
+      dispatch(get_wideleg_success(hightolowdata));
+    }
+
+    if (e.target.value === "removefilter") {
+      dispatch(get_wideleg_success(wideleg));
+    }
+  }
 
   const clothesBox = (
     <Box
@@ -181,7 +274,7 @@ function Clothes() {
                       </Text>
                     </Box>
                     <Box display={"flex"}>
-                      <Filter/>
+                      <Filter filterhandler={filterhandler}/>
                       <Box display={"flex"}>
                         <ChevronLeftIcon
                           fontSize={"40px"}
@@ -203,7 +296,6 @@ function Clothes() {
                 <Center>
                   <PartyCard />
                 </Center>
-
                 <Center>
                   <CasualCard />
                 </Center>

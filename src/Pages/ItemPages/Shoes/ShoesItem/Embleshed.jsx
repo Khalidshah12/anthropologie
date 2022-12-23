@@ -2,8 +2,8 @@ import React from "react";
 // import {embelished_shoes} from '../../../db';
 import Sidebar from "../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-// import Navbar from "../../../../components/Navbar/Navbar";
-// import Footer from "../../../../components/Footer/Footer";
+import { get_embleshed_success } from "../../../../Redux/AppReducer/action";
+import { useDispatch } from "react-redux";
 import EmbleshedCard from "./EmbleshedCard";
 import { Box, Text, Center } from "@chakra-ui/react";
 import { embelished_shoes } from "../../../../db";
@@ -12,6 +12,32 @@ import Filter from "../../Filter";
 
 function Embleshed() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
+
+  const dispatch = useDispatch();
+ 
+  const filterhandler =(e)=>{
+    if(e.target.value==="lowtohigh"){
+      const lowtohighdata = embelished_shoes.sort((a,b)=>{
+        return a.price - b.price;
+      })
+      console.log(lowtohighdata)
+      dispatch(get_embleshed_success(lowtohighdata));
+    }
+    
+    if(e.target.value==="hightolow"){
+      const hightolowdata = embelished_shoes.sort((a,b)=>{
+        return b.price - a.price;
+      })
+      console.log(hightolowdata)
+      dispatch(get_embleshed_success(hightolowdata));
+    }
+
+    if(e.target.value==="removefilter"){
+   
+      dispatch(get_embleshed_success(embelished_shoes));
+
+    }
+  }
 
   return (
     <>
@@ -53,7 +79,7 @@ function Embleshed() {
                     </Text>
                   </Box>
                   <Box display={"flex"}>
-                    <Filter />
+                    <Filter filterhandler={filterhandler}/>
                     <Box display={"flex"}>
                       <ChevronLeftIcon
                         fontSize={"40px"}

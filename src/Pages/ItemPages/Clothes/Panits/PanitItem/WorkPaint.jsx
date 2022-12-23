@@ -1,9 +1,9 @@
 import React from "react";
-// import {workpaints} from  '../../../../db';
+
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-// import Navbar from "../../../../../components/Navbar/Navbar";
-// import Footer from "../../../../../components/Footer/Footer";
+import { get_workpaints_success } from "../../../../../Redux/AppReducer/action";
+import {useDispatch } from "react-redux";
 import { Box, Text, Center } from "@chakra-ui/react";
 import { workpaints } from "../../../../../db";
 import WorkPaintCard from "./WorkPaintCard";
@@ -12,6 +12,34 @@ import Filter from "../../../Filter";
 
 function WorkPaint() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
+
+  
+  const dispatch = useDispatch();
+ 
+
+  const filterhandler =(e)=>{
+    if(e.target.value==="lowtohigh"){
+      const lowtohighdata = workpaints.sort((a,b)=>{
+        return a.price - b.price;
+      })
+      console.log(lowtohighdata)
+      dispatch(get_workpaints_success(lowtohighdata));
+    }
+    
+    if(e.target.value==="hightolow"){
+      const hightolowdata = workpaints.sort((a,b)=>{
+        return b.price - a.price;
+      })
+      console.log(hightolowdata)
+      dispatch(get_workpaints_success(hightolowdata));
+    }
+
+    if(e.target.value==="removefilter"){
+   
+      dispatch(get_workpaints_success(workpaints));
+
+    }
+  }
 
   return (
     <>
@@ -54,7 +82,7 @@ function WorkPaint() {
                     </Text>
                   </Box>
                   <Box display={"flex"}>
-                      <Filter/>
+                      <Filter filterhandler={filterhandler}/>
                     <Box display={"flex"}>
                       <ChevronLeftIcon
                         fontSize={"40px"}

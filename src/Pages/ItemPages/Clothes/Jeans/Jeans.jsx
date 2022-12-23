@@ -6,7 +6,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // import Navbar from "../../../../components/Navbar/Navbar";
 // import Footer from "../../../../components/Footer/Footer";
 import { Link } from "react-router-dom";
-import { bootcut, boyfriend, flare } from "../../../../db";
+import { bootcut, boyfriend, flare,skinny } from "../../../../db";
 import { wideleg } from "../../../../db";
 import { straight } from "../../../../db";
 import FlareCard from "./JeansItem/FlareCard";
@@ -15,9 +15,104 @@ import StraightCard from "./JeansItem/StraightCard";
 import SkinnyCard from "./JeansItem/SkinnyCard";
 import { useMediaQuery } from "@chakra-ui/react";
 import Filter from "../../Filter";
+import { get_flare_success } from "../../../../Redux/AppReducer/action";
+import { get_wideleg_success } from "../../../../Redux/AppReducer/action";
+import { get_straight_success } from "../../../../Redux/AppReducer/action";
+import { get_skinny_success } from "../../../../Redux/AppReducer/action";
+
+import { useDispatch } from "react-redux";
 
 function Jeans() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
+
+  const dispatch = useDispatch();
+
+  const filterhandler =(e)=>{
+    if(e.target.value==="lowtohigh"){
+      const lowtohighdata = flare.sort((a,b)=>{
+        return a.price - b.price;
+      })
+      console.log(lowtohighdata)
+      dispatch(get_flare_success(lowtohighdata));
+    }
+    
+    if(e.target.value==="hightolow"){
+      const hightolowdata = flare.sort((a,b)=>{
+        return b.price - a.price;
+      })
+      console.log(hightolowdata)
+      dispatch(get_flare_success(hightolowdata));
+    }
+
+    if(e.target.value==="removefilter"){
+   
+      dispatch(get_flare_success(flare));
+
+    }
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = wideleg.sort((a, b) => {
+        return a.price - b.price;
+      });
+      console.log(lowtohighdata);
+      dispatch(get_wideleg_success(lowtohighdata));
+    }
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = wideleg.sort((a, b) => {
+        return b.price - a.price;
+      });
+      console.log(hightolowdata);
+      dispatch(get_wideleg_success(hightolowdata));
+    }
+
+    if (e.target.value === "removefilter") {
+      dispatch(get_wideleg_success(wideleg));
+    }
+
+    if(e.target.value==="lowtohigh"){
+      const lowtohighdata = straight.sort((a,b)=>{
+        return a.price - b.price;
+      })
+      console.log(lowtohighdata)
+      dispatch(get_straight_success(lowtohighdata));
+    }
+    
+    if(e.target.value==="hightolow"){
+      const hightolowdata = straight.sort((a,b)=>{
+        return b.price - a.price;
+      })
+      console.log(hightolowdata)
+      dispatch(get_straight_success(hightolowdata));
+    }
+
+    if(e.target.value==="removefilter"){
+   
+      dispatch(get_straight_success(straight));
+
+    }
+
+    if(e.target.value==="lowtohigh"){
+      const lowtohighdata = skinny.sort((a,b)=>{
+        return a.price - b.price;
+      })
+      console.log(lowtohighdata)
+      dispatch(get_skinny_success(lowtohighdata));
+    }
+    
+    if(e.target.value==="hightolow"){
+      const hightolowdata = skinny.sort((a,b)=>{
+        return b.price - a.price;
+      })
+      console.log(hightolowdata)
+      dispatch(get_skinny_success(hightolowdata));
+    }
+
+    if(e.target.value==="removefilter"){
+   
+      dispatch(get_skinny_success(skinny));
+
+    }
+  }
 
   const jeansBox = (
     <Box
@@ -225,7 +320,7 @@ function Jeans() {
                     </Text>
                   </Box>
                   <Box display={"flex"}>
-                    <Filter />
+                    <Filter filterhandler={filterhandler}/>
                     <Box display={"flex"}>
                       <ChevronLeftIcon
                         fontSize={"40px"}

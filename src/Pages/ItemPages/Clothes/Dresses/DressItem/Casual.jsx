@@ -1,7 +1,8 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { get_casual_success } from "../../../../../Redux/AppReducer/action";
-import { useEffect, useState } from "react";
+
 import { Box, Text, Center } from "@chakra-ui/react";
 import { casual } from "../../../../../db";
 import { useMediaQuery } from "@chakra-ui/react";
@@ -15,25 +16,51 @@ import CasualCard from "./CasualCard";
 function Casual() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
   const dispatch = useDispatch();
- 
-  const { casualData } = useSelector((state) => {
-    return {
-      casualData: state.AppReducer.casualData,
-    };
-  });
+  
+  const [page, setPage] = useState(1);
+  const totalitem = casual.length;
 
-  useEffect(() => {
-    dispatch(get_casual_success(casual));
-  }, []);
+  const pagelimit = 50;
+  
+  const no_page = Math.ceil(totalitem/pagelimit);
 
-  console.log(casualData)
+  const getPagination = (page)=>{
+  
+    const trimStart = (page - 1) * pagelimit;
+    const trimEnd = trimStart + pagelimit 
 
-  const filterhandler =(e)=>{
-    if(e.target.value==="lowtohigh"){
-      const lowdata = casualData.sort((a,b)=>{
-        return a.price > b.price;
-      })
-      console.log(lowdata)
+    const data = casual.slice(trimStart, trimEnd);
+
+    dispatch(get_casual_success(data));
+  }
+
+  const pageHandler =(value)=>{
+    setPage(prev=>prev + value);
+  }
+
+  useEffect(()=>{
+    getPagination(page)
+  },[page])
+
+  const filterhandler = (e) => {
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = casual.sort((a, b) => {
+        return a.price - b.price;
+      });
+      console.log(lowtohighdata);
+      dispatch(get_casual_success(lowtohighdata));
+    }
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = casual.sort((a, b) => {
+        return b.price - a.price;
+      });
+      console.log(hightolowdata);
+      dispatch(get_casual_success(hightolowdata));
+    }
+
+    if (e.target.value === "removefilter") {
+      dispatch(get_casual_success(casual));
     }
   }
 
@@ -77,12 +104,16 @@ function Casual() {
                       </span>
                     </Text>
                   </Box>
-                  <Box display={"flex"}>
+                  <Box display={"flex"} gap="10px">
                     <Box>
                       <Filter filterhandler={filterhandler} />
                     </Box>
                     <Box>
-                      <Pagination />
+                      <Pagination
+                      pageHandler={pageHandler}
+                      page={page}
+                      no_page={no_page}
+                      />
                     </Box>
                   </Box>
                 </Box>
@@ -96,8 +127,12 @@ function Casual() {
             </Box>
           </Box>
         </Box>
-        <Box display={"flex"} justifyContent="end" width={"98%"} m="auto">
-          <Pagination />
+        <Box display={"flex"} justifyContent="flex-end" width={"90%"} m="auto" >
+          <Pagination
+           pageHandler={pageHandler}
+           page={page}
+           no_page={no_page}
+          />
         </Box>
       </Box>
 

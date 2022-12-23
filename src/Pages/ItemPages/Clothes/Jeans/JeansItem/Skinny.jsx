@@ -5,8 +5,8 @@ import {skinny} from '../../../../../db';
 
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-// import Navbar from "../../../../../components/Navbar/Navbar";
-// import Footer from "../../../../../components/Footer/Footer";
+import { get_skinny_success } from "../../../../../Redux/AppReducer/action";
+import { useDispatch } from "react-redux";
 import SkinnyCard from './SkinnyCard';
 import {useMediaQuery} from '@chakra-ui/react';
 import Filter from '../../../Filter';
@@ -14,6 +14,32 @@ import Filter from '../../../Filter';
 
 function Skinny() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
+
+  const dispatch = useDispatch();
+
+  const filterhandler =(e)=>{
+    if(e.target.value==="lowtohigh"){
+      const lowtohighdata = skinny.sort((a,b)=>{
+        return a.price - b.price;
+      })
+      console.log(lowtohighdata)
+      dispatch(get_skinny_success(lowtohighdata));
+    }
+    
+    if(e.target.value==="hightolow"){
+      const hightolowdata = skinny.sort((a,b)=>{
+        return b.price - a.price;
+      })
+      console.log(hightolowdata)
+      dispatch(get_skinny_success(hightolowdata));
+    }
+
+    if(e.target.value==="removefilter"){
+   
+      dispatch(get_skinny_success(skinny));
+
+    }
+  }
 
   return (
     <>
@@ -51,12 +77,10 @@ function Skinny() {
               </Text>
             </Box>
             <Box display={"flex"}>
-             <Filter/>
+             <Filter filterhandler={filterhandler}/>
               <Box display={"flex"}>
                 <ChevronLeftIcon
                   fontSize={"40px"}
-                
-                
                   _hover={{ color: "#167A92" }}
                 />
                 <Box>

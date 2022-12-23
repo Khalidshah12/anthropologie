@@ -4,14 +4,39 @@ import { boyfriend } from "../../../../../db";
 import { Box, Text, Center } from "@chakra-ui/react";
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-// import Navbar from "../../../../../components/Navbar/Navbar";
-// import Footer from "../../../../../components/Footer/Footer";
+import { get_boyfriend_success } from "../../../../../Redux/AppReducer/action";
+import { useDispatch } from "react-redux";
 import BoyfriendCard from "./BoyfriendCard";
 import { useMediaQuery } from "@chakra-ui/react";
 import Filter from "../../../Filter";
 
 function Boyfriend() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
+  const dispatch = useDispatch();
+
+  const filterhandler =(e)=>{
+    if(e.target.value==="lowtohigh"){
+      const lowtohighdata = boyfriend.sort((a,b)=>{
+        return a.price - b.price;
+      })
+      console.log(lowtohighdata)
+      dispatch(get_boyfriend_success(lowtohighdata));
+    }
+    
+    if(e.target.value==="hightolow"){
+      const hightolowdata = boyfriend.sort((a,b)=>{
+        return b.price - a.price;
+      })
+      console.log(hightolowdata)
+      dispatch(get_boyfriend_success(hightolowdata));
+    }
+
+    if(e.target.value==="removefilter"){
+   
+      dispatch(get_boyfriend_success(boyfriend));
+
+    }
+  }
 
   return (
     <>
@@ -53,7 +78,7 @@ function Boyfriend() {
                     </Text>
                   </Box>
                   <Box display={"flex"}>
-                    <Filter />
+                    <Filter filterhandler={filterhandler}/>
                     <Box display={"flex"}>
                       <ChevronLeftIcon
                         fontSize={"40px"}

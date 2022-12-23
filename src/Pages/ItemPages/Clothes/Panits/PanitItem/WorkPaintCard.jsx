@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Image } from "@chakra-ui/react";
+import { Box, Text, Img } from "@chakra-ui/react";
 import { workpaints } from "../../../../../db";
 
 import { single_page_data } from "../../../../../Redux/AppReducer/action";
@@ -53,9 +53,17 @@ function WorkPaintCard() {
                 onClick={() => singlePageHandler(ele, ele.id)}
                 key={ele.id + Math.random()}
               >
-                <Image w={"auto"} h="349.469px" src={ele.image} />
-                <Text width={"240px"}>{ele.name}</Text>
-                <Text>${ele.price}</Text>
+                      <Img
+                w={"auto"}
+                h="349.469px"
+                borderRadius={"10px"}
+                transition="all 0.3s"
+                _hover={{transform:"scale(1.1)", opacity:0.9, brightness:"200%", contrast:"100"}}
+                src={ele.image}
+              />
+
+              <Text width={"230px"}>{ele.name}</Text>
+              <Text fontWeight={"bold"}>${ele.price}</Text>
               </Box>
             </Link>
           ))}

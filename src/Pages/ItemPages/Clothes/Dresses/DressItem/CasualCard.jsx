@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Image} from "@chakra-ui/react";
+import { Box, Text, Img } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { single_page_data } from "../../../../../Redux/AppReducer/action";
@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 function CasualCard() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const { casualData } = useSelector((state) => {
     return {
       casualData: state.AppReducer.casualData,
@@ -31,7 +31,6 @@ function CasualCard() {
     dispatch(get_casual_success(casual));
   }, []);
 
-
   return (
     <>
       <Box
@@ -47,7 +46,6 @@ function CasualCard() {
           md: "repeat(3, 1fr)",
           sm: "repeat(2,1fr)",
         }}
-        
       >
         {casualData.length > 0 &&
           casualData.map((ele) => (
@@ -63,10 +61,17 @@ function CasualCard() {
               onClick={() => singlePageHandler(ele, ele.id)}
               key={ele.id + Math.random()}
             >
-              <Image w={"auto"} h="349.469px" src={ele.image} />
+              <Img
+                w={"auto"}
+                h="349.469px"
+                borderRadius={"10px"}
+                transition="all 0.3s"
+                _hover={{transform:"scale(1.1)", opacity:0.9, brightness:"200%", contrast:"100"}}
+                src={ele.image}
+              />
 
-              <Text width={"240px"}>{ele.name}</Text>
-              <Text>${ele.price}</Text>
+              <Text width={"230px"}>{ele.name}</Text>
+              <Text fontWeight={"bold"}>${ele.price}</Text>
             </Box>
             // </Link>
           ))}

@@ -13,6 +13,10 @@ code {
     monospace;
 }
 
+#jeans{
+  font-weight: bold;
+  font-family: sans-serif;
+}
 #jeans:hover{
   text-decoration: none;
 }

@@ -132,12 +132,20 @@
   letter-spacing: 0.6px;
   font: 600;
 }
-.country > p:hover {
+.country > a:hover {
   color: blue;
   cursor: pointer;
   font: 15px "Times New Roman";
   letter-spacing: 0.6px;
   font: 600;
+}
+.Box > ul:hover {
+  color: red;
+  cursor: pointer;
+}
+.SocialHandles > a:hover {
+  color: red;
+  cursor: pointer;
 }
 .footerpart > p:hover {
   color: red;
@@ -179,7 +187,7 @@
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .footer {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     width: 80%;
     margin: auto;
 

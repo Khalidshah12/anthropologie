@@ -3,7 +3,7 @@ import React from "react";
 import { Box, Text, Center } from "@chakra-ui/react";
 import { party } from "../../../../../db";
 import { get_party_success } from "../../../../../Redux/AppReducer/action";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Sidebar from "../../../Sidebar";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // import Navbar from "../../../../../components/Navbar/Navbar";
@@ -13,36 +13,31 @@ import { useMediaQuery } from "@chakra-ui/react";
 import Filter from "../../../Filter";
 
 function Party() {
-
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
- 
+
   const dispatch = useDispatch();
- 
-  const filterhandler =(e)=>{
-    if(e.target.value==="lowtohigh"){
-      const lowtohighdata = party.sort((a,b)=>{
+
+  const filterhandler = (e) => {
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = party.sort((a, b) => {
         return a.price - b.price;
-      })
-      console.log(lowtohighdata)
+      });
+      console.log(lowtohighdata);
       dispatch(get_party_success(lowtohighdata));
     }
-    
-    if(e.target.value==="hightolow"){
-      const hightolowdata = party.sort((a,b)=>{
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = party.sort((a, b) => {
         return b.price - a.price;
-      })
-      console.log(hightolowdata)
+      });
+      console.log(hightolowdata);
       dispatch(get_party_success(hightolowdata));
     }
 
-    if(e.target.value==="removefilter"){
-   
+    if (e.target.value === "removefilter") {
       dispatch(get_party_success(party));
-
     }
-  }
-
-
+  };
 
   return (
     <>
@@ -84,7 +79,7 @@ function Party() {
                     </Text>
                   </Box>
                   <Box display={"flex"}>
-                    <Filter filterhandler={filterhandler}/>
+                    <Filter filterhandler={filterhandler} />
                     <Box display={"flex"}>
                       <ChevronLeftIcon
                         fontSize={"40px"}

@@ -16,31 +16,30 @@ import CasualCard from "./CasualCard";
 function Casual() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
   const dispatch = useDispatch();
-  
+
   const [page, setPage] = useState(1);
   const totalitem = casual.length;
 
   const pagelimit = 50;
-  
-  const no_page = Math.ceil(totalitem/pagelimit);
 
-  const getPagination = (page)=>{
-  
+  const no_page = Math.ceil(totalitem / pagelimit);
+
+  const getPagination = (page) => {
     const trimStart = (page - 1) * pagelimit;
-    const trimEnd = trimStart + pagelimit 
+    const trimEnd = trimStart + pagelimit;
 
     const data = casual.slice(trimStart, trimEnd);
 
     dispatch(get_casual_success(data));
-  }
+  };
 
-  const pageHandler =(value)=>{
-    setPage(prev=>prev + value);
-  }
+  const pageHandler = (value) => {
+    setPage((prev) => prev + value);
+  };
 
-  useEffect(()=>{
-    getPagination(page)
-  },[page])
+  useEffect(() => {
+    getPagination(page);
+  }, [page]);
 
   const filterhandler = (e) => {
     if (e.target.value === "lowtohigh") {
@@ -62,7 +61,7 @@ function Casual() {
     if (e.target.value === "removefilter") {
       dispatch(get_casual_success(casual));
     }
-  }
+  };
 
   return (
     <>
@@ -110,9 +109,9 @@ function Casual() {
                     </Box>
                     <Box>
                       <Pagination
-                      pageHandler={pageHandler}
-                      page={page}
-                      no_page={no_page}
+                        pageHandler={pageHandler}
+                        page={page}
+                        no_page={no_page}
                       />
                     </Box>
                   </Box>
@@ -127,12 +126,8 @@ function Casual() {
             </Box>
           </Box>
         </Box>
-        <Box display={"flex"} justifyContent="flex-end" width={"90%"} m="auto" >
-          <Pagination
-           pageHandler={pageHandler}
-           page={page}
-           no_page={no_page}
-          />
+        <Box display={"flex"} justifyContent="flex-end" width={"90%"} m="auto">
+          <Pagination pageHandler={pageHandler} page={page} no_page={no_page} />
         </Box>
       </Box>
 

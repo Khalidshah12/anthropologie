@@ -6,7 +6,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // import Navbar from "../../../../components/Navbar/Navbar";
 // import Footer from "../../../../components/Footer/Footer";
 import { Link } from "react-router-dom";
-import { bootcut, boyfriend, flare,skinny } from "../../../../db";
+import { bootcut, boyfriend, flare, skinny } from "../../../../db";
 import { wideleg } from "../../../../db";
 import { straight } from "../../../../db";
 import FlareCard from "./JeansItem/FlareCard";
@@ -27,27 +27,25 @@ function Jeans() {
 
   const dispatch = useDispatch();
 
-  const filterhandler =(e)=>{
-    if(e.target.value==="lowtohigh"){
-      const lowtohighdata = flare.sort((a,b)=>{
+  const filterhandler = (e) => {
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = flare.sort((a, b) => {
         return a.price - b.price;
-      })
-      console.log(lowtohighdata)
+      });
+      console.log(lowtohighdata);
       dispatch(get_flare_success(lowtohighdata));
     }
-    
-    if(e.target.value==="hightolow"){
-      const hightolowdata = flare.sort((a,b)=>{
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = flare.sort((a, b) => {
         return b.price - a.price;
-      })
-      console.log(hightolowdata)
+      });
+      console.log(hightolowdata);
       dispatch(get_flare_success(hightolowdata));
     }
 
-    if(e.target.value==="removefilter"){
-   
+    if (e.target.value === "removefilter") {
       dispatch(get_flare_success(flare));
-
     }
     if (e.target.value === "lowtohigh") {
       const lowtohighdata = wideleg.sort((a, b) => {
@@ -69,50 +67,46 @@ function Jeans() {
       dispatch(get_wideleg_success(wideleg));
     }
 
-    if(e.target.value==="lowtohigh"){
-      const lowtohighdata = straight.sort((a,b)=>{
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = straight.sort((a, b) => {
         return a.price - b.price;
-      })
-      console.log(lowtohighdata)
+      });
+      console.log(lowtohighdata);
       dispatch(get_straight_success(lowtohighdata));
     }
-    
-    if(e.target.value==="hightolow"){
-      const hightolowdata = straight.sort((a,b)=>{
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = straight.sort((a, b) => {
         return b.price - a.price;
-      })
-      console.log(hightolowdata)
+      });
+      console.log(hightolowdata);
       dispatch(get_straight_success(hightolowdata));
     }
 
-    if(e.target.value==="removefilter"){
-   
+    if (e.target.value === "removefilter") {
       dispatch(get_straight_success(straight));
-
     }
 
-    if(e.target.value==="lowtohigh"){
-      const lowtohighdata = skinny.sort((a,b)=>{
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = skinny.sort((a, b) => {
         return a.price - b.price;
-      })
-      console.log(lowtohighdata)
+      });
+      console.log(lowtohighdata);
       dispatch(get_skinny_success(lowtohighdata));
     }
-    
-    if(e.target.value==="hightolow"){
-      const hightolowdata = skinny.sort((a,b)=>{
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = skinny.sort((a, b) => {
         return b.price - a.price;
-      })
-      console.log(hightolowdata)
+      });
+      console.log(hightolowdata);
       dispatch(get_skinny_success(hightolowdata));
     }
 
-    if(e.target.value==="removefilter"){
-   
+    if (e.target.value === "removefilter") {
       dispatch(get_skinny_success(skinny));
-
     }
-  }
+  };
 
   const jeansBox = (
     <Box
@@ -141,6 +135,9 @@ function Jeans() {
           <Img
             height={"285px"}
             width="auto"
+            borderRadius={"10px"}
+            transition="all 0.2s ease-in"
+            _hover={{ opacity: "0.9", transform: "rotateY(180deg)" }}
             src="https://images.ctfassets.net/5de70he6op10/3YLrFbhGHySXgQNQeLehrd/7668a18ea3a3f749d5d8677f95425b67/07XX22_DenimFitGuide_2a_Flare.jpg?w=480&q=80&fm=webp"
           />
           <Text fontSize={"22px"} p="5px" opacity="0.9">
@@ -165,6 +162,9 @@ function Jeans() {
           <Img
             height={"285px"}
             width="auto"
+            borderRadius={"10px"}
+            transition="all 0.2s ease-in"
+            _hover={{ opacity: "0.9", transform: "rotateY(180deg)" }}
             src="https://images.ctfassets.net/5de70he6op10/5kzSrbLIQ4vdVrZrxlmdV1/3e34008dcbcbead5f8bb6d049e7833cf/07XX22_DenimFitGuide_2c_Straight.jpg?w=480&q=80&fm=webp"
           />
           <Text fontSize={"22px"} p="5px" opacity="0.9">
@@ -189,6 +189,9 @@ function Jeans() {
           <Img
             height={"285px"}
             width="auto"
+            borderRadius={"10px"}
+            transition="all 0.2s ease-in"
+            _hover={{ opacity: "0.9", transform: "rotateY(180deg)" }}
             src="https://images.ctfassets.net/5de70he6op10/7hmtppyZyXWxt8aWOopHZq/9c07e1f7a725ac581aaccef287ae2260/07XX22_DenimFitGuide_2b_Wideleg.jpg?w=480&q=80&fm=webp"
           />
           <Text fontSize={"22px"} p="5px" opacity="0.9">
@@ -214,6 +217,9 @@ function Jeans() {
           <Img
             height={"285px"}
             width="auto"
+            borderRadius={"10px"}
+            transition="all 0.2s ease-in"
+            _hover={{ opacity: "0.9", transform: "rotateY(180deg)" }}
             src="https://images.ctfassets.net/5de70he6op10/6Cxehd3E68xxeIZ51CPK8U/21f0455a4eec2622fc30144f20c8e704/07XX22_DenimFitGuide_2d_Bootcut.jpg?w=480&q=80&fm=webp"
           />
           <Text fontSize={"22px"} p="5px" opacity="0.9">
@@ -238,6 +244,9 @@ function Jeans() {
           <Img
             height={"285px"}
             width="auto"
+            borderRadius={"10px"}
+            transition="all 0.2s ease-in"
+            _hover={{ opacity: "0.9", transform: "rotateY(180deg)" }}
             src="https://images.ctfassets.net/5de70he6op10/4eVz0PgHne37VoG2fxFuFw/12a8aa66bae70f657696551958951e00/07XX22_DenimFitGuide_2e_Boyfriend.jpg?w=480&q=80&fm=webp"
           />
           <Text fontSize={"22px"} p="5px" opacity="0.9">
@@ -262,6 +271,9 @@ function Jeans() {
           <Img
             height={"285px"}
             width="auto"
+            borderRadius={"10px"}
+            transition="all 0.2s ease-in"
+            _hover={{ opacity: "0.9", transform: "rotateY(180deg)" }}
             src="https://images.ctfassets.net/5de70he6op10/5iVUZX2juMBuuDx31RZxwt/cd468d6fe6592dfa5b3004016046a9f6/07XX22_DenimFitGuide_2f_Skinny.jpg?w=480&q=80&fm=webp"
           />
           <Text fontSize={"22px"} p="5px" opacity="0.9">
@@ -320,7 +332,7 @@ function Jeans() {
                     </Text>
                   </Box>
                   <Box display={"flex"}>
-                    <Filter filterhandler={filterhandler}/>
+                    <Filter filterhandler={filterhandler} />
                     <Box display={"flex"}>
                       <ChevronLeftIcon
                         fontSize={"40px"}

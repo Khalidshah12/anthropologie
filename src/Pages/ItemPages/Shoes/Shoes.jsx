@@ -7,7 +7,7 @@ import { get_sneaker_success } from "../../../Redux/AppReducer/action";
 import { get_embleshed_success } from "../../../Redux/AppReducer/action";
 import { get_birkenstock_success } from "../../../Redux/AppReducer/action";
 
-import {useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Sneakers } from "../../../db";
 import { birkenstock } from "../../../db";
@@ -22,72 +22,66 @@ function Shoes() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   const dispatch = useDispatch();
- 
-  const filterhandler =(e)=>{
-    if(e.target.value==="lowtohigh"){
-      const lowtohighdata = Sneakers.sort((a,b)=>{
+
+  const filterhandler = (e) => {
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = Sneakers.sort((a, b) => {
         return a.price - b.price;
-      })
-      console.log(lowtohighdata)
+      });
+      console.log(lowtohighdata);
       dispatch(get_sneaker_success(lowtohighdata));
     }
-    
-    if(e.target.value==="hightolow"){
-      const hightolowdata = Sneakers.sort((a,b)=>{
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = Sneakers.sort((a, b) => {
         return b.price - a.price;
-      })
-      console.log(hightolowdata)
+      });
+      console.log(hightolowdata);
       dispatch(get_sneaker_success(hightolowdata));
     }
 
-    if(e.target.value==="removefilter"){
-   
+    if (e.target.value === "removefilter") {
       dispatch(get_sneaker_success(Sneakers));
-
     }
-    if(e.target.value==="lowtohigh"){
-      const lowtohighdata = embelished_shoes.sort((a,b)=>{
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = embelished_shoes.sort((a, b) => {
         return a.price - b.price;
-      })
-      console.log(lowtohighdata)
+      });
+      console.log(lowtohighdata);
       dispatch(get_embleshed_success(lowtohighdata));
     }
-    
-    if(e.target.value==="hightolow"){
-      const hightolowdata = embelished_shoes.sort((a,b)=>{
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = embelished_shoes.sort((a, b) => {
         return b.price - a.price;
-      })
-      console.log(hightolowdata)
+      });
+      console.log(hightolowdata);
       dispatch(get_embleshed_success(hightolowdata));
     }
 
-    if(e.target.value==="removefilter"){
-   
+    if (e.target.value === "removefilter") {
       dispatch(get_embleshed_success(embelished_shoes));
-
     }
-    if(e.target.value==="lowtohigh"){
-      const lowtohighdata = birkenstock.sort((a,b)=>{
+    if (e.target.value === "lowtohigh") {
+      const lowtohighdata = birkenstock.sort((a, b) => {
         return a.price - b.price;
-      })
-      console.log(lowtohighdata)
+      });
+      console.log(lowtohighdata);
       dispatch(get_birkenstock_success(lowtohighdata));
     }
-    
-    if(e.target.value==="hightolow"){
-      const hightolowdata = birkenstock.sort((a,b)=>{
+
+    if (e.target.value === "hightolow") {
+      const hightolowdata = birkenstock.sort((a, b) => {
         return b.price - a.price;
-      })
-      console.log(hightolowdata)
+      });
+      console.log(hightolowdata);
       dispatch(get_birkenstock_success(hightolowdata));
     }
 
-    if(e.target.value==="removefilter"){
-   
+    if (e.target.value === "removefilter") {
       dispatch(get_birkenstock_success(birkenstock));
-
     }
-  }
+  };
 
   const shoessBox = (
     <Box
@@ -201,7 +195,7 @@ function Shoes() {
                     </Text>
                   </Box>
                   <Box display={"flex"}>
-                    <Filter filterhandler={filterhandler}/>
+                    <Filter filterhandler={filterhandler} />
                     <Box display={"flex"}>
                       <ChevronLeftIcon
                         fontSize={"40px"}

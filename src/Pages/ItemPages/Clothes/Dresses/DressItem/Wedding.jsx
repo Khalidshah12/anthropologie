@@ -11,10 +11,10 @@ const img =
 function Wedding() {
   // const dispatch = useDispatch();
   const [isMobile] = useMediaQuery("(max-width: 600px)");
-  
+
   return (
     <>
-    {/* <Navbar/> */}
+      {/* <Navbar/> */}
       <Box mt={"30px"}>
         {isMobile ? (
           <Box
@@ -77,8 +77,8 @@ function Wedding() {
                 {wedding.map((ele) => {
                   if (ele.name !== "Wedding Guest Dresses") {
                     return (
-                      <Box w={{sm:"300px", lg:"400px"}}>
-                        <Img src={ele.image} h={{sm:"400px", lg:"500px"}} />
+                      <Box w={{ sm: "300px", lg: "400px" }}>
+                        <Img src={ele.image} h={{ sm: "400px", lg: "500px" }} />
                         <Text fontSize="22px" padding={"10px"}>
                           {ele.name}
                         </Text>

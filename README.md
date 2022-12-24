@@ -38,7 +38,7 @@ https://anthropologie.vercel.app/
 https://myanthropology.netlify.app/
 
 ### AWS deploy link
-https://main.d33loxim8qilzv.amplifyapp.com/
+https://main.d3ehumcwdjn936.amplifyapp.com/
 
 ## Collaborators
 [Khalid Shah - Team Lead](https://github.com/Khalidshah12/) 

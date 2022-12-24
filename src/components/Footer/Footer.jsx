@@ -111,7 +111,7 @@ const Footer = () => {
         <div>
           <img
             className="banner"
-            src="https://images.ctfassets.net/5de70he6op10/1k3lZuMcopQdkMdEiQDoq4/300b91824e994351fdb7e7714b6db798/Holiday22_SiteFooter_GiftGuide_LS.jpg"
+            src="https://images.ctfassets.net/5de70he6op10/6QWLFz6Lw3Gua0R6sZm9OU/61d2acdd321f73a35d140957a266f02c/Holiday22_SiteFooter_DownloadTheApp_LS.jpg"
             alt=""
           />
         </div>

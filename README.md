@@ -1,4 +1,4 @@
-# Anthropologie (Clone)
+# Anthropologie -  (Clone)
 
 Anthropologie is a unique, full-lifestyle shopping destination, with a mostly exclusive assortment of clothing, shoes, accessories, beauty, furniture, home décor, garden, bridal, and more.
 
@@ -8,17 +8,21 @@ Anthropologie is a unique, full-lifestyle shopping destination, with a mostly ex
   <img src="./public/anthropologie_01.png" alt='anthropologie_01 image' align="center" />
 </p>
 
+
 ### Product Page
 <p align="center">
   <img src="./public/anthropologie_02.png" alt='anthropologie_02 image' align="center" />
 </p>
 
+
 ### Single Page of the Product
+
 <p align="center">
   <img src="./public/anthropologie_03.png" alt='anthropologie_03 image' align="center" />
 </p>
 
 ### Cart Product Page
+
 <p align="center">
   <img src="./public/anthropologie_04.png" alt='anthropologie_04 image' align="center" />
 </p>
@@ -50,7 +54,7 @@ https://main.d33loxim8qilzv.amplifyapp.com/
 *  Signup & Login
 *  Collecting Data
 
-[Sohil Khan - Team Member](https://github.com/sohilweb20)
+[Sohil - Team Member](https://github.com/sohilweb20)
 *  Navbar Section
 *  Home Page
 *  Footer Section
@@ -64,6 +68,8 @@ https://main.d33loxim8qilzv.amplifyapp.com/
 *  Can Increase the Quantity of the Cart Items.
 *  Address Validation & Credit Card Validation
 *  Responsive Design
+*  Filtering 
+*  Pagination 
 
 ## Tech Stacks
 

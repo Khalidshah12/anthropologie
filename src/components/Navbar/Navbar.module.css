@@ -1,20 +1,22 @@
-.navbar p{
-    font-weight: 400;
-    padding: 5px;
-    cursor: pointer;
+.navbar p {
+  font-weight: 400;
+  padding: 5px;
+  cursor: pointer;
 }
-.navbar p:hover{
-    border: 1px solid black;
-    background-color: white;
-    border-radius: 30px;
+.navbar p:hover {
+  /* border: 1px solid black; */
+  background-color: rgba(128, 128, 128, 0.082);
+  /* border-radius: 30px; */
+}
+.RED {
+  color: red;
+}
+.nav_item {
+  display: block;
+}
 
-}
-.nav_item{
-    display: block;
-}
-
-@media screen and (max-width : 600px) {
-    .nav_item{
-        display: none;
-    }
+@media screen and (max-width: 600px) {
+  .nav_item {
+    display: none;
+  }
 }

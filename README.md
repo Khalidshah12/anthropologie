@@ -14,7 +14,6 @@ Anthropologie is a unique, full-lifestyle shopping destination, with a mostly ex
   <img src="./public/anthropologie_02.png" alt='anthropologie_02 image' align="center" />
 </p>
 
-
 ### Single Page of the Product
 
 <p align="center">

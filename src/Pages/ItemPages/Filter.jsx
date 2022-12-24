@@ -1,9 +1,7 @@
 import React from "react";
 import { Box, Select, Text } from "@chakra-ui/react";
 
-
-
-function Filter({filterhandler}) {
+function Filter({ filterhandler }) {
   return (
     <>
       <Box display={"flex"} gap="5px">
@@ -11,7 +9,7 @@ function Filter({filterhandler}) {
 
         <Box>
           <Select
-          type="text"
+            type="text"
             h={"35px"}
             border={"1px solid #939395"}
             // margin="0 30px 0 0"

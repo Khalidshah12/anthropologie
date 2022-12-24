@@ -107,7 +107,7 @@ export default function Offer() {
                     src={ele.image}
                     alt="image"
                     h={"360px"}
-                    w="310px"
+                    w="100%"
 
                     borderRadius={"10px"}
                     cursor="pointer"

@@ -1,21 +1,44 @@
 import React from "react";
-
+import { useState, useEffect } from "react";
 import { Box, Text, Center } from "@chakra-ui/react";
 import { party } from "../../../../../db";
 import { get_party_success } from "../../../../../Redux/AppReducer/action";
 import { useDispatch } from "react-redux";
 import Sidebar from "../../../Sidebar";
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-// import Navbar from "../../../../../components/Navbar/Navbar";
-// import Footer from "../../../../../components/Footer/Footer";
+
 import PartyCard from "./PartyCard";
 import { useMediaQuery } from "@chakra-ui/react";
 import Filter from "../../../Filter";
+import Pagination from "../../../Pagination";
 
 function Party() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   const dispatch = useDispatch();
+
+  const [page, setPage] = useState(1);
+  const totalitem = party.length;
+
+  const pagelimit = 50;
+
+  const no_page = Math.ceil(totalitem / pagelimit);
+
+  const getPagination = (page) => {
+    const trimStart = (page - 1) * pagelimit;
+    const trimEnd = trimStart + pagelimit;
+
+    const data = party.slice(trimStart, trimEnd);
+
+    dispatch(get_party_success(data));
+  };
+
+  const pageHandler = (value) => {
+    setPage((prev) => prev + value);
+  };
+
+  useEffect(() => {
+    getPagination(page);
+  }, [page]);
 
   const filterhandler = (e) => {
     if (e.target.value === "lowtohigh") {
@@ -78,19 +101,15 @@ function Party() {
                       </span>
                     </Text>
                   </Box>
-                  <Box display={"flex"}>
-                    <Filter filterhandler={filterhandler} />
-                    <Box display={"flex"}>
-                      <ChevronLeftIcon
-                        fontSize={"40px"}
-                        _hover={{ color: "#167A92" }}
-                      />
-                      <Box>
-                        <Text mt={"8px"}>1/47</Text>
-                      </Box>
-                      <ChevronRightIcon
-                        fontSize={"40px"}
-                        _hover={{ color: "#167A92" }}
+                  <Box display={"flex"} gap="10px">
+                    <Box>
+                      <Filter filterhandler={filterhandler} />
+                    </Box>
+                    <Box>
+                      <Pagination
+                        pageHandler={pageHandler}
+                        page={page}
+                        no_page={no_page}
                       />
                     </Box>
                   </Box>
@@ -104,20 +123,12 @@ function Party() {
               </Box>
             </Box>
           </Box>
-          <Box display={"flex"} justifyContent="end">
-            <Box display={"flex"}>
-              <ChevronLeftIcon
-                fontSize={"40px"}
-                _hover={{ color: "#167A92" }}
-              />
-              <Box>
-                <Text mt={"8px"}>1/47</Text>
-              </Box>
-              <ChevronRightIcon
-                fontSize={"40px"}
-                _hover={{ color: "#167A92" }}
-              />
-            </Box>
+          <Box display={"flex"} justifyContent="flex-end" width={"98%"} m="auto">
+            <Pagination
+              pageHandler={pageHandler}
+              page={page}
+              no_page={no_page}
+            />
           </Box>
         </Box>
       </Box>

@@ -1,25 +1,22 @@
 import React from "react";
-
-import { Box, Text, Select, Img, Center } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import { Box, Text, Img, Center } from "@chakra-ui/react";
 import Sidebar from "../../Sidebar";
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-// import Navbar from "../../../../components/Navbar/Navbar";
-// import Footer from "../../../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import { bootcut, boyfriend, flare, skinny } from "../../../../db";
 import { wideleg } from "../../../../db";
 import { straight } from "../../../../db";
-import FlareCard from "./JeansItem/FlareCard";
 import WidelegsCard from "./JeansItem/WidelegsCard";
-import StraightCard from "./JeansItem/StraightCard";
-import SkinnyCard from "./JeansItem/SkinnyCard";
+// import FlareCard from "./JeansItem/FlareCard";
+// import StraightCard from "./JeansItem/StraightCard"; 
+// import SkinnyCard from "./JeansItem/SkinnyCard";
 import { useMediaQuery } from "@chakra-ui/react";
 import Filter from "../../Filter";
-import { get_flare_success } from "../../../../Redux/AppReducer/action";
 import { get_wideleg_success } from "../../../../Redux/AppReducer/action";
-import { get_straight_success } from "../../../../Redux/AppReducer/action";
-import { get_skinny_success } from "../../../../Redux/AppReducer/action";
-
+// import { get_flare_success } from "../../../../Redux/AppReducer/action";
+// import { get_straight_success } from "../../../../Redux/AppReducer/action";
+// import { get_skinny_success } from "../../../../Redux/AppReducer/action";
+import Pagination from "../../Pagination";
 import { useDispatch } from "react-redux";
 
 function Jeans() {
@@ -27,26 +24,51 @@ function Jeans() {
 
   const dispatch = useDispatch();
 
+  const [page, setPage] = useState(1);
+
+  const totalitem = wideleg.length;
+
+  const pagelimit = 50;
+  const no_page = Math.ceil(totalitem / pagelimit);
+
+  const getPagination = (page) => {
+    const trimStart = (page - 1) * pagelimit;
+    const trimEnd = trimStart + pagelimit;
+
+    const data = wideleg.slice(trimStart, trimEnd);
+
+    dispatch(get_wideleg_success(data));
+  };
+
+  const pageHandler = (value) => {
+    setPage((prev) => prev + value);
+  };
+
+  useEffect(() => {
+    getPagination(page);
+  }, [page]);
+
   const filterhandler = (e) => {
-    if (e.target.value === "lowtohigh") {
-      const lowtohighdata = flare.sort((a, b) => {
-        return a.price - b.price;
-      });
-      console.log(lowtohighdata);
-      dispatch(get_flare_success(lowtohighdata));
-    }
+    // if (e.target.value === "lowtohigh") {
+    //   const lowtohighdata = flare.sort((a, b) => {
+    //     return a.price - b.price;
+    //   });
+    //   console.log(lowtohighdata);
+    //   dispatch(get_flare_success(lowtohighdata));
+    // }
 
-    if (e.target.value === "hightolow") {
-      const hightolowdata = flare.sort((a, b) => {
-        return b.price - a.price;
-      });
-      console.log(hightolowdata);
-      dispatch(get_flare_success(hightolowdata));
-    }
+    // if (e.target.value === "hightolow") {
+    //   const hightolowdata = flare.sort((a, b) => {
+    //     return b.price - a.price;
+    //   });
+    //   console.log(hightolowdata);
+    //   dispatch(get_flare_success(hightolowdata));
+    // }
 
-    if (e.target.value === "removefilter") {
-      dispatch(get_flare_success(flare));
-    }
+    // if (e.target.value === "removefilter") {
+    //   dispatch(get_flare_success(flare));
+    // }
+
     if (e.target.value === "lowtohigh") {
       const lowtohighdata = wideleg.sort((a, b) => {
         return a.price - b.price;
@@ -67,45 +89,45 @@ function Jeans() {
       dispatch(get_wideleg_success(wideleg));
     }
 
-    if (e.target.value === "lowtohigh") {
-      const lowtohighdata = straight.sort((a, b) => {
-        return a.price - b.price;
-      });
-      console.log(lowtohighdata);
-      dispatch(get_straight_success(lowtohighdata));
-    }
+    // if (e.target.value === "lowtohigh") {
+    //   const lowtohighdata = straight.sort((a, b) => {
+    //     return a.price - b.price;
+    //   });
+    //   console.log(lowtohighdata);
+    //   dispatch(get_straight_success(lowtohighdata));
+    // }
 
-    if (e.target.value === "hightolow") {
-      const hightolowdata = straight.sort((a, b) => {
-        return b.price - a.price;
-      });
-      console.log(hightolowdata);
-      dispatch(get_straight_success(hightolowdata));
-    }
+    // if (e.target.value === "hightolow") {
+    //   const hightolowdata = straight.sort((a, b) => {
+    //     return b.price - a.price;
+    //   });
+    //   console.log(hightolowdata);
+    //   dispatch(get_straight_success(hightolowdata));
+    // }
 
-    if (e.target.value === "removefilter") {
-      dispatch(get_straight_success(straight));
-    }
+    // if (e.target.value === "removefilter") {
+    //   dispatch(get_straight_success(straight));
+    // }
 
-    if (e.target.value === "lowtohigh") {
-      const lowtohighdata = skinny.sort((a, b) => {
-        return a.price - b.price;
-      });
-      console.log(lowtohighdata);
-      dispatch(get_skinny_success(lowtohighdata));
-    }
+    // if (e.target.value === "lowtohigh") {
+    //   const lowtohighdata = skinny.sort((a, b) => {
+    //     return a.price - b.price;
+    //   });
+    //   console.log(lowtohighdata);
+    //   dispatch(get_skinny_success(lowtohighdata));
+    // }
 
-    if (e.target.value === "hightolow") {
-      const hightolowdata = skinny.sort((a, b) => {
-        return b.price - a.price;
-      });
-      console.log(hightolowdata);
-      dispatch(get_skinny_success(hightolowdata));
-    }
+    // if (e.target.value === "hightolow") {
+    //   const hightolowdata = skinny.sort((a, b) => {
+    //     return b.price - a.price;
+    //   });
+    //   console.log(hightolowdata);
+    //   dispatch(get_skinny_success(hightolowdata));
+    // }
 
-    if (e.target.value === "removefilter") {
-      dispatch(get_skinny_success(skinny));
-    }
+    // if (e.target.value === "removefilter") {
+    //   dispatch(get_skinny_success(skinny));
+    // }
   };
 
   const jeansBox = (
@@ -331,19 +353,15 @@ function Jeans() {
                       </span>
                     </Text>
                   </Box>
-                  <Box display={"flex"}>
-                    <Filter filterhandler={filterhandler} />
-                    <Box display={"flex"}>
-                      <ChevronLeftIcon
-                        fontSize={"40px"}
-                        _hover={{ color: "#167A92" }}
-                      />
-                      <Box>
-                        <Text mt={"8px"}>1/47</Text>
-                      </Box>
-                      <ChevronRightIcon
-                        fontSize={"40px"}
-                        _hover={{ color: "#167A92" }}
+                  <Box display={"flex"} gap="10px">
+                    <Box>
+                      <Filter filterhandler={filterhandler} />
+                    </Box>
+                    <Box>
+                      <Pagination
+                        pageHandler={pageHandler}
+                        page={page}
+                        no_page={no_page}
                       />
                     </Box>
                   </Box>
@@ -351,35 +369,32 @@ function Jeans() {
               </Box>
               <Box>
                 {/* data here */}
-                <Center>
+                {/* <Center>
                   <FlareCard />
-                </Center>
+                </Center> */}
                 <Center>
                   <WidelegsCard />
                 </Center>
-                <Center>
+                {/* <Center>
                   <StraightCard />
                 </Center>
                 <Center>
                   <SkinnyCard />
-                </Center>
+                </Center> */}
               </Box>
             </Box>
           </Box>
-          <Box display={"flex"} justifyContent="end">
-            <Box display={"flex"}>
-              <ChevronLeftIcon
-                fontSize={"40px"}
-                _hover={{ color: "#167A92" }}
-              />
-              <Box>
-                <Text mt={"8px"}>1/47</Text>
-              </Box>
-              <ChevronRightIcon
-                fontSize={"40px"}
-                _hover={{ color: "#167A92" }}
-              />
-            </Box>
+          <Box
+            display={"flex"}
+            justifyContent="flex-end"
+            width={"98%"}
+            m="auto"
+          >
+            <Pagination
+              pageHandler={pageHandler}
+              page={page}
+              no_page={no_page}
+            />
           </Box>
         </Box>
       </Box>

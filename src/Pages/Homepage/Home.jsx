@@ -7,10 +7,9 @@ import MultipleItems from "./Slider";
 // import Navbar2 from "../../components/Navbar/Navbar2";
 
 const Home = () => {
-
   useEffect(() => {
-    document.title = 'Anthropologie - Womens Clothing, Accessories & Home'
-  }, [])
+    document.title = "Anthropologie - Womens Clothing, Accessories & Home";
+  }, []);
 
   return (
     <div>
@@ -33,6 +32,11 @@ const Home = () => {
             alt=""
           />
         </div>
+        <img
+          className="DISCOUNT"
+          src="https://images.ctfassets.net/5de70he6op10/3mO5RWgNIWYDoBa69bwx2R/3c85fd11ffe622768924f70f49706867/458423398-122322_tagsalehpgmodule_2.gif?w=962&q=80&fm=webp"
+          alt=""
+        />
         <div className="SecondDiv">
           <img
             src="https://images.ctfassets.net/5de70he6op10/iMM14RuhLCVUGYVmrKvc9/b97a6a1d371ca72bbc1ae9aaf4a11f26/LS_M1a.jpg?w=1302&q=80&fm=webp"
@@ -45,15 +49,15 @@ const Home = () => {
         </div>
         <div className="tgirdDiv">
           <img
-            src="https://images.ctfassets.net/5de70he6op10/3w8rGkLqypJyMI94W5jAz6/b1a47476e9fa52841b06bcbf50e8c337/LS_M2a.jpg?w=856&q=80&fm=webp"
+            src="https://images.ctfassets.net/5de70he6op10/7AsC4gEcn0YPTxxbEevFdy/dafeb23e35e532f69984a65a43cc19a4/LL_M1a.jpg?w=856&q=80&fm=webp"
             alt=""
           />
           <img
-            src="https://images.ctfassets.net/5de70he6op10/4dc0UZzh9jWMuJPdVGcr2v/8a7ace4023132337f5e9a81d4ac819f4/LS_M2b.jpg?w=856&q=80&fm=webp"
+            src="https://images.ctfassets.net/5de70he6op10/1QNDgBZEMsnAKryrHtpY6g/97c498aa57bf32af478da5163982a43c/LL_M1b.jpg?w=856&q=80&fm=webp"
             alt=""
           />
           <img
-            src="https://images.ctfassets.net/5de70he6op10/28WqNdcNbssmLjzWncssjE/a9ef1a745783404fb8f054796735b3b1/LS_M2c.jpg?w=856&q=80&fm=webp"
+            src="https://images.ctfassets.net/5de70he6op10/8Da96IiaqqUkogpnePnUl/89de3343d5b5e4b8d13fbe5a443a289f/LL_M1c.jpg?w=856&q=80&fm=webp"
             alt=""
           />
         </div>
@@ -65,7 +69,7 @@ const Home = () => {
         </div>
         <div className="banners1">
           <img
-            src="https://images.ctfassets.net/5de70he6op10/6YcDf5MI12J4gw9cOaz9WP/70f858a9574c2e0ff43b2b7bdc6e61af/LS_M4.jpg?w=2641&q=80&fm=webp"
+            src="https://images.ctfassets.net/5de70he6op10/j3TxQS0Fw3i06fTiAQErv/9e567e80a2d5ecd979786ad49c1b392c/WhiteSale_HPG_LS__1_.jpg?w=2640&q=80&fm=webp"
             alt=""
           />
         </div>

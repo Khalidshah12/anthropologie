@@ -6,6 +6,13 @@
   margin: auto;
   margin-top: 25px;
 }
+.DISCOUNT {
+  width: 90%;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  /* height: 50%; */
+}
 .FirstDiv > img {
   width: 318px;
 }

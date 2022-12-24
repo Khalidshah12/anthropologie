@@ -1,34 +1,35 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Dresses from './ItemPages/Clothes/Dresses/Dresses';
-import Casual from "./ItemPages/Clothes/Dresses/DressItem/Casual";
-import FormalDress from "./ItemPages/Clothes/Dresses/DressItem/FormalDress";
-import Party from "./ItemPages/Clothes/Dresses/DressItem/Party";
-import Wedding from "./ItemPages/Clothes/Dresses/DressItem/Wedding";
-import Home from "./Homepage/Home";
-import Clothes from "./ItemPages/Clothes/Clothes";
-import Jeans from "./ItemPages/Clothes/Jeans/Jeans";
+import Dresses from '../Pages/ItemPages/Clothes/Dresses/Dresses';
+import Casual from "../Pages/ItemPages/Clothes/Dresses/DressItem/Casual";
+import FormalDress from "../Pages/ItemPages/Clothes/Dresses/DressItem/FormalDress";
+import Party from "../Pages/ItemPages/Clothes/Dresses/DressItem/Party";
+import Wedding from "../Pages/ItemPages/Clothes/Dresses/DressItem/Wedding";
+import Home from "../Pages/Homepage/Home";
+import Clothes from "../Pages/ItemPages/Clothes/Clothes";
+import Jeans from "../Pages/ItemPages/Clothes/Jeans/Jeans";
 
-import Bootcut from "./ItemPages/Clothes/Jeans/JeansItem/Bootcut";
-import Boyfriend from "./ItemPages/Clothes/Jeans/JeansItem/Boyfriend";
-import Flare from "./ItemPages/Clothes/Jeans/JeansItem/Flare";
-import Skinny from "./ItemPages/Clothes/Jeans/JeansItem/Skinny";
-import Straight from "./ItemPages/Clothes/Jeans/JeansItem/Straight";
-import WideLeg from "./ItemPages/Clothes/Panits/PanitItem/WideLeg";
-import Paint from "./ItemPages/Clothes/Panits/Paint";
-import WorkPaint from "./ItemPages/Clothes/Panits/PanitItem/WorkPaint";
-import Shoes from "./ItemPages/Shoes/Shoes";
-import Birkenstock from "./ItemPages/Shoes/ShoesItem/Birkenstock";
-import Embleshed from "./ItemPages/Shoes/ShoesItem/Embleshed";
-import Sneaker from "./ItemPages/Shoes/ShoesItem/Sneaker";
-import WideLegs from "./ItemPages/Clothes/Jeans/JeansItem/WideLegs";
-import Cart from "./Cart/Cart";
-import Checkout from "./Checkout/Checkout";
+import Bootcut from "../Pages/ItemPages/Clothes/Jeans/JeansItem/Bootcut";
+import Boyfriend from "../Pages/ItemPages/Clothes/Jeans/JeansItem/Boyfriend";
+import Flare from "../Pages/ItemPages/Clothes/Jeans/JeansItem/Flare";
+import Skinny from "../Pages/ItemPages/Clothes/Jeans/JeansItem/Skinny";
+import Straight from "../Pages/ItemPages/Clothes/Jeans/JeansItem/Straight";
+import WideLeg from "../Pages/ItemPages/Clothes/Panits/PanitItem/WideLeg";
+import Paint from "../Pages/ItemPages/Clothes/Panits/Paint";
+import WorkPaint from "../Pages/ItemPages/Clothes/Panits/PanitItem/WorkPaint";
+import Shoes from "../Pages/ItemPages/Shoes/Shoes";
+import Birkenstock from "../Pages/ItemPages/Shoes/ShoesItem/Birkenstock";
+import Embleshed from "../Pages/ItemPages/Shoes/ShoesItem/Embleshed";
+import Sneaker from "../Pages/ItemPages/Shoes/ShoesItem/Sneaker";
+import WideLegs from "../Pages/ItemPages/Clothes/Jeans/JeansItem/WideLegs";
+import Cart from "../Pages/Cart/Cart";
+import Checkout from "../Pages/Checkout/Checkout";
 import SingleItemPage from "../components/singleitemPage/SingleItemPage";
 import NotFound from '../components/NotFound';
-import Delivery from "./Delivery/Delivery";
-import Payment from "./Payment/Payment";
-import Pagination from "./ItemPages/Pagination";
+import Delivery from "../Pages/Delivery/Delivery";
+import Payment from "../Pages/Payment/Payment";
+import PrivateRoute from "./PrivateRoute";
+
 const Allroutes = () => {
   return (
     <>
@@ -38,10 +39,10 @@ const Allroutes = () => {
         <Route path="/" element={<Home />}></Route>
         
         {/* Cart And Payment */}
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/checkout/shipping-address' element={<Checkout />} />
-        <Route path='/checkout/shipping-delivery' element={<Delivery />} />
-        <Route path='/checkout/payment' element={<Payment />} />
+        <Route path='/cart' element={<PrivateRoute><Cart /></PrivateRoute>} />
+        <Route path='/checkout/shipping-address' element={<PrivateRoute><Checkout /></PrivateRoute>} />
+        <Route path='/checkout/shipping-delivery' element={<PrivateRoute><Delivery /></PrivateRoute>} />
+        <Route path='/checkout/payment' element={<PrivateRoute><Payment /></PrivateRoute>} />
 
         {/* clothes routing */}
         <Route path="/clothes" element={<Clothes />}></Route>

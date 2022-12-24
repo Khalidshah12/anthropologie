@@ -30,8 +30,6 @@ export default function MyAccount({SignoutHandler}) {
            <Link to ='/'>
             <MenuItem onClick= {SignoutHandler}>Sign Out</MenuItem>
            </Link>
-           
-        
         </MenuGroup>
       </MenuList>
     </Menu>

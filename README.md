@@ -29,7 +29,7 @@ Anthropologie is a unique, full-lifestyle shopping destination, with a mostly ex
 </p>
 
 ### Vercel Link 
-https://anthropologie-pandit0305.vercel.app/
+https://anthropologie.vercel.app/
 
 ### Netlify   Link
 https://leafy-buttercream-cd6899.netlify.app/

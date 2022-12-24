@@ -36,7 +36,7 @@ Anthropologie is a unique, full-lifestyle shopping destination, with a mostly ex
 https://anthropologie.vercel.app/
 
 ### Netlify   Link
-https://leafy-buttercream-cd6899.netlify.app/
+https://myanthropology.netlify.app/
 
 ### AWS deploy link
 https://main.d33loxim8qilzv.amplifyapp.com/

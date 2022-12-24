@@ -57,6 +57,7 @@ https://main.d33loxim8qilzv.amplifyapp.com/
 
 ## Features
 *  Login/Signup using Firebase.
+*  Login with Google 
 *  Different Categories and Sections.
 *  Add to Cart.
 *  Can View Similar Products.

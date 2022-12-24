@@ -1,23 +1,48 @@
 import React from "react";
 import { useMediaQuery } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import { Box, Text, Center } from "@chakra-ui/react";
 import Sidebar from "../../Sidebar";
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+
 import { get_workpaints_success } from "../../../../Redux/AppReducer/action";
-import { get_wideleg_success } from "../../../../Redux/AppReducer/action";
+// import { get_wideleg_success } from "../../../../Redux/AppReducer/action";
 import { useDispatch } from "react-redux";
 import { wideleg } from "../../../../db";
 import { workpaints } from "../../../../db";
 import WorkPaintCard from "./PanitItem/WorkPaintCard";
-import WidelegCard from "./PanitItem/WidelegCard";
+// import WidelegCard from "./PanitItem/WidelegCard";
 import Filter from "../../Filter";
-
+import Pagination from "../../Pagination";
 function Paint() {
   const [isMobile] = useMediaQuery("(max-width: 1024px)");
 
   const dispatch = useDispatch();
+
+  const [page, setPage] = useState(1);
+
+  const totalitem = workpaints.length;
+
+  const pagelimit = 50;
+  const no_page = Math.ceil(totalitem / pagelimit);
+
+  const getPagination = (page) => {
+    const trimStart = (page - 1) * pagelimit;
+    const trimEnd = trimStart + pagelimit;
+
+    const data = workpaints.slice(trimStart, trimEnd);
+
+    dispatch(get_workpaints_success(data));
+  };
+
+  const pageHandler = (value) => {
+    setPage((prev) => prev + value);
+  };
+
+  useEffect(() => {
+    getPagination(page);
+  }, [page]);
 
   const filterhandler = (e) => {
     if (e.target.value === "lowtohigh") {
@@ -39,25 +64,25 @@ function Paint() {
     if (e.target.value === "removefilter") {
       dispatch(get_workpaints_success(workpaints));
     }
-    if (e.target.value === "lowtohigh") {
-      const lowtohighdata = wideleg.sort((a, b) => {
-        return a.price - b.price;
-      });
-      console.log(lowtohighdata);
-      dispatch(get_wideleg_success(lowtohighdata));
-    }
+    // if (e.target.value === "lowtohigh") {
+    //   const lowtohighdata = wideleg.sort((a, b) => {
+    //     return a.price - b.price;
+    //   });
+    //   console.log(lowtohighdata);
+    //   dispatch(get_wideleg_success(lowtohighdata));
+    // }
 
-    if (e.target.value === "hightolow") {
-      const hightolowdata = wideleg.sort((a, b) => {
-        return b.price - a.price;
-      });
-      console.log(hightolowdata);
-      dispatch(get_wideleg_success(hightolowdata));
-    }
+    // if (e.target.value === "hightolow") {
+    //   const hightolowdata = wideleg.sort((a, b) => {
+    //     return b.price - a.price;
+    //   });
+    //   console.log(hightolowdata);
+    //   dispatch(get_wideleg_success(hightolowdata));
+    // }
 
-    if (e.target.value === "removefilter") {
-      dispatch(get_wideleg_success(wideleg));
-    }
+    // if (e.target.value === "removefilter") {
+    //   dispatch(get_wideleg_success(wideleg));
+    // }
   };
   const paintsBox = (
     <Box
@@ -155,19 +180,15 @@ function Paint() {
                         </span>
                       </Text>
                     </Box>
-                    <Box display={"flex"}>
-                      <Filter filterhandler={filterhandler} />
-                      <Box display={"flex"}>
-                        <ChevronLeftIcon
-                          fontSize={"40px"}
-                          _hover={{ color: "#167A92" }}
-                        />
-                        <Box>
-                          <Text mt={"8px"}>1/47</Text>
-                        </Box>
-                        <ChevronRightIcon
-                          fontSize={"40px"}
-                          _hover={{ color: "#167A92" }}
+                    <Box display={"flex"} gap="10px">
+                      <Box>
+                        <Filter filterhandler={filterhandler} />
+                      </Box>
+                      <Box>
+                        <Pagination
+                          pageHandler={pageHandler}
+                          page={page}
+                          no_page={no_page}
                         />
                       </Box>
                     </Box>
@@ -178,26 +199,23 @@ function Paint() {
                   <Center>
                     <WorkPaintCard />
                   </Center>
-                  <Center>
+                  {/* <Center>
                     <WidelegCard />
-                  </Center>
+                  </Center> */}
                 </Box>
               </Box>
             </Box>
-            <Box display={"flex"} justifyContent="end">
-              <Box display={"flex"}>
-                <ChevronLeftIcon
-                  fontSize={"40px"}
-                  _hover={{ color: "#167A92" }}
-                />
-                <Box>
-                  <Text mt={"8px"}>1/47</Text>
-                </Box>
-                <ChevronRightIcon
-                  fontSize={"40px"}
-                  _hover={{ color: "#167A92" }}
-                />
-              </Box>
+            <Box
+              display={"flex"}
+              justifyContent="flex-end"
+              width={"98%"}
+              m="auto"
+            >
+              <Pagination
+                pageHandler={pageHandler}
+                page={page}
+                no_page={no_page}
+              />
             </Box>
           </Box>
         </Box>

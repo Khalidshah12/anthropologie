@@ -122,7 +122,7 @@ function FormalDress() {
             </Box>
           </Box>
         </Box>
-        <Box display={"flex"} justifyContent="flex-end" width={"90%"} m="auto">
+        <Box display={"flex"} justifyContent="flex-end" width={"98%"} m="auto">
           <Pagination pageHandler={pageHandler} page={page} no_page={no_page} />
         </Box>
       </Box>

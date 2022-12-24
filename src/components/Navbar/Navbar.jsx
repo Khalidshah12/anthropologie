@@ -44,7 +44,7 @@ import {
 } from "@chakra-ui/react";
 import Navbar2 from "./Navbar2";
 import useTimer from "../timer/useTimer";
-import { setItem} from "../../localstorage/LocalStorage";
+import { setItem } from "../../localstorage/LocalStorage";
 
 const Navbar = () => {
   const countrycode = "+91";
@@ -71,14 +71,13 @@ const Navbar = () => {
   // google oath
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      setItem("googleToken", username)
+      setItem("googleToken", username);
       setUsername(user);
     });
   }, [username]);
 
-  console.log(username)
+  console.log(username);
   const SignoutHandler = () => {
-   
     window.location.reload();
     navigate("/");
     SetShow(false);
@@ -379,9 +378,7 @@ const Navbar = () => {
         </Box>
         <Box display={"flex"}>
           <Box>
-       
-              <AiOutlineUser fontSize={"25px"} color="#167A92" />
-        
+            <AiOutlineUser fontSize={"25px"} color="#167A92" />
           </Box>
           <Box display={"flex"} gap="5px">
             <Box id="recaptcha-box"></Box>
@@ -393,7 +390,10 @@ const Navbar = () => {
             ></Box>
             {username ? (
               <Menu isOpen={secondisOpen}>
-                <MenuButton onMouseEnter={secondonOpen} onMouseLeave={secondonClose}>
+                <MenuButton
+                  onMouseEnter={secondonOpen}
+                  onMouseLeave={secondonClose}
+                >
                   <Image
                     width="30px"
                     height="30px"
@@ -429,7 +429,7 @@ const Navbar = () => {
                       }}
                       onClick={() => {
                         auth.signOut();
-                        setItem("googleToken", "")
+                        setItem("googleToken", "");
                       }}
                     >
                       Sign Out
@@ -580,7 +580,7 @@ const Navbar = () => {
             flexWrap={"wrap"}
             className={Styles.navbar}
           >
-            <p>Gifts</p>
+            <p className={Styles.RED}>Gifts</p>
 
             <p>New!</p>
             <Link to={"/clothes/dresses"}>
@@ -596,6 +596,7 @@ const Navbar = () => {
             </Link>
 
             <p>Accessories!</p>
+            {/* <p>Home & Furniture!</p> */}
 
             <p>BHLDN Weddings</p>
 
@@ -603,7 +604,7 @@ const Navbar = () => {
 
             <p>Garden & outdoor</p>
 
-            <p>Sale</p>
+            <p className={Styles.RED}>Extra 40% Off Sale</p>
           </Box>
         </Box>
       </Box>

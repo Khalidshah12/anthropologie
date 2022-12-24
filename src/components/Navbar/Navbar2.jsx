@@ -12,7 +12,7 @@ import {
   Stack,
   useDisclosure,
   Box,
-
+  DrawerCloseButton
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
@@ -38,7 +38,8 @@ const Navbar2 = () => {
       </Box>
       <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
-        <DrawerContent  bg="rgb(253,253,249)">
+        <DrawerContent  bg="rgb(253,253,249)" width={"250px"}>
+        <DrawerCloseButton />
           <DrawerHeader borderBottomWidth="1px" fontFamily={"cursive"}>Anthropologie</DrawerHeader>
           <DrawerBody >
             <Box className={Styles.Navbar2} >

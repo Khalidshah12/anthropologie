@@ -14,7 +14,6 @@ Anthropologie is a unique, full-lifestyle shopping destination, with a mostly ex
   <img src="./public/anthropologie_02.png" alt='anthropologie_02 image' align="center" />
 </p>
 
-
 ### Single Page of the Product
 
 <p align="center">
@@ -36,10 +35,10 @@ Anthropologie is a unique, full-lifestyle shopping destination, with a mostly ex
 https://anthropologie.vercel.app/
 
 ### Netlify   Link
-https://leafy-buttercream-cd6899.netlify.app/
+https://myanthropology.netlify.app/
 
 ### AWS deploy link
-https://main.d33loxim8qilzv.amplifyapp.com/
+https://main.d3ehumcwdjn936.amplifyapp.com/
 
 ## Collaborators
 [Khalid Shah - Team Lead](https://github.com/Khalidshah12/) 

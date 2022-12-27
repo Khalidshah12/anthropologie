@@ -65,7 +65,7 @@ function Embleshed() {
   }
 
   return (
-    <>
+    <Box mt={"270px"}>
       {/* <Navbar/> */}
       <Box mt={"30px"}>
         <Box width={"90%"} m="auto">
@@ -140,7 +140,7 @@ function Embleshed() {
         </Box>
       </Box>
       {/* <Footer/> */}
-    </>
+    </Box>
   );
 }
 

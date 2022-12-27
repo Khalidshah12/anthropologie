@@ -13,7 +13,7 @@ function Wedding() {
   const [isMobile] = useMediaQuery("(max-width: 600px)");
 
   return (
-    <>
+    <Box mt={"270px"}>
       {/* <Navbar/> */}
       <Box mt={"30px"}>
         {isMobile ? (
@@ -171,7 +171,7 @@ function Wedding() {
         )}
       </Box>
       {/* <Footer/> */}
-    </>
+    </Box>
   );
 }
 

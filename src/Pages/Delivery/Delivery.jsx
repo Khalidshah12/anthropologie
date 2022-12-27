@@ -44,7 +44,7 @@ export default function Delivery() {
     // console.log(cart)
 
     return (
-        <div>
+        <Box mt={"260px"}>
 
             <Box id={styles.main}>
                 <Box id={styles.left}>
@@ -121,6 +121,6 @@ export default function Delivery() {
                     />
                 </Box>
             </Box>
-        </div>
+        </Box>
     )
 }

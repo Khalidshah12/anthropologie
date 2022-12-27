@@ -67,7 +67,7 @@ function CasualCard() {
                 borderRadius={"10px"}
                 transition="all 0.3s"
                 _hover={{
-                  transform: "scale(1.1)",
+                 
                   opacity: 0.9,
                   brightness: "200%",
                   contrast: "100",

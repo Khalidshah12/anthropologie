@@ -205,7 +205,7 @@ function Dresses() {
     </Box>
   );
   return (
-    <>
+    <Box mt={"260px"}>
       {/* <Navbar/> */}
       <Box>{dressBox}]</Box>
       <Box mt={"20px"}>
@@ -284,7 +284,7 @@ function Dresses() {
         </Box>
       </Box>
       {/* <Footer/> */}
-    </>
+    </Box>
   );
 }
 

@@ -14,7 +14,7 @@ export default function TabTwo(props) {
         isSearchLoading
     } = props
     return (
-        <>
+        <Box>
             <Box>
                 <Heading fontSize="18px" fontWeight="400" mb='15px'>Find a Pickup Location</Heading>
                 <Box>
@@ -61,6 +61,6 @@ export default function TabTwo(props) {
                     </Box>
                 </Box>
             </Box>
-        </>
+        </Box>
     )
 }

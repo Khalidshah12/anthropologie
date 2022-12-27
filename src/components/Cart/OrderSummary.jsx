@@ -20,7 +20,7 @@ export default function OrderSummary(props) {
         text
     } = props
     return (
-        <>
+        <Box>
             <Box id={styles.mainRightHeadDiv}>
                 <Heading fontSize={'18px'} fontWeight='500'>Order Summary</Heading>
                 <Link id={styles.contactNumber}>800.309.2500</Link>
@@ -114,6 +114,6 @@ export default function OrderSummary(props) {
                     }
                 </Box>
             </Box>
-        </>
+        </Box>
     )
 }

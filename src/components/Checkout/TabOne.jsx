@@ -18,7 +18,7 @@ export default function TabOne(props) {
         HandleCountryChange
     } = props
     return (
-        <>
+        <Box>
             <Heading fontSize="18px" fontWeight="400" mb='15px'>Shipping Address</Heading>
             <Box width="100%">
                 <FormControl isInvalid={isFormError}>
@@ -104,6 +104,6 @@ export default function TabOne(props) {
                     </Box>
                 </FormControl>
             </Box>
-        </>
+        </Box>
     )
 }

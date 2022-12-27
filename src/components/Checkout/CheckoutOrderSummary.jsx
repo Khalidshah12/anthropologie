@@ -17,7 +17,7 @@ export default function CheckoutOrderSummary(props) {
     } = props
     const discount = GetLocal('discount') || "$0.00"
     return (
-        <>
+        <Box>
             <Box id={styles.mainRightHeadDiv}>
                 <Heading fontSize={'18px'} fontWeight='500'>Order Summary</Heading>
                 <Link id={styles.contactNumber}>800.309.2500</Link>
@@ -75,6 +75,6 @@ export default function CheckoutOrderSummary(props) {
                     </Button>
                 </Box>
             </Box>
-        </>
+        </Box>
     )
 }

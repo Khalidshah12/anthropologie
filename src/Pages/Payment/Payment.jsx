@@ -60,7 +60,7 @@ export default function Payment() {
     }, [dispatch])
 
     return (
-        <div>
+        <Box mt={"260px"}>
             <Box id={styles.main}>
                 <Box id={styles.left}>
                     <Heading fontSize='18px' fontWeight='normal' mb='15px'>Payment Method</Heading>
@@ -161,6 +161,6 @@ export default function Payment() {
                     />
                 </Box>
             </Box>
-        </div>
+        </Box>
     )
 }

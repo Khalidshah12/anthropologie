@@ -63,7 +63,7 @@ function WorkPaint() {
   };
 
   return (
-    <>
+    <Box mt={"270px"}>
       {/* <Navbar/> */}
       <Box mt={"30px"}>
         <Box width={"90%"} m="auto">
@@ -127,7 +127,7 @@ function WorkPaint() {
         </Box>
       </Box>
       {/* <Footer/> */}
-    </>
+    </Box>
   );
 }
 

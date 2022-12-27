@@ -206,6 +206,7 @@ const Navbar = () => {
           fontSize={"14px"}
           fontWeight={"bold"}
           w={"464px"}
+          minW={"auto"}
           h="48px"
           borderRadius={"30px"}
           bgColor={"white"}
@@ -220,7 +221,7 @@ const Navbar = () => {
   );
 
   const otpform = (
-    <Box id="">
+    <Box >
       <Center mt={"20px"}>
         <Text fontSize={"12px"}>
           Please enter the verification code we just sent to {phone}
@@ -297,12 +298,10 @@ const Navbar = () => {
 
   return (
     <Box
-      position={"sticky"}
+      position={"fixed"}
       top="0px"
       bg={"rgb(253,253,249)"}
       zIndex="1000"
-      maxH={"auto"}
-      h="auto"
       width={"100%"}
     >
       <Image
@@ -449,9 +448,9 @@ const Navbar = () => {
               </Box>
             )}
 
-            <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
+            <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose} size ={['xs','sm', 'md', 'lg', 'xl']}>
               <ModalOverlay />
-              <ModalContent background="rgb(253,253,249)">
+              <ModalContent background="rgb(253,253,249)" >
                 <ModalHeader>
                   {" "}
                   <Center fontSize={"22px"} mt="50px">
@@ -459,7 +458,7 @@ const Navbar = () => {
                   </Center>
                 </ModalHeader>
                 <ModalCloseButton />
-                <ModalBody>
+                <ModalBody >
                   <Text textAlign={"center"}>
                     Welcome to Anthropologie! It's quick and easy to set up an
                     account.

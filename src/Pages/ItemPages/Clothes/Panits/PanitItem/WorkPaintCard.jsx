@@ -32,10 +32,10 @@ function WorkPaintCard() {
         minH={"auto"}
         minW="auto"
         gridTemplateColumns={{
-          lg:"repeat(4,1fr)",
-          base:"repeat(1,1fr)",
+          lg: "repeat(4,1fr)",
+          base: "repeat(1,1fr)",
           md: "repeat(3, 1fr)",
-          sm:"repeat(2,1fr)"
+          sm: "repeat(2,1fr)",
         }}
         mt="30px"
       >
@@ -53,17 +53,21 @@ function WorkPaintCard() {
                 onClick={() => singlePageHandler(ele, ele.id)}
                 key={ele.id + Math.random()}
               >
-                      <Img
-                w={"auto"}
-                h="349.469px"
-                borderRadius={"10px"}
-                transition="all 0.3s"
-                _hover={{transform:"scale(1.1)", opacity:0.9, brightness:"200%", contrast:"100"}}
-                src={ele.image}
-              />
+                <Img
+                  w={"auto"}
+                  h="349.469px"
+                  borderRadius={"10px"}
+                  transition="all 0.3s"
+                  _hover={{
+                    opacity: 0.9,
+                    brightness: "200%",
+                    contrast: "100",
+                  }}
+                  src={ele.image}
+                />
 
-              <Text width={"230px"}>{ele.name}</Text>
-              <Text fontWeight={"bold"}>${ele.price}</Text>
+                <Text width={"230px"}>{ele.name}</Text>
+                <Text fontWeight={"bold"}>${ele.price}</Text>
               </Box>
             </Link>
           ))}

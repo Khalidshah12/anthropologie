@@ -76,7 +76,7 @@ export default function Checkout() {
     }, [dispatch])
 
     return (
-        <div>
+        <Box mt={"260px"}>
             <Box id={styles.main}>
                 <Box id={styles.left}>
                     <Tabs w="100%">
@@ -144,6 +144,6 @@ export default function Checkout() {
                         text={"SHIP TO THIS ADDRESS"} />
                 </Box>
             </Box>
-        </div >
+        </Box>
     )
 }

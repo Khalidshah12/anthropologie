@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Image } from "@chakra-ui/react";
+import { Box, Text, Img } from "@chakra-ui/react";
 import { embelished_shoes } from "../../../../db";
 
 import { single_page_data } from "../../../../Redux/AppReducer/action";
@@ -42,7 +42,7 @@ function EmbleshedCard() {
         {embleshedData.length > 0 &&
           embleshedData.map((ele) => (
             <Link to={`/shop/${ele.id}`}>
-           <Box
+              <Box
                 // w={"233.203px"}
                 h="470.969px"
                 minHeight={"auto"}
@@ -53,7 +53,18 @@ function EmbleshedCard() {
                 onClick={() => singlePageHandler(ele, ele.id)}
                 key={ele.id + Math.random()}
               >
-                <Image w={"auto"} h="349.469px" src={ele.image} />
+                <Img
+                  w={"auto"}
+                  h="349.469px"
+                  borderRadius={"10px"}
+                  transition="all 0.3s"
+                  _hover={{
+                    opacity: 0.9,
+                    brightness: "200%",
+                    contrast: "100",
+                  }}
+                  src={ele.image}
+                />
                 <Text width={"240px"}>{ele.name}</Text>
                 <Text>${ele.price}</Text>
               </Box>

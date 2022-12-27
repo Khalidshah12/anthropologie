@@ -63,7 +63,7 @@ function Party() {
   };
 
   return (
-    <>
+    <Box mt={"270px"}>
       {/* <Navbar /> */}
       <Box mt={"30px"}>
         <Box width={"90%"} m="auto">
@@ -133,7 +133,7 @@ function Party() {
         </Box>
       </Box>
       {/* <Footer /> */}
-    </>
+    </Box>
   );
 }
 

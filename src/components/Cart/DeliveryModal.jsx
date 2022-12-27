@@ -8,7 +8,7 @@ export default function DeliveryModal() {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
-        <>
+        <Box>
             <Link onClick={onOpen} id={styles.deliveryOption}>Delivery Options</Link>
             <Modal onClose={onClose} isOpen={isOpen} isCentered>
                 <ModalOverlay />
@@ -42,6 +42,6 @@ export default function DeliveryModal() {
                     </ModalBody>
                 </ModalContent>
             </Modal>
-        </>
+        </Box>
     )
 }

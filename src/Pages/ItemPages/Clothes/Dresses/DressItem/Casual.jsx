@@ -64,7 +64,7 @@ function Casual() {
   };
 
   return (
-    <>
+    <Box  mt={"270px"}>
       {/* <Navbar /> */}
 
       <Box mt={"30px"}>
@@ -132,7 +132,7 @@ function Casual() {
       </Box>
 
       {/* <Footer /> */}
-    </>
+    </Box>
   );
 }
 

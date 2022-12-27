@@ -64,25 +64,6 @@ function Paint() {
     if (e.target.value === "removefilter") {
       dispatch(get_workpaints_success(workpaints));
     }
-    // if (e.target.value === "lowtohigh") {
-    //   const lowtohighdata = wideleg.sort((a, b) => {
-    //     return a.price - b.price;
-    //   });
-    //   console.log(lowtohighdata);
-    //   dispatch(get_wideleg_success(lowtohighdata));
-    // }
-
-    // if (e.target.value === "hightolow") {
-    //   const hightolowdata = wideleg.sort((a, b) => {
-    //     return b.price - a.price;
-    //   });
-    //   console.log(hightolowdata);
-    //   dispatch(get_wideleg_success(hightolowdata));
-    // }
-
-    // if (e.target.value === "removefilter") {
-    //   dispatch(get_wideleg_success(wideleg));
-    // }
   };
   const paintsBox = (
     <Box
@@ -137,8 +118,9 @@ function Paint() {
       </Link>
     </Box>
   );
+  
   return (
-    <>
+    <Box mt={"260px"}>
       {/* <Navbar/> */}
       <Box>
         {paintsBox}
@@ -199,9 +181,6 @@ function Paint() {
                   <Center>
                     <WorkPaintCard />
                   </Center>
-                  {/* <Center>
-                    <WidelegCard />
-                  </Center> */}
                 </Box>
               </Box>
             </Box>
@@ -221,7 +200,7 @@ function Paint() {
         </Box>
       </Box>
       {/* <Footer/> */}
-    </>
+    </Box>
   );
 }
 

@@ -77,7 +77,7 @@ function SingleItemPage() {
 
   console.log(singlepage);
   return (
-    <Box>
+    <Box mt={"250px"}>
       <Box
         w={"80%"}
         minH="auto"

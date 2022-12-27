@@ -49,25 +49,6 @@ function Jeans() {
   }, [page]);
 
   const filterhandler = (e) => {
-    // if (e.target.value === "lowtohigh") {
-    //   const lowtohighdata = flare.sort((a, b) => {
-    //     return a.price - b.price;
-    //   });
-    //   console.log(lowtohighdata);
-    //   dispatch(get_flare_success(lowtohighdata));
-    // }
-
-    // if (e.target.value === "hightolow") {
-    //   const hightolowdata = flare.sort((a, b) => {
-    //     return b.price - a.price;
-    //   });
-    //   console.log(hightolowdata);
-    //   dispatch(get_flare_success(hightolowdata));
-    // }
-
-    // if (e.target.value === "removefilter") {
-    //   dispatch(get_flare_success(flare));
-    // }
 
     if (e.target.value === "lowtohigh") {
       const lowtohighdata = wideleg.sort((a, b) => {
@@ -88,46 +69,6 @@ function Jeans() {
     if (e.target.value === "removefilter") {
       dispatch(get_wideleg_success(wideleg));
     }
-
-    // if (e.target.value === "lowtohigh") {
-    //   const lowtohighdata = straight.sort((a, b) => {
-    //     return a.price - b.price;
-    //   });
-    //   console.log(lowtohighdata);
-    //   dispatch(get_straight_success(lowtohighdata));
-    // }
-
-    // if (e.target.value === "hightolow") {
-    //   const hightolowdata = straight.sort((a, b) => {
-    //     return b.price - a.price;
-    //   });
-    //   console.log(hightolowdata);
-    //   dispatch(get_straight_success(hightolowdata));
-    // }
-
-    // if (e.target.value === "removefilter") {
-    //   dispatch(get_straight_success(straight));
-    // }
-
-    // if (e.target.value === "lowtohigh") {
-    //   const lowtohighdata = skinny.sort((a, b) => {
-    //     return a.price - b.price;
-    //   });
-    //   console.log(lowtohighdata);
-    //   dispatch(get_skinny_success(lowtohighdata));
-    // }
-
-    // if (e.target.value === "hightolow") {
-    //   const hightolowdata = skinny.sort((a, b) => {
-    //     return b.price - a.price;
-    //   });
-    //   console.log(hightolowdata);
-    //   dispatch(get_skinny_success(hightolowdata));
-    // }
-
-    // if (e.target.value === "removefilter") {
-    //   dispatch(get_skinny_success(skinny));
-    // }
   };
 
   const jeansBox = (
@@ -309,7 +250,7 @@ function Jeans() {
     </Box>
   );
   return (
-    <>
+    <Box mt={"270px"}>
       {/* <Navbar /> */}
       <Box>{jeansBox}</Box>
       <Box mt={"30px"}>
@@ -399,7 +340,7 @@ function Jeans() {
         </Box>
       </Box>
       {/* <Footer /> */}
-    </>
+    </Box>
   );
 }
 

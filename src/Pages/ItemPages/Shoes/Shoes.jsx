@@ -4,16 +4,13 @@ import { useState, useEffect } from "react";
 import { Box, Text, Center } from "@chakra-ui/react";
 import Sidebar from "../Sidebar";
 import { get_sneaker_success } from "../../../Redux/AppReducer/action";
-// import { get_embleshed_success } from "../../../Redux/AppReducer/action";
-// import { get_birkenstock_success } from "../../../Redux/AppReducer/action";
 
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Sneakers } from "../../../db";
 import { birkenstock } from "../../../db";
 import { embelished_shoes } from "../../../db";
-// import BirkenstockCard from "./ShoesItem/BirkenstockCard";
-// import EmbleshedCard from "./ShoesItem/EmbleshedCard";
+
 import SneakerCard from "./ShoesItem/SneakerCard";
 import { useMediaQuery } from "@chakra-ui/react";
 import Filter from "../Filter";
@@ -68,45 +65,6 @@ function Shoes() {
     if (e.target.value === "removefilter") {
       dispatch(get_sneaker_success(Sneakers));
     }
-
-    // if (e.target.value === "lowtohigh") {
-    //   const lowtohighdata = embelished_shoes.sort((a, b) => {
-    //     return a.price - b.price;
-    //   });
-    //   console.log(lowtohighdata);
-    //   dispatch(get_embleshed_success(lowtohighdata));
-    // }
-
-    // if (e.target.value === "hightolow") {
-    //   const hightolowdata = embelished_shoes.sort((a, b) => {
-    //     return b.price - a.price;
-    //   });
-    //   console.log(hightolowdata);
-    //   dispatch(get_embleshed_success(hightolowdata));
-    // }
-
-    // if (e.target.value === "removefilter") {
-    //   dispatch(get_embleshed_success(embelished_shoes));
-    // }
-    // if (e.target.value === "lowtohigh") {
-    //   const lowtohighdata = birkenstock.sort((a, b) => {
-    //     return a.price - b.price;
-    //   });
-    //   console.log(lowtohighdata);
-    //   dispatch(get_birkenstock_success(lowtohighdata));
-    // }
-
-    // if (e.target.value === "hightolow") {
-    //   const hightolowdata = birkenstock.sort((a, b) => {
-    //     return b.price - a.price;
-    //   });
-    //   console.log(hightolowdata);
-    //   dispatch(get_birkenstock_success(hightolowdata));
-    // }
-
-    // if (e.target.value === "removefilter") {
-    //   dispatch(get_birkenstock_success(birkenstock));
-    // }
   };
 
   const shoessBox = (
@@ -178,7 +136,7 @@ function Shoes() {
     </Box>
   );
   return (
-    <>
+    <Box mt={"270px"}>
       {/* <Navbar/> */}
       <Box>{shoessBox}</Box>
       <Box mt={"40px"}>
@@ -263,7 +221,7 @@ function Shoes() {
         </Box>
       </Box>
       {/* <Footer/> */}
-    </>
+    </Box>
   );
 }
 

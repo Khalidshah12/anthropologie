@@ -31,9 +31,6 @@ Anthropologie is a unique, full-lifestyle shopping destination, with a mostly ex
   <img src="./public/anthropologie_05.png" alt='anthropologie_05 image' align="center" />
 </p>
 
-### Vercel Link 
-https://anthropologie.vercel.app/
-
 ### Netlify   Link
 https://myanthropology.netlify.app/
 
